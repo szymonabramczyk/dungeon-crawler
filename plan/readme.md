@@ -1,108 +1,140 @@
-"Dungeon crawler"
------------------
+# Dungeon crawler
+Szymon Abramczyk<br>Viktor Dementev<br>Anastasiia Semenova<br>Risto-pekka Siponen
+
+## Scope of the work
+
+### The game:
+
+- Turn based.
+- A medieval setting.
+
+### Basic features:
+
+- **Simple 2D graphics** (we will use the SFML library for implementing this feature). We have a text space at the bottom of a screen with output and input.
+
+- **Moving through corridors and rooms.** (Simple moves up, down,left, right).
+
+- **Combat between the player and different types of monsters**:
+  - Basic attacks, 
+  - Super attacks,
+  - Special abilities. 
+  - If you can hit emenies - deal damage and deplete their HP. The same for the enemy, it can hit you and deplete your HP. Enemy have percentage of health (healt points). 
+  - Types of monsters: 
+    - mini(spider), 
+    - mini-bosses(goblin), 
+    - bosses (orc).  
+  - Armour system: armour decreases chances to be hit.
+
+- **Collectibles** which can be used by a Player (weapons, potions, etc.)
+- **Basic weapons**
+- **Advanced weapons** (need to earn or find it,deal more damage),
+- **Inventory** 
+  - Seeing the items belonging to a Player: bombs, weapon, bow, knife, magic potion 
+    - advanced option with a visual interface, 
+    - basic option with the text (if you type inventory - you will be outputed with a list of items you have).
+  -  Slots for armour, weapon and potions can be seen as an icon in a bottom of the screen with a number near them.
+
+- **Some sort of progression** (winning & losing conditions)
+  - To win you need to defeat the boss after several rooms with minions, if you die - you start again.
 
 
 
-Scope of the work: what features and functionalities will be implemented, how is the program used, and how does it work
---------------
 
-Basic features:
----------------
-Simple 2D graphics (using the library SFML for implementation this feature). We have a text space at the bottom of a screen with a output and input.
--------
-Moving through corridors and rooms. (Simple moves up,down,left, right).
--------
-Combat between the player and different types of monsters (Basic attacks (some buttons), super attacks(some buttons), have special abilities. If you can heat emenies - deal damage and deplete their HP,the same for the enemy,it can hit you and deplete your hp. Enemy have percents of health (healt points). Types of monsters: mini(spider), mini-bosses(goblin), bosses (orc).  Armour system: armour decreases chances to be heat.
---------
-Collectibles which can be used later on (weapons, potions, etc.)
-Basic weapons:
-Advanced weapons ( need to earn or find it,has more damage), 
-slots for armour and weapon
-potionts can be seen as an icon in a bootom of screen with an int nier them.
+### Additional features:
 
-Inventory - need to see itoms belonging: bombs, weapon, bow, knife, magic potion - advanced option with a visual interface, basic one with the text(if you type inventory - you will be outputed with a list of items you have) 
---------
-Some sort of progression (winning & losing conditions) 
-To win you need to defeat the boos after sever rooms with minions, if you die - you start again.
-------
+We are planning to implement the following additional features:
 
-The game:
-- Turn based
-- a medival setting 
+- **Randomly generated monsters and items** <br>
+  - We have some pool of names and stats and we combine them making a random monster/weapon.
+
+- **Character leveling** (skills & abilities) 
+  - killing monsters gives you experience points, when you reach the needed amount - you level up. Level-up grants you higher HP and new abilities.
+
+- **Ability to craft / modify items**
+  - The Player finds materials in the dungeon like a silver bar. You can find the anvil too, when you go past the anvil the output will sugest to interact with it. If you type yes, it will show what you can craft/upgrade and choose it with numbers(e.g. 1 - upgrade sword, 2 - craft something)
 
 
-Additional features:
----------------------
+- **Quests or other events**
+  - The Player can find a character Quest Giver at the dungeon level, he tells the Player to kill 5 goblins for example. When the Player does it, they can meet the charecter again and get a random reward.
 
-Randomly generated dungeons
-Seems hard to implement - dont know yet
+- **Other kinds of non-player characters** (shopkeepers, allied combat, etc.)
+  - The Player finds the non-hostile NPCs like a Shop Keeper. Similarly to the Quest giver, he will interact with the Player via the text interface.
 
-Randomly generated monsters and items
-We have some pool of name and stats and we combine them making a random monster/ weapon.
+- **Additional UI elements** (dungeon map, interactive inventory, etc.) 
+  - The visual map will be implemented, the UI inventory probably will not be implemented.
 
-Character leveling
- (skills & abilities) killing monsters gives you expirience points, when you reach needed amount - you level up. level up grants you higher hp and new abilities.
+- **Sound effects**
+  - If we have time, we will try to implement it.
+ 
+ ## The high-level structure of the software (according to current understanding)
 
-Ability to craft / modify items 
-You find materials in the dungeon like a silver bar. You can find the anvil too, when you go past the anvil the output will sugest to interact with it. If you type yes, it will show what you can craft/upgrade and choose it with numbers(1 - uupgrade sword, 2 - craft something)
+**Main Classes**:
+
+- **Game**:
+  - Example methods: 
+    - run(),
+    - events(),
+    - render().
+
+- **Visuals** (stores textures etc.): 
+  - Example methods: 
+    - pop_up_text().
+
+- **Entity**: 
+  - Attributes: 
+    - health, 
+    - location etc.  
+  - **Player** and **Enemy** classes will inherit from this class.
+    - **Enemy** will have a subclass AI.
+
+- **Combat**:
+  - Example methods: 
+    - attack, 
+    - defend, 
+    - ability. 
+  - This class will be used by **Player** class.
+
+- **Movement**:
+  - Example methods:
+    - go(direction).  
+  - This class will be used by **Player** class.
+
+- **Item**:
+  - Atributes: 
+    - amount.
+  - Example methods: 
+    - use_item().
+  - Inheriting classes: **Weapon**, **Armour**, **Potions** etc.
+
+- **NPC**:
+  - Example methods: 
+    - interact().
+  - Inheriting classes: **Blacksmith**, **Trader**, **QuestGiver** etc.
+
+- **Text**:
+  - Example methods 
+    - print(), 
+    - recieve_input().
 
 
-Quests or other events
-you can have a charcter quest giver at the dungeon level, he teels you to kill 5 goblins for example. When you've done it, you can meet the charecter again and get a random revard.
+## External libraries
 
-Other kinds of non-player characters (shopkeepers, allied combat, etc.)
-you find the non hostile nps like a shop keeper. Like the quest giver he will interact with you vai the text interface.
+ - SFML
 
-Additional UI elements (dungeon map, interactive inventory, etc.) The visual map will be implemented, the ui inventory probably will not be implemented.
+## Division of work
 
-Sound effects
-If we have extra time, we will try to implement it.
+ - Viktor Dementev
+   - Visuals, Sounds and Textures, Text and NPC 
+ - Szymon Abramczyk 
+   - Game and Entity classes
+ - Anastasiia Semenova  
+   - Item class 
+ - Risto-pekka Siponen
+   - Combat and Movement classes
 
-
-------------
-The high-level structure of the software: main modules, main classes (according to current understanding)
-------------
-Class game :
-methods -run, -events, - render
-
-Class visuals - stores textures
-methods like: pop up text
-
-Class entity: 
-parameters: health, location etc. Inhereting classes Player and Enemy. Enemy will have a sub - class ai
-
-Class combat:
-methods: attack, defend, ability. Class palyer will use this this 
-
-Class movement:
-methods go [direction]. Also used by a player class.
-
-Class Item:
-atributes: amount
-methods: use item
-inheriting from item classes: weapon, armour potions etc
-
-class npc:
-methods: interact
-inheriting from npc classes: blacksmith, trader, quest giver.
-
-class text:
-methods print, recieve input 
-
-------------
-External lb 
-------------
- SFML
- -----------
- division of the roles
- -----------
- Viktor - Visuals ?sounds? and textures, text and npc 
- Szymon - class game and entity 
- Anastasiia - Class item
- Ripe - class combat n movement
-------------
-10th of november friday - milestone one
-17th of november - milestone two
-24 of november - milestone three
-30th of november - fianl version
-4th december report
+## Planned schedule and milestones
+- 10th of November - milestone one
+- 17th of November - milestone two
+- 24th of November - milestone three
+- 30th of November - final version
+- 4th December - report
