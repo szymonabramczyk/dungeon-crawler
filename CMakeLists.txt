@@ -14,8 +14,8 @@ FetchContent_Declare(SFML
     GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-
-add_executable(dungeon-crawler-quang-ngo-01 src/Game.cpp)
+file(GLOB SOURCES src/*.cpp)
+add_executable(dungeon-crawler-quang-ngo-01 ${SOURCES})
 
 target_link_libraries(dungeon-crawler-quang-ngo-01 PRIVATE sfml-graphics)
 target_compile_features(dungeon-crawler-quang-ngo-01 PRIVATE cxx_std_17)

@@ -8,45 +8,45 @@ In each meeting, you are required to discuss:
 4. Deviations and changes to the project plan, if any
 
 
-# Meeting dd.mm.2021 HH::MM
+# Meeting 08.11.2023 18:30
 
 **Participants**: 
-1. Member 1
-2. Member 2
-3. Member 3
-4. Member 4 
+1. Szymon Abramczyk
+2. Viktor Dementev
+3. Anastasiia Semenova
+4. Risto-pekka Siponen
 
 ## Summary of works
-1. Member 1 
+1. Szymon Abramczyk 
    
-   Implementing the class XX. Tested the class XX. 
-   Results are in `tests/<class-xx-tests>`. Resolved the identified problems.
+   Reading about SFML and CMake and improving the understanding of the project.
 
-2. Member 2
+2. Viktor Dementev
 
-   Same as above
+   Made a CMake file and installed SFML.
 
-3. ...
+3. Anastasiia Semenova
+
+   Reading about implementation regarding items. What sub item classes can be done. 
+
+4. Risto-pekka Siponen
+
+   Studied the project plan after returning from absence and reading about the basics of SFML and possible combat & movement classes.
 
 ## Challenges
 
-1. The integration of UI with the monsters requires an abstract interface.
-2. ...
+1. Implementing the Game class to handle events.
+2. Implementing menu for the game.
+3. Improving CMake to make it work for multiple files.
+4. Implementing basic features so that further work can be done.
 
 ## Actions
-1. Member 1 is going to look into defining an abstract interface for monsters 
-   to enable easy UI integration.
-2. Member 2 is going to work with Member 1 to use abstract interface in derived 
-   monster classes.
-3. Member 2 is going to test the interface.
-4. Member 3 is going to use ...
-
-> Please reflect these action decisions in your git commit messages so that 
-> your group members and advisor can follow the progress.
+1. All members are going to continue to read about SMFL.
+2. All members are going to read and find out how to implement their part of the project.
 
 ## Project status 
-Short summary of current project status. 
+The project has one basic class that displays the game window. There is a CMake file that enables to automatically build the project.
 
 ### TODOs
-1. Member 1: Write an action.
-2. ...
+1. Szymon will change CMake so that it works automatically for newly added .cpp files.
+2. Members will meet in person to push the project forward and figure out next steps.
