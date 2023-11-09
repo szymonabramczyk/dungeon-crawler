@@ -1,13 +1,13 @@
 #include "Game.hpp"
+#include "Assets.hpp"
 
 #include <SFML/Graphics.hpp>
 
 // Constructor that creates a Window object and creates the Player as a cyan recatngle 
 Game::Game() 
     : window_(sf::RenderWindow{ { 1920u, 1080u }, "CMake SFML Project" }), 
-    player_(sf::Vector2f(50, 90)),
+    player_(Assets::sprites["player"].mTexture),
     player_speed_(500) {
-    player_.setFillColor(sf::Color::Cyan);
     player_.setPosition(200.f, 200.f);
     window_.setFramerateLimit(144);
 }
@@ -76,6 +76,7 @@ void Game::processPlayerInput(sf::Keyboard::Key key, bool is_pressed) {
 }
 
 int main() {
+    Assets::loadAssets();
     Game game;
     game.run();
 }

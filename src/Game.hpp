@@ -1,6 +1,8 @@
 #ifndef GAME_HPP_
 #define GAME_HPP_
 
+#include "Assets.hpp"
+
 #include <SFML/Graphics.hpp>
 
 class Game {
@@ -16,7 +18,7 @@ class Game {
 
     private:
         sf::RenderWindow window_; 
-        sf::RectangleShape player_;
+        sf::Sprite player_;
         int player_speed_;
         bool is_moving_up_ = false;
         bool is_moving_down_ = false;
