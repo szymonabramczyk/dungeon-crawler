@@ -89,3 +89,40 @@ The project can handle a charecter movement on a screen and loading textures to 
 ### TODOs
 1. Add content folder to a build folder, so sprites can actually appear on the screen.
 2. Members will work on their own untill the next week.
+
+
+# Meeting 15.11.2023 16:30
+
+**Participants**: 
+1. Szymon Abramczyk
+2. Viktor Dementev
+3. Anastasiia Semenova
+4. Risto-pekka Siponen
+
+## Summary of works
+1. Anastasiia Semenova
+
+   Prepared plan for class structure item with inheriting classes and methods. Sfml guide
+
+2. Risto-pekka Siponen
+
+   Fixed issue with Visual Studio Code, more research on combat & movement
+
+## Challenges
+
+1. Making choices regarding the gameplay
+2. Planning for the future of the project
+3. Combining everyones works in the project
+
+## Actions
+A short meeting to discuss plans for this week.
+
+## Project status 
+No changes in status
+
+### TODOs
+1. Have another meeting on campus tomorrow with Viktor, Szymon and Risto-Pekka to work on the project code.
+2. Fix issue with Sprite class
+3. Work on game visuals & dungeon generation
+4. Implement early iteration of combat
+5. All members will continue to do more research on their respective areas.
