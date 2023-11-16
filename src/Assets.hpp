@@ -8,7 +8,7 @@ struct Assets
 {
     static void loadAssets();
 
-    static std::map <std::string, SpriteInfo> sprites; // our map that stores all sprites in game
+    static std::map <std::string, SpriteInfo> sprites; // our map that stores all sprites in game   
 };
 
 #endif // ASSETS_HPP
