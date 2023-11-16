@@ -75,8 +75,8 @@ void Game::processPlayerInput(sf::Keyboard::Key key, bool is_pressed) {
         is_moving_right_ = is_pressed;
 }
 
-int main() {
-    Assets::loadAssets();
+int main(int argc, char* argv[]) {
+    Assets::loadAssets(argv[0]);
     Game game;
     game.run();
 }
