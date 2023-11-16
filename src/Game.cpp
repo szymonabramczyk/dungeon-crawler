@@ -3,11 +3,13 @@
 
 #include <SFML/Graphics.hpp>
 
-// Constructor that creates a Window object and creates the Player as a cyan recatngle 
+// Constructor that creates a Window object and creates the Player as a cyan rectangle
+// player_speed_ attribute defines the number of units 
+// that the Player moves each time a button is pressed 
 Game::Game() 
     : window_(sf::RenderWindow{ { 1920u, 1080u }, "CMake SFML Project" }), 
     player_(Assets::sprites["player"].mTexture),
-    player_speed_(500) {
+    player_speed_(150) {
     player_.setPosition(200.f, 200.f);
     window_.setFramerateLimit(144);
 }
@@ -35,25 +37,13 @@ void Game::events() {
                 processPlayerInput(event.key.code, true); 
                 break;
             case sf::Event::KeyReleased:
-                processPlayerInput(event.key.code, false); 
                 break;
         }
     }
 }
 
-// A method to update, 
-// currently it just updates the position of the player on the screen
+// A method to update
 void Game::update(sf::Time delta_time) {
-    sf::Vector2f movement(0.f, 0.f); 
-    if (is_moving_up_)
-        movement.y -= player_speed_; 
-    if (is_moving_down_)
-        movement.y += player_speed_; 
-    if (is_moving_left_)
-        movement.x -= player_speed_; 
-    if (is_moving_right_)
-        movement.x += player_speed_;
-    player_.move(movement * delta_time.asSeconds());
 }
 
 // A method to render objects to the creen
@@ -63,17 +53,31 @@ void Game::render() {
     window_.display();
 }
 
-// A method to change the information about certain keys being pressed 
+// A method to process player input
 void Game::processPlayerInput(sf::Keyboard::Key key, bool is_pressed) {
     if (key == sf::Keyboard::W) 
-        is_moving_up_ = is_pressed;
+        moveAlongYAxis(false);
     else if (key == sf::Keyboard::S) 
-        is_moving_down_ = is_pressed;
+        moveAlongYAxis(true);
     else if (key == sf::Keyboard::A) 
-        is_moving_left_ = is_pressed;
-    else if (key == sf::Keyboard::D) 
-        is_moving_right_ = is_pressed;
+        moveAlongXAxis(false);
+    else if (key == sf::Keyboard::D)
+        moveAlongXAxis(true);
+
 }
+
+// Method to move along X and Y axes, should be moved to Player class in the future
+void Game::moveAlongXAxis(bool left) {
+    sf::Vector2f movement(0.f, 0.f);
+    movement.x += left ? player_speed_ : -player_speed_;
+    player_.move(movement);
+}
+void Game::moveAlongYAxis(bool down) {
+    sf::Vector2f movement(0.f, 0.f);
+    movement.y += down ? player_speed_ : -player_speed_;
+    player_.move(movement);
+}
+
 
 int main(int argc, char* argv[]) {
     Assets::loadAssets(argv[0]);

@@ -15,7 +15,10 @@ class Game {
         void update(sf::Time delta_time);
         void render();
         void processPlayerInput(sf::Keyboard::Key key, bool isPressed);
-
+        // the following methods should be moved to a Player class
+        void moveAlongXAxis(bool left);
+        void moveAlongYAxis(bool down);
+        
     private:
         sf::RenderWindow window_; 
         sf::Sprite player_;
