@@ -14,7 +14,7 @@ In each meeting, you are required to discuss:
 1. Szymon Abramczyk
 2. Viktor Dementev
 3. Anastasiia Semenova
-4. Risto-pekka Siponen
+4. Risto-Pekka Siponen
 
 ## Summary of works
 1. Szymon Abramczyk 
@@ -29,7 +29,7 @@ In each meeting, you are required to discuss:
 
    Reading about implementation regarding items. What sub item classes can be done. 
 
-4. Risto-pekka Siponen
+4. Risto-Pekka Siponen
 
    Studied the project plan after returning from absence and reading about the basics of SFML and possible combat & movement classes.
 
@@ -57,7 +57,7 @@ The project has one basic class that displays the game window. There is a CMake 
 **Participants**: 
 1. Szymon Abramczyk
 2. Viktor Dementev
-3. Risto-pekka Siponen
+3. Risto-Pekka Siponen
 
 ## Summary of works
 1. Szymon Abramczyk 
@@ -68,7 +68,7 @@ The project has one basic class that displays the game window. There is a CMake 
 
    Made a asset class and sprite class. Enabled to load custom textures to convert them to the sprites with a size and texture. They tried to combined their work to have a charecter sprite to move on a screen instead of vector.
 
-3. Risto-pekka Siponen
+3. Risto-Pekka Siponen
 
 Was solwing issues with a SFML library. It didnt allow to run code on his local envierment.
 
@@ -97,14 +97,14 @@ The project can handle a charecter movement on a screen and loading textures to 
 1. Szymon Abramczyk
 2. Viktor Dementev
 3. Anastasiia Semenova
-4. Risto-pekka Siponen
+4. Risto-Pekka Siponen
 
 ## Summary of works
 1. Anastasiia Semenova
 
    Prepared plan for class structure item with inheriting classes and methods. Sfml guide
 
-2. Risto-pekka Siponen
+2. Risto-Pekka Siponen
 
    Fixed issue with Visual Studio Code, more research on combat & movement
 
@@ -115,7 +115,7 @@ The project can handle a charecter movement on a screen and loading textures to 
 3. Combining everyones works in the project
 
 ## Actions
-A short meeting to discuss plans for this week.
+1. All members are going to read and find out how to implement their part of the project.
 
 ## Project status 
 No changes in status
@@ -124,5 +124,47 @@ No changes in status
 1. Have another meeting on campus tomorrow with Viktor, Szymon and Risto-Pekka to work on the project code.
 2. Fix issue with Sprite class
 3. Work on game visuals & dungeon generation
+4. Implement early iteration of combat
+5. All members will continue to do more research on their respective areas.
+
+
+# Meeting 16.11.2023 16:15
+
+**Participants**: 
+1. Szymon Abramczyk
+2. Viktor Dementev
+3. Risto-Pekka Siponen
+
+## Summary of works
+1. Szymon Abramczyk
+   
+   Solved the problem of sprites not loading and changed the movement of the player to tile-based.
+
+2. Viktor Dementev
+
+   Made improvements to the cmake file and made a skeleton for a world class that will handle every separate render and event at once. Also studied a bit about level creation.  
+
+3. Risto-Pekka Siponen
+
+   Started working on the entity/player class and researching the implementation for combat.
+
+## Challenges
+
+1. Changing from the current player implementation to a seperate player/entity class
+2. Implementaton of level generation
+3. Making gameplay choices
+
+## Actions
+1. Viktor and Szymon will work on implementing the level creation together.
+2. Risto-Pekka will finish implementing player class and do research on combat.
+3. All members are going to read and find out how to implement their part of the project.
+
+## Project status 
+The game can display a window and draw the player on it. The game supports loading textures and tile-based charecter movement. Game can refresh via the main game loop and handle player events.
+
+### TODOs
+1. Implement entity/player class
+2. Work on level generation
+3. Work on game visuals 
 4. Implement early iteration of combat
 5. All members will continue to do more research on their respective areas.
