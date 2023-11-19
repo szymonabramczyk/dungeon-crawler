@@ -1,6 +1,8 @@
 #ifndef SPRITEINFO_HPP
 #define SPRITEINFO_HPP
 
+#include <iostream>
+
 #include <SFML/Graphics.hpp>
 
 struct SpriteInfo // structers that stores assets info - texture size and hitbox
@@ -10,7 +12,8 @@ struct SpriteInfo // structers that stores assets info - texture size and hitbox
         mFrames(frames),
         mFramesPerRow(framesPerRow)
     {   
-        mTexture.loadFromFile(path);
+        if (!mTexture.loadFromFile(path))
+            std::cout << "Texture " << path << "couldn't be loaded" << std::endl;
         mFrameDim = sf::Vector2f(mTexture.getSize().x/mFramesPerRow, mTexture.getSize().y/(mFrames/mFramesPerRow));
         mHitBox = sf::FloatRect(0.f, 0.f, mFrameDim.x, mFrameDim.y);
     }

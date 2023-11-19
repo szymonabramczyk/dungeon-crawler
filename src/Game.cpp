@@ -1,13 +1,16 @@
 #include "Game.hpp"
 #include "Assets.hpp"
 
+#include <iostream>
+#include <filesystem>
+
 #include <SFML/Graphics.hpp>
 
 // Constructor that creates a Window object and creates the Player as a cyan rectangle
 // player_speed_ attribute defines the number of units 
 // that the Player moves each time a button is pressed 
 Game::Game() 
-    : window_(sf::RenderWindow{ { 1920u, 1080u }, "CMake SFML Project" }), 
+    : window_(sf::RenderWindow{ { 1920u, 1014u }, "CMake SFML Project" }), 
     player_(Assets::sprites["player"].mTexture),
     player_speed_(150) {
     player_.setPosition(200.f, 200.f);
@@ -25,6 +28,13 @@ void Game::run() {
     }
 }
 
+// A method to load a level
+bool Game::loadLevel(const std::string& path) {
+    std::filesystem::path cwd( std::filesystem::canonical( path ) );
+    std::filesystem::path file = cwd.parent_path().parent_path() / "graphics-vertex-array-tilemap-tileset.png";
+    return map_.load(file.string(), sf::Vector2u(32, 32), level_, 16, 8);
+}
+
 // A method to handle the events
 void Game::events() {
     sf::Event event;
@@ -38,6 +48,8 @@ void Game::events() {
                 break;
             case sf::Event::KeyReleased:
                 break;
+            default:
+                break;
         }
     }
 }
@@ -49,7 +61,8 @@ void Game::update(sf::Time delta_time) {
 // A method to render objects to the creen
 void Game::render() {
     window_.clear(); 
-    window_.draw(player_); 
+    window_.draw(map_); 
+    window_.draw(player_);
     window_.display();
 }
 
@@ -79,8 +92,12 @@ void Game::moveAlongYAxis(bool down) {
 }
 
 
+
 int main(int argc, char* argv[]) {
     Assets::loadAssets(argv[0]);
+
     Game game;
+    if(!game.loadLevel(argv[0]))
+        std::cout<<"there is a problem"<<std::endl;
     game.run();
 }
