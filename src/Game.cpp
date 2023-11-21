@@ -5,15 +5,18 @@
 #include <filesystem>
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp> 
 
-// Constructor that creates a Window object and creates the Player as a cyan rectangle
-// player_speed_ attribute defines the number of units 
+// Constructor that creates a Window object and creates the Player with the player sprite
+// player_speed_ attribute defines the number of pixels 
 // that the Player moves each time a button is pressed 
 Game::Game() 
-    : window_(sf::RenderWindow{ { 1920u, 1014u }, "CMake SFML Project" }), 
+    : window_(sf::VideoMode(1920, 1024), "CMake SFML Project", sf::Style::Titlebar | sf::Style::Close ), 
     player_(Assets::sprites["player"].mTexture),
-    player_speed_(150) {
-    player_.setPosition(200.f, 200.f);
+    player_speed_(128) {
+    window_.setSize(sf::Vector2u(1920, 1024)); 
+    player_.setScale(0.5, 0.5);
+    player_.setPosition(40.f, 500.f);
     window_.setFramerateLimit(144);
 }
 
@@ -31,8 +34,8 @@ void Game::run() {
 // A method to load a level
 bool Game::loadLevel(const std::string& path) {
     std::filesystem::path cwd( std::filesystem::canonical( path ) );
-    std::filesystem::path file = cwd.parent_path().parent_path() / "graphics-vertex-array-tilemap-tileset.png";
-    return map_.load(file.string(), sf::Vector2u(32, 32), level_, 16, 8);
+    std::filesystem::path file = cwd.parent_path().parent_path() / "tiles.png";
+    return map_.load(file.string(), sf::Vector2u(128, 128), level_, 15, 8);
 }
 
 // A method to handle the events
