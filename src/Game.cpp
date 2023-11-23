@@ -11,13 +11,12 @@
 // player_speed_ attribute defines the number of pixels 
 // that the Player moves each time a button is pressed 
 Game::Game() 
-    : window_(sf::VideoMode(1920, 1024), "CMake SFML Project", sf::Style::Titlebar | sf::Style::Close ), 
-    player_(Assets::sprites["player"].mTexture),
-    player_speed_(128) {
-    window_.setSize(sf::Vector2u(1920, 1024)); 
-    player_.setScale(0.5, 0.5);
-    player_.setPosition(40.f, 500.f);
+    : window_(sf::VideoMode(1920, 1024), "CMake SFML Project", sf::Style::Titlebar | sf::Style::Close ) {
+    player_ = new Player("Player"); 
+    entities_.push_back(player_);
+    window_.setSize(sf::Vector2u(1920, 1024));
     window_.setFramerateLimit(144);
+    addMonster("Orc"); 
 }
 
 // A method to run the game
@@ -38,6 +37,13 @@ bool Game::loadLevel(const std::string& path) {
     return map_.load(file.string(), sf::Vector2u(128, 128), level_, 15, 8);
 }
 
+// A method to add monsters
+void Game::addMonster(const std::string& name) {
+    Monster* monster = new Monster(name);
+    monsters_.push_back(monster);
+    entities_.push_back(monster);
+}
+
 // A method to handle the events
 void Game::events() {
     sf::Event event;
@@ -47,7 +53,13 @@ void Game::events() {
                 window_.close();
                 break;
             case sf::Event::KeyPressed:
-                processPlayerInput(event.key.code, true); 
+                if (event.key.code == sf::Keyboard::T)  // you can spawn new monsters by pressing T
+                    addMonster("Orc");
+                else {
+                    player_->processInput(event.key.code, true);
+                    for (Monster* monster : monsters_)
+                        monster->update(*player_);
+                }
                 break;
             case sf::Event::KeyReleased:
                 break;
@@ -65,39 +77,24 @@ void Game::update(sf::Time delta_time) {
 void Game::render() {
     window_.clear(); 
     window_.draw(map_); 
-    window_.draw(player_);
+    for (Entity* entity : entities_) {    // draws each entity
+        entity->draw(window_);
+    }
     window_.display();
 }
 
-// A method to process player input
-void Game::processPlayerInput(sf::Keyboard::Key key, bool is_pressed) {
-    if (key == sf::Keyboard::W) 
-        moveAlongYAxis(false);
-    else if (key == sf::Keyboard::S) 
-        moveAlongYAxis(true);
-    else if (key == sf::Keyboard::A) 
-        moveAlongXAxis(false);
-    else if (key == sf::Keyboard::D)
-        moveAlongXAxis(true);
-
-}
-
-// Method to move along X and Y axes, should be moved to Player class in the future
-void Game::moveAlongXAxis(bool left) {
-    sf::Vector2f movement(0.f, 0.f);
-    movement.x += left ? player_speed_ : -player_speed_;
-    player_.move(movement);
-}
-void Game::moveAlongYAxis(bool down) {
-    sf::Vector2f movement(0.f, 0.f);
-    movement.y += down ? player_speed_ : -player_speed_;
-    player_.move(movement);
-}
-
-
-
 int main(int argc, char* argv[]) {
     Assets::loadAssets(argv[0]);
+
+    try {
+        // Get the current working directory
+        std::filesystem::path currentPath = std::filesystem::current_path();
+
+        // Convert the path to a string and print it
+        std::cout << "Current working directory: " << currentPath.string() << std::endl;
+    } catch (const std::filesystem::filesystem_error& ex) {
+        std::cerr << "Error getting current working directory: " << ex.what() << std::endl;
+    }
 
     Game game;
     if(!game.loadLevel(argv[0]))

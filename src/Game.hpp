@@ -3,6 +3,9 @@
 
 #include "Assets.hpp"
 #include "TileMap.hpp"
+#include "Player.hpp"
+#include "Monster.hpp"
+#include "Entity.hpp"
 
 #include <SFML/Graphics.hpp>
 
@@ -13,18 +16,16 @@ class Game {
         bool loadLevel(const std::string& path);
 
     private:
-        void events(); 
+        void events();
+        void addMonster(const std::string& name);
         void update(sf::Time delta_time);
         void render();
-        void processPlayerInput(sf::Keyboard::Key key, bool isPressed);
-        // the following methods should be moved to a Player class
-        void moveAlongXAxis(bool left);
-        void moveAlongYAxis(bool down);
         
     private:
         sf::RenderWindow window_; 
-        sf::Sprite player_;
-        int player_speed_;
+        Player* player_;
+        std::vector<Monster*> monsters_; // vector to store all monsters
+        std::vector<Entity*> entities_; // vector to store all entities
         int level_[120] =
         {
             0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0,
@@ -37,10 +38,6 @@ class Game {
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
         };
         TileMap map_;
-        bool is_moving_up_ = false;
-        bool is_moving_down_ = false;
-        bool is_moving_left_ = false;
-        bool is_moving_right_ = false;
 };
 
 #endif
