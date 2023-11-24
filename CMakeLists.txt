@@ -30,3 +30,6 @@ include(CPack)
 
 file(GLOB SPRITES "content/sprites/*.png")
 FILE(COPY ${SPRITES} DESTINATION "${CMAKE_BINARY_DIR}")
+
+file(GLOB FONTS "content/fonts/*.ttf")
+FILE(COPY ${FONTS} DESTINATION "${CMAKE_BINARY_DIR}")
