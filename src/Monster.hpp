@@ -32,7 +32,7 @@ public:
             moveAlongXAxis(true);
         else if ((pPos.x - mPos.x) < -speed_)
             moveAlongXAxis(false);
-        if ((pPos.y - mPos.y) > speed_) 
+        else if ((pPos.y - mPos.y) > speed_) 
             moveAlongYAxis(true);
         else if ((pPos.y - mPos.y) < -speed_)
             moveAlongYAxis(false); 
