@@ -16,10 +16,7 @@ public:
         entities_.push_back(this);  // add this entity to the entities_ vector
 
         // text to display hitpoints above the entity (sometimes doesn't work, should probably be updated)
-        std::filesystem::path currentPath = std::filesystem::current_path();
-        std::filesystem::path fontPath = currentPath.parent_path() / "dungeon-crawler-quang-ngo-01" / "content" / "fonts" / "arial.ttf";
-        font.loadFromFile(fontPath);
-        text_.setFont(font);
+        text_.setFont(Assets::fonts["Arial"]);
         text_.setCharacterSize(24);
         text_.setFillColor(sf::Color::White);
     }
@@ -87,7 +84,6 @@ protected:
     std::string name_;
     static inline std::vector<Entity*> entities_; // vector to store all entities
     sf::Text text_; // text for current hp level
-    sf::Font font;
     const std::string type_;
     int speed_;
     int max_hp_;
