@@ -6,6 +6,7 @@
 #include "Player.hpp"
 #include "Monster.hpp"
 #include "Entity.hpp"
+#include "Inventory.hpp"
 
 #include <SFML/Graphics.hpp>
 
@@ -38,6 +39,7 @@ class Game {
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
         };
         TileMap map_;
+        Inventory inv_;
 };
 
 #endif

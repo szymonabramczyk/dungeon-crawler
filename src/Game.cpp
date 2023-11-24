@@ -1,5 +1,6 @@
 #include "Game.hpp"
 #include "Assets.hpp"
+#include "Inventory.hpp"
 
 #include <iostream>
 #include <filesystem>
@@ -11,7 +12,8 @@
 // player_speed_ attribute defines the number of pixels 
 // that the Player moves each time a button is pressed 
 Game::Game() 
-    : window_(sf::VideoMode(1920, 1024), "CMake SFML Project", sf::Style::Titlebar | sf::Style::Close ) {
+    : window_(sf::VideoMode(1920, 1024), "CMake SFML Project", sf::Style::Titlebar | sf::Style::Close ), 
+    inv_() {
     player_ = new Player("Player"); 
     entities_.push_back(player_);
     window_.setSize(sf::Vector2u(1920, 1024));
@@ -53,6 +55,10 @@ void Game::events() {
                 window_.close();
                 break;
             case sf::Event::KeyPressed:
+                if (event.key.code == sf::Keyboard::Up) // you can add potions using up arrow
+                    inv_.addHealthPotions(1);
+                if (event.key.code == sf::Keyboard::Down) // you can remove potions using down arrow
+                    inv_.addHealthPotions(-1);
                 if (event.key.code == sf::Keyboard::T)  // you can spawn new monsters by pressing T
                     addMonster("Orc");
                 else {
@@ -77,6 +83,7 @@ void Game::update(sf::Time delta_time) {
 void Game::render() {
     window_.clear(); 
     window_.draw(map_); 
+    window_.draw(inv_);
     for (Entity* entity : entities_) {    // draws each entity
         entity->draw(window_);
     }
