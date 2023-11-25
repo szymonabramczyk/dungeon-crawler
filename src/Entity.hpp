@@ -83,6 +83,13 @@ public:
 
         Entity* target = nullptr;  // this variable is used to save the entity that prevents this entity from moving
 
+        // TO IMPLEMENT
+        // should check if the new tile is a floor or a door tile
+        // a Level class should probably be created and get a current level from there
+        // and check the type of tile
+        // if (new_pos != 0 && new_pos != 3) 
+        //     canMove = false;
+
         // checks if the new position already has an entity in it
         for (Entity* e : entities_) {
             if (e->getTilePosition() == new_pos) {   // if there is already an entity in that coordinate, then this entity will remain still
@@ -110,8 +117,6 @@ public:
             canMove = false;
         if (!down && pos_ / TILES_WIDTH == 0)
             canMove = false;
-
-        Entity* target = nullptr;   // this variable is used to save the entity that prevents this entity from moving
 
         // checks if the new position already has an entity in it
         for (Entity* e : entities_) {
