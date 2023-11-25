@@ -7,6 +7,8 @@
 #include <iostream>
 #include <filesystem>
 
+#define TILES_WIDTH 15
+#define TILES_HEIGHT 8
 // Base class for Player and Monster classes
 class Entity {
 public:
@@ -46,37 +48,54 @@ public:
 
     // Method to move along X and Y axes (checks for collision)
     void moveAlongXAxis(bool left) {
-        sf::Vector2f movement(0.f, 0.f);
-        movement.x += left ? speed_ : -speed_;
+        int new_pos = left ? pos_ + 1 : pos_ - 1;
 
-        sf::Vector2f newPos(movement.x + GetPosition().x, GetPosition().y);
-        
-        // checks if the new position already has an entity in it
         bool canMove = true;
+
+        // checks if border of the level is reached
+        if (left && pos_ % TILES_WIDTH == TILES_WIDTH - 1)
+            canMove = false;
+        if (!left && pos_ % TILES_WIDTH == 0)
+            canMove = false;
+
+        // checks if the new position already has an entity in it
         for (Entity* e : entities_) {
-            if (e->GetPosition() == newPos) {   // if there is already an entity in that coordinate, then this entity will remain still
-                canMove = false; 
+            if (e->getTilePosition() == new_pos) {   // if there is already an entity in that coordinate, then this entity will remain still
+                canMove = false;
+                break;
             }
         }
-        if (canMove)
-            mSprite.move(movement);
+        if (canMove) {
+            pos_ = new_pos;
+            mSprite.setPosition(128 * (new_pos % TILES_WIDTH), 128 * (new_pos / TILES_WIDTH));
+        }
     }
 
     void moveAlongYAxis(bool down) {
-        sf::Vector2f movement(0.f, 0.f);
-        movement.y += down ? speed_ : -speed_;
+        int new_pos = down ? pos_ + TILES_WIDTH : pos_ - TILES_WIDTH;
 
-        sf::Vector2f newPos(GetPosition().x, movement.y + GetPosition().y);
-        
-        // checks if the new position already has an entity in it
         bool canMove = true;
+
+        // checks if border of the level is reached
+        if (down && pos_ / TILES_WIDTH == TILES_HEIGHT - 1)
+            canMove = false;
+        if (!down && pos_ / TILES_WIDTH == 0)
+            canMove = false;
+
+        // checks if the new position already has an entity in it
         for (Entity* e : entities_) {
-            if (e->GetPosition() == newPos) {   // if the new position already has an entity, then this entity will remain still
+            if (e->getTilePosition() == new_pos) {   // if there is already an entity in that coordinate, then this entity will remain still
                 canMove = false; 
             }
         }
-        if (canMove)
-            mSprite.move(movement);
+        if (canMove) {
+            pos_ = new_pos;
+            mSprite.setPosition(128 * (new_pos % TILES_WIDTH), 128 * (new_pos / TILES_WIDTH));
+        }
+    }
+
+    int getTilePosition() {
+        return pos_;
     }
 
 protected:
@@ -87,6 +106,7 @@ protected:
     const std::string type_;
     int speed_;
     int max_hp_;
+    int pos_;
     int hitpoints_;
 };
 

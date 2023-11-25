@@ -12,11 +12,12 @@ class Player : public Entity {
 public:
     // Constructor for player class
     // Arguments for Entity(name, type, speed, hitpoints)
-    Player(const std::string& name) : Entity(name, "Player", 128, 100) 
+    Player(const std::string& name) : Entity(name, "Player", 128, 100)
     {
+        pos_ = 3 * 15;
         mSprite = sf::Sprite(Assets::sprites["player"].mTexture);
         mSprite.setScale(0.5, 0.5);
-        mSprite.setPosition(808.f, 756.f);
+        mSprite.setPosition(128 * (pos_ % TILES_WIDTH), 128 * (pos_ / TILES_WIDTH));
     }
 
     ~Player()

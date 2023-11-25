@@ -14,9 +14,10 @@ public:
     // Arguments for Entity(name, type, speed, hitpoints)
     Monster(const std::string& name) : Entity(name, "Orc", 128, 100) 
     {
+        pos_ = 3 * 15 + 1;
         mSprite = sf::Sprite(Assets::sprites["orc"].mTexture);
         mSprite.setScale(0.50, 0.50);
-        mSprite.setPosition(808.f, 116.f);
+        mSprite.setPosition(128 * (pos_ % TILES_WIDTH), 128 * (pos_ / TILES_WIDTH));
     }
 
     ~Monster()
