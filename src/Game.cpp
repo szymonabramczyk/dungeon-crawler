@@ -83,10 +83,10 @@ void Game::update(sf::Time delta_time) {
 void Game::render() {
     window_.clear(); 
     window_.draw(map_); 
-    window_.draw(inv_);
     for (Entity* entity : entities_) {    // draws each entity
         entity->draw(window_);
     }
+    window_.draw(inv_);
     window_.display();
 }
 

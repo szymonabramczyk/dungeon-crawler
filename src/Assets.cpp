@@ -13,9 +13,11 @@ void Assets::loadAssets(const std::string& path) {
     std::filesystem::path file2 = cwd.parent_path().parent_path() / "graphics-vertex-array-tilemap-tileset.png";
     std::filesystem::path file3 = cwd.parent_path().parent_path() / "orc.png";
     std::filesystem::path file4 = cwd.parent_path().parent_path() / "arial.ttf";
+    std::filesystem::path file5 = cwd.parent_path().parent_path() / "health-potion.png";
     sprites["player"] = SpriteInfo(file1);
     sprites["tilemap"] = SpriteInfo(file2);
     sprites["orc"] = SpriteInfo(file3);
+    sprites["health-potion"] = SpriteInfo(file5);
     fonts["Arial"].loadFromFile(file4);
 } 
 
