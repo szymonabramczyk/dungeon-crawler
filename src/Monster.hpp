@@ -14,10 +14,12 @@ public:
     // Arguments for Entity(name, type, speed, hitpoints)
     Monster(const std::string& name) : Entity(name, "Orc", 128, 100) 
     {
-        pos_ = 3 * 15 + 1;
+        pos_ = 3 * 15 + 12;
         mSprite = sf::Sprite(Assets::sprites["orc"].mTexture);
         mSprite.setScale(0.50, 0.50);
         mSprite.setPosition(128 * (pos_ % TILES_WIDTH), 128 * (pos_ / TILES_WIDTH));
+        isMonster_ = true;
+        weaponDamage_ = 5; //temp
     }
 
     ~Monster()
@@ -26,18 +28,34 @@ public:
     }
 
     // Function that moves the monster towards the player
-    void update(Entity player) {
-        sf::Vector2f pPos = player.GetPosition(); // player position
+    void update(Entity* player) {
+        sf::Vector2f pPos = player->GetPosition(); // player position
         sf::Vector2f mPos = GetPosition(); // monster position
-        if ((pPos.x - mPos.x) > speed_) 
-            moveAlongXAxis(true);
-        else if ((pPos.x - mPos.x) < -speed_)
-            moveAlongXAxis(false);
-        else if ((pPos.y - mPos.y) > speed_) 
-            moveAlongYAxis(true);
-        else if ((pPos.y - mPos.y) < -speed_)
-            moveAlongYAxis(false); 
-        //std::cout << name_ << ": " << GetPosition().x << ", " << GetPosition().y << std::endl; // prints the monster location
+
+        Entity* target = nullptr;
+
+        // check which axis has the largest difference relative to the player location, and then move in that axis
+        int xDiff = pPos.x - mPos.x;
+        int yDiff = pPos.y - mPos.y;
+
+        if (abs(xDiff) >= abs(yDiff)) {
+            if (pPos.x > mPos.x) 
+                target = moveAlongXAxis(true);
+            else if (pPos.x < mPos.x)
+                target = moveAlongXAxis(false);
+        } else {
+            if (pPos.y > mPos.y) 
+                target = moveAlongYAxis(true);
+            else if (pPos.y < mPos.y)
+                target = moveAlongYAxis(false); 
+        }
+
+        // if an entity was blocking movement, then attack the entity (unless it is another monster)
+        if (target) {
+            if (!target->IsMonster())
+                Attack(target);
+        }
+        // std::cout << name_ << ": " << GetPosition().x << ", " << GetPosition().y << std::endl; // prints the monster location
     }
 };
 

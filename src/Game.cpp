@@ -63,8 +63,17 @@ void Game::events() {
                     addMonster("Orc");
                 else {
                     player_->processInput(event.key.code, true);
-                    for (Monster* monster : monsters_)
-                        monster->update(*player_);
+                    
+                    auto it = monsters_.begin();
+                    while (it != monsters_.end()) {
+                        Monster* monster = *it;
+                        if (monster->IsDead()) {
+                            it = monsters_.erase(it);
+                        } else {
+                            monster->update(player_);
+                            it++;
+                        }
+                    }
                 }
                 break;
             case sf::Event::KeyReleased:
@@ -83,8 +92,19 @@ void Game::update(sf::Time delta_time) {
 void Game::render() {
     window_.clear(); 
     window_.draw(map_); 
-    for (Entity* entity : entities_) {    // draws each entity
-        entity->draw(window_);
+
+    auto it = entities_.begin();
+    while (it != entities_.end()) {   // renders all the living entities and removes the dead ones
+        Entity* entity = *it;
+        if (entity->IsDead()) {
+            it = entities_.erase(it);
+        } else {
+            entity->drawEntity(window_);
+            it++;
+        }
+    }
+    for (Entity* entity : entities_) {  // renders the hp of all entities
+        entity->drawHitpoints(window_);
     }
     window_.draw(inv_);
     window_.display();

@@ -4,7 +4,7 @@
 #include <iostream>
 
 Inventory::Inventory() : health_potions_(0) {
-    health_potions_text_.setFont(Assets::fonts["Arial"]);
+    health_potions_text_.setFont(Assets::fonts["Quinquefive-ALoRM"]);
     health_potions_text_.setCharacterSize(24);
     health_potions_text_.setFillColor(sf::Color::White);
     health_potions_text_.setPosition(sf::Vector2f(40, 980));

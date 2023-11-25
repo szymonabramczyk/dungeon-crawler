@@ -18,6 +18,7 @@ public:
         mSprite = sf::Sprite(Assets::sprites["player"].mTexture);
         mSprite.setScale(0.5, 0.5);
         mSprite.setPosition(128 * (pos_ % TILES_WIDTH), 128 * (pos_ / TILES_WIDTH));
+        weaponDamage_ = 25; //temp
     }
 
     ~Player()
@@ -27,14 +28,21 @@ public:
 
     // Handles player input
     void processInput(sf::Keyboard::Key key, bool is_pressed) {
+        Entity* target = nullptr;
         if (key == sf::Keyboard::W) 
-            moveAlongYAxis(false);
+            target = moveAlongYAxis(false);
         else if (key == sf::Keyboard::S) 
-            moveAlongYAxis(true);
+            target = moveAlongYAxis(true);
         else if (key == sf::Keyboard::A) 
-            moveAlongXAxis(false);
+            target = moveAlongXAxis(false);
         else if (key == sf::Keyboard::D)
-            moveAlongXAxis(true);
+            target = moveAlongXAxis(true);
+        
+        // if a monster is blocking the movement, then the player will attack that monster
+        if (target) {
+            if (target->IsMonster()) 
+                Attack(target);
+        }
         //std::cout << "Player: " << this->GetPosition().x << ", " << this->GetPosition().y << std::endl;   // prints player location
     }
 };

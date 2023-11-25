@@ -4,7 +4,6 @@
 
 #include <string>
 #include <iostream>
-#include <filesystem>
 
 #include <SFML/Graphics.hpp>
 
@@ -16,9 +15,9 @@ public:
     { 
         entities_.push_back(this);  // add this entity to the entities_ vector
 
-        // text to display hitpoints above the entity (sometimes doesn't work, should probably be updated)
-        text_.setFont(Assets::fonts["Arial"]);
-        text_.setCharacterSize(24);
+        // text to display hitpoints above the entity
+        text_.setFont(Assets::fonts["Quinquefive-ALoRM"]);
+        text_.setCharacterSize(16);
         text_.setFillColor(sf::Color::White);
     }
 
@@ -29,24 +28,49 @@ public:
     const std::string& GetType() const { return type_; }
     int GetHitPoints() const { return hitpoints_; }
     const sf::Vector2f GetPosition() const { return mSprite.getPosition(); }
+    bool IsMonster() const { return isMonster_; }
+    bool IsDead() const { return isDead_; }
 
-    // Renders the entity and its hitpoints on the screen
-    void draw(sf::RenderTarget& target)
+    void Attack(Entity* target) {
+        target->takeDamage(weaponDamage_);
+    }
+
+    void takeDamage(const int damage) {
+        if (damage >= hitpoints_) {
+            hitpoints_ = 0;
+            isDead_ = true;
+            // Remove the entity from the entities_ vector if it dies
+            auto it = std::find(entities_.begin(), entities_.end(), this);
+            if (it != entities_.end()) {
+                delete *it;
+                entities_.erase(it);
+            }
+        } else {
+            hitpoints_ -= damage;
+        }
+    }
+
+    // Renders the hitpoints of the entity
+    void drawHitpoints(sf::RenderTarget& target)
     {
         // Adjust the value to set the text position above the sprite
         sf::Vector2f textPosition = GetPosition();
         textPosition.y -= 30;
-        textPosition.x += 115;
+        textPosition.x += 80;
         text_.setPosition(textPosition);
         text_.setString(std::to_string(hitpoints_) + "/" + std::to_string(max_hp_));
-
-        target.draw(mSprite);
         target.draw(text_);
     }
 
+    // Renders the entity
+    void drawEntity(sf::RenderTarget& target)
+    {
+        target.draw(mSprite);
+    }
 
-    // Method to move along X and Y axes (checks for collision)
-    void moveAlongXAxis(bool left) {
+
+    // Method to move along X and Y axes. Checks for collision and returns a pointer to the entity that is in the way.
+    Entity* moveAlongXAxis(bool left) {
         int new_pos = left ? pos_ + 1 : pos_ - 1;
 
         bool canMove = true;
@@ -57,10 +81,13 @@ public:
         if (!left && pos_ % TILES_WIDTH == 0)
             canMove = false;
 
+        Entity* target = nullptr;  // this variable is used to save the entity that prevents this entity from moving
+
         // checks if the new position already has an entity in it
         for (Entity* e : entities_) {
             if (e->getTilePosition() == new_pos) {   // if there is already an entity in that coordinate, then this entity will remain still
                 canMove = false;
+                target = e;
                 break;
             }
         }
@@ -68,9 +95,12 @@ public:
             pos_ = new_pos;
             mSprite.setPosition(128 * (new_pos % TILES_WIDTH), 128 * (new_pos / TILES_WIDTH));
         }
+
+        return target;
     }
 
-    void moveAlongYAxis(bool down) {
+    // Method to move along X and Y axes. Checks for collision and returns a pointer to the entity that is in the way.
+    Entity* moveAlongYAxis(bool down) {
         int new_pos = down ? pos_ + TILES_WIDTH : pos_ - TILES_WIDTH;
 
         bool canMove = true;
@@ -81,16 +111,22 @@ public:
         if (!down && pos_ / TILES_WIDTH == 0)
             canMove = false;
 
+        Entity* target = nullptr;   // this variable is used to save the entity that prevents this entity from moving
+
         // checks if the new position already has an entity in it
         for (Entity* e : entities_) {
             if (e->getTilePosition() == new_pos) {   // if there is already an entity in that coordinate, then this entity will remain still
                 canMove = false; 
+                target = e;
+                break;
             }
         }
         if (canMove) {
             pos_ = new_pos;
             mSprite.setPosition(128 * (new_pos % TILES_WIDTH), 128 * (new_pos / TILES_WIDTH));
         }
+
+        return target;
     }
 
     int getTilePosition() {
@@ -107,6 +143,9 @@ protected:
     int max_hp_;
     int pos_;
     int hitpoints_;
+    bool isDead_ = false;
+    bool isMonster_ = false;
+    int weaponDamage_; // temporary weapon damage variable (delete when weapon class is implemented)
 
     const int TILES_WIDTH = 15;
     const int TILES_HEIGHT = 8;
