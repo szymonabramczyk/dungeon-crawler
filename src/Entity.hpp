@@ -1,14 +1,13 @@
 #ifndef _ENTITY_HPP_
 #define _ENTITY_HPP_
+#include "SpriteInfo.hpp"
 
-#include <SFML/Graphics.hpp>
-#include "Spriteinfo.hpp"
 #include <string>
 #include <iostream>
 #include <filesystem>
 
-#define TILES_WIDTH 15
-#define TILES_HEIGHT 8
+#include <SFML/Graphics.hpp>
+
 // Base class for Player and Monster classes
 class Entity {
 public:
@@ -108,6 +107,9 @@ protected:
     int max_hp_;
     int pos_;
     int hitpoints_;
+
+    const int TILES_WIDTH = 15;
+    const int TILES_HEIGHT = 8;
 };
 
 #endif // _ENTITY_HPP_
