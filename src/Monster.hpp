@@ -2,7 +2,7 @@
 #define MONSTER_HPP_
 
 #include <SFML/Graphics.hpp>
-#include "Spriteinfo.hpp"
+#include "SpriteInfo.hpp"
 #include "Entity.hpp"
 #include "Assets.hpp"
 #include <string>

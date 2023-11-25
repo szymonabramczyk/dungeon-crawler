@@ -3,7 +3,7 @@
 
 #include <map>
 
-#include "Spriteinfo.hpp"
+#include "SpriteInfo.hpp"
 
 struct Assets
 {
