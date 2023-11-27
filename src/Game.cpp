@@ -21,6 +21,8 @@ Game::Game()
     addMonster("Orc"); 
 }
 
+
+
 // A method to run the game
 void Game::run() {
     sf::Clock clock;
@@ -32,11 +34,12 @@ void Game::run() {
     }
 }
 
+
 // A method to load a level
 bool Game::loadLevel(const std::string& path) {
     std::filesystem::path cwd( std::filesystem::canonical( path ) );
     std::filesystem::path file = cwd.parent_path().parent_path() / "tiles.png";
-    return map_.load(file.string(), sf::Vector2u(128, 128), level_, 15, 8);
+    return map_.load(file.string(), sf::Vector2u(128, 128), levels_[2], 15, 8);
 }
 
 // A method to add monsters
@@ -61,6 +64,10 @@ void Game::events() {
                     inv_.addHealthPotions(-1);
                 if (event.key.code == sf::Keyboard::T)  // you can spawn new monsters by pressing T
                     addMonster("Orc");
+                //if (event.key.code == sf::Keyboard::F){
+                    //loadLevel((argv[0]), i)
+
+                
                 else {
                     player_->processInput(event.key.code, true);
                     

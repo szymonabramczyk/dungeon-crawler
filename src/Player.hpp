@@ -16,7 +16,6 @@ public:
     {
         pos_ = 3 * 15;
         mSprite = sf::Sprite(Assets::sprites["player"].mTexture);
-        mSprite.setScale(0.5, 0.5);
         mSprite.setPosition(128 * (pos_ % TILES_WIDTH), 128 * (pos_ / TILES_WIDTH));
         weaponDamage_ = 25; //temp
     }
