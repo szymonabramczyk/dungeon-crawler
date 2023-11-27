@@ -117,6 +117,8 @@ public:
             canMove = false;
         if (!down && pos_ / TILES_WIDTH == 0)
             canMove = false;
+            
+        Entity* target = nullptr;  // this variable is used to save the entity that prevents this entity from moving
 
         // checks if the new position already has an entity in it
         for (Entity* e : entities_) {
