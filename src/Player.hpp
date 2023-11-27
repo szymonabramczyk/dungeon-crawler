@@ -25,10 +25,21 @@ public:
         //destructor
     }
 
+    // attacks every monster within 5 tiles
+    void rangedAttack() {
+        for (Entity* e : entities_) {
+            if (e->IsMonster() && distanceBetween(this->GetPosition(), e->GetPosition()) <= 5 * 128) {
+                e->takeDamage(20);
+            }
+        }
+    }
+
     // Handles player input
     void processInput(sf::Keyboard::Key key, bool is_pressed) {
         Entity* target = nullptr;
-        if (key == sf::Keyboard::W) 
+        if (key == sf::Keyboard::E)
+            rangedAttack();
+        else if (key == sf::Keyboard::W) 
             target = moveAlongYAxis(false);
         else if (key == sf::Keyboard::S) 
             target = moveAlongYAxis(true);

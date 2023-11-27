@@ -4,6 +4,7 @@
 
 #include <string>
 #include <iostream>
+#include <cmath>
 
 #include <SFML/Graphics.hpp>
 
@@ -31,6 +32,12 @@ public:
     bool IsMonster() const { return isMonster_; }
     bool IsDead() const { return isDead_; }
 
+    // helper function to measure distance between two positions
+    int distanceBetween(const sf::Vector2f& a, const sf::Vector2f& b) {
+        sf::Vector2f v = a - b;
+        return std::sqrt(v.x * v.x + v.y * v.y);
+    }
+
     void Attack(Entity* target) {
         target->takeDamage(weaponDamage_);
     }
@@ -47,18 +54,28 @@ public:
             }
         } else {
             hitpoints_ -= damage;
+            text_.setFillColor(sf::Color::Red);    // set HP text to red
+            elapsedTime_ = 0.0f;  // Resets the timer used to track how long the text is red
         }
+
     }
 
     // Renders the hitpoints of the entity
     void drawHitpoints(sf::RenderTarget& target)
     {
-        // Adjust the value to set the text position above the sprite
+        // Adjust the value to set the text position right above the sprite
         sf::Vector2f textPosition = GetPosition();
         textPosition.y -= 30;
         textPosition.x += 80;
         text_.setPosition(textPosition);
         text_.setString(std::to_string(hitpoints_) + "/" + std::to_string(max_hp_));
+
+        float dt = clock_.restart().asSeconds();
+        elapsedTime_ += dt;
+
+        if (elapsedTime_ >= 0.5f) {     // returns the HP text to white after 0.5 seconds
+            text_.setFillColor(sf::Color::White);
+        }
         target.draw(text_);
     }
 
@@ -153,6 +170,9 @@ protected:
     bool isDead_ = false;
     bool isMonster_ = false;
     int weaponDamage_; // temporary weapon damage variable (delete when weapon class is implemented)
+
+    sf::Clock clock_;
+    float elapsedTime_ = 0.0f;  // used for changing the color of the HP text
 
     const int TILES_WIDTH = 15;
     const int TILES_HEIGHT = 8;
