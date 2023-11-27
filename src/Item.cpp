@@ -1,5 +1,7 @@
 #include "Item.hpp"
 
+#include <iostream>
+
 Item::Item(int amount) : amount(amount) {}
 
 void Item::useItem() {
