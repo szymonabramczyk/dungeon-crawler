@@ -16,7 +16,6 @@ public:
     {
         pos_ = 3 * 15 + 12;
         mSprite = sf::Sprite(Assets::sprites["orc"].mTexture);
-        mSprite.setScale(0.50, 0.50);
         mSprite.setPosition(128 * (pos_ % TILES_WIDTH), 128 * (pos_ / TILES_WIDTH));
         isMonster_ = true;
         weaponDamage_ = 5; //temp

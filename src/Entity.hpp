@@ -66,7 +66,7 @@ public:
         // Adjust the value to set the text position right above the sprite
         sf::Vector2f textPosition = GetPosition();
         textPosition.y -= 30;
-        textPosition.x += 80;
+        //textPosition.x += 80;
         text_.setPosition(textPosition);
         text_.setString(std::to_string(hitpoints_) + "/" + std::to_string(max_hp_));
 
