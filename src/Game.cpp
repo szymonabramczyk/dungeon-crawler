@@ -11,9 +11,9 @@
 // Constructor that creates a Window object and creates the Player with the player sprite
 // player_speed_ attribute defines the number of pixels 
 // that the Player moves each time a button is pressed 
-Game::Game() 
-    : window_(sf::VideoMode(1920, 1024), "CMake SFML Project", sf::Style::Titlebar | sf::Style::Close ), 
-    inv_() {
+Game::Game(const std::string& path) 
+    : window_(sf::VideoMode(1920, 1024), "CMake SFML Project", sf::Style::Titlebar | sf::Style::Close ),
+    path_(path) {
     player_ = new Player("Player"); 
     entities_.push_back(player_);
     window_.setSize(sf::Vector2u(1920, 1024));
@@ -36,10 +36,10 @@ void Game::run() {
 
 
 // A method to load a level
-bool Game::loadLevel(const std::string& path) {
-    std::filesystem::path cwd( std::filesystem::canonical( path ) );
+bool Game::loadLevel() {
+    std::filesystem::path cwd( std::filesystem::canonical( path_ ) );
     std::filesystem::path file = cwd.parent_path().parent_path() / "tiles.png";
-    return map_.load(file.string(), sf::Vector2u(128, 128), levels_[2], 15, 8);
+    return map_.load(file.string(), sf::Vector2u(128, 128), levels_[curr_level_], 15, 8);
 }
 
 // A method to add monsters
@@ -59,9 +59,9 @@ void Game::events() {
                 break;
             case sf::Event::KeyPressed:
                 if (event.key.code == sf::Keyboard::Up) // you can add potions using up arrow
-                    inv_.addHealthPotions(1);
+                    {}// inv_.addHealthPotions(1);
                 if (event.key.code == sf::Keyboard::Down) // you can remove potions using down arrow
-                    inv_.addHealthPotions(-1);
+                    {}// inv_.addHealthPotions(-1);
                 if (event.key.code == sf::Keyboard::T)  // you can spawn new monsters by pressing T
                     addMonster("Orc");
                 //if (event.key.code == sf::Keyboard::F){
@@ -70,7 +70,8 @@ void Game::events() {
                 
                 else {
                     player_->processInput(event.key.code, true);
-                    
+                    player_->checkCollision(levels_[curr_level_]);
+                    loadLevel();
                     auto it = monsters_.begin();
                     while (it != monsters_.end()) {
                         Monster* monster = *it;
@@ -90,6 +91,7 @@ void Game::events() {
         }
     }
 }
+
 
 // A method to update
 void Game::update(sf::Time delta_time) {
@@ -113,7 +115,7 @@ void Game::render() {
     for (Entity* entity : entities_) {  // renders the hp of all entities
         entity->drawHitpoints(window_);
     }
-    window_.draw(inv_);
+    player_->drawInventory(window_);
     window_.display();
 }
 
@@ -130,8 +132,8 @@ int main(int argc, char* argv[]) {
         std::cerr << "Error getting current working directory: " << ex.what() << std::endl;
     }
 
-    Game game;
-    if(!game.loadLevel(argv[0]))
+    Game game(argv[0]);
+    if(!game.loadLevel())
         std::cout<<"there is a problem"<<std::endl;
     game.run();
 }

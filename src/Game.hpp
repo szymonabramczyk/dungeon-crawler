@@ -12,10 +12,10 @@
 
 class Game {
     public:
-        Game();
+        Game(const std::string& path);
         void run();
         void makelevels();
-        bool loadLevel(const std::string& path);
+        bool loadLevel();
 
 
     private:
@@ -25,6 +25,7 @@ class Game {
         void render();
         
     private:
+        std::string path_;
         sf::RenderWindow window_; 
         Player* player_;
         std::vector<Monster*> monsters_; // vector to store all monsters
@@ -61,8 +62,8 @@ class Game {
             3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             }
             };
+        int curr_level_ = 0;
         TileMap map_;
-        Inventory inv_;
 };
 
 #endif

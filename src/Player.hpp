@@ -1,18 +1,21 @@
 #ifndef PLAYER_HPP_
 #define PLAYER_HPP_
 
-#include <SFML/Graphics.hpp>
 #include "SpriteInfo.hpp"
 #include "Entity.hpp"
 #include "Assets.hpp"
+#include "Inventory.hpp"
+
 #include <string>
+
+#include <SFML/Graphics.hpp>
 
 // Player class, inherits from Entity
 class Player : public Entity {
 public:
     // Constructor for player class
     // Arguments for Entity(name, type, speed, hitpoints)
-    Player(const std::string& name) : Entity(name, "Player", 128, 100)
+    Player(const std::string& name) : Entity(name, "Player", 128, 100), inv_()
     {
         pos_ = 3 * 15;
         mSprite = sf::Sprite(Assets::sprites["player"].mTexture);
@@ -55,6 +58,20 @@ public:
         }
         //std::cout << "Player: " << this->GetPosition().x << ", " << this->GetPosition().y << std::endl;   // prints player location
     }
+
+    void checkCollision(int (&level)[120]) {
+        if (level[pos_] == 1) {
+            inv_.addHealthPotions(1);
+            level[pos_] = 0;
+        }
+    }
+
+    void drawInventory(sf::RenderTarget& target) {
+        target.draw(inv_);
+    }
+
+    private:
+        Inventory inv_;
 };
 
 #endif // PLAYER_H
