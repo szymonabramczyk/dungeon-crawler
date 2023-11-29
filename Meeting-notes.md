@@ -168,3 +168,52 @@ The game can display a window and draw the player on it. The game supports loadi
 3. Work on game visuals 
 4. Implement early iteration of combat
 5. All members will continue to do more research on their respective areas.
+
+# Meeting 29.11.2023 16:00
+
+**Participants**: 
+1. Szymon Abramczyk
+2. Viktor Dementev
+3. Risto-Pekka Siponen
+4. Anastasiia Semenova
+
+## Summary of works
+1. Szymon Abramczyk
+   
+   Created the Tile-based map and changed the movement and rendering of the player to be tile-based only. Implemented basic Inventory class and collecting basic items.
+
+2. Viktor Dementev
+
+   Made a several level system to implement traveling through them in the next build.Drawn new charecter and enemy and items model 
+
+3. Risto-Pekka Siponen
+
+   Implemented Entity, Monster and Player classes, as well as monster pathfinding and basic combat features (normal & ranged attack).
+
+4. Anastasiia Semenova
+
+   Implemented items system - armour health potions and weapons.
+
+## Challenges
+
+1. Adapting methods to new level structure.
+2. Implementaton of random level genetation. Doors must be always on the same place.
+3. Outputing equiping items to the screen.
+4. Game designing different enemies.
+
+## Actions
+1. Viktor and Szymon will work on level traveling together 
+2. Viktor and Szymon will try to make doors staic, while other objects will be randomly generated.
+3. Anastasiia will change the item methods.
+4. Risto-Pekka will implement different enemies.
+
+## Project status 
+The game can display a window and draw the player on it. The game can draw several levels, traveling via them is not implemented yet. The game supports picking up items. The game has basic combat and one enemy type.  The game supports loading textures and tile-based charecter movement. Game can refresh via the main game loop and handle player events.
+
+### TODOs
+1. Implement random level generation.
+2. Work on level traveling.
+3. Add more visuals.
+4. Make level up progression.
+5. Fix minor issues. 
+6. Add more enemies. 
