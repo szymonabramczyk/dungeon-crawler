@@ -64,8 +64,7 @@ void Game::events() {
                     {}// inv_.addHealthPotions(-1);
                 if (event.key.code == sf::Keyboard::T)  // you can spawn new monsters by pressing T
                     addMonster("Orc");
-                //if (event.key.code == sf::Keyboard::F){
-                    //loadLevel((argv[0]), i)
+                        
 
                 
                 else {
