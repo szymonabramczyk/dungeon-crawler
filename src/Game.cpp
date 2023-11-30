@@ -18,7 +18,19 @@ Game::Game(const std::string& path)
     entities_.push_back(player_);
     window_.setSize(sf::Vector2u(1920, 1024));
     window_.setFramerateLimit(144);
-    addMonster("Orc"); 
+    window_.setKeyRepeatEnabled(false);
+
+    blackBar_.setFillColor(sf::Color::Black); // Set the initial color
+    blackBar_.setSize(sf::Vector2f(205, 20.f));
+
+    healthBar_.setFillColor(sf::Color::Red); // Set the initial color
+    healthBar_.setPosition(100, 100); // Adjust the position as needed
+
+    abilityBar_.setFillColor(sf::Color::Yellow); // Set the initial color
+    abilityBar_.setPosition(100, 150); // Adjust the position as needed
+
+    addUndead();
+    addOrcBoss();
 }
 
 
@@ -44,10 +56,22 @@ bool Game::loadLevel() {
 
 
 // A method to add monsters
-void Game::addMonster(const std::string& name) {
-    Monster* monster = new Monster(name);
-    monsters_.push_back(monster);
-    entities_.push_back(monster);
+void Game::addUndead() {
+    Monster* undead = new Monster("undead", 1, 9, 50);
+    monsters_.push_back(undead);
+    entities_.push_back(undead);
+}
+
+void Game::addOrc() {
+    Monster* orc = new Monster("orc", 1, 12, 100);
+    monsters_.push_back(orc);
+    entities_.push_back(orc);
+}
+
+void Game::addOrcBoss() {
+    Monster* orcBoss = new Monster("orc-boss", 2, 32, 150, true);
+    monsters_.push_back(orcBoss);
+    entities_.push_back(orcBoss);
 }
 
 // A method to handle the events
@@ -64,22 +88,28 @@ void Game::events() {
                 if (event.key.code == sf::Keyboard::Down) // you can remove potions using down arrow
                     {}// inv_.addHealthPotions(-1);
                 if (event.key.code == sf::Keyboard::T)  // you can spawn new monsters by pressing T
-                    addMonster("Orc");
-                        
+                    addOrc();
+                //if (event.key.code == sf::Keyboard::F){
+                    //loadLevel((argv[0]), i)
 
                 
-                else {
-                    player_->processInput(event.key.code, true);
-                    player_->checkCollision(levels_[curr_level_], curr_level_);
+                else if (!player_->IsDead() && !player_->killedBoss()) {
+                    bool validInput = player_->processInput(event.key.code, true);
+                    player_->checkCollision(levels_[curr_level_]);
                     loadLevel();
                     auto it = monsters_.begin();
-                    while (it != monsters_.end()) {
-                        Monster* monster = *it;
-                        if (monster->IsDead()) {
-                            it = monsters_.erase(it);
-                        } else {
-                            monster->update(player_);
-                            it++;
+                    // render();
+                    if (validInput) {
+                        // sf::Clock clock;
+                        // for(;clock.getElapsedTime().asSeconds() < 0.3;);
+                        while (it != monsters_.end()) {
+                            Monster* monster = *it;
+                            if (monster->IsDead()) {
+                                it = monsters_.erase(it);
+                            } else {
+                                monster->update(player_);
+                                it++;
+                            }
                         }
                     }
                 }
@@ -91,7 +121,6 @@ void Game::events() {
         }
     }
 }
-
 
 // A method to update
 void Game::update(sf::Time delta_time) {
@@ -115,7 +144,36 @@ void Game::render() {
     for (Entity* entity : entities_) {  // renders the hp of all entities
         entity->drawHitpoints(window_);
     }
+    blackBar_.setPosition(100, 100); // Adjust the position as needed
+    window_.draw(blackBar_);
+    healthBar_.setSize(sf::Vector2f(player_->GetHitPoints()*2, 15.f));
+    window_.draw(healthBar_);
+
+    blackBar_.setPosition(100, 150); // Adjust the position as needed
+    window_.draw(blackBar_);
+    abilityBar_.setSize(sf::Vector2f(player_->CooldownProgress()*200.f, 15.f));
+    window_.draw(abilityBar_);
+    
     player_->drawInventory(window_);
+
+    sf::Text gameOver;
+        gameOver.setFont(Assets::fonts["Quinquefive-ALoRM"]);
+        gameOver.setCharacterSize(85);
+        gameOver.setFillColor(sf::Color::White);
+        gameOver.setPosition(sf::Vector2f(500, 384));
+
+    if (player_->IsDead()) {
+        gameOver.setString("Game Over!");
+        window_.draw(gameOver);
+        // gameOver.setCharacterSize(87);
+        // gameOver.setFillColor(sf::Color::Black);
+        // window_.draw(gameOver);
+    }
+    if (player_->killedBoss()) {
+        gameOver.setString("Victory!");
+        window_.draw(gameOver);
+    }
+
     window_.display();
 }
 

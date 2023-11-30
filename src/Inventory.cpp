@@ -10,8 +10,10 @@ Inventory::Inventory() : health_potions_(0) {
     health_potions_text_.setPosition(sf::Vector2f(40, 980));
     health_potions_text_.setString(std::to_string(health_potions_));
     health_potions_sprite_ = sf::Sprite(Assets::sprites["health-potion"].mTexture);
-    health_potions_sprite_.setPosition(sf::Vector2f(10, 800));
+    health_potions_sprite_.setPosition(sf::Vector2f(40, 920));
 }
+
+int Inventory::healthPotionCount() { return health_potions_; }
 
 // A method to change the number of potions owned by the player
 void Inventory::addHealthPotions(int number) {

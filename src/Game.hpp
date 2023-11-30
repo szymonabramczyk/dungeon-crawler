@@ -21,7 +21,9 @@ class Game {
 
     private:
         void events();
-        void addMonster(const std::string& name);
+        void addUndead();
+        void addOrc();
+        void addOrcBoss();
         void update(sf::Time delta_time);
         void render();
         
@@ -31,6 +33,12 @@ class Game {
         Player* player_;
         std::vector<Monster*> monsters_; // vector to store all monsters
         std::vector<Entity*> entities_; // vector to store all entities
+
+        sf::RectangleShape healthBar_;
+        sf::RectangleShape blackBar_;
+        sf::RectangleShape abilityBar_;
+
+        bool gameOver = false;
         
 
         int levels_ [9][120] = {{

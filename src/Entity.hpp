@@ -11,8 +11,8 @@
 // Base class for Player and Monster classes
 class Entity {
 public:
-    Entity(const std::string& name, const std::string& type, int speed, int hp)
-        : name_(name), type_(type), speed_(speed), hitpoints_(hp), max_hp_(hp) 
+    Entity(const std::string& type, int hp)
+        : type_(type), hitpoints_(hp), max_hp_(hp) 
     { 
         entities_.push_back(this);  // add this entity to the entities_ vector
 
@@ -25,12 +25,12 @@ public:
     ~Entity() {}
 
     // Basic functions to retrieve values
-    const std::string& GetName() const { return name_; }
     const std::string& GetType() const { return type_; }
     int GetHitPoints() const { return hitpoints_; }
     const sf::Vector2f GetPosition() const { return mSprite.getPosition(); }
     bool IsMonster() const { return isMonster_; }
     bool IsDead() const { return isDead_; }
+    bool isBoss() const { return isBoss_; }
 
     // helper function to measure distance between two positions
     int distanceBetween(const sf::Vector2f& a, const sf::Vector2f& b) {
@@ -38,11 +38,11 @@ public:
         return std::sqrt(v.x * v.x + v.y * v.y);
     }
 
-    void Attack(Entity* target) {
-        target->takeDamage(weaponDamage_);
+    bool Attack(Entity* target) {
+        return target->takeDamage(weaponDamage_);
     }
 
-    void takeDamage(const int damage) {
+    bool takeDamage(const int damage) {
         if (damage >= hitpoints_) {
             hitpoints_ = 0;
             isDead_ = true;
@@ -52,10 +52,12 @@ public:
                 delete *it;
                 entities_.erase(it);
             }
+            return true;
         } else {
             hitpoints_ -= damage;
             text_.setFillColor(sf::Color::Red);    // set HP text to red
             elapsedTime_ = 0.0f;  // Resets the timer used to track how long the text is red
+            return false;
         }
 
     }
@@ -159,7 +161,6 @@ public:
 
 protected:
     sf::Sprite mSprite;
-    std::string name_;
     static inline std::vector<Entity*> entities_; // vector to store all entities
     sf::Text text_; // text for current hp level
     const std::string type_;
@@ -169,7 +170,10 @@ protected:
     int hitpoints_;
     bool isDead_ = false;
     bool isMonster_ = false;
+    bool isBoss_;
     int weaponDamage_; // temporary weapon damage variable (delete when weapon class is implemented)
+
+    int totalTurns_ = 0;
 
     sf::Clock clock_;
     float elapsedTime_ = 0.0f;  // used for changing the color of the HP text

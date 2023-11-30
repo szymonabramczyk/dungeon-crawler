@@ -7,6 +7,7 @@
 class Inventory : public sf::Drawable {
     public:
         Inventory();
+        int healthPotionCount();
         void addHealthPotions(int number);
         void update();
         
