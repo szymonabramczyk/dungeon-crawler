@@ -42,6 +42,7 @@ bool Game::loadLevel() {
     return map_.load(file.string(), sf::Vector2u(128, 128), levels_[curr_level_], 15, 8);
 }
 
+
 // A method to add monsters
 void Game::addMonster(const std::string& name) {
     Monster* monster = new Monster(name);
@@ -69,7 +70,7 @@ void Game::events() {
                 
                 else {
                     player_->processInput(event.key.code, true);
-                    player_->checkCollision(levels_[curr_level_]);
+                    player_->checkCollision(levels_[curr_level_], curr_level_);
                     loadLevel();
                     auto it = monsters_.begin();
                     while (it != monsters_.end()) {

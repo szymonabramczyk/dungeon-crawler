@@ -5,6 +5,7 @@
 #include "Entity.hpp"
 #include "Assets.hpp"
 #include "Inventory.hpp"
+#include "Game.hpp"
 
 #include <string>
 
@@ -59,11 +60,17 @@ public:
         //std::cout << "Player: " << this->GetPosition().x << ", " << this->GetPosition().y << std::endl;   // prints player location
     }
 
-    void checkCollision(int (&level)[120]) {
+    void checkCollision(int (&level)[120], int &curr_level) {
         if (level[pos_] == 1) {
             inv_.addHealthPotions(1);
             level[pos_] = 0;
         }
+        else if (level[pos_] == 3) {
+            curr_level++;
+            pos_ = 3 * 15;// entrance position
+             mSprite.setPosition(128 * (pos_ % TILES_WIDTH), 128 * (pos_ / TILES_WIDTH));
+        }
+        
     }
 
     void drawInventory(sf::RenderTarget& target) {
