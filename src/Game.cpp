@@ -95,7 +95,7 @@ void Game::events() {
                 
                 else if (!player_->IsDead() && !player_->killedBoss()) {
                     bool validInput = player_->processInput(event.key.code, true);
-                    player_->checkCollision(levels_[curr_level_]);
+                    player_->checkCollision(levels_[curr_level_], curr_level_);
                     loadLevel();
                     auto it = monsters_.begin();
                     // render();
