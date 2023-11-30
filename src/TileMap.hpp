@@ -6,8 +6,7 @@
 class TileMap : public sf::Drawable, public sf::Transformable
 {
 public:
-    // TileMap(sf::Texture& tileset) : m_tileset(tileset) {
-    // }
+    
     bool load(const std::string& tileset, sf::Vector2u tile_size, const int* tiles, unsigned int width, unsigned int height);
 
 private:

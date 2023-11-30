@@ -25,4 +25,4 @@ struct SpriteInfo // structers that stores assets info - texture size and hitbox
     sf::FloatRect mHitBox;
 };
 
-#endif // SPRITEINFO_HPP
+#endif 

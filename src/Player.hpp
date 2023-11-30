@@ -65,10 +65,27 @@ public:
             inv_.addHealthPotions(1);
             level[pos_] = 0;
         }
-        else if (level[pos_] == 3) {
-            curr_level++;
-            pos_ = 3 * 15;// entrance position
-             mSprite.setPosition(128 * (pos_ % TILES_WIDTH), 128 * (pos_ / TILES_WIDTH));
+        else if (level[pos_] == 3) { // checks that the player on a door tile
+            if(pos_ == 59){ //the player on the door leading to the room to the right
+                curr_level++;
+                pos_ = 3 * 15 + 1;// entrance position
+                mSprite.setPosition(128 * (pos_ % TILES_WIDTH), 128 * (pos_ / TILES_WIDTH));
+            }
+            else if(pos_ == 45){ //the player on the door leading to the room to the left
+                curr_level--;
+                pos_ =59;// entrance position on the right side
+                mSprite.setPosition(128 * (pos_ % TILES_WIDTH), 128 * (pos_ / TILES_WIDTH));
+            }
+            else if(pos_ == 112){ //the player on the door leading to the room to the dottom
+                curr_level = curr_level + 3;
+                pos_ = 7;// entrance position on the right side
+                mSprite.setPosition(128 * (pos_ % TILES_WIDTH), 128 * (pos_ / TILES_WIDTH));
+            }
+            else if(pos_ == 7){ //the player on the door leading to the room to the dottom
+                curr_level = curr_level - 3;
+                pos_ = 113;// entrance position on the right side
+                mSprite.setPosition(128 * (pos_ % TILES_WIDTH), 128 * (pos_ / TILES_WIDTH));
+            }
         }
         
     }
