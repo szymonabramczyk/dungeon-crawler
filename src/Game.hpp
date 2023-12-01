@@ -30,9 +30,8 @@ class Game {
     private:
         std::string path_;
         sf::RenderWindow window_; 
-        Player* player_;
-        std::vector<Monster*> monsters_; // vector to store all monsters
-        std::vector<Entity*> entities_; // vector to store all entities
+        std::shared_ptr<Player> player_;
+        std::vector<std::shared_ptr<Monster>> monsters_; // vector to store all monsters
 
         sf::RectangleShape healthBar_;
         sf::RectangleShape blackBar_;

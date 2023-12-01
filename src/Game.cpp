@@ -14,8 +14,8 @@
 Game::Game(const std::string& path) 
     : window_(sf::VideoMode(1920, 1024), "CMake SFML Project", sf::Style::Titlebar | sf::Style::Close ),
     path_(path) {
-    player_ = new Player("Player"); 
-    entities_.push_back(player_);
+    player_ = std::make_shared<Player>("Player");
+    Entity::entities_.push_back(player_);
     window_.setSize(sf::Vector2u(1920, 1024));
     window_.setFramerateLimit(144);
     window_.setKeyRepeatEnabled(false);
@@ -57,21 +57,22 @@ bool Game::loadLevel() {
 
 // A method to add monsters
 void Game::addUndead() {
-    Monster* undead = new Monster("undead", 1, 9, 50);
+    std::shared_ptr<Monster> undead = std::make_shared<Monster>("undead", 1, 9, 50);
+
     monsters_.push_back(undead);
-    entities_.push_back(undead);
+    Entity::entities_.push_back(undead);
 }
 
 void Game::addOrc() {
-    Monster* orc = new Monster("orc", 1, 12, 100);
+    std::shared_ptr<Monster> orc = std::make_shared<Monster>("orc", 1, 12, 100);
     monsters_.push_back(orc);
-    entities_.push_back(orc);
+    Entity::entities_.push_back(orc);
 }
 
 void Game::addOrcBoss() {
-    Monster* orcBoss = new Monster("orc-boss", 2, 32, 150, true);
+    std::shared_ptr<Monster> orcBoss = std::make_shared<Monster>("orc-boss", 2, 32, 150, true);
     monsters_.push_back(orcBoss);
-    entities_.push_back(orcBoss);
+    Entity::entities_.push_back(orcBoss);
 }
 
 // A method to handle the events
@@ -103,7 +104,7 @@ void Game::events() {
                         // sf::Clock clock;
                         // for(;clock.getElapsedTime().asSeconds() < 0.3;);
                         while (it != monsters_.end()) {
-                            Monster* monster = *it;
+                            std::shared_ptr<Monster> monster = *it;
                             if (monster->IsDead()) {
                                 it = monsters_.erase(it);
                             } else {
@@ -131,17 +132,17 @@ void Game::render() {
     window_.clear(); 
     window_.draw(map_); 
 
-    auto it = entities_.begin();
-    while (it != entities_.end()) {   // renders all the living entities and removes the dead ones
-        Entity* entity = *it;
+    auto it = Entity::entities_.begin();
+    while (it != Entity::entities_.end()) {   // renders all the living entities and removes the dead ones
+        std::shared_ptr<Entity> entity = *it;
         if (entity->IsDead()) {
-            it = entities_.erase(it);
+            it = Entity::entities_.erase(it);
         } else {
             entity->drawEntity(window_);
             it++;
         }
     }
-    for (Entity* entity : entities_) {  // renders the hp of all entities
+    for (std::shared_ptr<Entity> entity : Entity::entities_) {  // renders the hp of all entities
         entity->drawHitpoints(window_);
     }
     blackBar_.setPosition(100, 100); // Adjust the position as needed

@@ -29,11 +29,11 @@ public:
     }
 
     // Function that moves the monster towards the player
-    void update(Entity* player) {
+    void update(std::shared_ptr<Entity> player) {
         sf::Vector2f pPos = player->GetPosition(); // player position
         sf::Vector2f mPos = GetPosition(); // monster position
 
-        Entity* target = nullptr;
+        std::shared_ptr<Entity> target = nullptr;
 
         // check which axis has the largest difference relative to the player location, and then move in that axis
         int xDiff = pPos.x - mPos.x;

@@ -42,7 +42,7 @@ public:
 
     // attacks every monster within 5 tiles
     void rangedAttack() {
-        for (Entity* e : entities_) {
+        for (std::shared_ptr<Entity> e : entities_) {
             if (e->IsMonster() && distanceBetween(this->GetPosition(), e->GetPosition()) <= 5 * 128) {
                 e->takeDamage(20);
             }
@@ -62,7 +62,7 @@ public:
 
     // Handles player input, returns true if the key is valid, false otherwise
     bool processInput(sf::Keyboard::Key key, bool is_pressed) {
-        Entity* target = nullptr;
+        std::shared_ptr<Entity> target = nullptr;
         if (key == sf::Keyboard::E && turnCount_ >= cooldownPeriod_) {   // 10 turn cooldown
             rangedAttack();
             turnCount_ = 0;

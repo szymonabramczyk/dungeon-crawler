@@ -11,10 +11,12 @@
 // Base class for Player and Monster classes
 class Entity {
 public:
+    static inline std::vector<std::shared_ptr<Entity>> entities_; // vector to store all entities
+
     Entity(const std::string& type, int hp)
         : type_(type), hitpoints_(hp), max_hp_(hp) 
     { 
-        entities_.push_back(this);  // add this entity to the entities_ vector
+        // entities_.push_back(std::make_shared<Entity>(this));  // add this entity to the entities_ vector
 
         // text to display hitpoints above the entity
         text_.setFont(Assets::fonts["Quinquefive-ALoRM"]);
@@ -38,7 +40,7 @@ public:
         return std::sqrt(v.x * v.x + v.y * v.y);
     }
 
-    bool Attack(Entity* target) {
+    bool Attack(std::shared_ptr<Entity> target) {
         return target->takeDamage(weaponDamage_);
     }
 
@@ -47,9 +49,11 @@ public:
             hitpoints_ = 0;
             isDead_ = true;
             // Remove the entity from the entities_ vector if it dies
-            auto it = std::find(entities_.begin(), entities_.end(), this);
+            auto it = std::find_if(entities_.begin(), entities_.end(), 
+                [this](const std::shared_ptr<Entity>& entity) {
+                return entity.get() == this;
+                });
             if (it != entities_.end()) {
-                delete *it;
                 entities_.erase(it);
             }
             return true;
@@ -89,7 +93,7 @@ public:
 
 
     // Method to move along X and Y axes. Checks for collision and returns a pointer to the entity that is in the way.
-    Entity* moveAlongXAxis(bool left) {
+    std::shared_ptr<Entity> moveAlongXAxis(bool left) {
         int new_pos = left ? pos_ + 1 : pos_ - 1;
 
         bool canMove = true;
@@ -100,7 +104,7 @@ public:
         if (!left && pos_ % TILES_WIDTH == 0)
             canMove = false;
 
-        Entity* target = nullptr;  // this variable is used to save the entity that prevents this entity from moving
+        std::shared_ptr<Entity> target = nullptr;  // this variable is used to save the entity that prevents this entity from moving
 
         // TO IMPLEMENT
         // should check if the new tile is a floor or a door tile
@@ -110,7 +114,7 @@ public:
         //     canMove = false;
 
         // checks if the new position already has an entity in it
-        for (Entity* e : entities_) {
+        for (std::shared_ptr<Entity> e : entities_) {
             if (e->getTilePosition() == new_pos) {   // if there is already an entity in that coordinate, then this entity will remain still
                 canMove = false;
                 target = e;
@@ -126,7 +130,7 @@ public:
     }
 
     // Method to move along X and Y axes. Checks for collision and returns a pointer to the entity that is in the way.
-    Entity* moveAlongYAxis(bool down) {
+    std::shared_ptr<Entity> moveAlongYAxis(bool down) {
         int new_pos = down ? pos_ + TILES_WIDTH : pos_ - TILES_WIDTH;
 
         bool canMove = true;
@@ -137,10 +141,10 @@ public:
         if (!down && pos_ / TILES_WIDTH == 0)
             canMove = false;
             
-        Entity* target = nullptr;  // this variable is used to save the entity that prevents this entity from moving
+        std::shared_ptr<Entity> target = nullptr;  // this variable is used to save the entity that prevents this entity from moving
 
         // checks if the new position already has an entity in it
-        for (Entity* e : entities_) {
+        for (std::shared_ptr<Entity> e : entities_) {
             if (e->getTilePosition() == new_pos) {   // if there is already an entity in that coordinate, then this entity will remain still
                 canMove = false; 
                 target = e;
@@ -161,7 +165,6 @@ public:
 
 protected:
     sf::Sprite mSprite;
-    static inline std::vector<Entity*> entities_; // vector to store all entities
     sf::Text text_; // text for current hp level
     const std::string type_;
     int speed_;
