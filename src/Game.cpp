@@ -33,8 +33,6 @@ Game::Game(const std::string& path)
     addOrcBoss();
 }
 
-
-
 // A method to run the game
 void Game::run() {
     sf::Clock clock;
@@ -46,7 +44,6 @@ void Game::run() {
     }
 }
 
-
 // A method to load a level
 bool Game::loadLevel() {
     std::filesystem::path cwd( std::filesystem::canonical( path_ ) );
@@ -54,11 +51,9 @@ bool Game::loadLevel() {
     return map_.load(file.string(), sf::Vector2u(128, 128), levels_[curr_level_], 15, 8);
 }
 
-
 // A method to add monsters
 void Game::addUndead() {
     std::shared_ptr<Monster> undead = std::make_shared<Monster>("undead", 1, 9, 50);
-
     monsters_.push_back(undead);
     Entity::entities_.push_back(undead);
 }
@@ -99,7 +94,7 @@ void Game::events() {
                     player_->checkCollision(levels_[curr_level_], curr_level_);
                     loadLevel();
                     auto it = monsters_.begin();
-                    // render();
+                    render();
                     if (validInput) {
                         // sf::Clock clock;
                         // for(;clock.getElapsedTime().asSeconds() < 0.3;);
