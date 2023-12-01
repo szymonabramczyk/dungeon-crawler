@@ -1,12 +1,14 @@
 #ifndef _ENTITY_HPP_
 #define _ENTITY_HPP_
 #include "SpriteInfo.hpp"
+#include "Assets.hpp"
 
 #include <string>
 #include <iostream>
 #include <cmath>
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
 // Base class for Player and Monster classes
 class Entity {
@@ -41,6 +43,7 @@ public:
     }
 
     bool Attack(std::shared_ptr<Entity> target) {
+        Assets::sounds["attack"]->play();
         return target->takeDamage(weaponDamage_);
     }
 

@@ -7,6 +7,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp> 
+#include <SFML/Audio.hpp>
 
 // Constructor that creates a Window object and creates the Player with the player sprite
 // player_speed_ attribute defines the number of pixels 
@@ -79,6 +80,7 @@ void Game::events() {
                 window_.close();
                 break;
             case sf::Event::KeyPressed:
+                // Assets::sounds["attack"]->play();
                 if (event.key.code == sf::Keyboard::Up) // you can add potions using up arrow
                     {}// inv_.addHealthPotions(1);
                 if (event.key.code == sf::Keyboard::Down) // you can remove potions using down arrow
@@ -87,7 +89,7 @@ void Game::events() {
                     addOrc();
                 //if (event.key.code == sf::Keyboard::F){
                     //loadLevel((argv[0]), i)
-
+                
                 
                 else if (!player_->IsDead() && !player_->killedBoss()) {
                     bool validInput = player_->processInput(event.key.code, true);
@@ -174,7 +176,11 @@ void Game::render() {
 }
 
 int main(int argc, char* argv[]) {
-    Assets::loadAssets(argv[0]);
+    try {
+        Assets::loadAssets(argv[0]);
+    } catch (const std::runtime_error& ex) {
+        std::cerr << "Error getting loading assets: " << ex.what() << std::endl;
+    }
 
     try {
         // Get the current working directory
