@@ -30,12 +30,14 @@ Game::Game(const std::string& path)
     abilityBar_.setFillColor(sf::Color::Yellow); // Set the initial color
     abilityBar_.setPosition(100, 150); // Adjust the position as needed
 
+
     addUndead();
     addOrcBoss();
 }
 
 // A method to run the game
 void Game::run() {
+    
     sf::Clock clock;
     while (window_.isOpen()) {
         sf::Time delta_time = clock.restart();
@@ -43,6 +45,39 @@ void Game::run() {
         update(delta_time);
         render();
     }
+}
+
+void Game::generatelevel(){
+    srand((unsigned) time(NULL));
+    for(int i = 0; i < 9; i++){
+        for(int j = 0; j < 120; j++){
+	        levels_[i][j] = 0;
+	        int random = rand() % 60;
+            if (random < 3){
+            levels_[i][j] = random;
+            }
+            
+        }
+        
+    }
+    levels_[0][59] = 3; // setting doors on each level
+    levels_[1][45] = 3; 
+    levels_[1][59] = 3;
+    levels_[2][45] = 3;
+    levels_[2][112] = 3;
+    levels_[3][59] = 3;
+    levels_[4][59] = 3;
+    levels_[4][45] = 3;
+    levels_[4][112] =3;
+    levels_[5][45] = 3;
+    levels_[5][7] = 3;
+    levels_[6][59] = 3;
+    levels_[7][59] = 3;
+    levels_[7][45] = 3;
+    levels_[7][7] = 3;
+    
+    
+
 }
 
 // A method to load a level
@@ -87,8 +122,7 @@ void Game::events() {
                     {}// inv_.addHealthPotions(-1);
                 if (event.key.code == sf::Keyboard::T)  // you can spawn new monsters by pressing T
                     addOrc();
-                //if (event.key.code == sf::Keyboard::F){
-                    //loadLevel((argv[0]), i)
+                
                 
                 
                 else if (!player_->IsDead() && !player_->killedBoss()) {
@@ -193,6 +227,7 @@ int main(int argc, char* argv[]) {
     }
 
     Game game(argv[0]);
+    game.generatelevel();
     if(!game.loadLevel())
         std::cout<<"there is a problem"<<std::endl;
     game.run();
