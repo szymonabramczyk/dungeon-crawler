@@ -17,7 +17,7 @@ FetchContent_MakeAvailable(SFML)
 file(GLOB SOURCES src/*.cpp)
 add_executable(dungeon-crawler-quang-ngo-01 ${SOURCES})
 
-target_link_libraries(dungeon-crawler-quang-ngo-01 PRIVATE sfml-graphics)
+target_link_libraries(dungeon-crawler-quang-ngo-01 PRIVATE sfml-graphics sfml-audio)
 target_compile_features(dungeon-crawler-quang-ngo-01 PRIVATE cxx_std_17)
 
 
@@ -33,4 +33,7 @@ FILE(COPY ${SPRITES} DESTINATION "${CMAKE_BINARY_DIR}")
 
 file(GLOB FONTS "content/fonts/*.ttf")
 FILE(COPY ${FONTS} DESTINATION "${CMAKE_BINARY_DIR}")
+
+file(GLOB SOUNDS "content/sounds/*.wav")
+FILE(COPY ${SOUNDS} DESTINATION "${CMAKE_BINARY_DIR}")
 
