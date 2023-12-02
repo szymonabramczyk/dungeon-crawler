@@ -169,6 +169,7 @@ The game can display a window and draw the player on it. The game supports loadi
 4. Implement early iteration of combat
 5. All members will continue to do more research on their respective areas.
 
+
 # Meeting 29.11.2023 16:00
 
 **Participants**: 
@@ -217,3 +218,87 @@ The game can display a window and draw the player on it. The game can draw sever
 4. Make level up progression.
 5. Fix minor issues. 
 6. Add more enemies. 
+
+
+# Meeting 30.11.2023 16:00
+
+**Participants**: 
+1. Szymon Abramczyk
+2. Viktor Dementev
+3. Risto-Pekka Siponen
+
+## Summary of works
+1. Szymon Abramczyk
+   
+   Added usage of smart pointers to replace previous entity vectors
+
+2. Viktor Dementev
+
+   Added level to level transition and new textures for sprites
+
+3. Risto-Pekka Siponen
+
+   Added new monster types as well as "victory" and "game over" conditions.
+
+## Challenges
+
+1. Improving gameplay experience.
+2. Implementaton of random level generation.
+3. Generating random monsters for each level.
+
+## Actions
+1. Viktor and Szymon will work on random level generation together.
+2. Szymon will implement sound to the game.
+4. Risto-Pekka will implement player level progression and improve game UI.
+
+## Project status 
+The game can display a window and draw the player on it. It supports loading textures and tile-based charecter movement. The game can refresh via the main game loop and handle player events. The game can draw several levels, and traveling via them is possible through doors. Picking up items is possible. Basic combat and three enemy types are implemented. The player can die which results in a "game over" screen, and conversely the player can kill a boss which results in a "victory" screen.
+
+### TODOs
+1. Implement random level generation.
+2. Add sounds.
+3. Improve UI.
+4. Make level up progression.
+5. Fix minor issues. 
+
+
+# Meeting 01.12.2023 16:00
+
+**Participants**: 
+1. Szymon Abramczyk
+2. Viktor Dementev
+3. Risto-Pekka Siponen
+
+## Summary of works
+1. Szymon Abramczyk
+   
+   Added basic sound effects to the game
+
+2. Viktor Dementev
+
+   Implemented random dungeon generation
+
+3. Risto-Pekka Siponen
+
+   Implemented a player progression system and improved UI
+
+## Challenges
+
+1. Generating random monsters seperately for each level.
+2. Creating a documentation for the project.
+3. Creating unit tests.
+
+## Actions
+1. All group members will work on finalizing their respective areas of the project.
+2. The group must figure out how we will implement unit tests.
+3. The group must decide on how we will create the documentation.
+
+## Project status 
+The game can display a window and draw the player on it. It supports loading textures and tile-based charecter movement. It can refresh via the main game loop and handle player events. The game can generate and draw several random levels containing random monsters, and traveling via them is possible through the use of doors. Picking up items is possible. Basic combat and three enemy types are implemented. The player can die which results in a "game over" screen, and conversely the player can kill a boss which results in a "victory" screen. The game has a basic progression system; killing monsters allows you to level up, granting the player improved abilities. Basic sound effects are included. The game is feature-complete.
+
+### TODOs
+1. Finish and commit rest of the gameplay additions.
+2. Create documentation for the project.
+3. Create unit tests for the project.
+4. Clean the code & add comments where necessary.
+5. Fix any possible bugs.
