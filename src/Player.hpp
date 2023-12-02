@@ -21,7 +21,7 @@ public:
         pos_ = 3 * 15;
         mSprite = sf::Sprite(Assets::sprites["player"].mTexture);
         mSprite.setPosition(128 * (pos_ % TILES_WIDTH), 128 * (pos_ / TILES_WIDTH));
-        weaponDamage_ = 50; //temp
+        weaponDamage_ = 25; //temp
 
         statusText_.setFont(Assets::fonts["Quinquefive-ALoRM"]);
         statusText_.setCharacterSize(16);
@@ -80,7 +80,9 @@ public:
         int earnedXP = 0;
         for (std::shared_ptr<Entity> e : entities_) {
             if (e->IsMonster() && distanceBetween(this->GetPosition(), e->GetPosition()) <= 4 * 128) {
-                if (e->takeDamage(20 + 10 * level_)) {
+                if (e->takeDamage(20 + 5 * level_)) {
+                    if (e->isBoss()) 
+                        killedBoss_ = true;
                     earnedXP += e->maxHP();
                 }
             }
@@ -138,7 +140,7 @@ public:
         return true;
     }
 
-    void checkCollision(int (&level)[120], int &curr_level) {
+    bool checkCollision(int (&level)[120], int &curr_level) {
         if (level[pos_] == 1) {
             inv_.addHealthPotions(1);
             level[pos_] = 0;
@@ -164,8 +166,10 @@ public:
                 pos_ = 113;// entrance position on the right side
                 mSprite.setPosition(128 * (pos_ % TILES_WIDTH), 128 * (pos_ / TILES_WIDTH));
             }
+            return true;
         }
         
+        return false;
     }
 
     void drawInventory(sf::RenderTarget& target) {

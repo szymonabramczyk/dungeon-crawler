@@ -45,13 +45,13 @@ Game::Game(const std::string& path)
     restartText_.setCharacterSize(25);
     restartText_.setFillColor(sf::Color::White);
     restartText_.setPosition(sf::Vector2f(700, 530));
-    restartText_.setString("Press R to restart");
+    //restartText_.setString("Press R to restart");
 
-    // addUndead();
-    // addUndead();
-    // addUndead();
-    // addUndead();
-    //addOrcBoss();
+    // monsters for level 0
+    addUndead();
+    addUndead();
+    addUndead();
+    addUndead();
 }
 
 // A method to run the game
@@ -108,21 +108,35 @@ bool Game::loadLevel() {
 
 // A method to add monsters
 void Game::addUndead() {
-    std::shared_ptr<Monster> undead = std::make_shared<Monster>("undead", 1, 9, 50);
+    std::shared_ptr<Monster> undead = std::make_shared<Monster>("undead", 1, 4, 50);
     monsters_.push_back(undead);
     Entity::entities_.push_back(undead);
 }
 
 void Game::addOrc() {
-    std::shared_ptr<Monster> orc = std::make_shared<Monster>("orc", 1, 12, 100);
+    std::shared_ptr<Monster> orc = std::make_shared<Monster>("orc", 1, 7, 100);
     monsters_.push_back(orc);
     Entity::entities_.push_back(orc);
 }
 
-void Game::addOrcBoss() {
-    std::shared_ptr<Monster> orcBoss = std::make_shared<Monster>("orc-boss", 2, 32, 150, true);
+void Game::spawnMonsters() {
+    addOrc();
+    addOrc();
+    addUndead();
+    addUndead();
+    addUndead();
+}
+
+void Game::spawnBoss() {
+    std::shared_ptr<Monster> orcBoss = std::make_shared<Monster>("orc-boss", 2, 32, 300, true);
     monsters_.push_back(orcBoss);
     Entity::entities_.push_back(orcBoss);
+}
+
+void Game::deleteMonsters() {
+    monsters_.clear();
+    Entity::entities_.clear();
+    Entity::entities_.push_back(player_);
 }
 
 // A method to handle the events
@@ -139,24 +153,35 @@ void Game::events() {
                     {}// inv_.addHealthPotions(1);
                 if (event.key.code == sf::Keyboard::Down) // you can remove potions using down arrow
                     {}// inv_.addHealthPotions(-1);
-                if (event.key.code == sf::Keyboard::T)  // you can spawn new monsters by pressing T
-                    addOrc();
-                
-                
                 
                 else if (!player_->IsDead() && !player_->killedBoss()) {
                     bool validInput = player_->processInput(event.key.code, true);
-                    player_->checkCollision(levels_[curr_level_], curr_level_);
+                    bool newLevel = player_->checkCollision(levels_[curr_level_], curr_level_);
                     loadLevel();
-                    auto it = monsters_.begin();
-                    if (validInput) {
-                        while (it != monsters_.end()) {
-                            std::shared_ptr<Monster> monster = *it;
-                            if (monster->IsDead()) {
-                                it = monsters_.erase(it);
-                            } else {
-                                monster->update(player_);
-                                it++;
+
+                    if (newLevel) {
+                        deleteMonsters();
+                        auto it = completedLevels_.find(curr_level_);
+                        if (curr_level_ == 8) {
+                            spawnBoss();
+                        } if (it == completedLevels_.end()) {
+                            spawnMonsters();
+                        }
+                    }
+                    else if (monsters_.empty()) {
+                        completedLevels_.insert(curr_level_);
+                    } 
+                    else {
+                        auto it = monsters_.begin();
+                        if (validInput) {
+                            while (it != monsters_.end()) {
+                                std::shared_ptr<Monster> monster = *it;
+                                if (monster->IsDead()) {
+                                    it = monsters_.erase(it);
+                                } else {
+                                    monster->update(player_);
+                                    it++;
+                                }
                             }
                         }
                     }
@@ -196,7 +221,7 @@ void Game::render() {
     
     blackBar_.setPosition(30, 910); // Adjust the position as needed
     window_.draw(blackBar_);
-    healthBar_.setSize(sf::Vector2f(player_->GetHitPoints()*2, 15.f));
+    healthBar_.setSize(sf::Vector2f(player_->GetHitPoints() * 1.0f / player_->maxHP() *200, 15.f));
     window_.draw(healthBar_);
 
     blackBar_.setPosition(30, 950); // Adjust the position as needed
@@ -219,8 +244,6 @@ void Game::render() {
     infoText_.setPosition(30, 972);
     window_.draw(infoText_);
 
-
-    
     player_->drawInventory(window_);
 
     if (player_->IsDead()) {

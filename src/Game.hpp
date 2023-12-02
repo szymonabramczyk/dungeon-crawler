@@ -9,6 +9,7 @@
 #include "Inventory.hpp"
 #include <vector>
 #include <random>
+#include <set>
 #include <SFML/Graphics.hpp>
 
 class Game {
@@ -25,7 +26,9 @@ class Game {
         void events();
         void addUndead();
         void addOrc();
-        void addOrcBoss();
+        void spawnBoss();
+        void spawnMonsters();
+        void deleteMonsters();
         void update(sf::Time delta_time);
         void render();
         
@@ -49,6 +52,7 @@ class Game {
 
         int levels_ [9][120];
         int curr_level_ = 0;
+        std::set<int> completedLevels_;
         TileMap map_;
         friend class Player;
 };
