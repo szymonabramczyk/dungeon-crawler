@@ -8,6 +8,7 @@
 #include "Entity.hpp"
 #include "Inventory.hpp"
 #include <vector>
+#include <random>
 #include <SFML/Graphics.hpp>
 
 class Game {
@@ -35,8 +36,13 @@ class Game {
         std::vector<std::shared_ptr<Monster>> monsters_; // vector to store all monsters
 
         sf::RectangleShape healthBar_;
-        sf::RectangleShape blackBar_;
         sf::RectangleShape abilityBar_;
+        sf::RectangleShape xpBar_;
+        sf::RectangleShape blackBar_;
+
+        sf::Text endText_;
+        sf::Text restartText_;
+        sf::Text infoText_;
 
         bool gameOver = false;
         

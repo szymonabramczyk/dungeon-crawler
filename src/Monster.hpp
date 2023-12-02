@@ -5,7 +5,7 @@
 #include "SpriteInfo.hpp"
 #include "Entity.hpp"
 #include "Assets.hpp"
-#include <string>
+#include <random>
 
 // Monster class, inherits from Entity
 class Monster : public Entity {
@@ -15,7 +15,39 @@ public:
     Monster(const std::string& type, int speed = 1, int damage = 5, int hp = 100, bool isBoss = false)
             : Entity(type, hp), speed_(speed)
     {
-        pos_ = 3 * 15 + 12;
+        bool isGoodPos;
+        do {
+            // Create a random_device to seed the random number generator
+            std::random_device rd;
+
+            // Use the random_device to seed the random number engine
+            std::default_random_engine rng(rd());
+
+            // Create a distribution to define the range [0, 14]
+            std::uniform_int_distribution<int> xDistribution(0, 14);
+            std::uniform_int_distribution<int> yDistribution(0, 7);
+
+            // Generate a random number
+            int x = xDistribution(rng);
+            int y = yDistribution(rng);
+
+            pos_ = y * 15 + x;
+            isGoodPos = true;
+            for (std::shared_ptr<Entity> e : entities_) {
+                if (e->getTilePosition() == pos_) {   // if there is already an entity in that coordinate, then this entity will remain still
+                    isGoodPos = false;
+                    break;
+                }
+            }
+
+            int distanceToPlayer = 
+                distanceBetween(entities_[0]->GetPosition(), sf::Vector2f(128*(pos_ % TILES_WIDTH), 128*(pos_ / TILES_WIDTH)));
+
+            if (distanceToPlayer <= 3 * 128)
+                isGoodPos = false;
+
+        } while (!isGoodPos);
+
         mSprite = sf::Sprite(Assets::sprites[type].mTexture);
         mSprite.setPosition(128 * (pos_ % TILES_WIDTH), 128 * (pos_ / TILES_WIDTH));
         isMonster_ = true;

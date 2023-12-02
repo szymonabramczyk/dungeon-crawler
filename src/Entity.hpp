@@ -32,6 +32,7 @@ public:
     const std::string& GetType() const { return type_; }
     int GetHitPoints() const { return hitpoints_; }
     const sf::Vector2f GetPosition() const { return mSprite.getPosition(); }
+    const int maxHP() const { return max_hp_; }
     bool IsMonster() const { return isMonster_; }
     bool IsDead() const { return isDead_; }
     bool isBoss() const { return isBoss_; }
@@ -51,14 +52,6 @@ public:
         if (damage >= hitpoints_) {
             hitpoints_ = 0;
             isDead_ = true;
-            // Remove the entity from the entities_ vector if it dies
-            auto it = std::find_if(entities_.begin(), entities_.end(), 
-                [this](const std::shared_ptr<Entity>& entity) {
-                return entity.get() == this;
-                });
-            if (it != entities_.end()) {
-                entities_.erase(it);
-            }
             return true;
         } else {
             hitpoints_ -= damage;
@@ -75,7 +68,6 @@ public:
         // Adjust the value to set the text position right above the sprite
         sf::Vector2f textPosition = GetPosition();
         textPosition.y -= 30;
-        //textPosition.x += 80;
         text_.setPosition(textPosition);
         text_.setString(std::to_string(hitpoints_) + "/" + std::to_string(max_hp_));
 

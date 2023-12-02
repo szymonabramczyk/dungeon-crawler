@@ -21,7 +21,10 @@ public:
         pos_ = 3 * 15;
         mSprite = sf::Sprite(Assets::sprites["player"].mTexture);
         mSprite.setPosition(128 * (pos_ % TILES_WIDTH), 128 * (pos_ / TILES_WIDTH));
-        weaponDamage_ = 25; //temp
+        weaponDamage_ = 50; //temp
+
+        statusText_.setFont(Assets::fonts["Quinquefive-ALoRM"]);
+        statusText_.setCharacterSize(16);
     }
 
     ~Player()
@@ -31,6 +34,34 @@ public:
 
     const std::string& GetName() const { return name_; }
     bool killedBoss() const { return killedBoss_; }
+    bool abilityReady() const { return turnCount_ >= cooldownPeriod_; }
+    int getLevel() { return level_; }
+    void addXP(int xp) { 
+        xp_ += xp; 
+        int newLevel = std::floor(xp_ / 200);
+        if (newLevel > level_) {
+            level_ = newLevel;
+            max_hp_ = 100 + 10 * level_;
+
+            statusText_.setString("Level up!");
+            statusText_.setFillColor(sf::Color::Green);
+            elapsedTime_ = 0.0f;  // Resets the timer
+        }
+    }
+
+    void drawStatus(sf::RenderTarget& target) {
+        sf::Vector2f textPosition = GetPosition();
+        textPosition.y -= 30;
+        textPosition.x -= 20;
+        statusText_.setPosition(textPosition);
+
+        float dt = clock_.restart().asSeconds();
+        elapsedTime_ += dt;
+
+        if (elapsedTime_ <= 2.0f) {     // returns the HP text to white after 0.5 seconds
+            target.draw(statusText_);
+        }
+    }
 
     // returns cooldown progress
     float CooldownProgress() const { 
@@ -40,13 +71,21 @@ public:
             return turnCount_ * 1.0f / cooldownPeriod_; 
     }
 
+    float LevelProgress() const {
+        return (xp_ - (level_ * 200.0f)) / 200;
+    }
+
     // attacks every monster within 5 tiles
-    void rangedAttack() {
+    int rangedAttack() {
+        int earnedXP = 0;
         for (std::shared_ptr<Entity> e : entities_) {
-            if (e->IsMonster() && distanceBetween(this->GetPosition(), e->GetPosition()) <= 5 * 128) {
-                e->takeDamage(20);
+            if (e->IsMonster() && distanceBetween(this->GetPosition(), e->GetPosition()) <= 4 * 128) {
+                if (e->takeDamage(20 + 10 * level_)) {
+                    earnedXP += e->maxHP();
+                }
             }
         }
+        return earnedXP;
     }
 
     bool drinkHealthPotion() {
@@ -64,7 +103,7 @@ public:
     bool processInput(sf::Keyboard::Key key, bool is_pressed) {
         std::shared_ptr<Entity> target = nullptr;
         if (key == sf::Keyboard::E && turnCount_ >= cooldownPeriod_) {   // 10 turn cooldown
-            rangedAttack();
+            addXP(rangedAttack());
             turnCount_ = 0;
             return true;
         }
@@ -88,11 +127,14 @@ public:
                 if (target->isBoss() && died) {
                     killedBoss_ = true;
                 }
+                if (died) {
+                    addXP(target->maxHP());
+                }
             }
         }
         turnCount_++;
         //std::cout << "Player: " << this->GetPosition().x << ", " << this->GetPosition().y << std::endl;   // prints player location
-
+        //std::cout << "Player: " << this->pos_ << std::endl;
         return true;
     }
 
@@ -131,11 +173,17 @@ public:
     }
 
     private:
+        sf::Text statusText_;
         const std::string name_;
         Inventory inv_;
         int turnCount_ = 10;
         int cooldownPeriod_ = 10;
         bool killedBoss_ = false;
+        int xp_ = 0;
+        int level_ = 0;
+
+        sf::Clock clock_;
+        float elapsedTime_ = 2.0f;  // used for changing the color of the status text
 };
 
 #endif // PLAYER_H
