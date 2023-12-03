@@ -1,14 +1,12 @@
 #include "TileMap.hpp"
+#include "Assets.hpp"
 
 #include <SFML/Graphics.hpp>
 
 
-bool TileMap::load(const std::string& tileset, sf::Vector2u tile_size, const int* tiles, unsigned int width, unsigned int height)
+bool TileMap::load(const std::string& tileset_name, sf::Vector2u tile_size, const int* tiles, unsigned int width, unsigned int height)
 {
-    
-    if (!tileset_.loadFromFile(tileset))
-        return false;
-
+    tileset_name_ = tileset_name;
     // resize the vertex array to fit the level size
     vertices_.setPrimitiveType(sf::Quads);
     vertices_.resize(width * height * 4);
@@ -21,8 +19,8 @@ bool TileMap::load(const std::string& tileset, sf::Vector2u tile_size, const int
             int tileNumber = tiles[i + j * width];
 
             // find its position in the tileset texture
-            int tu = tileNumber % (tileset_.getSize().x / tile_size.x);
-            int tv = tileNumber / (tileset_.getSize().x / tile_size.x);
+            int tu = tileNumber % (((Assets::sprites[tileset_name_])->mTexture).getSize().x / tile_size.x);
+            int tv = tileNumber / (((Assets::sprites[tileset_name_])->mTexture).getSize().x / tile_size.x);
 
             // get a pointer to the current tile's quad
             sf::Vertex* quad = &vertices_[(i + j * width) * 4];
@@ -49,7 +47,7 @@ void TileMap::draw(sf::RenderTarget& target, sf::RenderStates states) const
     states.transform *= getTransform();
 
     // apply the tileset texture
-    states.texture = &tileset_;
+    states.texture = &(Assets::sprites[tileset_name_])->mTexture;
 
     // draw the vertex array
     target.draw(vertices_, states);
