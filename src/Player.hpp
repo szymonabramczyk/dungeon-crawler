@@ -19,11 +19,11 @@ public:
     Player(const std::string& name) : Entity("player", 100), inv_(), name_(name)
     {
         pos_ = 3 * 15;
-        mSprite = sf::Sprite(Assets::sprites["player"].mTexture);
+        mSprite = sf::Sprite(Assets::sprites["player"]->mTexture);
         mSprite.setPosition(128 * (pos_ % TILES_WIDTH), 128 * (pos_ / TILES_WIDTH));
         weaponDamage_ = 25; //temp
 
-        statusText_.setFont(Assets::fonts["Quinquefive-ALoRM"]);
+        statusText_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
         statusText_.setCharacterSize(16);
     }
 

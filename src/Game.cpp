@@ -33,15 +33,15 @@ Game::Game(const std::string& path)
     xpBar_.setFillColor(sf::Color::Green); // Set the initial color
     xpBar_.setPosition(30, 990); // Adjust the position as needed
 
-    endText_.setFont(Assets::fonts["Quinquefive-ALoRM"]);
+    endText_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
     endText_.setCharacterSize(85);
     endText_.setFillColor(sf::Color::White);
 
-    infoText_.setFont(Assets::fonts["Quinquefive-ALoRM"]);
+    infoText_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
     infoText_.setCharacterSize(10);
     infoText_.setFillColor(sf::Color::White);
 
-    restartText_.setFont(Assets::fonts["Quinquefive-ALoRM"]);
+    restartText_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
     restartText_.setCharacterSize(25);
     restartText_.setFillColor(sf::Color::White);
     restartText_.setPosition(sf::Vector2f(700, 530));
@@ -56,7 +56,6 @@ Game::Game(const std::string& path)
 
 // A method to run the game
 void Game::run() {
-    
     sf::Clock clock;
     while (window_.isOpen()) {
         sf::Time delta_time = clock.restart();
@@ -74,10 +73,8 @@ void Game::generatelevel(){
 	        int random = rand() % 60;
             if (random < 3){
             levels_[i][j] = random;
-            }
-            
+            }   
         }
-        
     }
     levels_[0][59] = 3; // setting doors on each level
     levels_[1][45] = 3; 
@@ -94,16 +91,11 @@ void Game::generatelevel(){
     levels_[7][59] = 3;
     levels_[7][45] = 3;
     levels_[7][7] = 3;
-    
-    
-
 }
 
 // A method to load a level
 bool Game::loadLevel() {
-    std::filesystem::path cwd( std::filesystem::canonical( path_ ) );
-    std::filesystem::path file = cwd.parent_path().parent_path() / "tiles.png";
-    return map_.load(file.string(), sf::Vector2u(128, 128), levels_[curr_level_], 15, 8);
+    return map_.load("tiles", sf::Vector2u(128, 128), levels_[curr_level_], 15, 8);
 }
 
 // A method to add monsters

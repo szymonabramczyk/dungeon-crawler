@@ -21,7 +21,7 @@ public:
         // entities_.push_back(std::make_shared<Entity>(this));  // add this entity to the entities_ vector
 
         // text to display hitpoints above the entity
-        text_.setFont(Assets::fonts["Quinquefive-ALoRM"]);
+        text_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
         text_.setCharacterSize(16);
         text_.setFillColor(sf::Color::White);
     }

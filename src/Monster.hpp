@@ -48,7 +48,7 @@ public:
 
         } while (!isGoodPos);
 
-        mSprite = sf::Sprite(Assets::sprites[type].mTexture);
+        mSprite = sf::Sprite(Assets::sprites[type]->mTexture);
         mSprite.setPosition(128 * (pos_ % TILES_WIDTH), 128 * (pos_ / TILES_WIDTH));
         isMonster_ = true;
         isBoss_ = isBoss;
