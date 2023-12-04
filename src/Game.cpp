@@ -238,9 +238,11 @@ void Game::render() {
 
     player_->drawInventory(window_);
 
+    // !!! this should not be here !!!
     if (player_->IsDead()) {
         endText_.setPosition(sf::Vector2f(500, 384));
         endText_.setString("Game Over!");
+        Assets::sounds["game-over"]->play();
         window_.draw(endText_);
         window_.draw(restartText_);
     }

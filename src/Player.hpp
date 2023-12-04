@@ -44,6 +44,7 @@ public:
             max_hp_ = 100 + 10 * level_;
 
             statusText_.setString("Level up!");
+            Assets::sounds["level-up"]->play();
             statusText_.setFillColor(sf::Color::Green);
             elapsedTime_ = 0.0f;  // Resets the timer
         }
@@ -143,6 +144,11 @@ public:
     bool checkCollision(int (&level)[120], int &curr_level) {
         if (level[pos_] == 1) {
             inv_.addHealthPotions(1);
+            Assets::sounds["collect"]->play();
+            level[pos_] = 0;
+        }
+        else if (level[pos_] == 2) {
+            Assets::sounds["chest-open"]->play();
             level[pos_] = 0;
         }
         else if (level[pos_] == 3) { // checks that the player on a door tile
