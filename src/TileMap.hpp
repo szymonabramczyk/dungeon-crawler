@@ -13,4 +13,4 @@ private:
     sf::VertexArray vertices_;
     std::string tileset_name_;
 };
-#endif
+#endif // TILEMAP_HPP_

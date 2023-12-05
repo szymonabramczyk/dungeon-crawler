@@ -20,4 +20,4 @@ class Inventory : public sf::Drawable {
         sf::Sprite health_potions_sprite_;
 };
 
-#endif
+#endif // INVENTORY_HPP_

@@ -1,6 +1,5 @@
-#ifndef _ENTITY_HPP_
-#define _ENTITY_HPP_
-#include "SpriteInfo.hpp"
+#ifndef ENTITY_HPP_
+#define ENTITY_HPP_
 #include "Assets.hpp"
 
 #include <string>
@@ -180,4 +179,4 @@ protected:
     const int TILES_HEIGHT = 8;
 };
 
-#endif // _ENTITY_HPP_
+#endif // ENTITY_HPP_

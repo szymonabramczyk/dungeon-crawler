@@ -97,4 +97,4 @@ public:
         int speed_;
 };
 
-#endif // MONSTER_H
+#endif // MONSTER_HPP_

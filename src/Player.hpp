@@ -195,5 +195,5 @@ public:
         float elapsedTime_ = 2.0f;  // used for changing the color of the status text
 };
 
-#endif // PLAYER_H
+#endif // PLAYER_H_
 

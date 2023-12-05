@@ -26,7 +26,7 @@ void Assets::loadAssets(const std::string& path) {
         std::string::size_type pos = texture_name.find('.');
         if (pos != std::string::npos) {
             std::string tmp = texture_name.substr(0, pos);
-            loadSprite(tmp, file); 
+            loadTexture(tmp, file); 
         }
     }
     // a loop to automatically load fonts with given names into the fonts map
@@ -50,7 +50,7 @@ void Assets::loadAssets(const std::string& path) {
 } 
 
 // a method to load sprite with a given name and a path
-void Assets::loadSprite(const std::string& name, const std::string& filePath) {
+void Assets::loadTexture(const std::string& name, const std::string& filePath) {
     std::unique_ptr<sf::Texture> texture(new sf::Texture);
     if (!texture->loadFromFile(filePath))
             throw std::runtime_error("Couldn't load " + name + " texture file: " + filePath);

@@ -1,5 +1,5 @@
-#ifndef ASSETS_HPP
-#define ASSETS_HPP
+#ifndef ASSETS_HPP_
+#define ASSETS_HPP_
 
 #include <map>
 
@@ -11,7 +11,7 @@ struct Assets
     static void loadAssets(const std::string& path);
     static void loadSound(const std::string& name, const std::string& filePath);
     static void loadFont(const std::string& name, const std::string& filePath);
-    static void loadSprite(const std::string& name, const std::string& filePath);
+    static void loadTexture(const std::string& name, const std::string& filePath);
 
     static std::map <std::string, std::unique_ptr<sf::Texture>> textures; // our map that stores all textures in game 
     static std::map <std::string, std::unique_ptr<sf::Font>> fonts;
@@ -19,4 +19,4 @@ struct Assets
     static std::map <std::string, std::unique_ptr<sf::SoundBuffer>> soundBuffers;
 };
 
-#endif // ASSETS_HPP
+#endif // ASSETS_HPP_

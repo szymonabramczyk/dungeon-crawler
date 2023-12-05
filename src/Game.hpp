@@ -7,21 +7,20 @@
 #include "Monster.hpp"
 #include "Entity.hpp"
 #include "Inventory.hpp"
+
 #include <vector>
 #include <random>
 #include <set>
+
 #include <SFML/Graphics.hpp>
 
 class Game {
     public:
         Game(const std::string& path);
         void run();
-        void makelevels();
         bool loadLevel();
         void generatelevel();
         
-
-
     private:
         void events();
         void addUndead();
@@ -32,7 +31,6 @@ class Game {
         void update(sf::Time delta_time);
         void render();
         
-    private:
         std::string path_;
         sf::RenderWindow window_; 
         std::shared_ptr<Player> player_;
@@ -49,7 +47,6 @@ class Game {
 
         bool gameOver = false;
         
-
         int levels_ [9][120];
         int curr_level_ = 0;
         std::set<int> completedLevels_;
@@ -57,4 +54,4 @@ class Game {
         friend class Player;
 };
 
-#endif
+#endif // GAME_HPP_

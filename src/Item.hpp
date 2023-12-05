@@ -39,4 +39,4 @@ public:
     void render(sf::RenderWindow& window, int x, int y) const override;
 };
 
-#endif
+#endif // ITEM_HPP
