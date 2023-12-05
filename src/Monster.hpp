@@ -2,7 +2,6 @@
 #define MONSTER_HPP_
 
 #include <SFML/Graphics.hpp>
-#include "SpriteInfo.hpp"
 #include "Entity.hpp"
 #include "Assets.hpp"
 #include <random>
@@ -48,7 +47,7 @@ public:
 
         } while (!isGoodPos);
 
-        mSprite = sf::Sprite(Assets::sprites[type]->mTexture);
+        mSprite = sf::Sprite(*Assets::textures[type]);
         mSprite.setPosition(128 * (pos_ % TILES_WIDTH), 128 * (pos_ / TILES_WIDTH));
         isMonster_ = true;
         isBoss_ = isBoss;

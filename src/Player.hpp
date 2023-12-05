@@ -1,7 +1,6 @@
 #ifndef PLAYER_HPP_
 #define PLAYER_HPP_
 
-#include "SpriteInfo.hpp"
 #include "Entity.hpp"
 #include "Assets.hpp"
 #include "Inventory.hpp"
@@ -19,7 +18,7 @@ public:
     Player(const std::string& name) : Entity("player", 100), inv_(), name_(name)
     {
         pos_ = 3 * 15;
-        mSprite = sf::Sprite(Assets::sprites["player"]->mTexture);
+        mSprite = sf::Sprite(*Assets::textures["player"]);
         mSprite.setPosition(128 * (pos_ % TILES_WIDTH), 128 * (pos_ / TILES_WIDTH));
         weaponDamage_ = 25; //temp
 
