@@ -3,31 +3,33 @@
 
 #include <iostream>
 
-Inventory::Inventory() : health_potions_(0) {
-    health_potions_text_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
-    health_potions_text_.setCharacterSize(28);
-    health_potions_text_.setFillColor(sf::Color::White);
-    health_potions_text_.setPosition(sf::Vector2f(40, 830));
-    health_potions_text_.setString(std::to_string(health_potions_));
-    health_potions_sprite_ = sf::Sprite(*Assets::textures["health-potion"]);
-    health_potions_sprite_.setPosition(sf::Vector2f(40, 790));
+Inventory::Inventory() : potions_(0, 0, "health-potion", 25), weapon_(1, 1, "sword", 25) {
 }
 
-int Inventory::healthPotionCount() { return health_potions_; }
+int Inventory::healthPotionCount() { return potions_.getAmount(); }
 
+int Inventory::getWeaponDamage() {
+    return weapon_.getDamage();
+}
 // A method to change the number of potions owned by the player
 void Inventory::addHealthPotions(int number) {
-    health_potions_ += number;
-    update();
+    potions_.addAmount(number);
+    potions_.update();
+}
+
+void Inventory::addWeaponDamage(int amount) {
+    weapon_.addDamage(amount);
+    weapon_.update();
 }
 
 // A method to update (the texts content)
 void Inventory::update() {
-    health_potions_text_.setString(std::to_string(health_potions_));
+    potions_.update();
+    weapon_.update();
 }
 
 // A method to draw the Inventory to the screen
 void Inventory::draw(sf::RenderTarget& target, sf::RenderStates states) const {
-    target.draw(health_potions_text_);
-    target.draw(health_potions_sprite_);
+    potions_.draw(target, states);
+    weapon_.draw(target, states);
 }

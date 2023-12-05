@@ -13,7 +13,7 @@ std::map<std::string, std::unique_ptr<sf::SoundBuffer>> Assets::soundBuffers;
 
 
 void Assets::loadAssets(const std::string& path) {
-    std::string textures_names[6] = {"player.png", "tiles.png", "orc.png", "health-potion.png", "orc-boss.png", "undead.png"};
+    std::string textures_names[7] = {"player.png", "tiles.png", "orc.png", "health-potion.png", "orc-boss.png", "undead.png", "sword.png"};
     std::string font_names[1] = {"Quinquefive-ALoRM.ttf"};
     std::string sounds_names[5] = {"attack.wav", "collect.wav", "chest-open.wav", "level-up.wav", "game-over.wav"};
 

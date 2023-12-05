@@ -1,55 +1,27 @@
 #include "Item.hpp"
+#include "Assets.hpp"
 
 #include <iostream>
 
-Item::Item(int amount) : amount(amount) {}
-
-void Item::useItem() {
-
+Item::Item(int amount, int slot, const std::string& texture_name) : amount_(amount), slot_(slot) {
+    text_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
+    text_.setCharacterSize(28);
+    text_.setFillColor(sf::Color::White);
+    text_.setPosition(sf::Vector2f(slot*100 + 40, 830));
+    text_.setString(std::to_string(amount_));
+    sprite_ = sf::Sprite(*Assets::textures[texture_name]);
+    sprite_.setPosition(sf::Vector2f(slot*128 + 40, 790));
 }
 
-void Item::render(sf::RenderWindow& window, int x, int y) const {
-    sf::RectangleShape rect(sf::Vector2f(32, 32));
-    rect.setPosition(static_cast<float>(x), static_cast<float>(y));
-    rect.setFillColor(sf::Color::White);
-    window.draw(rect);
+void Item::update() {
+    text_.setString(std::to_string(amount_));
 }
 
-Weapon::Weapon(int amount, int damage) : Item(amount), damage(damage) {}
-
-void Weapon::useItem() {
-    std::cout << "Attacking with " << damage << " damage." << std::endl;
+void Item::addAmount(int amount) {
+    amount_ += amount;
 }
 
-void Weapon::render(sf::RenderWindow& window, int x, int y) const {
-    sf::RectangleShape rect(sf::Vector2f(32, 32));
-    rect.setPosition(static_cast<float>(x), static_cast<float>(y));
-    rect.setFillColor(sf::Color::Red);
-    window.draw(rect);
-}
-
-Armour::Armour(int amount, int defense) : Item(amount), defense(defense) {}
-
-void Armour::useItem() {
-    std::cout << "Equipping armor with " << defense << " defense." << std::endl;
-}
-
-void Armour::render(sf::RenderWindow& window, int x, int y) const {
-    sf::RectangleShape rect(sf::Vector2f(32, 32));
-    rect.setPosition(static_cast<float>(x), static_cast<float>(y));
-    rect.setFillColor(sf::Color::Blue); 
-    window.draw(rect);
-}
-
-Potion::Potion(int amount, int healingAmount) : Item(amount), healingAmount(healingAmount) {}
-
-void Potion::useItem() {
-    std::cout << "Using potion, healing for " << healingAmount << " health." << std::endl;
-}
-
-void Potion::render(sf::RenderWindow& window, int x, int y) const {
-    sf::RectangleShape rect(sf::Vector2f(32, 32)); 
-    rect.setPosition(static_cast<float>(x), static_cast<float>(y));
-    rect.setFillColor(sf::Color::Green); 
-    window.draw(rect);
+void Item::draw(sf::RenderTarget& target, sf::RenderStates states) const {
+    target.draw(text_);
+    target.draw(sprite_);
 }

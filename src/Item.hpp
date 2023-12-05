@@ -4,39 +4,21 @@
 #include <SFML/Graphics.hpp>
 
 class Item {
-public:
-    int amount;
-
-    Item(int amount);
-    virtual void useItem();
-    virtual void render(sf::RenderWindow& window, int x, int y) const;
-};
-
-class Weapon : public Item {
-public:
-    int damage;
-
-    Weapon(int amount, int damage);
-    void useItem() override;
-    void render(sf::RenderWindow& window, int x, int y) const override;
-};
-
-class Armour : public Item {
-public:
-    int defense;
-
-    Armour(int amount, int defense);
-    void useItem() override;
-    void render(sf::RenderWindow& window, int x, int y) const override;
-};
-
-class Potion : public Item {
-public:
-    int healingAmount;
-
-    Potion(int amount, int healingAmount);
-    void useItem() override;
-    void render(sf::RenderWindow& window, int x, int y) const override;
+    public:
+        Item(int amount, int slot, const std::string& texture_name);
+        void addAmount(int amount);
+        void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+        void update();
+        int getAmount() {
+            return amount_;
+        }
+    
+    protected:
+        int amount_;
+        int slot_;
+        sf::Font font_;
+        sf::Text text_;
+        sf::Sprite sprite_;
 };
 
 #endif // ITEM_HPP

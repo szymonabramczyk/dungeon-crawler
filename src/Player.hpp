@@ -20,7 +20,7 @@ public:
         pos_ = 3 * 15;
         mSprite = sf::Sprite(*Assets::textures["player"]);
         mSprite.setPosition(128 * (pos_ % TILES_WIDTH), 128 * (pos_ / TILES_WIDTH));
-        weaponDamage_ = 25; //temp
+        weaponDamage_ = inv_.getWeaponDamage();
 
         statusText_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
         statusText_.setCharacterSize(16);
@@ -109,7 +109,7 @@ public:
             turnCount_ = 0;
             return true;
         }
-        else if (key == sf::Keyboard::Q)
+        else if (key == sf::Keyboard::Q) 
             return drinkHealthPotion();
         else if (key == sf::Keyboard::W) 
             target = moveAlongYAxis(false);
@@ -147,6 +147,8 @@ public:
             level[pos_] = 0;
         }
         else if (level[pos_] == 2) {
+            inv_.addWeaponDamage(5);
+            weaponDamage_ = inv_.getWeaponDamage();
             Assets::sounds["chest-open"]->play();
             level[pos_] = 0;
         }
