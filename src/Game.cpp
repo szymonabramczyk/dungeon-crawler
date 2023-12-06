@@ -14,63 +14,13 @@
 // that the Player moves each time a button is pressed 
 Game::Game(const std::string& path) 
     : window_(sf::VideoMode(1920, 1024), "CMake SFML Project", sf::Style::Titlebar | sf::Style::Close ),
+    ui_(),
     path_(path) {
     player_ = std::make_shared<Player>("Player");
     Entity::entities_.push_back(player_);
     window_.setSize(sf::Vector2u(1920, 1024));
     window_.setFramerateLimit(144);
     window_.setKeyRepeatEnabled(false);
-
-    healthBlackBar_.setFillColor(sf::Color::Black); // Set the initial color
-    healthBlackBar_.setSize(sf::Vector2f(205, 20.f));
-    healthBlackBar_.setPosition(30, 910); // Adjust the position as needed
-
-    healthBar_.setFillColor(sf::Color::Red); // Set the initial color
-    healthBar_.setSize(sf::Vector2f(200.f, 15.f));
-    healthBar_.setPosition(30, 910); // Adjust the position as needed
-
-    abilityBlackBar_.setFillColor(sf::Color::Black); // Set the initial color
-    abilityBlackBar_.setSize(sf::Vector2f(205, 20.f));
-    abilityBlackBar_.setPosition(30, 950); // Adjust the position as needed
-
-    abilityBar_.setFillColor(sf::Color::Yellow); // Set the initial color
-    abilityBar_.setSize(sf::Vector2f(200.f, 15.f));
-    abilityBar_.setPosition(30, 950); // Adjust the position as needed
-
-    xpBlackBar_.setFillColor(sf::Color::Black); // Set the initial color
-    xpBlackBar_.setSize(sf::Vector2f(205.f, 20.f));
-    xpBlackBar_.setPosition(30, 990); // Adjust the position as needed
-
-    xpBar_.setFillColor(sf::Color::Green); // Set the initial color
-    xpBar_.setPosition(30, 990); // Adjust the position as needed
-
-    endText_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
-    endText_.setCharacterSize(85);
-    endText_.setFillColor(sf::Color::White);
-
-    healthInfoText_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
-    healthInfoText_.setCharacterSize(10);
-    healthInfoText_.setFillColor(sf::Color::White);
-    healthInfoText_.setString("Health:" + std::to_string(player_->GetHitPoints()) + "/" + std::to_string(player_->maxHP()));
-    healthInfoText_.setPosition(30, 890);
-
-    abilityInfoText_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
-    abilityInfoText_.setCharacterSize(10);
-    abilityInfoText_.setFillColor(sf::Color::White);
-    abilityInfoText_.setString(std::string("Ability: ") + (player_->abilityReady() ? "Ready" : "Charging..."));
-    abilityInfoText_.setPosition(30, 932);
-
-    levelInfoText_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
-    levelInfoText_.setCharacterSize(10);
-    levelInfoText_.setFillColor(sf::Color::White);
-    levelInfoText_.setString("Level: " + std::to_string(player_->getLevel()));
-    levelInfoText_.setPosition(30, 972);
-
-    restartText_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
-    restartText_.setCharacterSize(25);
-    restartText_.setFillColor(sf::Color::White);
-    restartText_.setPosition(sf::Vector2f(700, 530));
-    //restartText_.setString("Press R to restart");
 
     // monsters for level 0
     addUndead();
@@ -214,28 +164,20 @@ void Game::events() {
 // A method to update
 void Game::update() {
     
-    healthBar_.setSize(sf::Vector2f(player_->GetHitPoints() * 1.0f / player_->maxHP() *200, 15.f));
-
-    abilityBar_.setSize(sf::Vector2f(player_->CooldownProgress()*200.f, 15.f));
-
-    xpBar_.setSize(sf::Vector2f(player_->LevelProgress()*200.f, 15.f));
-
-    healthInfoText_.setString("Health:" + std::to_string(player_->GetHitPoints()) + "/" + std::to_string(player_->maxHP()));
-    
-    abilityInfoText_.setString(std::string("Ability: ") + (player_->abilityReady() ? "Ready" : "Charging..."));
-
-    levelInfoText_.setString("Level: " + std::to_string(player_->getLevel()));
+    ui_.updateHealthUI(player_->GetHitPoints() * 1.0f / player_->maxHP(),
+            "Health: " + std::to_string(player_->GetHitPoints()) + "/" + std::to_string(player_->maxHP()));
+    ui_.updateAbilityUI(player_->CooldownProgress(),
+            std::string("Ability: ") + (player_->abilityReady() ? "Ready" : "Charging..."));
+    ui_.updateXpUI(player_->LevelProgress(),
+            "Level: " + std::to_string(player_->getLevel()));
 
     if (player_->IsDead()) {
-        endText_.setPosition(sf::Vector2f(500, 384));
-        endText_.setString("Game Over!");
+        ui_.updateEndText(false);
         Assets::sounds["game-over"]->play();
         
     }
     else if (player_->killedBoss()) {
-        endText_.setPosition(sf::Vector2f(575, 384));
-        endText_.setString("Victory!");
-        
+        ui_.updateEndText(true);
     }
 }
 
@@ -258,19 +200,7 @@ void Game::render() {
         monster->drawHitpoints(window_);
     }
     player_->drawStatus(window_);
-    window_.draw(healthBlackBar_);
-    window_.draw(abilityBlackBar_);
-    window_.draw(xpBlackBar_);
-    window_.draw(healthBar_);
-    window_.draw(abilityBar_);
-    window_.draw(xpBar_);
-    window_.draw(healthInfoText_);
-    window_.draw(abilityInfoText_);
-    window_.draw(levelInfoText_);
-    window_.draw(endText_);
-    window_.draw(restartText_);
-    window_.draw(endText_);
-    window_.draw(restartText_);
+    ui_.draw(window_);
     player_->drawInventory(window_);
     window_.display();
 }

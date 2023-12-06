@@ -7,6 +7,7 @@
 #include "Monster.hpp"
 #include "Entity.hpp"
 #include "Inventory.hpp"
+#include "UI.hpp"
 
 #include <vector>
 #include <random>
@@ -36,18 +37,7 @@ class Game {
         std::shared_ptr<Player> player_;
         std::vector<std::shared_ptr<Monster>> monsters_; // vector to store all monsters
 
-        sf::RectangleShape healthBar_;
-        sf::RectangleShape healthBlackBar_;
-        sf::RectangleShape abilityBar_;
-        sf::RectangleShape abilityBlackBar_;
-        sf::RectangleShape xpBar_;
-        sf::RectangleShape xpBlackBar_;
-
-        sf::Text endText_;
-        sf::Text restartText_;
-        sf::Text healthInfoText_;
-        sf::Text abilityInfoText_;
-        sf::Text levelInfoText_;
+        UI ui_;
 
         bool gameOver = false;
         
