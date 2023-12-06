@@ -28,7 +28,7 @@ class Game {
         void spawnBoss();
         void spawnMonsters();
         void deleteMonsters();
-        void update(sf::Time delta_time);
+        void update();
         void render();
         
         std::string path_;
@@ -37,13 +37,17 @@ class Game {
         std::vector<std::shared_ptr<Monster>> monsters_; // vector to store all monsters
 
         sf::RectangleShape healthBar_;
+        sf::RectangleShape healthBlackBar_;
         sf::RectangleShape abilityBar_;
+        sf::RectangleShape abilityBlackBar_;
         sf::RectangleShape xpBar_;
-        sf::RectangleShape blackBar_;
+        sf::RectangleShape xpBlackBar_;
 
         sf::Text endText_;
         sf::Text restartText_;
-        sf::Text infoText_;
+        sf::Text healthInfoText_;
+        sf::Text abilityInfoText_;
+        sf::Text levelInfoText_;
 
         bool gameOver = false;
         

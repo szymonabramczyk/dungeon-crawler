@@ -21,14 +21,25 @@ Game::Game(const std::string& path)
     window_.setFramerateLimit(144);
     window_.setKeyRepeatEnabled(false);
 
-    blackBar_.setFillColor(sf::Color::Black); // Set the initial color
-    blackBar_.setSize(sf::Vector2f(205, 20.f));
+    healthBlackBar_.setFillColor(sf::Color::Black); // Set the initial color
+    healthBlackBar_.setSize(sf::Vector2f(205, 20.f));
+    healthBlackBar_.setPosition(30, 910); // Adjust the position as needed
 
     healthBar_.setFillColor(sf::Color::Red); // Set the initial color
+    healthBar_.setSize(sf::Vector2f(200.f, 15.f));
     healthBar_.setPosition(30, 910); // Adjust the position as needed
 
+    abilityBlackBar_.setFillColor(sf::Color::Black); // Set the initial color
+    abilityBlackBar_.setSize(sf::Vector2f(205, 20.f));
+    abilityBlackBar_.setPosition(30, 950); // Adjust the position as needed
+
     abilityBar_.setFillColor(sf::Color::Yellow); // Set the initial color
+    abilityBar_.setSize(sf::Vector2f(200.f, 15.f));
     abilityBar_.setPosition(30, 950); // Adjust the position as needed
+
+    xpBlackBar_.setFillColor(sf::Color::Black); // Set the initial color
+    xpBlackBar_.setSize(sf::Vector2f(205.f, 20.f));
+    xpBlackBar_.setPosition(30, 990); // Adjust the position as needed
 
     xpBar_.setFillColor(sf::Color::Green); // Set the initial color
     xpBar_.setPosition(30, 990); // Adjust the position as needed
@@ -37,9 +48,23 @@ Game::Game(const std::string& path)
     endText_.setCharacterSize(85);
     endText_.setFillColor(sf::Color::White);
 
-    infoText_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
-    infoText_.setCharacterSize(10);
-    infoText_.setFillColor(sf::Color::White);
+    healthInfoText_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
+    healthInfoText_.setCharacterSize(10);
+    healthInfoText_.setFillColor(sf::Color::White);
+    healthInfoText_.setString("Health:" + std::to_string(player_->GetHitPoints()) + "/" + std::to_string(player_->maxHP()));
+    healthInfoText_.setPosition(30, 890);
+
+    abilityInfoText_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
+    abilityInfoText_.setCharacterSize(10);
+    abilityInfoText_.setFillColor(sf::Color::White);
+    abilityInfoText_.setString(std::string("Ability: ") + (player_->abilityReady() ? "Ready" : "Charging..."));
+    abilityInfoText_.setPosition(30, 932);
+
+    levelInfoText_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
+    levelInfoText_.setCharacterSize(10);
+    levelInfoText_.setFillColor(sf::Color::White);
+    levelInfoText_.setString("Level: " + std::to_string(player_->getLevel()));
+    levelInfoText_.setPosition(30, 972);
 
     restartText_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
     restartText_.setCharacterSize(25);
@@ -60,7 +85,6 @@ void Game::run() {
     while (window_.isOpen()) {
         sf::Time delta_time = clock.restart();
         events();
-        update(delta_time);
         render();
     }
 }
@@ -140,7 +164,6 @@ void Game::events() {
                 window_.close();
                 break;
             case sf::Event::KeyPressed:
-                // Assets::sounds["attack"]->play();
                 if (event.key.code == sf::Keyboard::Up) // you can add potions using up arrow
                     {}// inv_.addHealthPotions(1);
                 if (event.key.code == sf::Keyboard::Down) // you can remove potions using down arrow
@@ -178,6 +201,7 @@ void Game::events() {
                         }
                     }
                 }
+                update();
                 break;
             case sf::Event::KeyReleased:
                 break;
@@ -188,7 +212,31 @@ void Game::events() {
 }
 
 // A method to update
-void Game::update(sf::Time delta_time) {
+void Game::update() {
+    
+    healthBar_.setSize(sf::Vector2f(player_->GetHitPoints() * 1.0f / player_->maxHP() *200, 15.f));
+
+    abilityBar_.setSize(sf::Vector2f(player_->CooldownProgress()*200.f, 15.f));
+
+    xpBar_.setSize(sf::Vector2f(player_->LevelProgress()*200.f, 15.f));
+
+    healthInfoText_.setString("Health:" + std::to_string(player_->GetHitPoints()) + "/" + std::to_string(player_->maxHP()));
+    
+    abilityInfoText_.setString(std::string("Ability: ") + (player_->abilityReady() ? "Ready" : "Charging..."));
+
+    levelInfoText_.setString("Level: " + std::to_string(player_->getLevel()));
+
+    if (player_->IsDead()) {
+        endText_.setPosition(sf::Vector2f(500, 384));
+        endText_.setString("Game Over!");
+        Assets::sounds["game-over"]->play();
+        
+    }
+    else if (player_->killedBoss()) {
+        endText_.setPosition(sf::Vector2f(575, 384));
+        endText_.setString("Victory!");
+        
+    }
 }
 
 // A method to render objects to the creen
@@ -210,49 +258,20 @@ void Game::render() {
         monster->drawHitpoints(window_);
     }
     player_->drawStatus(window_);
-    
-    blackBar_.setPosition(30, 910); // Adjust the position as needed
-    window_.draw(blackBar_);
-    healthBar_.setSize(sf::Vector2f(player_->GetHitPoints() * 1.0f / player_->maxHP() *200, 15.f));
+    window_.draw(healthBlackBar_);
+    window_.draw(abilityBlackBar_);
+    window_.draw(xpBlackBar_);
     window_.draw(healthBar_);
-
-    blackBar_.setPosition(30, 950); // Adjust the position as needed
-    window_.draw(blackBar_);
-    abilityBar_.setSize(sf::Vector2f(player_->CooldownProgress()*200.f, 15.f));
     window_.draw(abilityBar_);
-
-    blackBar_.setPosition(30, 990); // Adjust the position as needed
-    window_.draw(blackBar_);
-    xpBar_.setSize(sf::Vector2f(player_->LevelProgress()*200.f, 15.f));
     window_.draw(xpBar_);
-
-    infoText_.setString("Health:" + std::to_string(player_->GetHitPoints()) + "/" + std::to_string(player_->maxHP()));
-    infoText_.setPosition(30, 890);
-    window_.draw(infoText_);
-    infoText_.setString(std::string("Ability: ") + (player_->abilityReady() ? "Ready" : "Charging..."));
-    infoText_.setPosition(30, 932);
-    window_.draw(infoText_);
-    infoText_.setString("Level: " + std::to_string(player_->getLevel()));
-    infoText_.setPosition(30, 972);
-    window_.draw(infoText_);
-
+    window_.draw(healthInfoText_);
+    window_.draw(abilityInfoText_);
+    window_.draw(levelInfoText_);
+    window_.draw(endText_);
+    window_.draw(restartText_);
+    window_.draw(endText_);
+    window_.draw(restartText_);
     player_->drawInventory(window_);
-
-    // !!! this should not be here !!!
-    if (player_->IsDead()) {
-        endText_.setPosition(sf::Vector2f(500, 384));
-        endText_.setString("Game Over!");
-        Assets::sounds["game-over"]->play();
-        window_.draw(endText_);
-        window_.draw(restartText_);
-    }
-    else if (player_->killedBoss()) {
-        endText_.setPosition(sf::Vector2f(575, 384));
-        endText_.setString("Victory!");
-        window_.draw(endText_);
-        window_.draw(restartText_);
-    }
-
     window_.display();
 }
 
