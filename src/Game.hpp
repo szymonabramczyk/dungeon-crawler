@@ -20,7 +20,6 @@ class Game {
         Game(const std::string& path);
         void run();
         bool loadLevel();
-        void generatelevel();
         
     private:
         void events();
