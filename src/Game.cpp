@@ -7,6 +7,7 @@
 #include <iostream>
 
 #include "Assets.hpp"
+#include "Constants.hpp"
 #include "EntityManager.hpp"
 #include "Inventory.hpp"
 #include "LevelGenerator.hpp"
@@ -43,7 +44,7 @@ void Game::Run() {
 
 // A method to load a level
 bool Game::LoadLevel() {
-    return map_.Load("tiles", sf::Vector2u(128, 128), levels_[curr_level_], 15, 8);
+    return map_.Load("tiles", sf::Vector2u(128, 128), levels_[curr_level_], Constants::kTilesWidth, 8);
 }
 
 // A method to add monsters

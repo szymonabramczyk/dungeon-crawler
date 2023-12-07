@@ -8,6 +8,7 @@
 #include <string>
 
 #include "Assets.hpp"
+#include "Constants.hpp"
 #include "EntityManager.hpp"
 
 // Base class for Player and Monster classes
@@ -87,9 +88,9 @@ class Entity {
         bool can_move = true;
 
         // checks if border of the level is reached
-        if (left && pos_ % kTilesWidth == kTilesWidth - 1)
+        if (left && pos_ % Constants::kTilesWidth == Constants::kTilesWidth - 1)
             can_move = false;
-        if (!left && pos_ % kTilesWidth == 0)
+        if (!left && pos_ % Constants::kTilesWidth == 0)
             can_move = false;
 
         std::shared_ptr<Entity> target = nullptr;  // this variable is used to save the entity that prevents this entity from moving
@@ -104,7 +105,7 @@ class Entity {
         }
         if (can_move) {
             pos_ = new_pos;
-            sprite_.setPosition(128 * (new_pos % kTilesWidth), 128 * (new_pos / kTilesWidth));
+            sprite_.setPosition(128 * (new_pos % Constants::kTilesWidth), 128 * (new_pos / Constants::kTilesWidth));
         }
 
         return target;
@@ -112,14 +113,14 @@ class Entity {
 
     // Method to move along X and Y axes. Checks for collision and returns a pointer to the entity that is in the way.
     std::shared_ptr<Entity> MoveAlongYAxis(bool down) {
-        int new_pos = down ? pos_ + kTilesWidth : pos_ - kTilesWidth;
+        int new_pos = down ? pos_ + Constants::kTilesWidth : pos_ - Constants::kTilesWidth;
 
         bool can_move = true;
 
         // checks if border of the level is reached
-        if (down && pos_ / kTilesWidth == kTilesHeight - 1)
+        if (down && pos_ / Constants::kTilesWidth == Constants::kTilesHeight - 1)
             can_move = false;
-        if (!down && pos_ / kTilesWidth == 0)
+        if (!down && pos_ / Constants::kTilesWidth == 0)
             can_move = false;
 
         std::shared_ptr<Entity> target = nullptr;  // this variable is used to save the entity that prevents this entity from moving
@@ -134,7 +135,7 @@ class Entity {
         }
         if (can_move) {
             pos_ = new_pos;
-            sprite_.setPosition(128 * (new_pos % kTilesWidth), 128 * (new_pos / kTilesWidth));
+            sprite_.setPosition(128 * (new_pos % Constants::kTilesWidth), 128 * (new_pos / Constants::kTilesWidth));
         }
 
         return target;
@@ -161,9 +162,6 @@ class Entity {
 
     sf::Clock clock_;
     float elapsed_time_ = 0.0f;  // used for changing the color of the HP text
-
-    const int kTilesWidth = 15;
-    const int kTilesHeight = 8;
 };
 
 #endif  // ENTITY_HPP_

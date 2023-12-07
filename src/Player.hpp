@@ -14,9 +14,9 @@ class Player : public Entity {
     // Constructor for player class
     // Arguments for Entity(name, type, speed, hitpoints)
     Player(const std::string& name) : Entity("player", 100), inv_(), name_(name) {
-        pos_ = 3 * 15;
+        pos_ = 3 * Constants::kTilesWidth;
         sprite_ = sf::Sprite(*Assets::textures["player"]);
-        sprite_.setPosition(128 * (pos_ % kTilesWidth), 128 * (pos_ / kTilesWidth));
+        sprite_.setPosition(128 * (pos_ % Constants::kTilesWidth), 128 * (pos_ / Constants::kTilesWidth));
         weapon_damage_ = inv_.GetWeaponDamage();
 
         status_text_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
@@ -148,20 +148,20 @@ class Player : public Entity {
         } else if (level[pos_] == 3) {  // checks that the player on a door tile
             if (pos_ == 59) {           // the player on the door leading to the room to the right
                 curr_level++;
-                pos_ = 3 * 15 + 1;  // entrance position
-                sprite_.setPosition(128 * (pos_ % kTilesWidth), 128 * (pos_ / kTilesWidth));
+                pos_ = 3 * Constants::kTilesWidth + 1;  // entrance position
+                sprite_.setPosition(128 * (pos_ % Constants::kTilesWidth), 128 * (pos_ / Constants::kTilesWidth));
             } else if (pos_ == 45) {  // the player on the door leading to the room to the left
                 curr_level--;
                 pos_ = 59;  // entrance position on the right side
-                sprite_.setPosition(128 * (pos_ % kTilesWidth), 128 * (pos_ / kTilesWidth));
+                sprite_.setPosition(128 * (pos_ % Constants::kTilesWidth), 128 * (pos_ / Constants::kTilesWidth));
             } else if (pos_ == 112) {  // the player on the door leading to the room to the dottom
                 curr_level = curr_level + 3;
                 pos_ = 7;  // entrance position on the right side
-                sprite_.setPosition(128 * (pos_ % kTilesWidth), 128 * (pos_ / kTilesWidth));
+                sprite_.setPosition(128 * (pos_ % Constants::kTilesWidth), 128 * (pos_ / Constants::kTilesWidth));
             } else if (pos_ == 7) {  // the player on the door leading to the room to the dottom
                 curr_level = curr_level - 3;
                 pos_ = 113;  // entrance position on the right side
-                sprite_.setPosition(128 * (pos_ % kTilesWidth), 128 * (pos_ / kTilesWidth));
+                sprite_.setPosition(128 * (pos_ % Constants::kTilesWidth), 128 * (pos_ / Constants::kTilesWidth));
             }
             return true;
         }

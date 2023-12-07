@@ -30,7 +30,7 @@ class Monster : public Entity {
             int x = x_distribution(rng);
             int y = y_distribution(rng);
 
-            pos_ = y * 15 + x;
+            pos_ = y * Constants::kTilesWidth + x;
             is_good_pos = true;
             for (std::shared_ptr<Entity> e : EntityManager::GetEntities()) {
                 if (e->GetTilePosition() == pos_) {  // if there is already an entity in that coordinate, then this entity will remain still
@@ -40,7 +40,7 @@ class Monster : public Entity {
             }
 
             int distance_to_player =
-                DistanceBetween(EntityManager::GetEntities()[0]->GetPosition(), sf::Vector2f(128 * (pos_ % kTilesWidth), 128 * (pos_ / kTilesWidth)));
+                DistanceBetween(EntityManager::GetEntities()[0]->GetPosition(), sf::Vector2f(128 * (pos_ % Constants::kTilesWidth), 128 * (pos_ / Constants::kTilesWidth)));
 
             if (distance_to_player <= 3 * 128)
                 is_good_pos = false;
@@ -48,7 +48,7 @@ class Monster : public Entity {
         } while (!is_good_pos);
 
         sprite_ = sf::Sprite(*Assets::textures[type]);
-        sprite_.setPosition(128 * (pos_ % kTilesWidth), 128 * (pos_ / kTilesWidth));
+        sprite_.setPosition(128 * (pos_ % Constants::kTilesWidth), 128 * (pos_ / Constants::kTilesWidth));
         is_monster_ = true;
         is_boss_ = is_boss;
         weapon_damage_ = damage;  // temp
