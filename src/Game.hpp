@@ -44,7 +44,6 @@ class Game {
         int curr_level_ = 0;
         std::set<int> completedLevels_;
         TileMap map_;
-        friend class Player;
 };
 
 #endif // GAME_HPP_

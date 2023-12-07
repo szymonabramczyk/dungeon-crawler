@@ -2,6 +2,7 @@
 #include "Assets.hpp"
 #include "Inventory.hpp"
 #include "LevelGenerator.hpp"
+#include "EntityManager.hpp"
 
 #include <iostream>
 #include <filesystem>
@@ -18,7 +19,7 @@ Game::Game(const std::string& path)
     ui_(),
     path_(path) {
     player_ = std::make_shared<Player>("Player");
-    Entity::entities_.push_back(player_);
+    EntityManager::addEntity(player_);
     window_.setSize(sf::Vector2u(1920, 1024));
     window_.setFramerateLimit(144);
     window_.setKeyRepeatEnabled(false);
@@ -49,13 +50,13 @@ bool Game::loadLevel() {
 void Game::addUndead() {
     std::shared_ptr<Monster> undead = std::make_shared<Monster>("undead", 1, 4, 50);
     monsters_.push_back(undead);
-    Entity::entities_.push_back(undead);
+    EntityManager::addEntity(undead);
 }
 
 void Game::addOrc() {
     std::shared_ptr<Monster> orc = std::make_shared<Monster>("orc", 1, 7, 100);
     monsters_.push_back(orc);
-    Entity::entities_.push_back(orc);
+    EntityManager::addEntity(orc);
 }
 
 void Game::spawnMonsters() {
@@ -69,13 +70,13 @@ void Game::spawnMonsters() {
 void Game::spawnBoss() {
     std::shared_ptr<Monster> orcBoss = std::make_shared<Monster>("orc-boss", 2, 32, 300, true);
     monsters_.push_back(orcBoss);
-    Entity::entities_.push_back(orcBoss);
+    EntityManager::addEntity(orcBoss);
 }
 
 void Game::deleteMonsters() {
     monsters_.clear();
-    Entity::entities_.clear();
-    Entity::entities_.push_back(player_);
+    EntityManager::clearEntities();
+    EntityManager::addEntity(player_);
 }
 
 // A method to handle the events
@@ -87,12 +88,7 @@ void Game::events() {
                 window_.close();
                 break;
             case sf::Event::KeyPressed:
-                if (event.key.code == sf::Keyboard::Up) // you can add potions using up arrow
-                    {}// inv_.addHealthPotions(1);
-                if (event.key.code == sf::Keyboard::Down) // you can remove potions using down arrow
-                    {}// inv_.addHealthPotions(-1);
-                
-                else if (!player_->IsDead() && !player_->killedBoss()) {
+                if (!player_->IsDead() && !player_->killedBoss()) {
                     bool validInput = player_->processInput(event.key.code, true);
                     bool newLevel = player_->checkCollision(levels_[curr_level_], curr_level_);
                     loadLevel();
@@ -144,10 +140,11 @@ void Game::update() {
     ui_.updateXpUI(player_->LevelProgress(),
             "Level: " + std::to_string(player_->getLevel()));
 
+    EntityManager::removeDead();
+
     if (player_->IsDead()) {
         ui_.updateEndText(false);
         Assets::sounds["game-over"]->play();
-        
     }
     else if (player_->killedBoss()) {
         ui_.updateEndText(true);
@@ -159,15 +156,11 @@ void Game::render() {
     window_.clear(); 
     window_.draw(map_); 
 
-    auto it = Entity::entities_.begin();
-    while (it != Entity::entities_.end()) {   // renders all the living entities and removes the dead ones
+    auto it = EntityManager::getEntities().begin();
+    while (it != EntityManager::getEntities().end()) {   // renders all the living entities and removes the dead ones
         std::shared_ptr<Entity> entity = *it;
-        if (entity->IsDead()) {
-            it = Entity::entities_.erase(it);
-        } else {
-            entity->drawEntity(window_);
-            it++;
-        }
+        entity->drawEntity(window_);
+        it++;
     }
     for (std::shared_ptr<Monster> monster : monsters_) {  // renders the hp of all monsters
         monster->drawHitpoints(window_);

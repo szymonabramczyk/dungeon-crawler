@@ -32,7 +32,7 @@ public:
 
             pos_ = y * 15 + x;
             isGoodPos = true;
-            for (std::shared_ptr<Entity> e : entities_) {
+            for (std::shared_ptr<Entity> e : EntityManager::getEntities()) {
                 if (e->getTilePosition() == pos_) {   // if there is already an entity in that coordinate, then this entity will remain still
                     isGoodPos = false;
                     break;
@@ -40,7 +40,7 @@ public:
             }
 
             int distanceToPlayer = 
-                distanceBetween(entities_[0]->GetPosition(), sf::Vector2f(128*(pos_ % TILES_WIDTH), 128*(pos_ / TILES_WIDTH)));
+                distanceBetween(EntityManager::getEntities()[0]->GetPosition(), sf::Vector2f(128*(pos_ % TILES_WIDTH), 128*(pos_ / TILES_WIDTH)));
 
             if (distanceToPlayer <= 3 * 128)
                 isGoodPos = false;
