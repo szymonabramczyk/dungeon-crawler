@@ -4,7 +4,6 @@
 #include "Entity.hpp"
 #include "Assets.hpp"
 #include "Inventory.hpp"
-#include "Game.hpp"
 
 #include <string>
 
