@@ -5,37 +5,32 @@
 extern std::filesystem::path buildPath;
 // Test Fixture for Assets
 class AssetsTest : public ::testing::Test {
-protected:
-    void SetUp() override {
-    }
-    void TearDown() override {
-    }
+    protected:
+        void SetUp() override {
+        }
+        void TearDown() override {
+        }
 };
 
 // Test for successful sprite loading
-TEST_F(AssetsTest, LoadSpriteSuccess) {
-    Assets::loadSprite("player", buildPath / "player.png" );
-    EXPECT_TRUE(Assets::sprites["player"] != NULL);
+TEST(AssetsTest, LoadSpriteSuccess) {
+    Assets::loadTexture("player", buildPath / "player.png" );
+    EXPECT_TRUE(Assets::textures["player"] != NULL);
 }
 
 // Test for unsuccessful sprite loading
-TEST_F(AssetsTest, LoadSpriteFailure) {
-    Assets::loadSprite("invalidSprite", "path/to/nonexistent.png");
-    EXPECT_TRUE(Assets::sprites["invalidSprite"]->mTexture.getSize().x == 0 
-                || Assets::sprites["invalidSprite"]->mTexture.getSize().y == 0);
+TEST(AssetsTest, LoadSpriteFailure) {
+    EXPECT_THROW(Assets::loadTexture("invalidSprite", "path/to/nonexistent.png"), std::runtime_error);
 }
 
 // Test for successful font loading
-TEST_F(AssetsTest, LoadFontSuccess) {
+TEST(AssetsTest, LoadFontSuccess) {
     Assets::loadFont("Quinquefive-ALoRM", buildPath / "Quinquefive-ALoRM.ttf");
     EXPECT_TRUE(Assets::fonts["Quinquefive-ALoRM"] != NULL);
 }
 
 // Test for sound loading
-TEST_F(AssetsTest, LoadSoundSuccess) {
+TEST(AssetsTest, LoadSoundSuccess) {
     Assets::loadSound("attack", buildPath / "attack.wav");
     EXPECT_TRUE(Assets::sounds["attack"] != NULL);
 }
-
-
-
