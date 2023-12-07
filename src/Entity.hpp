@@ -14,10 +14,8 @@
 // Base class for Player and Monster classes
 class Entity {
    public:
-    // static inline std::vector<std::shared_ptr<Entity>> entities_; // vector to store all entities
-
     Entity(const std::string& type, int hp)
-        : type_(type), hitpoints_(hp), max_hp_(hp) {
+        : type_(type), health_points_(hp), max_hp_(hp) {
         // text to display hitpoints above the entity
         text_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
         text_.setCharacterSize(16);
@@ -28,7 +26,7 @@ class Entity {
 
     // Basic functions to retrieve values
     const std::string& GetType() const { return type_; }
-    int GetHitPoints() const { return hitpoints_; }
+    int GetHitPoints() const { return health_points_; }
     const sf::Vector2f GetPosition() const { return sprite_.getPosition(); }
     const int MaxHP() const { return max_hp_; }
     bool IsMonster() const { return is_monster_; }
@@ -47,12 +45,12 @@ class Entity {
     }
 
     bool TakeDamage(const int damage) {
-        if (damage >= hitpoints_) {
-            hitpoints_ = 0;
+        if (damage >= health_points_) {
+            health_points_ = 0;
             is_dead_ = true;
             return true;
         } else {
-            hitpoints_ -= damage;
+            health_points_ -= damage;
             text_.setFillColor(sf::Color::Red);  // set HP text to red
             elapsed_time_ = 0.0f;                // Resets the timer used to track how long the text is red
             return false;
@@ -65,7 +63,7 @@ class Entity {
         sf::Vector2f text_position = GetPosition();
         text_position.y -= 30;
         text_.setPosition(text_position);
-        text_.setString(std::to_string(hitpoints_) + "/" + std::to_string(max_hp_));
+        text_.setString(std::to_string(health_points_) + "/" + std::to_string(max_hp_));
 
         float dt = clock_.restart().asSeconds();
         elapsed_time_ += dt;
@@ -152,7 +150,7 @@ class Entity {
     int speed_;
     int max_hp_;
     int pos_;
-    int hitpoints_;
+    int health_points_;
     bool is_dead_ = false;
     bool is_monster_ = false;
     bool is_boss_;

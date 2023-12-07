@@ -89,9 +89,9 @@ class Player : public Entity {
     bool DrinkHealthPotion() {
         if (inv_.HealthPotionCount() >= 1) {
             inv_.AddHealthPotions(-1);
-            hitpoints_ += 25;
-            if (hitpoints_ > max_hp_)
-                hitpoints_ = max_hp_;
+            health_points_ += 25;
+            if (health_points_ > max_hp_)
+                health_points_ = max_hp_;
             return true;
         }
         return false;
@@ -130,8 +130,6 @@ class Player : public Entity {
             }
         }
         turn_count_++;
-        // std::cout << "Player: " << this->GetPosition().x << ", " << this->GetPosition().y << std::endl;   // prints player location
-        // std::cout << "Player: " << this->pos_ << std::endl;
         return true;
     }
 
