@@ -13,9 +13,9 @@ class UI {
     void draw(sf::RenderTarget& target) const;
 
    private:
-    sf::RectangleShape healthBar_, abilityBar_, xpBar_;
-    sf::RectangleShape healthBlackBar_, abilityBlackBar_, xpBlackBar_;
-    sf::Text endText_, restartText_, healthInfoText_, abilityInfoText_, levelInfoText_;
+    sf::RectangleShape health_bar_, ability_bar_, xp_bar_;
+    sf::RectangleShape health_black_bar_, ability_black_bar_, xp_black_bar_;
+    sf::Text end_text_, restart_text_, health_info_text_, ability_info_text_, level_info_text_;
 
     void Initialize();
 };

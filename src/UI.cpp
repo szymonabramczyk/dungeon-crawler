@@ -7,90 +7,90 @@ UI::UI() {
 }
 
 void UI::UpdateHealthUI(double fraction, const std::string& text) {
-    healthBar_.setSize(sf::Vector2f(fraction * 200.f, 15.f));
-    healthInfoText_.setString(text);
+    health_bar_.setSize(sf::Vector2f(fraction * 200.f, 15.f));
+    health_info_text_.setString(text);
 }
 void UI::UpdateAbilityUI(double fraction, const std::string& text) {
-    abilityBar_.setSize(sf::Vector2f(fraction * 200.f, 15.f));
-    abilityInfoText_.setString(text);
+    ability_bar_.setSize(sf::Vector2f(fraction * 200.f, 15.f));
+    ability_info_text_.setString(text);
 }
 void UI::UpdateXpUI(double fraction, const std::string& text) {
-    xpBar_.setSize(sf::Vector2f(fraction * 200.f, 15.f));
-    levelInfoText_.setString(text);
+    xp_bar_.setSize(sf::Vector2f(fraction * 200.f, 15.f));
+    level_info_text_.setString(text);
 }
 
 void UI::UpdateEndText(bool win) {
     if (win) {
-        endText_.setPosition(sf::Vector2f(575, 384));
-        endText_.setString("Victory!");
+        end_text_.setPosition(sf::Vector2f(575, 384));
+        end_text_.setString("Victory!");
     } else {
-        endText_.setPosition(sf::Vector2f(500, 384));
-        endText_.setString("Game Over!");
+        end_text_.setPosition(sf::Vector2f(500, 384));
+        end_text_.setString("Game Over!");
     }
 }
 
 void UI::Initialize() {
-    healthBlackBar_.setFillColor(sf::Color::Black);  // Set the initial color
-    healthBlackBar_.setSize(sf::Vector2f(205, 20.f));
-    healthBlackBar_.setPosition(30, 910);  // Adjust the position as needed
+    health_black_bar_.setFillColor(sf::Color::Black);  // Set the initial color
+    health_black_bar_.setSize(sf::Vector2f(205, 20.f));
+    health_black_bar_.setPosition(30, 910);  // Adjust the position as needed
 
-    healthBar_.setFillColor(sf::Color::Red);  // Set the initial color
-    healthBar_.setSize(sf::Vector2f(200.f, 15.f));
-    healthBar_.setPosition(30, 910);  // Adjust the position as needed
+    health_bar_.setFillColor(sf::Color::Red);  // Set the initial color
+    health_bar_.setSize(sf::Vector2f(200.f, 15.f));
+    health_bar_.setPosition(30, 910);  // Adjust the position as needed
 
-    abilityBlackBar_.setFillColor(sf::Color::Black);  // Set the initial color
-    abilityBlackBar_.setSize(sf::Vector2f(205, 20.f));
-    abilityBlackBar_.setPosition(30, 950);  // Adjust the position as needed
+    ability_black_bar_.setFillColor(sf::Color::Black);  // Set the initial color
+    ability_black_bar_.setSize(sf::Vector2f(205, 20.f));
+    ability_black_bar_.setPosition(30, 950);  // Adjust the position as needed
 
-    abilityBar_.setFillColor(sf::Color::Yellow);  // Set the initial color
-    abilityBar_.setSize(sf::Vector2f(200.f, 15.f));
-    abilityBar_.setPosition(30, 950);  // Adjust the position as needed
+    ability_bar_.setFillColor(sf::Color::Yellow);  // Set the initial color
+    ability_bar_.setSize(sf::Vector2f(200.f, 15.f));
+    ability_bar_.setPosition(30, 950);  // Adjust the position as needed
 
-    xpBlackBar_.setFillColor(sf::Color::Black);  // Set the initial color
-    xpBlackBar_.setSize(sf::Vector2f(205.f, 20.f));
-    xpBlackBar_.setPosition(30, 990);  // Adjust the position as needed
+    xp_black_bar_.setFillColor(sf::Color::Black);  // Set the initial color
+    xp_black_bar_.setSize(sf::Vector2f(205.f, 20.f));
+    xp_black_bar_.setPosition(30, 990);  // Adjust the position as needed
 
-    xpBar_.setFillColor(sf::Color::Green);  // Set the initial color
-    xpBar_.setPosition(30, 990);            // Adjust the position as needed
+    xp_bar_.setFillColor(sf::Color::Green);  // Set the initial color
+    xp_bar_.setPosition(30, 990);            // Adjust the position as needed
 
-    endText_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
-    endText_.setCharacterSize(85);
-    endText_.setFillColor(sf::Color::White);
+    end_text_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
+    end_text_.setCharacterSize(85);
+    end_text_.setFillColor(sf::Color::White);
 
-    healthInfoText_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
-    healthInfoText_.setCharacterSize(10);
-    healthInfoText_.setFillColor(sf::Color::White);
-    healthInfoText_.setString("Health: 100/100");
-    healthInfoText_.setPosition(30, 890);
+    health_info_text_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
+    health_info_text_.setCharacterSize(10);
+    health_info_text_.setFillColor(sf::Color::White);
+    health_info_text_.setString("Health: 100/100");
+    health_info_text_.setPosition(30, 890);
 
-    abilityInfoText_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
-    abilityInfoText_.setCharacterSize(10);
-    abilityInfoText_.setFillColor(sf::Color::White);
-    abilityInfoText_.setString("Ability: Ready");
-    abilityInfoText_.setPosition(30, 932);
+    ability_info_text_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
+    ability_info_text_.setCharacterSize(10);
+    ability_info_text_.setFillColor(sf::Color::White);
+    ability_info_text_.setString("Ability: Ready");
+    ability_info_text_.setPosition(30, 932);
 
-    levelInfoText_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
-    levelInfoText_.setCharacterSize(10);
-    levelInfoText_.setFillColor(sf::Color::White);
-    levelInfoText_.setString("Level: 0");
-    levelInfoText_.setPosition(30, 972);
+    level_info_text_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
+    level_info_text_.setCharacterSize(10);
+    level_info_text_.setFillColor(sf::Color::White);
+    level_info_text_.setString("Level: 0");
+    level_info_text_.setPosition(30, 972);
 
-    restartText_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
-    restartText_.setCharacterSize(25);
-    restartText_.setFillColor(sf::Color::White);
-    restartText_.setPosition(sf::Vector2f(700, 530));
+    restart_text_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
+    restart_text_.setCharacterSize(25);
+    restart_text_.setFillColor(sf::Color::White);
+    restart_text_.setPosition(sf::Vector2f(700, 530));
 }
 
 void UI::draw(sf::RenderTarget& target) const {
-    target.draw(healthBlackBar_);
-    target.draw(healthBar_);
-    target.draw(abilityBlackBar_);
-    target.draw(abilityBar_);
-    target.draw(xpBlackBar_);
-    target.draw(xpBar_);
-    target.draw(endText_);
-    target.draw(healthInfoText_);
-    target.draw(abilityInfoText_);
-    target.draw(levelInfoText_);
-    target.draw(restartText_);
+    target.draw(health_black_bar_);
+    target.draw(health_bar_);
+    target.draw(ability_black_bar_);
+    target.draw(ability_bar_);
+    target.draw(xp_black_bar_);
+    target.draw(xp_bar_);
+    target.draw(end_text_);
+    target.draw(health_info_text_);
+    target.draw(ability_info_text_);
+    target.draw(level_info_text_);
+    target.draw(restart_text_);
 }
