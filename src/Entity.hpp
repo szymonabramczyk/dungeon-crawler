@@ -48,6 +48,7 @@ class Entity {
         if (damage >= health_points_) {
             health_points_ = 0;
             is_dead_ = true;
+            Assets::sounds["death"]->play();
             return true;
         } else {
             health_points_ -= damage;

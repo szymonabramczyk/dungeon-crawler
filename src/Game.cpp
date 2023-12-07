@@ -172,7 +172,7 @@ void Game::Render() {
 int main(int argc, char* argv[]) {
     std::vector<std::string> textures_names = {"player.png", "tiles.png", "orc.png", "health-potion.png", "orc-boss.png", "undead.png", "sword.png"};
     std::vector<std::string> fonts_names = {"Quinquefive-ALoRM.ttf"};
-    std::vector<std::string> sounds_names = {"attack.wav", "collect.wav", "chest-open.wav", "level-up.wav", "game-over.wav"};
+    std::vector<std::string> sounds_names = {"attack.wav", "collect.wav", "chest-open.wav", "level-up.wav", "game-over.wav", "monster-attack.wav", "orc-attack.wav", "boss-attack.wav", "death.wav"};
     try {
         Assets::LoadAssets(argv[0], textures_names, fonts_names, sounds_names);
     } catch (const std::runtime_error& ex) {

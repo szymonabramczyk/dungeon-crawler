@@ -58,6 +58,17 @@ class Monster : public Entity {
         // destructor
     }
 
+    bool Attack(std::shared_ptr<Entity> target) {
+        if (type_ == "orc") {
+            Assets::sounds["orc-attack"]->play();
+        } else if (type_ == "boss") {
+            Assets::sounds["boss-attack"]->play();
+        } else {
+            Assets::sounds["monster-attack"]->play();
+        }
+        return target->TakeDamage(weapon_damage_);
+    }
+
     // Function that moves the monster towards the player
     void Update(std::shared_ptr<Entity> player) {
         sf::Vector2f player_position = player->GetPosition();  // player position
