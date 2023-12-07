@@ -8,7 +8,10 @@
 
 struct Assets
 {
-    static void loadAssets(const std::string& path);
+    static void loadAssets(const std::string& path,
+        const std::vector<std::string>& textureNames,
+        const std::vector<std::string>& fontNames,
+        const std::vector<std::string>& soundNames);
     static void loadSound(const std::string& name, const std::string& filePath);
     static void loadFont(const std::string& name, const std::string& filePath);
     static void loadTexture(const std::string& name, const std::string& filePath);

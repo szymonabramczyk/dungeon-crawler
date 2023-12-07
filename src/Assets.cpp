@@ -12,16 +12,15 @@ std::map<std::string, std::unique_ptr<sf::Sound>> Assets::sounds;
 std::map<std::string, std::unique_ptr<sf::SoundBuffer>> Assets::soundBuffers;
 
 
-void Assets::loadAssets(const std::string& path) {
-    std::string textures_names[7] = {"player.png", "tiles.png", "orc.png", "health-potion.png", "orc-boss.png", "undead.png", "sword.png"};
-    std::string font_names[1] = {"Quinquefive-ALoRM.ttf"};
-    std::string sounds_names[5] = {"attack.wav", "collect.wav", "chest-open.wav", "level-up.wav", "game-over.wav"};
-
+void Assets::loadAssets(const std::string& path, 
+    const std::vector<std::string>& texture_names,
+    const std::vector<std::string>& font_names,
+    const std::vector<std::string>& sound_names) {
     std::filesystem::path cwd( std::filesystem::canonical( path ) );
     cwd = cwd.parent_path().parent_path();
 
     // a loop to automatically load textures with given names into the textures map
-    for (const auto& texture_name : textures_names) {
+    for (const auto& texture_name : texture_names) {
         std::filesystem::path file = cwd / texture_name;
         std::string::size_type pos = texture_name.find('.');
         if (pos != std::string::npos) {
@@ -39,7 +38,7 @@ void Assets::loadAssets(const std::string& path) {
         }
     }
     // a loop to automatically load sounds with given names into the sounds map
-    for (const auto& sound_name : sounds_names) {
+    for (const auto& sound_name : sound_names) {
         std::filesystem::path file = cwd / sound_name;
         std::string::size_type pos = sound_name.find('.');
         if (pos != std::string::npos) {
