@@ -90,10 +90,10 @@ void Game::Events() {
             case sf::Event::KeyPressed:
                 if (!player_->IsDead() && !player_->KilledBoss()) {
                     bool validInput = player_->ProcessInput(event.key.code, true);
-                    bool newLevel = player_->CheckCollision(levels_[curr_level_], curr_level_);
+                    bool new_level = player_->CheckCollision(levels_[curr_level_], curr_level_);
                     LoadLevel();
 
-                    if (newLevel) {
+                    if (new_level) {
                         DeleteMonsters();
                         auto it = completed_levels_.find(curr_level_);
                         if (curr_level_ == 8) {

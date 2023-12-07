@@ -33,9 +33,9 @@ class Player : public Entity {
     int GetLevel() { return level_; }
     void AddXP(int xp) {
         xp_ += xp;
-        int newLevel = std::floor(xp_ / 200);
-        if (newLevel > level_) {
-            level_ = newLevel;
+        int new_level = std::floor(xp_ / 200);
+        if (new_level > level_) {
+            level_ = new_level;
             max_hp_ = 100 + 10 * level_;
 
             status_text_.setString("Level up!");
