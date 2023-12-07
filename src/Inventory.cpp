@@ -1,34 +1,35 @@
 #include "Inventory.hpp"
-#include "Assets.hpp"
 
 #include <iostream>
+
+#include "Assets.hpp"
 
 Inventory::Inventory() : potions_(0, "health-potion", 25, 0), weapon_(1, "sword", 25) {
 }
 
-int Inventory::healthPotionCount() { 
-    return potions_.getAmount(); 
+int Inventory::HealthPotionCount() {
+    return potions_.GetAmount();
 }
 
-int Inventory::getWeaponDamage() {
-    return weapon_.getDamage();
+int Inventory::GetWeaponDamage() {
+    return weapon_.GetDamage();
 }
 // A method to change the number of potions owned by the player
-void Inventory::addHealthPotions(int number) {
-    potions_.addAmount(number);
-    potions_.update();
+void Inventory::AddHealthPotions(int number) {
+    potions_.AddAmount(number);
+    potions_.Update();
 }
 
-// A method to update the amount of damage dealt by the weapon
-void Inventory::addWeaponDamage(int amount) {
-    weapon_.addDamage(amount);
-    weapon_.update();
+// A method to Update the amount of damage dealt by the weapon
+void Inventory::AddWeaponDamage(int amount) {
+    weapon_.AddDamage(amount);
+    weapon_.Update();
 }
 
-// A method to update (the texts content)
-void Inventory::update() {
-    potions_.update();
-    weapon_.update();
+// A method to Update (the texts content)
+void Inventory::Update() {
+    potions_.Update();
+    weapon_.Update();
 }
 
 // A method to draw the Inventory to the screen

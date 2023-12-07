@@ -3,13 +3,13 @@
 #include "../src/Potion.hpp"
 #include "../src/Assets.hpp"
 
-extern std::filesystem::path buildPath;
+extern std::filesystem::path build_path;
 
 class PotionTest : public ::testing::Test {
     protected:
         Potion* potion;
         void SetUp() override {
-            Assets::loadTexture("health-potion", buildPath / "health-potion.png" );
+            Assets::LoadTexture("health-potion", build_path / "health-potion.png" );
             potion = new Potion(1, "health-potion", 1, 10);
         }
         void TearDown() override {
@@ -18,10 +18,10 @@ class PotionTest : public ::testing::Test {
 };
 
 TEST_F(PotionTest, Constructor) {
-    EXPECT_TRUE(potion->getAmount() == 10);
+    EXPECT_TRUE(potion->GetAmount() == 10);
 }
 
 TEST_F(PotionTest, AddDamage) {
-    potion->addAmount(5);
-    EXPECT_EQ(potion->getAmount(), 15);
+    potion->AddAmount(5);
+    EXPECT_EQ(potion->GetAmount(), 15);
 }

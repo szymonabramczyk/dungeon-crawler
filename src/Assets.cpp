@@ -1,22 +1,20 @@
 #include "Assets.hpp"
 
+#include <SFML/Audio.hpp>
+#include <SFML/Graphics.hpp>
 #include <filesystem>
 #include <iostream>
-
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
 
 std::map<std::string, std::unique_ptr<sf::Texture>> Assets::textures;
 std::map<std::string, std::unique_ptr<sf::Font>> Assets::fonts;
 std::map<std::string, std::unique_ptr<sf::Sound>> Assets::sounds;
-std::map<std::string, std::unique_ptr<sf::SoundBuffer>> Assets::soundBuffers;
+std::map<std::string, std::unique_ptr<sf::SoundBuffer>> Assets::sound_buffers_;
 
-
-void Assets::loadAssets(const std::string& path, 
-    const std::vector<std::string>& texture_names,
-    const std::vector<std::string>& font_names,
-    const std::vector<std::string>& sound_names) {
-    std::filesystem::path cwd( std::filesystem::canonical( path ) );
+void Assets::LoadAssets(const std::string& path,
+                        const std::vector<std::string>& texture_names,
+                        const std::vector<std::string>& font_names,
+                        const std::vector<std::string>& sound_names) {
+    std::filesystem::path cwd(std::filesystem::canonical(path));
     cwd = cwd.parent_path().parent_path();
 
     // a loop to automatically load textures with given names into the textures map
@@ -25,7 +23,7 @@ void Assets::loadAssets(const std::string& path,
         std::string::size_type pos = texture_name.find('.');
         if (pos != std::string::npos) {
             std::string tmp = texture_name.substr(0, pos);
-            loadTexture(tmp, file); 
+            LoadTexture(tmp, file);
         }
     }
     // a loop to automatically load fonts with given names into the fonts map
@@ -34,7 +32,7 @@ void Assets::loadAssets(const std::string& path,
         std::string::size_type pos = font_name.find('.');
         if (pos != std::string::npos) {
             std::string tmp = font_name.substr(0, pos);
-            loadFont(tmp, file); 
+            LoadFont(tmp, file);
         }
     }
     // a loop to automatically load sounds with given names into the sounds map
@@ -43,36 +41,36 @@ void Assets::loadAssets(const std::string& path,
         std::string::size_type pos = sound_name.find('.');
         if (pos != std::string::npos) {
             std::string tmp = sound_name.substr(0, pos);
-            loadSound(tmp, file); 
+            LoadSound(tmp, file);
         }
     }
-} 
+}
 
 // a method to load sprite with a given name and a path
-void Assets::loadTexture(const std::string& name, const std::string& filePath) {
+void Assets::LoadTexture(const std::string& name, const std::string& file_path) {
     std::unique_ptr<sf::Texture> texture(new sf::Texture);
-    if (!texture->loadFromFile(filePath))
-            throw std::runtime_error("Couldn't load " + name + " texture file: " + filePath);
+    if (!texture->loadFromFile(file_path))
+        throw std::runtime_error("Couldn't load " + name + " texture file: " + file_path);
     textures.insert(std::make_pair(name, std::move(texture)));
 }
 
 // a method to load font with a given name and a path
-void Assets::loadFont(const std::string& name, const std::string& filePath) {
+void Assets::LoadFont(const std::string& name, const std::string& file_path) {
     std::unique_ptr<sf::Font> font(new sf::Font());
-    if (!font->loadFromFile(filePath))
-        throw std::runtime_error("Couldn't load " + name + " font file: " + filePath);
+    if (!font->loadFromFile(file_path))
+        throw std::runtime_error("Couldn't load " + name + " font file: " + file_path);
     fonts.insert(std::make_pair(name, std::move(font)));
 }
 
 // a method to load sound with a given name and a path
-void Assets::loadSound(const std::string& name, const std::string& filePath) {
+void Assets::LoadSound(const std::string& name, const std::string& file_path) {
     std::unique_ptr<sf::SoundBuffer> buffer(new sf::SoundBuffer());
-    if (!buffer->loadFromFile(filePath))
-        throw std::runtime_error("Couldn't load " + name + " sound file: " + filePath);
+    if (!buffer->loadFromFile(file_path))
+        throw std::runtime_error("Couldn't load " + name + " sound file: " + file_path);
 
-    std::unique_ptr<sf::Sound> sound(new sf::Sound()); 
+    std::unique_ptr<sf::Sound> sound(new sf::Sound());
     sound->setBuffer(*buffer);
 
-    soundBuffers.insert(std::make_pair(name, std::move(buffer)));
+    sound_buffers_.insert(std::make_pair(name, std::move(buffer)));
     sounds.insert(std::make_pair(name, std::move(sound)));
 }

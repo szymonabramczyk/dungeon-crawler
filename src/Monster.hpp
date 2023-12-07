@@ -2,19 +2,19 @@
 #define MONSTER_HPP_
 
 #include <SFML/Graphics.hpp>
-#include "Entity.hpp"
-#include "Assets.hpp"
 #include <random>
+
+#include "Assets.hpp"
+#include "Entity.hpp"
 
 // Monster class, inherits from Entity
 class Monster : public Entity {
-public:
+   public:
     // Constructor for player class
     // Arguments for Entity(type, speed, hitpoints)
-    Monster(const std::string& type, int speed = 1, int damage = 5, int hp = 100, bool isBoss = false)
-            : Entity(type, hp), speed_(speed)
-    {
-        bool isGoodPos;
+    Monster(const std::string& type, int speed = 1, int damage = 5, int hp = 100, bool is_boss = false)
+        : Entity(type, hp), speed_(speed) {
+        bool is_good_pos;
         do {
             // Create a random_device to seed the random number generator
             std::random_device rd;
@@ -23,67 +23,66 @@ public:
             std::default_random_engine rng(rd());
 
             // Create a distribution to define the range [0, 14]
-            std::uniform_int_distribution<int> xDistribution(0, 14);
-            std::uniform_int_distribution<int> yDistribution(0, 7);
+            std::uniform_int_distribution<int> x_distribution(0, 14);
+            std::uniform_int_distribution<int> y_distribution(0, 7);
 
             // Generate a random number
-            int x = xDistribution(rng);
-            int y = yDistribution(rng);
+            int x = x_distribution(rng);
+            int y = y_distribution(rng);
 
             pos_ = y * 15 + x;
-            isGoodPos = true;
-            for (std::shared_ptr<Entity> e : EntityManager::getEntities()) {
-                if (e->getTilePosition() == pos_) {   // if there is already an entity in that coordinate, then this entity will remain still
-                    isGoodPos = false;
+            is_good_pos = true;
+            for (std::shared_ptr<Entity> e : EntityManager::GetEntities()) {
+                if (e->GetTilePosition() == pos_) {  // if there is already an entity in that coordinate, then this entity will remain still
+                    is_good_pos = false;
                     break;
                 }
             }
 
-            int distanceToPlayer = 
-                distanceBetween(EntityManager::getEntities()[0]->GetPosition(), sf::Vector2f(128*(pos_ % TILES_WIDTH), 128*(pos_ / TILES_WIDTH)));
+            int distance_to_player =
+                DistanceBetween(EntityManager::GetEntities()[0]->GetPosition(), sf::Vector2f(128 * (pos_ % kTilesWidth), 128 * (pos_ / kTilesWidth)));
 
-            if (distanceToPlayer <= 3 * 128)
-                isGoodPos = false;
+            if (distance_to_player <= 3 * 128)
+                is_good_pos = false;
 
-        } while (!isGoodPos);
+        } while (!is_good_pos);
 
-        mSprite = sf::Sprite(*Assets::textures[type]);
-        mSprite.setPosition(128 * (pos_ % TILES_WIDTH), 128 * (pos_ / TILES_WIDTH));
-        isMonster_ = true;
-        isBoss_ = isBoss;
-        weaponDamage_ = damage; //temp
+        sprite_ = sf::Sprite(*Assets::textures[type]);
+        sprite_.setPosition(128 * (pos_ % kTilesWidth), 128 * (pos_ / kTilesWidth));
+        is_monster_ = true;
+        is_boss_ = is_boss;
+        weapon_damage_ = damage;  // temp
     }
 
-    ~Monster()
-    {
-        //destructor
+    ~Monster() {
+        // destructor
     }
 
     // Function that moves the monster towards the player
-    void update(std::shared_ptr<Entity> player) {
-        sf::Vector2f pPos = player->GetPosition(); // player position
-        sf::Vector2f mPos = GetPosition(); // monster position
+    void Update(std::shared_ptr<Entity> player) {
+        sf::Vector2f player_position = player->GetPosition();  // player position
+        sf::Vector2f monster_position = GetPosition();         // monster position
 
         std::shared_ptr<Entity> target = nullptr;
 
         // check which axis has the largest difference relative to the player location, and then move in that axis
-        int xDiff = pPos.x - mPos.x;
-        int yDiff = pPos.y - mPos.y;
+        int x_diff = player_position.x - monster_position.x;
+        int y_diff = player_position.y - monster_position.y;
 
-        if (totalTurns_ % speed_ == 0) {
-            if (abs(xDiff) >= abs(yDiff)) {
-                if (pPos.x > mPos.x) 
-                    target = moveAlongXAxis(true);
-                else if (pPos.x < mPos.x)
-                    target = moveAlongXAxis(false);
+        if (total_turns_ % speed_ == 0) {
+            if (abs(x_diff) >= abs(y_diff)) {
+                if (player_position.x > monster_position.x)
+                    target = MoveAlongXAxis(true);
+                else if (player_position.x < monster_position.x)
+                    target = MoveAlongXAxis(false);
             } else {
-                if (pPos.y > mPos.y) 
-                    target = moveAlongYAxis(true);
-                else if (pPos.y < mPos.y)
-                    target = moveAlongYAxis(false); 
+                if (player_position.y > monster_position.y)
+                    target = MoveAlongYAxis(true);
+                else if (player_position.y < monster_position.y)
+                    target = MoveAlongYAxis(false);
             }
         }
-        totalTurns_++;
+        total_turns_++;
 
         // if an entity was blocking movement, then attack the entity (unless it is another monster)
         if (target) {
@@ -93,8 +92,8 @@ public:
         // std::cout << name_ << ": " << GetPosition().x << ", " << GetPosition().y << std::endl; // prints the monster location
     }
 
-    private:
-        int speed_;
+   private:
+    int speed_;
 };
 
-#endif // MONSTER_HPP_
+#endif  // MONSTER_HPP_

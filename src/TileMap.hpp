@@ -3,14 +3,13 @@
 
 #include <SFML/Graphics.hpp>
 
-class TileMap : public sf::Drawable, public sf::Transformable
-{
-public:
-    bool load(const std::string& tileset_name, sf::Vector2u tile_size, const int* tiles, unsigned int width, unsigned int height);
+class TileMap : public sf::Drawable, public sf::Transformable {
+   public:
+    bool Load(const std::string& tileset_name, sf::Vector2u tile_size, const int* tiles, unsigned int width, unsigned int height);
 
-private:
+   private:
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     sf::VertexArray vertices_;
     std::string tileset_name_;
 };
-#endif // TILEMAP_HPP_
+#endif  // TILEMAP_HPP_

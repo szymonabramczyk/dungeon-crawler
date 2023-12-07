@@ -3,13 +3,13 @@
 #include "../src/Weapon.hpp"
 #include "../src/Assets.hpp"
 
-extern std::filesystem::path buildPath;
+extern std::filesystem::path build_path;
 
 class WeaponTest : public ::testing::Test {
     protected:
         Weapon* weapon;
         void SetUp() override {
-            Assets::loadTexture("sword", buildPath / "sword.png" );
+            Assets::LoadTexture("sword", build_path / "sword.png" );
             weapon = new Weapon(1, "sword", 10);
         }
         void TearDown() override {
@@ -18,10 +18,10 @@ class WeaponTest : public ::testing::Test {
 };
 
 TEST_F(WeaponTest, Constructor) {
-    EXPECT_TRUE(weapon->getDamage() == 10);
+    EXPECT_TRUE(weapon->GetDamage() == 10);
 }
 
 TEST_F(WeaponTest, AddDamage) {
-    weapon->addDamage(5);
-    EXPECT_EQ(weapon->getDamage(), 15);
+    weapon->AddDamage(5);
+    EXPECT_EQ(weapon->GetDamage(), 15);
 }

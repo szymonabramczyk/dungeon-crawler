@@ -1,24 +1,25 @@
 #include "UI.hpp"
+
 #include "Assets.hpp"
 
 UI::UI() {
-    initialize();
+    Initialize();
 }
 
-void UI::updateHealthUI(double fraction, const std::string& text) {
+void UI::UpdateHealthUI(double fraction, const std::string& text) {
     healthBar_.setSize(sf::Vector2f(fraction * 200.f, 15.f));
     healthInfoText_.setString(text);
 }
-void UI::updateAbilityUI(double fraction, const std::string& text) {
+void UI::UpdateAbilityUI(double fraction, const std::string& text) {
     abilityBar_.setSize(sf::Vector2f(fraction * 200.f, 15.f));
     abilityInfoText_.setString(text);
 }
-void UI::updateXpUI(double fraction, const std::string& text) {
+void UI::UpdateXpUI(double fraction, const std::string& text) {
     xpBar_.setSize(sf::Vector2f(fraction * 200.f, 15.f));
     levelInfoText_.setString(text);
 }
 
-void UI::updateEndText(bool win) {
+void UI::UpdateEndText(bool win) {
     if (win) {
         endText_.setPosition(sf::Vector2f(575, 384));
         endText_.setString("Victory!");
@@ -28,29 +29,29 @@ void UI::updateEndText(bool win) {
     }
 }
 
-void UI::initialize() {
-    healthBlackBar_.setFillColor(sf::Color::Black); // Set the initial color
+void UI::Initialize() {
+    healthBlackBar_.setFillColor(sf::Color::Black);  // Set the initial color
     healthBlackBar_.setSize(sf::Vector2f(205, 20.f));
-    healthBlackBar_.setPosition(30, 910); // Adjust the position as needed
+    healthBlackBar_.setPosition(30, 910);  // Adjust the position as needed
 
-    healthBar_.setFillColor(sf::Color::Red); // Set the initial color
+    healthBar_.setFillColor(sf::Color::Red);  // Set the initial color
     healthBar_.setSize(sf::Vector2f(200.f, 15.f));
-    healthBar_.setPosition(30, 910); // Adjust the position as needed
+    healthBar_.setPosition(30, 910);  // Adjust the position as needed
 
-    abilityBlackBar_.setFillColor(sf::Color::Black); // Set the initial color
+    abilityBlackBar_.setFillColor(sf::Color::Black);  // Set the initial color
     abilityBlackBar_.setSize(sf::Vector2f(205, 20.f));
-    abilityBlackBar_.setPosition(30, 950); // Adjust the position as needed
+    abilityBlackBar_.setPosition(30, 950);  // Adjust the position as needed
 
-    abilityBar_.setFillColor(sf::Color::Yellow); // Set the initial color
+    abilityBar_.setFillColor(sf::Color::Yellow);  // Set the initial color
     abilityBar_.setSize(sf::Vector2f(200.f, 15.f));
-    abilityBar_.setPosition(30, 950); // Adjust the position as needed
+    abilityBar_.setPosition(30, 950);  // Adjust the position as needed
 
-    xpBlackBar_.setFillColor(sf::Color::Black); // Set the initial color
+    xpBlackBar_.setFillColor(sf::Color::Black);  // Set the initial color
     xpBlackBar_.setSize(sf::Vector2f(205.f, 20.f));
-    xpBlackBar_.setPosition(30, 990); // Adjust the position as needed
+    xpBlackBar_.setPosition(30, 990);  // Adjust the position as needed
 
-    xpBar_.setFillColor(sf::Color::Green); // Set the initial color
-    xpBar_.setPosition(30, 990); // Adjust the position as needed
+    xpBar_.setFillColor(sf::Color::Green);  // Set the initial color
+    xpBar_.setPosition(30, 990);            // Adjust the position as needed
 
     endText_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
     endText_.setCharacterSize(85);
@@ -81,16 +82,15 @@ void UI::initialize() {
 }
 
 void UI::draw(sf::RenderTarget& target) const {
-    target.draw(healthBlackBar_); 
-    target.draw(healthBar_); 
-    target.draw(abilityBlackBar_); 
-    target.draw(abilityBar_); 
-    target.draw(xpBlackBar_); 
-    target.draw(xpBar_); 
-    target.draw(endText_); 
-    target.draw(healthInfoText_); 
-    target.draw(abilityInfoText_); 
-    target.draw(levelInfoText_); 
-    target.draw(restartText_); 
+    target.draw(healthBlackBar_);
+    target.draw(healthBar_);
+    target.draw(abilityBlackBar_);
+    target.draw(abilityBar_);
+    target.draw(xpBlackBar_);
+    target.draw(xpBar_);
+    target.draw(endText_);
+    target.draw(healthInfoText_);
+    target.draw(abilityInfoText_);
+    target.draw(levelInfoText_);
+    target.draw(restartText_);
 }
-    

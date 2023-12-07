@@ -1,10 +1,10 @@
 #include "TileMap.hpp"
-#include "Assets.hpp"
 
 #include <SFML/Graphics.hpp>
 
-bool TileMap::load(const std::string& tileset_name, sf::Vector2u tile_size, const int* tiles, unsigned int width, unsigned int height)
-{
+#include "Assets.hpp"
+
+bool TileMap::Load(const std::string& tileset_name, sf::Vector2u tile_size, const int* tiles, unsigned int width, unsigned int height) {
     tileset_name_ = tileset_name;
     // resize the vertex array to fit the level size
     vertices_.setPrimitiveType(sf::Quads);
@@ -12,8 +12,7 @@ bool TileMap::load(const std::string& tileset_name, sf::Vector2u tile_size, cons
 
     // populate the vertex array, with one quad per tile
     for (unsigned int i = 0; i < width; i++)
-        for (unsigned int j = 0; j < height; j++)
-        {
+        for (unsigned int j = 0; j < height; j++) {
             // get the current tile number
             int tileNumber = tiles[i + j * width];
 
@@ -40,8 +39,7 @@ bool TileMap::load(const std::string& tileset_name, sf::Vector2u tile_size, cons
     return true;
 }
 
-void TileMap::draw(sf::RenderTarget& target, sf::RenderStates states) const
-{
+void TileMap::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     // apply the transform
     states.transform *= getTransform();
 
@@ -51,4 +49,3 @@ void TileMap::draw(sf::RenderTarget& target, sf::RenderStates states) const
     // draw the vertex array
     target.draw(vertices_, states);
 }
-

@@ -3,14 +3,14 @@
 #include "../src/Inventory.hpp"
 #include "../src/Assets.hpp"
 
-extern std::filesystem::path buildPath;
+extern std::filesystem::path build_path;
 
 class InventoryTest : public ::testing::Test {
     protected:
         Inventory* inventory;
         void SetUp() override {
-            Assets::loadTexture("health-potion", buildPath / "health-potion.png" );
-            Assets::loadTexture("sword", buildPath / "sword.png" );
+            Assets::LoadTexture("health-potion", build_path / "health-potion.png" );
+            Assets::LoadTexture("sword", build_path / "sword.png" );
             inventory = new Inventory();
         }
         void TearDown() override {
@@ -19,20 +19,20 @@ class InventoryTest : public ::testing::Test {
 };
 
 TEST_F(InventoryTest, HealthPotionCount) {
-    EXPECT_EQ(inventory->healthPotionCount(), 0);
+    EXPECT_EQ(inventory->HealthPotionCount(), 0);
 }
 
 TEST_F(InventoryTest, GetWeaponDamage) {
-    EXPECT_GE(inventory->getWeaponDamage(), 0);
+    EXPECT_GE(inventory->GetWeaponDamage(), 0);
 }
 
 TEST_F(InventoryTest, AddHealthPotions) {
-    inventory->addHealthPotions(5);
-    EXPECT_EQ(inventory->healthPotionCount(), 5);
+    inventory->AddHealthPotions(5);
+    EXPECT_EQ(inventory->HealthPotionCount(), 5);
 }
 
 TEST_F(InventoryTest, AddWeaponDamage) {
-    int tmp = inventory->getWeaponDamage();
-    inventory->addWeaponDamage(10);
-    EXPECT_EQ(inventory->getWeaponDamage(), tmp + 10);
+    int tmp = inventory->GetWeaponDamage();
+    inventory->AddWeaponDamage(10);
+    EXPECT_EQ(inventory->GetWeaponDamage(), tmp + 10);
 }
