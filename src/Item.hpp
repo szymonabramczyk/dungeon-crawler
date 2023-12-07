@@ -3,18 +3,14 @@
 
 #include <SFML/Graphics.hpp>
 
+// Abstract class for Items
 class Item {
     public:
-        Item(int amount, int slot, const std::string& texture_name);
-        void addAmount(int amount);
+        Item(int slot, const std::string& texture_name);
         void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-        void update();
-        int getAmount() {
-            return amount_;
-        }
+        virtual void update() = 0;
     
     protected:
-        int amount_;
         int slot_;
         sf::Font font_;
         sf::Text text_;

@@ -3,10 +3,12 @@
 
 #include <iostream>
 
-Inventory::Inventory() : potions_(0, 0, "health-potion", 25), weapon_(1, 1, "sword", 25) {
+Inventory::Inventory() : potions_(0, "health-potion", 25, 0), weapon_(1, "sword", 25) {
 }
 
-int Inventory::healthPotionCount() { return potions_.getAmount(); }
+int Inventory::healthPotionCount() { 
+    return potions_.getAmount(); 
+}
 
 int Inventory::getWeaponDamage() {
     return weapon_.getDamage();
@@ -17,6 +19,7 @@ void Inventory::addHealthPotions(int number) {
     potions_.update();
 }
 
+// A method to update the amount of damage dealt by the weapon
 void Inventory::addWeaponDamage(int amount) {
     weapon_.addDamage(amount);
     weapon_.update();
