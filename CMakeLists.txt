@@ -31,8 +31,9 @@ target_link_libraries(dungeon-crawler-quang-ngo-01 PRIVATE sfml-graphics sfml-au
 target_compile_features(dungeon-crawler-quang-ngo-01 PRIVATE cxx_std_17)
 
 # Google Test Executable
-file(GLOB TEST_SOURCES tests/*.cpp)
-add_executable(tests ${TEST_SOURCES} src/Assets.cpp)
+file(GLOB TEST_SOURCES tests/*.cpp src/*.cpp)
+LIST(REMOVE_ITEM TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/Game.cpp ${CMAKE_CURRENT_SOURCE_DIR}/src/Game.hpp)
+add_executable(tests ${TEST_SOURCES})
 target_link_libraries(tests gtest_main sfml-graphics sfml-audio)
 add_test(NAME example_test COMMAND tests)
 
