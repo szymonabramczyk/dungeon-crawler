@@ -18,9 +18,13 @@ class EntityManagerTest : public ::testing::Test {
 TEST_F(EntityManagerTest, AddEntity) {
     auto entity = std::make_shared<Entity>("TestType", 100);
     EntityManager::AddEntity(entity);
-    auto entities = EntityManager::GetEntities();
-    EXPECT_EQ(entities.size(), 1);
-    EXPECT_EQ(entities.front(), entity);
+
+    auto it = EntityManager::begin();
+    bool isNotEmpty = it != EntityManager::end();
+    auto firstEntity = isNotEmpty ? *it : nullptr;
+
+    EXPECT_TRUE(isNotEmpty);
+    EXPECT_EQ(firstEntity, entity);
 }
 
 // Test for removing an entity
@@ -28,22 +32,24 @@ TEST_F(EntityManagerTest, RemoveEntity) {
     auto entity = std::make_shared<Entity>("TestType", 100);
     EntityManager::AddEntity(entity);
     EntityManager::RemoveEntity(entity);
-    auto entities = EntityManager::GetEntities();
-    EXPECT_TRUE(entities.empty());
+
+    EXPECT_EQ(EntityManager::begin(), EntityManager::end());
 }
 
 // Test for removing the dead entities
 TEST_F(EntityManagerTest, RemoveDead) {
     auto entity1 = std::make_shared<Entity>("TestType1", 100);
-    auto entity2 = std::make_shared<Entity>("TestType2", 100);
+    auto entity2 = std::make_shared<Entity>("TestType2", 0);  // Set HP to 0 to simulate dead entity
     auto entity3 = std::make_shared<Entity>("TestType3", 100);
+
     EntityManager::AddEntity(entity1);
     EntityManager::AddEntity(entity2);
     EntityManager::AddEntity(entity3);
-    auto entities = EntityManager::GetEntities();
-    EXPECT_EQ(entities.size(), 3);
+
     EntityManager::RemoveDead();
-    EXPECT_EQ(entities.size(), 3);
+
+    int count = std::distance(EntityManager::begin(), EntityManager::end());
+    EXPECT_EQ(count, 3);
 }
 
 // Test for removing all entities
@@ -52,9 +58,8 @@ TEST_F(EntityManagerTest, ClearEntities) {
     auto entity2 = std::make_shared<Entity>("TestType2", 100);
     EntityManager::AddEntity(entity1);
     EntityManager::AddEntity(entity2);
-    auto entities = EntityManager::GetEntities();
-    EXPECT_EQ(entities.size(), 2);
+
     EntityManager::ClearEntities();
-    entities = EntityManager::GetEntities();
-    EXPECT_TRUE(entities.empty());
+
+    EXPECT_EQ(EntityManager::begin(), EntityManager::end());
 }
