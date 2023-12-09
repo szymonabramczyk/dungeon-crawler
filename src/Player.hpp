@@ -74,7 +74,8 @@ class Player : public Entity {
     // attacks every monster within 5 tiles
     int RangedAttack() {
         int earnedXP = 0;
-        for (std::shared_ptr<Entity> e : EntityManager::GetEntities()) {
+        for (auto it = EntityManager::begin(); it != EntityManager::end(); ++it) {
+            std::shared_ptr<Entity> e = *it;
             if (e->IsMonster() && DistanceBetween(this->GetPosition(), e->GetPosition()) <= 4 * 128) {
                 if (e->TakeDamage(20 + 5 * level_)) {
                     if (e->IsBoss())

@@ -32,15 +32,19 @@ class Monster : public Entity {
 
             pos_ = y * Constants::kTilesWidth + x;
             is_good_pos = true;
-            for (std::shared_ptr<Entity> e : EntityManager::GetEntities()) {
-                if (e->GetTilePosition() == pos_) {  // if there is already an entity in that coordinate, then this entity will remain still
+            for (auto it = EntityManager::begin(); it != EntityManager::end(); ++it) {
+                std::shared_ptr<Entity> e = *it;
+                if (e->GetTilePosition() == pos_) {
                     is_good_pos = false;
                     break;
                 }
             }
-
-            int distance_to_player =
-                DistanceBetween(EntityManager::GetEntities()[0]->GetPosition(), sf::Vector2f(128 * (pos_ % Constants::kTilesWidth), 128 * (pos_ / Constants::kTilesWidth)));
+            auto it = EntityManager::begin();
+            int distance_to_player;
+            if (it != EntityManager::end()) {
+                distance_to_player =
+                    DistanceBetween((*it)->GetPosition(), sf::Vector2f(128 * (pos_ % Constants::kTilesWidth), 128 * (pos_ / Constants::kTilesWidth)));
+            }
 
             if (distance_to_player <= 3 * 128)
                 is_good_pos = false;

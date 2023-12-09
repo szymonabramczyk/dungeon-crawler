@@ -95,7 +95,8 @@ class Entity {
         std::shared_ptr<Entity> target = nullptr;  // this variable is used to save the entity that prevents this entity from moving
 
         // checks if the new position already has an entity in it
-        for (std::shared_ptr<Entity> e : EntityManager::GetEntities()) {
+        for (auto it = EntityManager::begin(); it != EntityManager::end(); ++it) {
+            std::shared_ptr<Entity> e = *it;
             if (e->GetTilePosition() == new_pos) {  // if there is already an entity in that coordinate, then this entity will remain still
                 can_move = false;
                 target = e;
@@ -125,7 +126,8 @@ class Entity {
         std::shared_ptr<Entity> target = nullptr;  // this variable is used to save the entity that prevents this entity from moving
 
         // checks if the new position already has an entity in it
-        for (std::shared_ptr<Entity> e : EntityManager::GetEntities()) {
+        for (auto it = EntityManager::begin(); it != EntityManager::end(); ++it) {
+            std::shared_ptr<Entity> e = *it;
             if (e->GetTilePosition() == new_pos) {  // if there is already an entity in that coordinate, then this entity will remain still
                 can_move = false;
                 target = e;

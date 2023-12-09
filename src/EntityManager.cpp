@@ -18,6 +18,12 @@ void EntityManager::RemoveEntity(std::shared_ptr<Entity> entity) {
     }
 }
 
+void EntityManager::RemoveEntity(std::vector<std::shared_ptr<Entity>>::iterator it) {
+    if (it != entities_.end()) {
+        entities_.erase(it);
+    }
+}
+
 void EntityManager::ClearEntities() {
     entities_.clear();
 }
@@ -31,6 +37,18 @@ void EntityManager::RemoveDead() {
                     entities_.end());
 }
 
-const std::vector<std::shared_ptr<Entity>>& EntityManager::GetEntities() {
-    return entities_;
+std::vector<std::shared_ptr<Entity>>::iterator EntityManager::begin() {
+    return entities_.begin();
+}
+
+std::vector<std::shared_ptr<Entity>>::iterator EntityManager::end() {
+    return entities_.end();
+}
+
+std::vector<std::shared_ptr<Entity>>::const_iterator EntityManager::cbegin() {
+    return entities_.cbegin();
+}
+
+std::vector<std::shared_ptr<Entity>>::const_iterator EntityManager::cend() {
+    return entities_.cend();
 }

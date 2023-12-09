@@ -154,8 +154,8 @@ void Game::Render() {
     window_.clear();
     window_.draw(map_);
 
-    auto it = EntityManager::GetEntities().begin();
-    while (it != EntityManager::GetEntities().end()) {  // renders all the living entities and removes the dead ones
+    auto it = EntityManager::cbegin();
+    while (it != EntityManager::cend()) {  // renders all the living entities and removes the dead ones
         std::shared_ptr<Entity> entity = *it;
         entity->DrawEntity(window_);
         it++;
