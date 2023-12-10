@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <string>
+#include <cmath>
 
 #include "Assets.hpp"
 #include "Constants.hpp"
