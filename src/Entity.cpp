@@ -94,7 +94,7 @@ std::shared_ptr<Entity> Entity::MoveAlongXAxis(bool left) {
 
     std::shared_ptr<Entity> target = CheckTile(new_pos);  // this variable is used to save the entity that prevents this entity from moving
 
-    if (target == nullptr) {
+    if (target == nullptr && can_move) {
         pos_ = new_pos;
         sprite_.setPosition(128 * (new_pos % Constants::kTilesWidth), 128 * (new_pos / Constants::kTilesWidth));
     }
@@ -116,7 +116,7 @@ std::shared_ptr<Entity> Entity::MoveAlongYAxis(bool down) {
 
     std::shared_ptr<Entity> target = CheckTile(new_pos);  // this variable is used to save the entity that prevents this entity from moving
 
-    if (target == nullptr) {
+    if (target == nullptr && can_move) {
         pos_ = new_pos;
         sprite_.setPosition(128 * (new_pos % Constants::kTilesWidth), 128 * (new_pos / Constants::kTilesWidth));
     }
