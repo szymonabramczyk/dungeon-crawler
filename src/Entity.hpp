@@ -2,36 +2,24 @@
 #define ENTITY_HPP_
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
-#include <cmath>
-#include <iostream>
 #include <memory>
 #include <string>
-
-#include "Assets.hpp"
-#include "Constants.hpp"
-#include "EntityManager.hpp"
 
 // Base class for Player and Monster classes
 class Entity {
    public:
     Entity(const std::string& type, int hp);
-
-    ~Entity();
+    ~Entity() {}
 
     // Basic functions to retrieve values
-    const std::string& GetType() const;
-    
-    int GetHitPoints() const;
-    
-    const sf::Vector2f GetPosition() const;
-    
-    const int MaxHP() const;
-    
-    bool IsMonster() const;
-    
-    bool IsDead() const;
-
-    bool IsBoss() const;
+    const std::string& GetType() const { return type_; }
+    int GetHealthPoints() const { return health_points_; }
+    const sf::Vector2f GetPosition() const { return sprite_.getPosition(); }
+    const int MaxHP() const { return max_hp_; }
+    bool IsMonster() const { return is_monster_; }
+    bool IsDead() const { return is_dead_; }
+    bool IsBoss() const { return is_boss_; }
+    int GetTilePosition() { return pos_; }
 
     // helper function to measure distance between two positions
     int DistanceBetween(const sf::Vector2f& a, const sf::Vector2f& b);
@@ -41,18 +29,19 @@ class Entity {
     bool TakeDamage(const int damage);
 
     // Renders the hitpoints of the entity
-    void DrawHitpoints(sf::RenderTarget& target);
+    void DrawHealthPoints(sf::RenderTarget& target);
 
     // Renders the entity
-    void DrawEntity(sf::RenderTarget& target);
+    void draw(sf::RenderTarget& target);
+
+    // Method to check if there are any Entities on the next tile, to check if can move
+    std::shared_ptr<Entity> CheckTile(int pos);
 
     // Method to move along X and Y axes. Checks for collision and returns a pointer to the entity that is in the way.
     std::shared_ptr<Entity> MoveAlongXAxis(bool left);
 
     // Method to move along X and Y axes. Checks for collision and returns a pointer to the entity that is in the way.
     std::shared_ptr<Entity> MoveAlongYAxis(bool down);
-
-    int GetTilePosition();
 
    protected:
     sf::Sprite sprite_;

@@ -9,7 +9,6 @@
 #include "Assets.hpp"
 #include "Constants.hpp"
 #include "EntityManager.hpp"
-#include "Inventory.hpp"
 #include "LevelGenerator.hpp"
 
 // Constructor that creates a Window object and creates the Player with the player sprite
@@ -132,8 +131,8 @@ void Game::Events() {
 
 // A method to Update
 void Game::Update() {
-    ui_.UpdateHealthUI(player_->GetHitPoints() * 1.0f / player_->MaxHP(),
-                       "Health: " + std::to_string(player_->GetHitPoints()) + "/" + std::to_string(player_->MaxHP()));
+    ui_.UpdateHealthUI(player_->GetHealthPoints() * 1.0f / player_->MaxHP(),
+                       "Health: " + std::to_string(player_->GetHealthPoints()) + "/" + std::to_string(player_->MaxHP()));
     ui_.UpdateAbilityUI(player_->CooldownProgress(),
                         std::string("Ability: ") + (player_->IsAbilityReady() ? "Ready" : "Charging..."));
     ui_.UpdateXpUI(player_->LevelProgress(),
@@ -157,15 +156,14 @@ void Game::Render() {
     auto it = EntityManager::cbegin();
     while (it != EntityManager::cend()) {  // renders all the living entities and removes the dead ones
         std::shared_ptr<Entity> entity = *it;
-        entity->DrawEntity(window_);
+        entity->draw(window_);
         it++;
     }
     for (std::shared_ptr<Monster> monster : monsters_) {  // renders the hp of all monsters
-        monster->DrawHitpoints(window_);
+        monster->DrawHealthPoints(window_);
     }
-    player_->DrawStatus(window_);
+    player_->draw(window_);
     ui_.draw(window_);
-    player_->DrawInventory(window_);
     window_.display();
 }
 

@@ -17,5 +17,5 @@ class EntityTest : public ::testing::Test {
 // Test for Entity construction
 TEST_F(EntityTest, Constructor) {
     EXPECT_EQ(entity->GetType(), "TestType");
-    EXPECT_EQ(entity->GetHitPoints(), 100);
+    EXPECT_EQ(entity->GetHealthPoints(), 100);
 }

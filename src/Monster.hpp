@@ -9,19 +9,21 @@
 
 // Monster class, inherits from Entity
 class Monster : public Entity {
-public:
+   public:
     // Constructor for player class
     // Arguments for Entity(type, speed, hitpoints)
     Monster(const std::string& type, int speed = 1, int damage = 5, int hp = 100, bool is_boss = false);
 
-    ~Monster();
+    ~Monster() {
+        // destructor
+    }
 
     bool Attack(std::shared_ptr<Entity> target);
 
     // Function that moves the monster towards the player
     void Update(std::shared_ptr<Entity> player);
 
-private:
+   private:
     int speed_;
 };
 

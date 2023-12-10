@@ -4,7 +4,6 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 
-#include "Assets.hpp"
 #include "Entity.hpp"
 #include "Inventory.hpp"
 
@@ -15,15 +14,14 @@ class Player : public Entity {
     // Arguments for Entity(name, type, speed, hitpoints)
     Player(const std::string& name);
 
-    ~Player();
+    ~Player() {
+        // destructor
+    }
 
-    const std::string& GetName() const;
-
-    bool KilledBoss() const;
-
-    bool IsAbilityReady() const;
-
-    int GetLevel() const;
+    const std::string& GetName() const { return name_; }
+    bool KilledBoss() const { return killed_boss_; }
+    bool IsAbilityReady() const { return turn_count_ >= cooldown_period_; }
+    int GetLevel() { return level_; }
 
     void AddXP(int xp);
 
@@ -44,7 +42,7 @@ class Player : public Entity {
 
     bool CheckCollision(int (&level)[120], int& curr_level);
 
-    void DrawInventory(sf::RenderTarget& target);
+    void draw(sf::RenderTarget& target);
 
    private:
     sf::Text status_text_;

@@ -1,7 +1,13 @@
 #include "Player.hpp"
 
+#include <SFML/Graphics.hpp>
 #include <string>
 
+#include "Assets.hpp"
+#include "Constants.hpp"
+#include "Entity.hpp"
+#include "EntityManager.hpp"
+#include "Inventory.hpp"
 
 // Constructor for player class
 // Arguments for Entity(name, type, speed, hitpoints)
@@ -14,18 +20,6 @@ Player::Player(const std::string& name) : Entity("player", 100), inv_(), name_(n
     status_text_.setFont(*Assets::fonts["Quinquefive-ALoRM"]);
     status_text_.setCharacterSize(16);
 }
-
-Player::~Player() {
-    // destructor
-}
-
-const std::string& Player::GetName() const { return name_; }
-
-bool Player::KilledBoss() const { return killed_boss_; }
-
-bool Player::IsAbilityReady() const { return turn_count_ >= cooldown_period_; }
-
-int Player::GetLevel() const { return level_; }
 
 void Player::AddXP(int xp) {
     xp_ += xp;
@@ -164,7 +158,7 @@ bool Player::CheckCollision(int (&level)[120], int& curr_level) {
     return false;
 }
 
-void Player::DrawInventory(sf::RenderTarget& target) {
+void Player::draw(sf::RenderTarget& target) {
+    DrawStatus(target);
     target.draw(inv_);
 }
-

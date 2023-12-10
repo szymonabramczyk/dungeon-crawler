@@ -1,6 +1,12 @@
 #include "Monster.hpp"
 
+#include <SFML/Graphics.hpp>
 #include <random>
+
+#include "Assets.hpp"
+#include "Constants.hpp"
+#include "Entity.hpp"
+#include "EntityManager.hpp"
 
 // Constructor for player class
 // Arguments for Entity(type, speed, hitpoints)
@@ -50,10 +56,6 @@ Monster::Monster(const std::string& type, int speed, int damage, int hp, bool is
     weapon_damage_ = damage;  // temp
 }
 
-Monster::~Monster() {
-    // destructor
-}
-
 bool Monster::Attack(std::shared_ptr<Entity> target) {
     if (type_ == "orc") {
         Assets::sounds["orc-attack"]->play();
@@ -96,5 +98,4 @@ void Monster::Update(std::shared_ptr<Entity> player) {
         if (!target->IsMonster())
             Attack(target);
     }
-    // std::cout << name_ << ": " << GetPosition().x << ", " << GetPosition().y << std::endl; // prints the monster location
 }
