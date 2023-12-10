@@ -1,0 +1,84 @@
+\hypertarget{class_player}{}\doxysection{Player Class Reference}
+\label{class_player}\index{Player@{Player}}
+
+
+\mbox{\hyperlink{class_player}{Player}} class, inherits from \mbox{\hyperlink{class_entity}{Entity}}.  
+
+
+
+
+{\ttfamily \#include $<$Player.\+hpp$>$}
+
+
+
+Inheritance diagram for Player\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=127pt]{class_player__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Player\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=127pt]{class_player__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_player_a45fa04a2a4ff9235e6c100b7c6ab232a}\label{class_player_a45fa04a2a4ff9235e6c100b7c6ab232a}} 
+{\bfseries Player} (const std\+::string \&name)
+\item 
+\mbox{\Hypertarget{class_player_acdfeb90811d8a0c826d526b97eeb0d94}\label{class_player_acdfeb90811d8a0c826d526b97eeb0d94}} 
+const std\+::string \& {\bfseries Get\+Name} () const
+\item 
+\mbox{\Hypertarget{class_player_a7ce8e72ac955baf732bdd22d71b7ffcb}\label{class_player_a7ce8e72ac955baf732bdd22d71b7ffcb}} 
+bool {\bfseries Killed\+Boss} () const
+\item 
+\mbox{\Hypertarget{class_player_a159ac918ddb0c486e50236957d2147cc}\label{class_player_a159ac918ddb0c486e50236957d2147cc}} 
+bool {\bfseries Is\+Ability\+Ready} () const
+\item 
+\mbox{\Hypertarget{class_player_ab87cb485cb357c2fb12c840d3abb25ff}\label{class_player_ab87cb485cb357c2fb12c840d3abb25ff}} 
+int {\bfseries Get\+Level} ()
+\item 
+\mbox{\Hypertarget{class_player_a2a995bae19e16ee1ec8e3fcaee5eeb11}\label{class_player_a2a995bae19e16ee1ec8e3fcaee5eeb11}} 
+void {\bfseries Add\+XP} (int xp)
+\item 
+\mbox{\Hypertarget{class_player_a2d754b9c1c13ebb968ed88a3adbbb1b6}\label{class_player_a2d754b9c1c13ebb968ed88a3adbbb1b6}} 
+void {\bfseries Draw\+Status} (sf\+::\+Render\+Target \&target)
+\item 
+\mbox{\Hypertarget{class_player_aaa625980af61233243bc4ea8949b5474}\label{class_player_aaa625980af61233243bc4ea8949b5474}} 
+float {\bfseries Cooldown\+Progress} () const
+\item 
+\mbox{\Hypertarget{class_player_a2b66909e2517000377946df475324f99}\label{class_player_a2b66909e2517000377946df475324f99}} 
+float {\bfseries Level\+Progress} () const
+\item 
+\mbox{\Hypertarget{class_player_a7962164e5b009fe9a309551b13f7f735}\label{class_player_a7962164e5b009fe9a309551b13f7f735}} 
+int {\bfseries Ranged\+Attack} ()
+\item 
+\mbox{\Hypertarget{class_player_a056792a81b34e898f73fcb7729010a8c}\label{class_player_a056792a81b34e898f73fcb7729010a8c}} 
+bool {\bfseries Drink\+Health\+Potion} ()
+\item 
+\mbox{\Hypertarget{class_player_a67c4de392bc5bddd4ec35f3ee56af6b3}\label{class_player_a67c4de392bc5bddd4ec35f3ee56af6b3}} 
+bool {\bfseries Process\+Input} (sf\+::\+Keyboard\+::\+Key key, bool is\+\_\+pressed)
+\item 
+\mbox{\Hypertarget{class_player_a4dd9a2c2e5feee76afb721f4adf1430a}\label{class_player_a4dd9a2c2e5feee76afb721f4adf1430a}} 
+bool {\bfseries Check\+Collision} (int(\&level)\mbox{[}120\mbox{]}, int \&curr\+\_\+level)
+\item 
+\mbox{\Hypertarget{class_player_a66cced4bf106e98e8caf33a5d1b05930}\label{class_player_a66cced4bf106e98e8caf33a5d1b05930}} 
+void {\bfseries draw} (sf\+::\+Render\+Target \&target)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_player}{Player}} class, inherits from \mbox{\hyperlink{class_entity}{Entity}}. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Player.\+hpp\item 
+Player.\+cpp\end{DoxyCompactItemize}

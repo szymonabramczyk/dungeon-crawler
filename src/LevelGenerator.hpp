@@ -3,6 +3,7 @@
 
 #include <iostream>
 
+/*! \brief Class for generating the levels. */
 class LevelGenerator {
    public:
     static void GenerateLevel(int (&levels_)[9][120]) {

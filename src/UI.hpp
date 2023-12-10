@@ -2,6 +2,7 @@
 #define UI_HPP_
 #include <SFML/Graphics.hpp>
 
+/*! \brief Represents the player UI. */
 class UI {
    public:
     UI();

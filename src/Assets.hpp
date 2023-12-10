@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <map>
 
+/*! \brief Class to load all game assets */
 class Assets {
    public:
     static void LoadAssets(const std::string& path,

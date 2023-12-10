@@ -2,6 +2,7 @@
 #define WEAPON_HPP_
 #include "Item.hpp"
 
+/*! \brief Weapon class, inherits from Item. */
 class Weapon : public Item {
    public:
     Weapon(int slot, const std::string& texture_name, int damage)

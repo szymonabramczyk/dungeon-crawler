@@ -1,0 +1,47 @@
+\hypertarget{class_assets}{}\doxysection{Assets Class Reference}
+\label{class_assets}\index{Assets@{Assets}}
+
+
+Class to load all game assets.  
+
+
+
+
+{\ttfamily \#include $<$Assets.\+hpp$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_assets_a4b1cc73dc0d25e495ad1deca47d0b25d}\label{class_assets_a4b1cc73dc0d25e495ad1deca47d0b25d}} 
+static void {\bfseries Load\+Assets} (const std\+::string \&path, const std\+::vector$<$ std\+::string $>$ \&texture\+\_\+names, const std\+::vector$<$ std\+::string $>$ \&font\+\_\+names, const std\+::vector$<$ std\+::string $>$ \&sound\+\_\+names)
+\item 
+\mbox{\Hypertarget{class_assets_ac423cb14a4334fb5522027dd7e7b1ea7}\label{class_assets_ac423cb14a4334fb5522027dd7e7b1ea7}} 
+static void {\bfseries Load\+Sound} (const std\+::string \&name, const std\+::string \&file\+\_\+path)
+\item 
+\mbox{\Hypertarget{class_assets_a0ea3e68507a7e9522ae7919976a75926}\label{class_assets_a0ea3e68507a7e9522ae7919976a75926}} 
+static void {\bfseries Load\+Font} (const std\+::string \&name, const std\+::string \&file\+\_\+path)
+\item 
+\mbox{\Hypertarget{class_assets_a0ce7b92a4fc121619c82c75321ef7422}\label{class_assets_a0ce7b92a4fc121619c82c75321ef7422}} 
+static void {\bfseries Load\+Texture} (const std\+::string \&name, const std\+::string \&file\+\_\+path)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_assets_a356d61df2f8b24bab41c9685ae647f50}\label{class_assets_a356d61df2f8b24bab41c9685ae647f50}} 
+static std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ sf\+::\+Texture $>$ $>$ {\bfseries textures}
+\item 
+\mbox{\Hypertarget{class_assets_a99204a667c4cf5c97a9fe5c1c90639fd}\label{class_assets_a99204a667c4cf5c97a9fe5c1c90639fd}} 
+static std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ sf\+::\+Font $>$ $>$ {\bfseries fonts}
+\item 
+\mbox{\Hypertarget{class_assets_a732ba5ec1226604323e3e979f39ce338}\label{class_assets_a732ba5ec1226604323e3e979f39ce338}} 
+static std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ sf\+::\+Sound $>$ $>$ {\bfseries sounds}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to load all game assets. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Assets.\+hpp\item 
+Assets.\+cpp\end{DoxyCompactItemize}

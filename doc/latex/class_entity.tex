@@ -1,0 +1,128 @@
+\hypertarget{class_entity}{}\doxysection{Entity Class Reference}
+\label{class_entity}\index{Entity@{Entity}}
+
+
+Abstract class for entities.  
+
+
+
+
+{\ttfamily \#include $<$Entity.\+hpp$>$}
+
+
+
+Inheritance diagram for Entity\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{class_entity__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_entity_a271507f71f3a1ac8110caeaaa4db1a35}\label{class_entity_a271507f71f3a1ac8110caeaaa4db1a35}} 
+{\bfseries Entity} (const std\+::string \&type, int hp)
+\item 
+\mbox{\Hypertarget{class_entity_a80471e0a38dc0f3ef64aed553108e84e}\label{class_entity_a80471e0a38dc0f3ef64aed553108e84e}} 
+const std\+::string \& {\bfseries Get\+Type} () const
+\item 
+\mbox{\Hypertarget{class_entity_a698f90260d112b25eb2bfddb460f75d7}\label{class_entity_a698f90260d112b25eb2bfddb460f75d7}} 
+int {\bfseries Get\+Health\+Points} () const
+\item 
+\mbox{\Hypertarget{class_entity_a2b4ba01cda90319ebfdc58af6767850e}\label{class_entity_a2b4ba01cda90319ebfdc58af6767850e}} 
+const sf\+::\+Vector2f {\bfseries Get\+Position} () const
+\item 
+\mbox{\Hypertarget{class_entity_a5c62ac25a81a9a1f9219af0f0bda09dd}\label{class_entity_a5c62ac25a81a9a1f9219af0f0bda09dd}} 
+const int {\bfseries Max\+HP} () const
+\item 
+\mbox{\Hypertarget{class_entity_a99614b3473edfc2ac3649f355080c8eb}\label{class_entity_a99614b3473edfc2ac3649f355080c8eb}} 
+bool {\bfseries Is\+Monster} () const
+\item 
+\mbox{\Hypertarget{class_entity_ac94321320a8991aa196086c9cf3f2e6c}\label{class_entity_ac94321320a8991aa196086c9cf3f2e6c}} 
+bool {\bfseries Is\+Dead} () const
+\item 
+\mbox{\Hypertarget{class_entity_ad03ce292fd42e8f298842af3d8388836}\label{class_entity_ad03ce292fd42e8f298842af3d8388836}} 
+bool {\bfseries Is\+Boss} () const
+\item 
+\mbox{\Hypertarget{class_entity_a0e362df779b6ff2c6c5a425e21dcf72f}\label{class_entity_a0e362df779b6ff2c6c5a425e21dcf72f}} 
+int {\bfseries Get\+Tile\+Position} ()
+\item 
+\mbox{\Hypertarget{class_entity_a3fee8579c592b5922ca0aee81c2fbdea}\label{class_entity_a3fee8579c592b5922ca0aee81c2fbdea}} 
+int {\bfseries Distance\+Between} (const sf\+::\+Vector2f \&a, const sf\+::\+Vector2f \&b)
+\item 
+\mbox{\Hypertarget{class_entity_a27ad81109f7ea6d35398f8823229cd46}\label{class_entity_a27ad81109f7ea6d35398f8823229cd46}} 
+bool {\bfseries Attack} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ target)
+\item 
+\mbox{\Hypertarget{class_entity_a2d3cdd12105a06139492a302bc8ffc50}\label{class_entity_a2d3cdd12105a06139492a302bc8ffc50}} 
+bool {\bfseries Take\+Damage} (const int damage)
+\item 
+\mbox{\Hypertarget{class_entity_ad128a60e17a4f108b4a2b5b7937bedeb}\label{class_entity_ad128a60e17a4f108b4a2b5b7937bedeb}} 
+void {\bfseries Draw\+Health\+Points} (sf\+::\+Render\+Target \&target)
+\item 
+\mbox{\Hypertarget{class_entity_ae76c88361b20e6e4d5004aacd7ad7195}\label{class_entity_ae76c88361b20e6e4d5004aacd7ad7195}} 
+void {\bfseries draw} (sf\+::\+Render\+Target \&target)
+\item 
+\mbox{\Hypertarget{class_entity_a5a797fd779c66b1912ba2bb81dc4aa9f}\label{class_entity_a5a797fd779c66b1912ba2bb81dc4aa9f}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ {\bfseries Check\+Tile} (int pos)
+\item 
+\mbox{\Hypertarget{class_entity_a286cd8acb3bbf78b869e034139b446ca}\label{class_entity_a286cd8acb3bbf78b869e034139b446ca}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ {\bfseries Move\+Along\+X\+Axis} (bool left)
+\item 
+\mbox{\Hypertarget{class_entity_a0a7c4c22b70480caae11ef9451f12ba4}\label{class_entity_a0a7c4c22b70480caae11ef9451f12ba4}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ {\bfseries Move\+Along\+Y\+Axis} (bool down)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_entity_a4b53d16db25bf36bbacdbc07fa2b069e}\label{class_entity_a4b53d16db25bf36bbacdbc07fa2b069e}} 
+sf\+::\+Sprite {\bfseries sprite\+\_\+}
+\item 
+\mbox{\Hypertarget{class_entity_a284442227af57b66f554c859a5037573}\label{class_entity_a284442227af57b66f554c859a5037573}} 
+sf\+::\+Text {\bfseries text\+\_\+}
+\item 
+\mbox{\Hypertarget{class_entity_ab6a80d22ea435e5cb52ad6778a5759d8}\label{class_entity_ab6a80d22ea435e5cb52ad6778a5759d8}} 
+const std\+::string {\bfseries type\+\_\+}
+\item 
+\mbox{\Hypertarget{class_entity_a3d4aa8ba979dc08e983e2fcbad8f17fd}\label{class_entity_a3d4aa8ba979dc08e983e2fcbad8f17fd}} 
+int {\bfseries speed\+\_\+}
+\item 
+\mbox{\Hypertarget{class_entity_ae774ef60d6b7b65c9eb958cddabc737b}\label{class_entity_ae774ef60d6b7b65c9eb958cddabc737b}} 
+int {\bfseries max\+\_\+hp\+\_\+}
+\item 
+\mbox{\Hypertarget{class_entity_ac3b4fae19fb594b4b0cd03576c0d9b10}\label{class_entity_ac3b4fae19fb594b4b0cd03576c0d9b10}} 
+int {\bfseries pos\+\_\+}
+\item 
+\mbox{\Hypertarget{class_entity_ad853519335acf7e026fa44210ecc046f}\label{class_entity_ad853519335acf7e026fa44210ecc046f}} 
+int {\bfseries health\+\_\+points\+\_\+}
+\item 
+\mbox{\Hypertarget{class_entity_a763c6673a25f37184d89354a03a2970b}\label{class_entity_a763c6673a25f37184d89354a03a2970b}} 
+bool {\bfseries is\+\_\+dead\+\_\+} = false
+\item 
+\mbox{\Hypertarget{class_entity_a09ea2ab949d7aef317837e651504db20}\label{class_entity_a09ea2ab949d7aef317837e651504db20}} 
+bool {\bfseries is\+\_\+monster\+\_\+} = false
+\item 
+\mbox{\Hypertarget{class_entity_aebf2930f686480ceb603cea25dfd6c9d}\label{class_entity_aebf2930f686480ceb603cea25dfd6c9d}} 
+bool {\bfseries is\+\_\+boss\+\_\+}
+\item 
+\mbox{\Hypertarget{class_entity_a95897bdbc072a7f9a5d5999e18aa7943}\label{class_entity_a95897bdbc072a7f9a5d5999e18aa7943}} 
+int {\bfseries weapon\+\_\+damage\+\_\+}
+\item 
+\mbox{\Hypertarget{class_entity_a3937c1c228127c9900971d9ede313eba}\label{class_entity_a3937c1c228127c9900971d9ede313eba}} 
+int {\bfseries total\+\_\+turns\+\_\+} = 0
+\item 
+\mbox{\Hypertarget{class_entity_a7e378d34bda99a430c5497e1c8770ff3}\label{class_entity_a7e378d34bda99a430c5497e1c8770ff3}} 
+sf\+::\+Clock {\bfseries clock\+\_\+}
+\item 
+\mbox{\Hypertarget{class_entity_ab0805e4e0372468db84eba542f9b6b82}\label{class_entity_ab0805e4e0372468db84eba542f9b6b82}} 
+float {\bfseries elapsed\+\_\+time\+\_\+} = 0.\+0f
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract class for entities. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Entity.\+hpp\item 
+Entity.\+cpp\end{DoxyCompactItemize}

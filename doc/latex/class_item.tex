@@ -1,0 +1,56 @@
+\hypertarget{class_item}{}\doxysection{Item Class Reference}
+\label{class_item}\index{Item@{Item}}
+
+
+Abstract class for items.  
+
+
+
+
+{\ttfamily \#include $<$Item.\+hpp$>$}
+
+
+
+Inheritance diagram for Item\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{class_item__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_item_a3f35c69fbefdeee4ba4c70dea92316bb}\label{class_item_a3f35c69fbefdeee4ba4c70dea92316bb}} 
+{\bfseries Item} (int slot, const std\+::string \&texture\+\_\+name)
+\item 
+\mbox{\Hypertarget{class_item_adc13e83e24759ffcbad149e57253f9d1}\label{class_item_adc13e83e24759ffcbad149e57253f9d1}} 
+void {\bfseries draw} (sf\+::\+Render\+Target \&target, sf\+::\+Render\+States states) const
+\item 
+\mbox{\Hypertarget{class_item_aee99a2b103aa9eb7f18b6135dd38fa5a}\label{class_item_aee99a2b103aa9eb7f18b6135dd38fa5a}} 
+virtual void {\bfseries Update} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_item_a88da310db757aa646a47c226ee3378d5}\label{class_item_a88da310db757aa646a47c226ee3378d5}} 
+int {\bfseries slot\+\_\+}
+\item 
+\mbox{\Hypertarget{class_item_a55ee9603d2e2ee662b4348f2ad9def04}\label{class_item_a55ee9603d2e2ee662b4348f2ad9def04}} 
+sf\+::\+Font {\bfseries font\+\_\+}
+\item 
+\mbox{\Hypertarget{class_item_af7c6c6865df9a6bfd89b36e3b3a9b552}\label{class_item_af7c6c6865df9a6bfd89b36e3b3a9b552}} 
+sf\+::\+Text {\bfseries text\+\_\+}
+\item 
+\mbox{\Hypertarget{class_item_a7233fc5cc53739fc32236e06b7e7477f}\label{class_item_a7233fc5cc53739fc32236e06b7e7477f}} 
+sf\+::\+Sprite {\bfseries sprite\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract class for items. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Item.\+hpp\item 
+Item.\+cpp\end{DoxyCompactItemize}

@@ -7,7 +7,7 @@
 #include "Assets.hpp"
 #include "Entity.hpp"
 
-// Monster class, inherits from Entity
+/*! \brief Monster class, inherits from Entity. */
 class Monster : public Entity {
    public:
     // Constructor for player class

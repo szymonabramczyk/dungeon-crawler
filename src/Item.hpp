@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 
-// Abstract class for Items
+/*! \brief Abstract class for items. */
 class Item {
    public:
     Item(int slot, const std::string& texture_name);

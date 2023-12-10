@@ -7,6 +7,7 @@
 #include "Potion.hpp"
 #include "Weapon.hpp"
 
+/*! \brief Represents the player's inventory. */
 class Inventory : public sf::Drawable {
    public:
     Inventory();

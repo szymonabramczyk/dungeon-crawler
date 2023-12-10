@@ -7,7 +7,7 @@
 #include "Entity.hpp"
 #include "Inventory.hpp"
 
-// Player class, inherits from Entity
+/*! \brief Player class, inherits from Entity. */
 class Player : public Entity {
    public:
     // Constructor for player class

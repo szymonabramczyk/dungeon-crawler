@@ -2,6 +2,7 @@
 #define POTION_HPP_
 #include "Item.hpp"
 
+/*! \brief Potion class, inherits from Item. */
 class Potion : public Item {
    public:
     Potion(int slot, const std::string& texture_name, int healingAmount, int amount)

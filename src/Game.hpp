@@ -14,6 +14,7 @@
 #include "TileMap.hpp"
 #include "UI.hpp"
 
+/*! \brief Class for the game. */
 class Game {
    public:
     Game(const std::string& path);

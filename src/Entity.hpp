@@ -5,7 +5,7 @@
 #include <memory>
 #include <string>
 
-// Base class for Player and Monster classes
+/*! \brief Abstract class for entities. */
 class Entity {
    public:
     Entity(const std::string& type, int hp);

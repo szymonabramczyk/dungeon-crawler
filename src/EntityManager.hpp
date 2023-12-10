@@ -6,6 +6,7 @@
 
 class Entity;  // Forward declaration
 
+/*! \brief Provides methods for Entity manipulation. */
 class EntityManager {
    public:
     static void AddEntity(std::shared_ptr<Entity> entity);
