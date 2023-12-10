@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dungeon-crawler-quang-ngo-1: UI.hpp Source File</title>
+<title>dungeon-crawler-quang-ngo-1: /home/jakutzin/cpp-course project/dungeon-crawler-quang-ngo-01/src/UI.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,18 +85,18 @@ $(document).ready(function(){initNavTree('_u_i_8hpp_source.html',''); initResiza
 <div class="title">UI.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef UI_HPP_</span></div>
+<a href="_u_i_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef UI_HPP_</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define UI_HPP_</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_u_i.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_u_i.html">UI</a> {</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;   <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_u_i.html">UI</a>();</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keywordtype">void</span> UpdateHealthUI(<span class="keywordtype">double</span> fraction, <span class="keyword">const</span> std::string&amp; text);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">void</span> UpdateAbilityUI(<span class="keywordtype">double</span> fraction, <span class="keyword">const</span> std::string&amp; text);</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordtype">void</span> UpdateXpUI(<span class="keywordtype">double</span> fraction, <span class="keyword">const</span> std::string&amp; text);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">void</span> UpdateEndText(<span class="keywordtype">bool</span> win);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> draw(sf::RenderTarget&amp; target) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_u_i.html#a675985a56b5e87ebdc8e5884b9f2ee09">UI</a>();</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_u_i.html#a73396953ed98d5d0d0ef9e3f71f3dae4">UpdateHealthUI</a>(<span class="keywordtype">double</span> fraction, <span class="keyword">const</span> std::string&amp; text);</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_u_i.html#a989401f1defa8df34b0de3b7395bdade">UpdateAbilityUI</a>(<span class="keywordtype">double</span> fraction, <span class="keyword">const</span> std::string&amp; text);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_u_i.html#a84dbeeb199b4a9edd843aedb8e82e278">UpdateXpUI</a>(<span class="keywordtype">double</span> fraction, <span class="keyword">const</span> std::string&amp; text);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_u_i.html#aeff9a24a56fd9fd271b6605c29199746">UpdateEndText</a>(<span class="keywordtype">bool</span> win);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_u_i.html#adb45986467d78be14c291e473449eb84">draw</a>(sf::RenderTarget&amp; target) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;   <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    sf::RectangleShape health_bar_, ability_bar_, xp_bar_;</div>
@@ -109,11 +109,17 @@ $(document).ready(function(){initNavTree('_u_i_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif  // UI_HPP_</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_u_i_html"><div class="ttname"><a href="class_u_i.html">UI</a></div><div class="ttdoc">Represents the player UI.</div><div class="ttdef"><b>Definition:</b> UI.hpp:6</div></div>
+<div class="ttc" id="aclass_u_i_html_a989401f1defa8df34b0de3b7395bdade"><div class="ttname"><a href="class_u_i.html#a989401f1defa8df34b0de3b7395bdade">UI::UpdateAbilityUI</a></div><div class="ttdeci">void UpdateAbilityUI(double fraction, const std::string &amp;text)</div><div class="ttdef"><b>Definition:</b> <a href="_u_i_8cpp_source.html#l00015">UI.cpp:15</a></div></div>
+<div class="ttc" id="aclass_u_i_html_a73396953ed98d5d0d0ef9e3f71f3dae4"><div class="ttname"><a href="class_u_i.html#a73396953ed98d5d0d0ef9e3f71f3dae4">UI::UpdateHealthUI</a></div><div class="ttdeci">void UpdateHealthUI(double fraction, const std::string &amp;text)</div><div class="ttdef"><b>Definition:</b> <a href="_u_i_8cpp_source.html#l00011">UI.cpp:11</a></div></div>
+<div class="ttc" id="aclass_u_i_html_a675985a56b5e87ebdc8e5884b9f2ee09"><div class="ttname"><a href="class_u_i.html#a675985a56b5e87ebdc8e5884b9f2ee09">UI::UI</a></div><div class="ttdeci">UI()</div><div class="ttdef"><b>Definition:</b> <a href="_u_i_8cpp_source.html#l00007">UI.cpp:7</a></div></div>
+<div class="ttc" id="aclass_u_i_html_adb45986467d78be14c291e473449eb84"><div class="ttname"><a href="class_u_i.html#adb45986467d78be14c291e473449eb84">UI::draw</a></div><div class="ttdeci">void draw(sf::RenderTarget &amp;target) const</div><div class="ttdef"><b>Definition:</b> <a href="_u_i_8cpp_source.html#l00086">UI.cpp:86</a></div></div>
+<div class="ttc" id="aclass_u_i_html_a84dbeeb199b4a9edd843aedb8e82e278"><div class="ttname"><a href="class_u_i.html#a84dbeeb199b4a9edd843aedb8e82e278">UI::UpdateXpUI</a></div><div class="ttdeci">void UpdateXpUI(double fraction, const std::string &amp;text)</div><div class="ttdef"><b>Definition:</b> <a href="_u_i_8cpp_source.html#l00019">UI.cpp:19</a></div></div>
+<div class="ttc" id="aclass_u_i_html"><div class="ttname"><a href="class_u_i.html">UI</a></div><div class="ttdoc">Represents the player UI.</div><div class="ttdef"><b>Definition:</b> <a href="_u_i_8hpp_source.html#l00006">UI.hpp:6</a></div></div>
+<div class="ttc" id="aclass_u_i_html_aeff9a24a56fd9fd271b6605c29199746"><div class="ttname"><a href="class_u_i.html#aeff9a24a56fd9fd271b6605c29199746">UI::UpdateEndText</a></div><div class="ttdeci">void UpdateEndText(bool win)</div><div class="ttdef"><b>Definition:</b> <a href="_u_i_8cpp_source.html#l00024">UI.cpp:24</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>UI.hpp</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_u_i_8hpp.html">UI.hpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>

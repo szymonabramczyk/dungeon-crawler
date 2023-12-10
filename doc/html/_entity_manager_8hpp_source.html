@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dungeon-crawler-quang-ngo-1: EntityManager.hpp Source File</title>
+<title>dungeon-crawler-quang-ngo-1: /home/jakutzin/cpp-course project/dungeon-crawler-quang-ngo-01/src/EntityManager.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,7 +85,7 @@ $(document).ready(function(){initNavTree('_entity_manager_8hpp_source.html','');
 <div class="title">EntityManager.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ENTITY_MANAGER_HPP_</span></div>
+<a href="_entity_manager_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ENTITY_MANAGER_HPP_</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ENTITY_MANAGER_HPP_</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
@@ -95,17 +95,17 @@ $(document).ready(function(){initNavTree('_entity_manager_8hpp_source.html','');
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_entity_manager.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_entity_manager.html">EntityManager</a> {</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;   <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> AddEntity(std::shared_ptr&lt;Entity&gt; entity);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> RemoveEntity(std::shared_ptr&lt;Entity&gt; entity);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> RemoveEntity(std::vector&lt;std::shared_ptr&lt;Entity&gt;&gt;::iterator it);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ClearEntities();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> RemoveDead();</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_entity_manager.html#a32042c10c92635b2e4dce74651c54b58">AddEntity</a>(std::shared_ptr&lt;Entity&gt; entity);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_entity_manager.html#a23e3a2df8d6db07f638a30546f442ab9">RemoveEntity</a>(std::shared_ptr&lt;Entity&gt; entity);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_entity_manager.html#a23e3a2df8d6db07f638a30546f442ab9">RemoveEntity</a>(std::vector&lt;std::shared_ptr&lt;Entity&gt;&gt;::iterator it);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_entity_manager.html#a17f16e5d34b89370117ef5d9b31693d8">ClearEntities</a>();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_entity_manager.html#a50ac5be82109df94167b07c3055a43e9">RemoveDead</a>();</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">// iterator methods</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">static</span> std::vector&lt;std::shared_ptr&lt;Entity&gt;&gt;::iterator begin();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">static</span> std::vector&lt;std::shared_ptr&lt;Entity&gt;&gt;::iterator end();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">static</span> std::vector&lt;std::shared_ptr&lt;Entity&gt;&gt;::const_iterator cbegin();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">static</span> std::vector&lt;std::shared_ptr&lt;Entity&gt;&gt;::const_iterator cend();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">static</span> std::vector&lt;std::shared_ptr&lt;Entity&gt;&gt;::iterator <a class="code" href="class_entity_manager.html#a79a3282be931a70558e4fb075a28c24b">begin</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">static</span> std::vector&lt;std::shared_ptr&lt;Entity&gt;&gt;::iterator <a class="code" href="class_entity_manager.html#a07ea22f95f2ecf6a5ef9d7116e671c38">end</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">static</span> std::vector&lt;std::shared_ptr&lt;Entity&gt;&gt;::const_iterator <a class="code" href="class_entity_manager.html#ab1e9e9bfc661ec519f5b2be5dcee574a">cbegin</a>();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">static</span> std::vector&lt;std::shared_ptr&lt;Entity&gt;&gt;::const_iterator <a class="code" href="class_entity_manager.html#a7d7e9abb1c1579f5522b69612a0ed24a">cend</a>();</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;   <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">static</span> std::vector&lt;std::shared_ptr&lt;Entity&gt;&gt; entities_;</div>
@@ -114,12 +114,20 @@ $(document).ready(function(){initNavTree('_entity_manager_8hpp_source.html','');
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif  // ENTITY_MANAGER_HPP_</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_entity_manager_html"><div class="ttname"><a href="class_entity_manager.html">EntityManager</a></div><div class="ttdoc">Provides methods for Entity manipulation.</div><div class="ttdef"><b>Definition:</b> EntityManager.hpp:10</div></div>
-<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdoc">Abstract class for entities.</div><div class="ttdef"><b>Definition:</b> Entity.hpp:9</div></div>
+<div class="ttc" id="aclass_entity_manager_html"><div class="ttname"><a href="class_entity_manager.html">EntityManager</a></div><div class="ttdoc">Provides methods for Entity manipulation.</div><div class="ttdef"><b>Definition:</b> <a href="_entity_manager_8hpp_source.html#l00010">EntityManager.hpp:10</a></div></div>
+<div class="ttc" id="aclass_entity_manager_html_a79a3282be931a70558e4fb075a28c24b"><div class="ttname"><a href="class_entity_manager.html#a79a3282be931a70558e4fb075a28c24b">EntityManager::begin</a></div><div class="ttdeci">static std::vector&lt; std::shared_ptr&lt; Entity &gt; &gt;::iterator begin()</div><div class="ttdef"><b>Definition:</b> <a href="_entity_manager_8cpp_source.html#l00040">EntityManager.cpp:40</a></div></div>
+<div class="ttc" id="aclass_entity_manager_html_a32042c10c92635b2e4dce74651c54b58"><div class="ttname"><a href="class_entity_manager.html#a32042c10c92635b2e4dce74651c54b58">EntityManager::AddEntity</a></div><div class="ttdeci">static void AddEntity(std::shared_ptr&lt; Entity &gt; entity)</div><div class="ttdef"><b>Definition:</b> <a href="_entity_manager_8cpp_source.html#l00010">EntityManager.cpp:10</a></div></div>
+<div class="ttc" id="aclass_entity_manager_html_ab1e9e9bfc661ec519f5b2be5dcee574a"><div class="ttname"><a href="class_entity_manager.html#ab1e9e9bfc661ec519f5b2be5dcee574a">EntityManager::cbegin</a></div><div class="ttdeci">static std::vector&lt; std::shared_ptr&lt; Entity &gt; &gt;::const_iterator cbegin()</div><div class="ttdef"><b>Definition:</b> <a href="_entity_manager_8cpp_source.html#l00048">EntityManager.cpp:48</a></div></div>
+<div class="ttc" id="aclass_entity_manager_html_a17f16e5d34b89370117ef5d9b31693d8"><div class="ttname"><a href="class_entity_manager.html#a17f16e5d34b89370117ef5d9b31693d8">EntityManager::ClearEntities</a></div><div class="ttdeci">static void ClearEntities()</div><div class="ttdef"><b>Definition:</b> <a href="_entity_manager_8cpp_source.html#l00027">EntityManager.cpp:27</a></div></div>
+<div class="ttc" id="aclass_entity_manager_html_a07ea22f95f2ecf6a5ef9d7116e671c38"><div class="ttname"><a href="class_entity_manager.html#a07ea22f95f2ecf6a5ef9d7116e671c38">EntityManager::end</a></div><div class="ttdeci">static std::vector&lt; std::shared_ptr&lt; Entity &gt; &gt;::iterator end()</div><div class="ttdef"><b>Definition:</b> <a href="_entity_manager_8cpp_source.html#l00044">EntityManager.cpp:44</a></div></div>
+<div class="ttc" id="aclass_entity_manager_html_a7d7e9abb1c1579f5522b69612a0ed24a"><div class="ttname"><a href="class_entity_manager.html#a7d7e9abb1c1579f5522b69612a0ed24a">EntityManager::cend</a></div><div class="ttdeci">static std::vector&lt; std::shared_ptr&lt; Entity &gt; &gt;::const_iterator cend()</div><div class="ttdef"><b>Definition:</b> <a href="_entity_manager_8cpp_source.html#l00052">EntityManager.cpp:52</a></div></div>
+<div class="ttc" id="aclass_entity_manager_html_a50ac5be82109df94167b07c3055a43e9"><div class="ttname"><a href="class_entity_manager.html#a50ac5be82109df94167b07c3055a43e9">EntityManager::RemoveDead</a></div><div class="ttdeci">static void RemoveDead()</div><div class="ttdef"><b>Definition:</b> <a href="_entity_manager_8cpp_source.html#l00031">EntityManager.cpp:31</a></div></div>
+<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdoc">Abstract class for entities.</div><div class="ttdef"><b>Definition:</b> <a href="_entity_8hpp_source.html#l00009">Entity.hpp:9</a></div></div>
+<div class="ttc" id="aclass_entity_manager_html_a23e3a2df8d6db07f638a30546f442ab9"><div class="ttname"><a href="class_entity_manager.html#a23e3a2df8d6db07f638a30546f442ab9">EntityManager::RemoveEntity</a></div><div class="ttdeci">static void RemoveEntity(std::shared_ptr&lt; Entity &gt; entity)</div><div class="ttdef"><b>Definition:</b> <a href="_entity_manager_8cpp_source.html#l00014">EntityManager.cpp:14</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>EntityManager.hpp</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_entity_manager_8hpp.html">EntityManager.hpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>

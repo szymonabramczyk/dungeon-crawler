@@ -30,14 +30,13 @@ Collaboration diagram for Monster\+:\nopagebreak
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_monster_a8fd1b205e7ddfd914e50f19123836717}\label{class_monster_a8fd1b205e7ddfd914e50f19123836717}} 
-{\bfseries Monster} (const std\+::string \&type, int speed=1, int damage=5, int hp=100, bool is\+\_\+boss=false)
+\mbox{\hyperlink{class_monster_a8fd1b205e7ddfd914e50f19123836717}{Monster}} (const std\+::string \&type, int speed=1, int damage=5, int hp=100, bool is\+\_\+boss=false)
 \item 
-\mbox{\Hypertarget{class_monster_a809428fda41c56a1d7b2ca9508e7ea8e}\label{class_monster_a809428fda41c56a1d7b2ca9508e7ea8e}} 
-bool {\bfseries Attack} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ target)
+\mbox{\hyperlink{class_monster_a21619ba1759b910cd2fd50d858aab338}{$\sim$\+Monster}} ()
 \item 
-\mbox{\Hypertarget{class_monster_a6f5d2e81c8c18d8f212312aa22e53a79}\label{class_monster_a6f5d2e81c8c18d8f212312aa22e53a79}} 
-void {\bfseries Update} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ player)
+bool \mbox{\hyperlink{class_monster_a809428fda41c56a1d7b2ca9508e7ea8e}{Attack}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ target)
+\item 
+void \mbox{\hyperlink{class_monster_a6f5d2e81c8c18d8f212312aa22e53a79}{Update}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ player)
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
@@ -45,7 +44,81 @@ void {\bfseries Update} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity
 \doxysubsection{Detailed Description}
 \mbox{\hyperlink{class_monster}{Monster}} class, inherits from \mbox{\hyperlink{class_entity}{Entity}}. 
 
+Definition at line 11 of file Monster.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_monster_a8fd1b205e7ddfd914e50f19123836717}\label{class_monster_a8fd1b205e7ddfd914e50f19123836717}} 
+\index{Monster@{Monster}!Monster@{Monster}}
+\index{Monster@{Monster}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{Monster()}{Monster()}}
+{\footnotesize\ttfamily Monster\+::\+Monster (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{type,  }\item[{int}]{speed = {\ttfamily 1},  }\item[{int}]{damage = {\ttfamily 5},  }\item[{int}]{hp = {\ttfamily 100},  }\item[{bool}]{is\+\_\+boss = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 13 of file Monster.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_monster_a8fd1b205e7ddfd914e50f19123836717_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_monster_a21619ba1759b910cd2fd50d858aab338}\label{class_monster_a21619ba1759b910cd2fd50d858aab338}} 
+\index{Monster@{Monster}!````~Monster@{$\sim$Monster}}
+\index{````~Monster@{$\sim$Monster}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{$\sim$Monster()}{~Monster()}}
+{\footnotesize\ttfamily Monster\+::$\sim$\+Monster (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 17 of file Monster.\+hpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_monster_a809428fda41c56a1d7b2ca9508e7ea8e}\label{class_monster_a809428fda41c56a1d7b2ca9508e7ea8e}} 
+\index{Monster@{Monster}!Attack@{Attack}}
+\index{Attack@{Attack}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{Attack()}{Attack()}}
+{\footnotesize\ttfamily bool Monster\+::\+Attack (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$}]{target }\end{DoxyParamCaption})}
+
+
+
+Definition at line 59 of file Monster.\+cpp.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{class_monster_a809428fda41c56a1d7b2ca9508e7ea8e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_monster_a6f5d2e81c8c18d8f212312aa22e53a79}\label{class_monster_a6f5d2e81c8c18d8f212312aa22e53a79}} 
+\index{Monster@{Monster}!Update@{Update}}
+\index{Update@{Update}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Monster\+::\+Update (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$}]{player }\end{DoxyParamCaption})}
+
+
+
+Definition at line 71 of file Monster.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_monster_a6f5d2e81c8c18d8f212312aa22e53a79_cgraph}
+\end{center}
+\end{figure}
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Monster.\+hpp\item 
-Monster.\+cpp\end{DoxyCompactItemize}
+/home/jakutzin/cpp-\/course project/dungeon-\/crawler-\/quang-\/ngo-\/01/src/\mbox{\hyperlink{_monster_8hpp}{Monster.\+hpp}}\item 
+/home/jakutzin/cpp-\/course project/dungeon-\/crawler-\/quang-\/ngo-\/01/src/\mbox{\hyperlink{_monster_8cpp}{Monster.\+cpp}}\end{DoxyCompactItemize}

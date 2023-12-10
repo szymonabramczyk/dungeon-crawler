@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dungeon-crawler-quang-ngo-1: Potion.hpp Source File</title>
+<title>dungeon-crawler-quang-ngo-1: /home/jakutzin/cpp-course project/dungeon-crawler-quang-ngo-01/src/Potion.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,24 +85,24 @@ $(document).ready(function(){initNavTree('_potion_8hpp_source.html',''); initRes
 <div class="title">Potion.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef POTION_HPP_</span></div>
+<a href="_potion_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef POTION_HPP_</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define POTION_HPP_</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Item.hpp&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_item_8hpp.html">Item.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_potion.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_potion.html">Potion</a> : <span class="keyword">public</span> <a class="code" href="class_item.html">Item</a> {</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;   <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_potion.html">Potion</a>(<span class="keywordtype">int</span> slot, <span class="keyword">const</span> std::string&amp; texture_name, <span class="keywordtype">int</span> healingAmount, <span class="keywordtype">int</span> amount)</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_potion.html#a38ff39cbbf00bf59d8ef5015c18c7c56">    8</a></span>&#160;    <a class="code" href="class_potion.html#a38ff39cbbf00bf59d8ef5015c18c7c56">Potion</a>(<span class="keywordtype">int</span> slot, <span class="keyword">const</span> std::string&amp; texture_name, <span class="keywordtype">int</span> healingAmount, <span class="keywordtype">int</span> amount)</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        : <a class="code" href="class_item.html">Item</a>(slot, texture_name), healingAmount_(healingAmount), amount_(amount) {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        text_.setString(std::to_string(amount_));</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <a class="code" href="class_item.html#af7c6c6865df9a6bfd89b36e3b3a9b552">text_</a>.setString(std::to_string(amount_));</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    }</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="comment">// A method to Update, updates the displayed text with amount</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Update() {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        text_.setString(std::to_string(amount_));</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_potion.html#a02276bf6b5dbe03ee11e7fac280bf00e">   13</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_potion.html#a02276bf6b5dbe03ee11e7fac280bf00e">Update</a>() {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <a class="code" href="class_item.html#af7c6c6865df9a6bfd89b36e3b3a9b552">text_</a>.setString(std::to_string(amount_));</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    }</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">int</span> GetAmount() {</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_potion.html#a0020c43a7ba8bdf6156a3efbd7d72614">   16</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_potion.html#a0020c43a7ba8bdf6156a3efbd7d72614">GetAmount</a>() {</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordflow">return</span> amount_;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    }</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> AddAmount(<span class="keywordtype">int</span> amount) {</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_potion.html#a93d3c92487ec505e6dc2ae0241f25335">   19</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_potion.html#a93d3c92487ec505e6dc2ae0241f25335">AddAmount</a>(<span class="keywordtype">int</span> amount) {</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        amount_ += amount;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
@@ -114,12 +114,18 @@ $(document).ready(function(){initNavTree('_potion_8hpp_source.html',''); initRes
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif  // POTION_HPP_</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_potion_html"><div class="ttname"><a href="class_potion.html">Potion</a></div><div class="ttdoc">Potion class, inherits from Item.</div><div class="ttdef"><b>Definition:</b> Potion.hpp:6</div></div>
-<div class="ttc" id="aclass_item_html"><div class="ttname"><a href="class_item.html">Item</a></div><div class="ttdoc">Abstract class for items.</div><div class="ttdef"><b>Definition:</b> Item.hpp:7</div></div>
+<div class="ttc" id="a_item_8hpp_html"><div class="ttname"><a href="_item_8hpp.html">Item.hpp</a></div></div>
+<div class="ttc" id="aclass_potion_html_a0020c43a7ba8bdf6156a3efbd7d72614"><div class="ttname"><a href="class_potion.html#a0020c43a7ba8bdf6156a3efbd7d72614">Potion::GetAmount</a></div><div class="ttdeci">int GetAmount()</div><div class="ttdef"><b>Definition:</b> <a href="_potion_8hpp_source.html#l00016">Potion.hpp:16</a></div></div>
+<div class="ttc" id="aclass_item_html_af7c6c6865df9a6bfd89b36e3b3a9b552"><div class="ttname"><a href="class_item.html#af7c6c6865df9a6bfd89b36e3b3a9b552">Item::text_</a></div><div class="ttdeci">sf::Text text_</div><div class="ttdef"><b>Definition:</b> <a href="_item_8hpp_source.html#l00016">Item.hpp:16</a></div></div>
+<div class="ttc" id="aclass_potion_html_a38ff39cbbf00bf59d8ef5015c18c7c56"><div class="ttname"><a href="class_potion.html#a38ff39cbbf00bf59d8ef5015c18c7c56">Potion::Potion</a></div><div class="ttdeci">Potion(int slot, const std::string &amp;texture_name, int healingAmount, int amount)</div><div class="ttdef"><b>Definition:</b> <a href="_potion_8hpp_source.html#l00008">Potion.hpp:8</a></div></div>
+<div class="ttc" id="aclass_potion_html"><div class="ttname"><a href="class_potion.html">Potion</a></div><div class="ttdoc">Potion class, inherits from Item.</div><div class="ttdef"><b>Definition:</b> <a href="_potion_8hpp_source.html#l00006">Potion.hpp:6</a></div></div>
+<div class="ttc" id="aclass_potion_html_a93d3c92487ec505e6dc2ae0241f25335"><div class="ttname"><a href="class_potion.html#a93d3c92487ec505e6dc2ae0241f25335">Potion::AddAmount</a></div><div class="ttdeci">void AddAmount(int amount)</div><div class="ttdef"><b>Definition:</b> <a href="_potion_8hpp_source.html#l00019">Potion.hpp:19</a></div></div>
+<div class="ttc" id="aclass_potion_html_a02276bf6b5dbe03ee11e7fac280bf00e"><div class="ttname"><a href="class_potion.html#a02276bf6b5dbe03ee11e7fac280bf00e">Potion::Update</a></div><div class="ttdeci">virtual void Update()</div><div class="ttdef"><b>Definition:</b> <a href="_potion_8hpp_source.html#l00013">Potion.hpp:13</a></div></div>
+<div class="ttc" id="aclass_item_html"><div class="ttname"><a href="class_item.html">Item</a></div><div class="ttdoc">Abstract class for items.</div><div class="ttdef"><b>Definition:</b> <a href="_item_8hpp_source.html#l00007">Item.hpp:7</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>Potion.hpp</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_potion_8hpp.html">Potion.hpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>

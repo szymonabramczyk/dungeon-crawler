@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dungeon-crawler-quang-ngo-1: Item.hpp Source File</title>
+<title>dungeon-crawler-quang-ngo-1: /home/jakutzin/cpp-course project/dungeon-crawler-quang-ngo-01/src/Item.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,32 +85,39 @@ $(document).ready(function(){initNavTree('_item_8hpp_source.html',''); initResiz
 <div class="title">Item.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ITEM_HPP_</span></div>
+<a href="_item_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ITEM_HPP_</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ITEM_HPP_</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_item.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_item.html">Item</a> {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;   <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="class_item.html">Item</a>(<span class="keywordtype">int</span> slot, <span class="keyword">const</span> std::string&amp; texture_name);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">void</span> draw(sf::RenderTarget&amp; target, sf::RenderStates states) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Update() = 0;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="class_item.html#a3f35c69fbefdeee4ba4c70dea92316bb">Item</a>(<span class="keywordtype">int</span> slot, <span class="keyword">const</span> std::string&amp; texture_name);</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_item.html#adc13e83e24759ffcbad149e57253f9d1">draw</a>(sf::RenderTarget&amp; target, sf::RenderStates states) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_item.html#aee99a2b103aa9eb7f18b6135dd38fa5a">Update</a>() = 0;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;   <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">int</span> slot_;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    sf::Font font_;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    sf::Text text_;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    sf::Sprite sprite_;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_item.html#a88da310db757aa646a47c226ee3378d5">   14</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_item.html#a88da310db757aa646a47c226ee3378d5">slot_</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_item.html#a55ee9603d2e2ee662b4348f2ad9def04">   15</a></span>&#160;    sf::Font <a class="code" href="class_item.html#a55ee9603d2e2ee662b4348f2ad9def04">font_</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_item.html#af7c6c6865df9a6bfd89b36e3b3a9b552">   16</a></span>&#160;    sf::Text <a class="code" href="class_item.html#af7c6c6865df9a6bfd89b36e3b3a9b552">text_</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_item.html#a7233fc5cc53739fc32236e06b7e7477f">   17</a></span>&#160;    sf::Sprite <a class="code" href="class_item.html#a7233fc5cc53739fc32236e06b7e7477f">sprite_</a>;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif  // ITEM_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_item_html"><div class="ttname"><a href="class_item.html">Item</a></div><div class="ttdoc">Abstract class for items.</div><div class="ttdef"><b>Definition:</b> Item.hpp:7</div></div>
+<div class="ttc" id="aclass_item_html_a88da310db757aa646a47c226ee3378d5"><div class="ttname"><a href="class_item.html#a88da310db757aa646a47c226ee3378d5">Item::slot_</a></div><div class="ttdeci">int slot_</div><div class="ttdef"><b>Definition:</b> <a href="_item_8hpp_source.html#l00014">Item.hpp:14</a></div></div>
+<div class="ttc" id="aclass_item_html_adc13e83e24759ffcbad149e57253f9d1"><div class="ttname"><a href="class_item.html#adc13e83e24759ffcbad149e57253f9d1">Item::draw</a></div><div class="ttdeci">void draw(sf::RenderTarget &amp;target, sf::RenderStates states) const</div><div class="ttdef"><b>Definition:</b> <a href="_item_8cpp_source.html#l00016">Item.cpp:16</a></div></div>
+<div class="ttc" id="aclass_item_html_aee99a2b103aa9eb7f18b6135dd38fa5a"><div class="ttname"><a href="class_item.html#aee99a2b103aa9eb7f18b6135dd38fa5a">Item::Update</a></div><div class="ttdeci">virtual void Update()=0</div></div>
+<div class="ttc" id="aclass_item_html_af7c6c6865df9a6bfd89b36e3b3a9b552"><div class="ttname"><a href="class_item.html#af7c6c6865df9a6bfd89b36e3b3a9b552">Item::text_</a></div><div class="ttdeci">sf::Text text_</div><div class="ttdef"><b>Definition:</b> <a href="_item_8hpp_source.html#l00016">Item.hpp:16</a></div></div>
+<div class="ttc" id="aclass_item_html_a7233fc5cc53739fc32236e06b7e7477f"><div class="ttname"><a href="class_item.html#a7233fc5cc53739fc32236e06b7e7477f">Item::sprite_</a></div><div class="ttdeci">sf::Sprite sprite_</div><div class="ttdef"><b>Definition:</b> <a href="_item_8hpp_source.html#l00017">Item.hpp:17</a></div></div>
+<div class="ttc" id="aclass_item_html_a55ee9603d2e2ee662b4348f2ad9def04"><div class="ttname"><a href="class_item.html#a55ee9603d2e2ee662b4348f2ad9def04">Item::font_</a></div><div class="ttdeci">sf::Font font_</div><div class="ttdef"><b>Definition:</b> <a href="_item_8hpp_source.html#l00015">Item.hpp:15</a></div></div>
+<div class="ttc" id="aclass_item_html_a3f35c69fbefdeee4ba4c70dea92316bb"><div class="ttname"><a href="class_item.html#a3f35c69fbefdeee4ba4c70dea92316bb">Item::Item</a></div><div class="ttdeci">Item(int slot, const std::string &amp;texture_name)</div><div class="ttdef"><b>Definition:</b> <a href="_item_8cpp_source.html#l00007">Item.cpp:7</a></div></div>
+<div class="ttc" id="aclass_item_html"><div class="ttname"><a href="class_item.html">Item</a></div><div class="ttdoc">Abstract class for items.</div><div class="ttdef"><b>Definition:</b> <a href="_item_8hpp_source.html#l00007">Item.hpp:7</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>Item.hpp</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_item_8hpp.html">Item.hpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>

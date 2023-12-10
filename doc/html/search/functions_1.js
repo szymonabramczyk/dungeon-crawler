@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7eplayer_29',['~Player',['../class_player.html#a749d2c00e1fe0f5c2746f7505a58c062',1,'Player']]]
+  ['begin_168',['begin',['../class_entity_manager.html#a79a3282be931a70558e4fb075a28c24b',1,'EntityManager']]]
 ];

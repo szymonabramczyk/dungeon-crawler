@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dungeon-crawler-quang-ngo-1: Monster.hpp Source File</title>
+<title>dungeon-crawler-quang-ngo-1: /home/jakutzin/cpp-course project/dungeon-crawler-quang-ngo-01/src/Monster.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,29 +85,29 @@ $(document).ready(function(){initNavTree('_monster_8hpp_source.html',''); initRe
 <div class="title">Monster.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef MONSTER_HPP_</span></div>
+<a href="_monster_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef MONSTER_HPP_</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define MONSTER_HPP_</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;random&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;Assets.hpp&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;Entity.hpp&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_assets_8hpp.html">Assets.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_entity_8hpp.html">Entity.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_monster.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_monster.html">Monster</a> : <span class="keyword">public</span> <a class="code" href="class_entity.html">Entity</a> {</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;   <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="comment">// Constructor for player class</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">// Arguments for Entity(type, speed, hitpoints)</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_monster.html">Monster</a>(<span class="keyword">const</span> std::string&amp; type, <span class="keywordtype">int</span> speed = 1, <span class="keywordtype">int</span> damage = 5, <span class="keywordtype">int</span> hp = 100, <span class="keywordtype">bool</span> is_boss = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_monster.html#a8fd1b205e7ddfd914e50f19123836717">Monster</a>(<span class="keyword">const</span> std::string&amp; type, <span class="keywordtype">int</span> speed = 1, <span class="keywordtype">int</span> damage = 5, <span class="keywordtype">int</span> hp = 100, <span class="keywordtype">bool</span> is_boss = <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    ~<a class="code" href="class_monster.html">Monster</a>() {</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_monster.html#a21619ba1759b910cd2fd50d858aab338">   17</a></span>&#160;    <a class="code" href="class_monster.html#a21619ba1759b910cd2fd50d858aab338">~Monster</a>() {</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="comment">// destructor</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    }</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">bool</span> Attack(std::shared_ptr&lt;Entity&gt; target);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_monster.html#a809428fda41c56a1d7b2ca9508e7ea8e">Attack</a>(std::shared_ptr&lt;Entity&gt; target);</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">// Function that moves the monster towards the player</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> Update(std::shared_ptr&lt;Entity&gt; player);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_monster.html#a6f5d2e81c8c18d8f212312aa22e53a79">Update</a>(std::shared_ptr&lt;Entity&gt; player);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;   <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">int</span> speed_;</div>
@@ -116,12 +116,18 @@ $(document).ready(function(){initNavTree('_monster_8hpp_source.html',''); initRe
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif  // MONSTER_HPP_</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_monster_html"><div class="ttname"><a href="class_monster.html">Monster</a></div><div class="ttdoc">Monster class, inherits from Entity.</div><div class="ttdef"><b>Definition:</b> Monster.hpp:11</div></div>
-<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdoc">Abstract class for entities.</div><div class="ttdef"><b>Definition:</b> Entity.hpp:9</div></div>
+<div class="ttc" id="aclass_monster_html_a21619ba1759b910cd2fd50d858aab338"><div class="ttname"><a href="class_monster.html#a21619ba1759b910cd2fd50d858aab338">Monster::~Monster</a></div><div class="ttdeci">~Monster()</div><div class="ttdef"><b>Definition:</b> <a href="_monster_8hpp_source.html#l00017">Monster.hpp:17</a></div></div>
+<div class="ttc" id="a_assets_8hpp_html"><div class="ttname"><a href="_assets_8hpp.html">Assets.hpp</a></div></div>
+<div class="ttc" id="aclass_monster_html"><div class="ttname"><a href="class_monster.html">Monster</a></div><div class="ttdoc">Monster class, inherits from Entity.</div><div class="ttdef"><b>Definition:</b> <a href="_monster_8hpp_source.html#l00011">Monster.hpp:11</a></div></div>
+<div class="ttc" id="aclass_monster_html_a809428fda41c56a1d7b2ca9508e7ea8e"><div class="ttname"><a href="class_monster.html#a809428fda41c56a1d7b2ca9508e7ea8e">Monster::Attack</a></div><div class="ttdeci">bool Attack(std::shared_ptr&lt; Entity &gt; target)</div><div class="ttdef"><b>Definition:</b> <a href="_monster_8cpp_source.html#l00059">Monster.cpp:59</a></div></div>
+<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdoc">Abstract class for entities.</div><div class="ttdef"><b>Definition:</b> <a href="_entity_8hpp_source.html#l00009">Entity.hpp:9</a></div></div>
+<div class="ttc" id="a_entity_8hpp_html"><div class="ttname"><a href="_entity_8hpp.html">Entity.hpp</a></div></div>
+<div class="ttc" id="aclass_monster_html_a6f5d2e81c8c18d8f212312aa22e53a79"><div class="ttname"><a href="class_monster.html#a6f5d2e81c8c18d8f212312aa22e53a79">Monster::Update</a></div><div class="ttdeci">void Update(std::shared_ptr&lt; Entity &gt; player)</div><div class="ttdef"><b>Definition:</b> <a href="_monster_8cpp_source.html#l00071">Monster.cpp:71</a></div></div>
+<div class="ttc" id="aclass_monster_html_a8fd1b205e7ddfd914e50f19123836717"><div class="ttname"><a href="class_monster.html#a8fd1b205e7ddfd914e50f19123836717">Monster::Monster</a></div><div class="ttdeci">Monster(const std::string &amp;type, int speed=1, int damage=5, int hp=100, bool is_boss=false)</div><div class="ttdef"><b>Definition:</b> <a href="_monster_8cpp_source.html#l00013">Monster.cpp:13</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>Monster.hpp</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_monster_8hpp.html">Monster.hpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>

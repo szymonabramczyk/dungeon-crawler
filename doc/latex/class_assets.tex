@@ -12,36 +12,149 @@ Class to load all game assets.
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_assets_a4b1cc73dc0d25e495ad1deca47d0b25d}\label{class_assets_a4b1cc73dc0d25e495ad1deca47d0b25d}} 
-static void {\bfseries Load\+Assets} (const std\+::string \&path, const std\+::vector$<$ std\+::string $>$ \&texture\+\_\+names, const std\+::vector$<$ std\+::string $>$ \&font\+\_\+names, const std\+::vector$<$ std\+::string $>$ \&sound\+\_\+names)
+static void \mbox{\hyperlink{class_assets_a4b1cc73dc0d25e495ad1deca47d0b25d}{Load\+Assets}} (const std\+::string \&path, const std\+::vector$<$ std\+::string $>$ \&texture\+\_\+names, const std\+::vector$<$ std\+::string $>$ \&font\+\_\+names, const std\+::vector$<$ std\+::string $>$ \&sound\+\_\+names)
 \item 
-\mbox{\Hypertarget{class_assets_ac423cb14a4334fb5522027dd7e7b1ea7}\label{class_assets_ac423cb14a4334fb5522027dd7e7b1ea7}} 
-static void {\bfseries Load\+Sound} (const std\+::string \&name, const std\+::string \&file\+\_\+path)
+static void \mbox{\hyperlink{class_assets_ac423cb14a4334fb5522027dd7e7b1ea7}{Load\+Sound}} (const std\+::string \&name, const std\+::string \&file\+\_\+path)
 \item 
-\mbox{\Hypertarget{class_assets_a0ea3e68507a7e9522ae7919976a75926}\label{class_assets_a0ea3e68507a7e9522ae7919976a75926}} 
-static void {\bfseries Load\+Font} (const std\+::string \&name, const std\+::string \&file\+\_\+path)
+static void \mbox{\hyperlink{class_assets_a0ea3e68507a7e9522ae7919976a75926}{Load\+Font}} (const std\+::string \&name, const std\+::string \&file\+\_\+path)
 \item 
-\mbox{\Hypertarget{class_assets_a0ce7b92a4fc121619c82c75321ef7422}\label{class_assets_a0ce7b92a4fc121619c82c75321ef7422}} 
-static void {\bfseries Load\+Texture} (const std\+::string \&name, const std\+::string \&file\+\_\+path)
+static void \mbox{\hyperlink{class_assets_a0ce7b92a4fc121619c82c75321ef7422}{Load\+Texture}} (const std\+::string \&name, const std\+::string \&file\+\_\+path)
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_assets_a356d61df2f8b24bab41c9685ae647f50}\label{class_assets_a356d61df2f8b24bab41c9685ae647f50}} 
-static std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ sf\+::\+Texture $>$ $>$ {\bfseries textures}
+static std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ sf\+::\+Texture $>$ $>$ \mbox{\hyperlink{class_assets_a356d61df2f8b24bab41c9685ae647f50}{textures}}
 \item 
-\mbox{\Hypertarget{class_assets_a99204a667c4cf5c97a9fe5c1c90639fd}\label{class_assets_a99204a667c4cf5c97a9fe5c1c90639fd}} 
-static std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ sf\+::\+Font $>$ $>$ {\bfseries fonts}
+static std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ sf\+::\+Font $>$ $>$ \mbox{\hyperlink{class_assets_a99204a667c4cf5c97a9fe5c1c90639fd}{fonts}}
 \item 
-\mbox{\Hypertarget{class_assets_a732ba5ec1226604323e3e979f39ce338}\label{class_assets_a732ba5ec1226604323e3e979f39ce338}} 
-static std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ sf\+::\+Sound $>$ $>$ {\bfseries sounds}
+static std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ sf\+::\+Sound $>$ $>$ \mbox{\hyperlink{class_assets_a732ba5ec1226604323e3e979f39ce338}{sounds}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Class to load all game assets. 
 
+Definition at line 9 of file Assets.\+hpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_assets_a4b1cc73dc0d25e495ad1deca47d0b25d}\label{class_assets_a4b1cc73dc0d25e495ad1deca47d0b25d}} 
+\index{Assets@{Assets}!LoadAssets@{LoadAssets}}
+\index{LoadAssets@{LoadAssets}!Assets@{Assets}}
+\doxysubsubsection{\texorpdfstring{LoadAssets()}{LoadAssets()}}
+{\footnotesize\ttfamily void Assets\+::\+Load\+Assets (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{texture\+\_\+names,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{font\+\_\+names,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{sound\+\_\+names }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 14 of file Assets.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_assets_a4b1cc73dc0d25e495ad1deca47d0b25d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{class_assets_a4b1cc73dc0d25e495ad1deca47d0b25d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_assets_a0ea3e68507a7e9522ae7919976a75926}\label{class_assets_a0ea3e68507a7e9522ae7919976a75926}} 
+\index{Assets@{Assets}!LoadFont@{LoadFont}}
+\index{LoadFont@{LoadFont}!Assets@{Assets}}
+\doxysubsubsection{\texorpdfstring{LoadFont()}{LoadFont()}}
+{\footnotesize\ttfamily void Assets\+::\+Load\+Font (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{file\+\_\+path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 59 of file Assets.\+cpp.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_assets_a0ea3e68507a7e9522ae7919976a75926_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_assets_ac423cb14a4334fb5522027dd7e7b1ea7}\label{class_assets_ac423cb14a4334fb5522027dd7e7b1ea7}} 
+\index{Assets@{Assets}!LoadSound@{LoadSound}}
+\index{LoadSound@{LoadSound}!Assets@{Assets}}
+\doxysubsubsection{\texorpdfstring{LoadSound()}{LoadSound()}}
+{\footnotesize\ttfamily void Assets\+::\+Load\+Sound (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{file\+\_\+path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 67 of file Assets.\+cpp.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_assets_ac423cb14a4334fb5522027dd7e7b1ea7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_assets_a0ce7b92a4fc121619c82c75321ef7422}\label{class_assets_a0ce7b92a4fc121619c82c75321ef7422}} 
+\index{Assets@{Assets}!LoadTexture@{LoadTexture}}
+\index{LoadTexture@{LoadTexture}!Assets@{Assets}}
+\doxysubsubsection{\texorpdfstring{LoadTexture()}{LoadTexture()}}
+{\footnotesize\ttfamily void Assets\+::\+Load\+Texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{file\+\_\+path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 51 of file Assets.\+cpp.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_assets_a0ce7b92a4fc121619c82c75321ef7422_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_assets_a99204a667c4cf5c97a9fe5c1c90639fd}\label{class_assets_a99204a667c4cf5c97a9fe5c1c90639fd}} 
+\index{Assets@{Assets}!fonts@{fonts}}
+\index{fonts@{fonts}!Assets@{Assets}}
+\doxysubsubsection{\texorpdfstring{fonts}{fonts}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ sf\+::\+Font $>$ $>$ Assets\+::fonts\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 19 of file Assets.\+hpp.
+
+\mbox{\Hypertarget{class_assets_a732ba5ec1226604323e3e979f39ce338}\label{class_assets_a732ba5ec1226604323e3e979f39ce338}} 
+\index{Assets@{Assets}!sounds@{sounds}}
+\index{sounds@{sounds}!Assets@{Assets}}
+\doxysubsubsection{\texorpdfstring{sounds}{sounds}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ sf\+::\+Sound $>$ $>$ Assets\+::sounds\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 20 of file Assets.\+hpp.
+
+\mbox{\Hypertarget{class_assets_a356d61df2f8b24bab41c9685ae647f50}\label{class_assets_a356d61df2f8b24bab41c9685ae647f50}} 
+\index{Assets@{Assets}!textures@{textures}}
+\index{textures@{textures}!Assets@{Assets}}
+\doxysubsubsection{\texorpdfstring{textures}{textures}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ sf\+::\+Texture $>$ $>$ Assets\+::textures\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 18 of file Assets.\+hpp.
+
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Assets.\+hpp\item 
-Assets.\+cpp\end{DoxyCompactItemize}
+/home/jakutzin/cpp-\/course project/dungeon-\/crawler-\/quang-\/ngo-\/01/src/\mbox{\hyperlink{_assets_8hpp}{Assets.\+hpp}}\item 
+/home/jakutzin/cpp-\/course project/dungeon-\/crawler-\/quang-\/ngo-\/01/src/\mbox{\hyperlink{_assets_8cpp}{Assets.\+cpp}}\end{DoxyCompactItemize}
