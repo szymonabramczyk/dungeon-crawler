@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <filesystem>
 #include <iostream>
+#include <map>
 
 std::map<std::string, std::unique_ptr<sf::Texture>> Assets::textures;
 std::map<std::string, std::unique_ptr<sf::Font>> Assets::fonts;

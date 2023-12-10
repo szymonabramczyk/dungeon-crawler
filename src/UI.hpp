@@ -1,7 +1,6 @@
 #ifndef UI_HPP_
 #define UI_HPP_
 #include <SFML/Graphics.hpp>
-#include <memory>
 
 class UI {
    public:

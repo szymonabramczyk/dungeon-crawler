@@ -1,5 +1,7 @@
 #include "UI.hpp"
 
+#include <SFML/Graphics.hpp>
+
 #include "Assets.hpp"
 
 UI::UI() {
