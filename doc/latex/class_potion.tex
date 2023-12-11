@@ -38,15 +38,20 @@ int \mbox{\hyperlink{class_potion_a0020c43a7ba8bdf6156a3efbd7d72614}{Get\+Amount
 \item 
 void \mbox{\hyperlink{class_potion_a93d3c92487ec505e6dc2ae0241f25335}{Add\+Amount}} (int amount)
 \end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_potion_a51e23de4bf867eb133d82a6c1f9426c4}{amount\+\_\+}}
+\item 
+int \mbox{\hyperlink{class_potion_a062cba14b600797d23388998e22a9416}{healing\+Amount\+\_\+}}
+\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
 \mbox{\hyperlink{class_potion}{Potion}} class, inherits from \mbox{\hyperlink{class_item}{Item}}. 
 
-Definition at line 6 of file Potion.\+hpp.
-
-
+A class inheriting from the \mbox{\hyperlink{class_item}{Item}} class, that stores the information about the number of potions and healing amount of this \mbox{\hyperlink{class_potion}{Potion}} object. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_potion_a38ff39cbbf00bf59d8ef5015c18c7c56}\label{class_potion_a38ff39cbbf00bf59d8ef5015c18c7c56}} 
@@ -55,11 +60,7 @@ Definition at line 6 of file Potion.\+hpp.
 \doxysubsubsection{\texorpdfstring{Potion()}{Potion()}}
 {\footnotesize\ttfamily Potion\+::\+Potion (\begin{DoxyParamCaption}\item[{int}]{slot,  }\item[{const std\+::string \&}]{texture\+\_\+name,  }\item[{int}]{healing\+Amount,  }\item[{int}]{amount }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-
-
-Definition at line 8 of file Potion.\+hpp.
-
-
+A constructor that based on slot and texture\+\_\+name creates the \mbox{\hyperlink{class_item}{Item}} object and additionally takes in amount as parameter which corresponds to the amount of potions stored by this \mbox{\hyperlink{class_potion}{Potion}} object. 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_potion_a93d3c92487ec505e6dc2ae0241f25335}\label{class_potion_a93d3c92487ec505e6dc2ae0241f25335}} 
@@ -68,12 +69,7 @@ Definition at line 8 of file Potion.\+hpp.
 \doxysubsubsection{\texorpdfstring{AddAmount()}{AddAmount()}}
 {\footnotesize\ttfamily void Potion\+::\+Add\+Amount (\begin{DoxyParamCaption}\item[{int}]{amount }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-
-
-Definition at line 19 of file Potion.\+hpp.
-
-Here is the caller graph for this function\+:
-\nopagebreak
+add amount of the potions stored by this \mbox{\hyperlink{class_potion}{Potion}} object. Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -86,12 +82,7 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{GetAmount()}{GetAmount()}}
 {\footnotesize\ttfamily int Potion\+::\+Get\+Amount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-
-
-Definition at line 16 of file Potion.\+hpp.
-
-Here is the caller graph for this function\+:
-\nopagebreak
+get amount of the potions stored by this \mbox{\hyperlink{class_potion}{Potion}} object. Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -104,16 +95,11 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{Update()}{Update()}}
 {\footnotesize\ttfamily virtual void Potion\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
-
+a method inherited from the \mbox{\hyperlink{class_item}{Item}} abstract class, that implements the functionality to update the text\+\_\+ of this \mbox{\hyperlink{class_item}{Item}} object. 
 
 Implements \mbox{\hyperlink{class_item_aee99a2b103aa9eb7f18b6135dd38fa5a}{Item}}.
 
-
-
-Definition at line 13 of file Potion.\+hpp.
-
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -121,6 +107,21 @@ Here is the caller graph for this function\+:
 \end{center}
 \end{figure}
 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_potion_a51e23de4bf867eb133d82a6c1f9426c4}\label{class_potion_a51e23de4bf867eb133d82a6c1f9426c4}} 
+\index{Potion@{Potion}!amount\_@{amount\_}}
+\index{amount\_@{amount\_}!Potion@{Potion}}
+\doxysubsubsection{\texorpdfstring{amount\_}{amount\_}}
+{\footnotesize\ttfamily int Potion\+::amount\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+amount of potions \mbox{\Hypertarget{class_potion_a062cba14b600797d23388998e22a9416}\label{class_potion_a062cba14b600797d23388998e22a9416}} 
+\index{Potion@{Potion}!healingAmount\_@{healingAmount\_}}
+\index{healingAmount\_@{healingAmount\_}!Potion@{Potion}}
+\doxysubsubsection{\texorpdfstring{healingAmount\_}{healingAmount\_}}
+{\footnotesize\ttfamily int Potion\+::healing\+Amount\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+amount of healing that this \mbox{\hyperlink{class_potion}{Potion}} object gives to the \mbox{\hyperlink{class_player}{Player}}. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

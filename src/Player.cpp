@@ -22,6 +22,7 @@ Player::Player(const std::string& name) : Entity("player", 100), inv_(), name_(n
     status_text_.setCharacterSize(16);
 }
 
+// adds XP to the player and levels up the player
 void Player::AddXP(int xp) {
     xp_ += xp;
     int new_level = std::floor(xp_ / 200);
@@ -36,6 +37,7 @@ void Player::AddXP(int xp) {
     }
 }
 
+// draws the player status text
 void Player::DrawStatus(sf::RenderTarget& target) {
     sf::Vector2f text_position = GetPosition();
     text_position.y -= 30;
@@ -78,6 +80,7 @@ int Player::RangedAttack() {
     return earnedXP;
 }
 
+// Drinks health potion, returns true if the action was succesful and false otherwise.
 bool Player::DrinkHealthPotion() {
     if (inv_.HealthPotionCount() >= 1) {
         inv_.AddHealthPotions(-1);
@@ -125,6 +128,7 @@ bool Player::ProcessInput(sf::Keyboard::Key key, bool is_pressed) {
     return true;
 }
 
+// helper function to check if there is an object in the position
 bool Player::CheckCollision(int (&level)[120], int& curr_level) {
     if (level[pos_] == 1) {
         inv_.AddHealthPotions(1);
@@ -159,6 +163,7 @@ bool Player::CheckCollision(int (&level)[120], int& curr_level) {
     return false;
 }
 
+// function to draw UI elements
 void Player::draw(sf::RenderTarget& target) {
     DrawStatus(target);
     target.draw(inv_);

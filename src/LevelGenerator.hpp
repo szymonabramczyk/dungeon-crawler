@@ -3,9 +3,12 @@
 
 #include <iostream>
 
-/*! \brief Class for generating the levels. */
+/*! \brief A class to handle random level generation. */
 class LevelGenerator {
    public:
+    /*! A method that generates 9 levels of 120 (15x9) tiles each. It does it by first randomly 
+    assigning a number to each tile, that corresponds to the tile type, and then setting the 
+    doors in the right places to allow correct moving through the rooms of the dungeon. */
     static void GenerateLevel(int (&levels_)[9][120]) {
         srand((unsigned)time(NULL));
         for (int i = 0; i < 9; i++) {

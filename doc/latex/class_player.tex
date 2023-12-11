@@ -24,7 +24,7 @@ Collaboration diagram for Player\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=127pt]{class_player__coll__graph}
+\includegraphics[width=287pt]{class_player__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -60,15 +60,34 @@ bool \mbox{\hyperlink{class_player_a4dd9a2c2e5feee76afb721f4adf1430a}{Check\+Col
 \item 
 void \mbox{\hyperlink{class_player_a66cced4bf106e98e8caf33a5d1b05930}{draw}} (sf\+::\+Render\+Target \&target)
 \end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Text \mbox{\hyperlink{class_player_ab11aa965317505491a33cd778df46337}{status\+\_\+text\+\_\+}}
+\item 
+const std\+::string \mbox{\hyperlink{class_player_ac603c368290456cd7608222c1cc62c32}{name\+\_\+}}
+\item 
+\mbox{\hyperlink{class_inventory}{Inventory}} \mbox{\hyperlink{class_player_ac567b680e89569233a59dd7a4e4dca87}{inv\+\_\+}}
+\item 
+int \mbox{\hyperlink{class_player_a1e6bada65eb66ca04b39726a65a39a66}{turn\+\_\+count\+\_\+}} = 10
+\item 
+int \mbox{\hyperlink{class_player_a1a2a62b9d8eebe395bb50729e02f9017}{cooldown\+\_\+period\+\_\+}} = 10
+\item 
+bool \mbox{\hyperlink{class_player_a395f573697cebe3d4dd24d15c4168b92}{killed\+\_\+boss\+\_\+}} = false
+\item 
+int \mbox{\hyperlink{class_player_a9a612fca317e5f4fcd9ee67c1528282c}{xp\+\_\+}} = 0
+\item 
+int \mbox{\hyperlink{class_player_aab0d121c409a3b6cd5cbf62e9586d007}{level\+\_\+}} = 0
+\item 
+sf\+::\+Clock \mbox{\hyperlink{class_player_a38d6b17b6eab6de3af031aafce0f5105}{clock\+\_\+}}
+\item 
+float \mbox{\hyperlink{class_player_a12dac56e0b0e0be41b0d21880c4f0668}{elapsed\+\_\+time\+\_\+}} = 2.\+0f
+\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
 \mbox{\hyperlink{class_player}{Player}} class, inherits from \mbox{\hyperlink{class_entity}{Entity}}. 
-
-Definition at line 11 of file Player.\+hpp.
-
-
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_player_a45fa04a2a4ff9235e6c100b7c6ab232a}\label{class_player_a45fa04a2a4ff9235e6c100b7c6ab232a}} 
@@ -77,12 +96,7 @@ Definition at line 11 of file Player.\+hpp.
 \doxysubsubsection{\texorpdfstring{Player()}{Player()}}
 {\footnotesize\ttfamily Player\+::\+Player (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
 
-
-
-Definition at line 15 of file Player.\+cpp.
-
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -97,10 +111,6 @@ Here is the call graph for this function\+:
 
 
 
-Definition at line 17 of file Player.\+hpp.
-
-
-
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_player_a2a995bae19e16ee1ec8e3fcaee5eeb11}\label{class_player_a2a995bae19e16ee1ec8e3fcaee5eeb11}} 
 \index{Player@{Player}!AddXP@{AddXP}}
@@ -108,12 +118,7 @@ Definition at line 17 of file Player.\+hpp.
 \doxysubsubsection{\texorpdfstring{AddXP()}{AddXP()}}
 {\footnotesize\ttfamily void Player\+::\+Add\+XP (\begin{DoxyParamCaption}\item[{int}]{xp }\end{DoxyParamCaption})}
 
-
-
-Definition at line 25 of file Player.\+cpp.
-
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -126,12 +131,7 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{CheckCollision()}{CheckCollision()}}
 {\footnotesize\ttfamily bool Player\+::\+Check\+Collision (\begin{DoxyParamCaption}\item[{int(\&)}]{level\mbox{[}120\mbox{]},  }\item[{int \&}]{curr\+\_\+level }\end{DoxyParamCaption})}
 
-
-
-Definition at line 128 of file Player.\+cpp.
-
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -144,22 +144,13 @@ Here is the call graph for this function\+:
 \doxysubsubsection{\texorpdfstring{CooldownProgress()}{CooldownProgress()}}
 {\footnotesize\ttfamily float Player\+::\+Cooldown\+Progress (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-
-
-Definition at line 54 of file Player.\+cpp.
-
 \mbox{\Hypertarget{class_player_a66cced4bf106e98e8caf33a5d1b05930}\label{class_player_a66cced4bf106e98e8caf33a5d1b05930}} 
 \index{Player@{Player}!draw@{draw}}
 \index{draw@{draw}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{draw()}{draw()}}
 {\footnotesize\ttfamily void Player\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{target }\end{DoxyParamCaption})}
 
-
-
-Definition at line 162 of file Player.\+cpp.
-
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -172,20 +163,14 @@ Here is the call graph for this function\+:
 \doxysubsubsection{\texorpdfstring{DrawStatus()}{DrawStatus()}}
 {\footnotesize\ttfamily void Player\+::\+Draw\+Status (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{target }\end{DoxyParamCaption})}
 
-
-
-Definition at line 39 of file Player.\+cpp.
-
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=333pt]{class_player_a2d754b9c1c13ebb968ed88a3adbbb1b6_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -198,20 +183,14 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{DrinkHealthPotion()}{DrinkHealthPotion()}}
 {\footnotesize\ttfamily bool Player\+::\+Drink\+Health\+Potion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-
-
-Definition at line 81 of file Player.\+cpp.
-
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_player_a056792a81b34e898f73fcb7729010a8c_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -224,19 +203,11 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{GetLevel()}{GetLevel()}}
 {\footnotesize\ttfamily int Player\+::\+Get\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-
-
-Definition at line 24 of file Player.\+hpp.
-
 \mbox{\Hypertarget{class_player_acdfeb90811d8a0c826d526b97eeb0d94}\label{class_player_acdfeb90811d8a0c826d526b97eeb0d94}} 
 \index{Player@{Player}!GetName@{GetName}}
 \index{GetName@{GetName}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{GetName()}{GetName()}}
 {\footnotesize\ttfamily const std\+::string\& Player\+::\+Get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line 21 of file Player.\+hpp.
 
 \mbox{\Hypertarget{class_player_a159ac918ddb0c486e50236957d2147cc}\label{class_player_a159ac918ddb0c486e50236957d2147cc}} 
 \index{Player@{Player}!IsAbilityReady@{IsAbilityReady}}
@@ -244,19 +215,11 @@ Definition at line 21 of file Player.\+hpp.
 \doxysubsubsection{\texorpdfstring{IsAbilityReady()}{IsAbilityReady()}}
 {\footnotesize\ttfamily bool Player\+::\+Is\+Ability\+Ready (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-
-
-Definition at line 23 of file Player.\+hpp.
-
 \mbox{\Hypertarget{class_player_a7ce8e72ac955baf732bdd22d71b7ffcb}\label{class_player_a7ce8e72ac955baf732bdd22d71b7ffcb}} 
 \index{Player@{Player}!KilledBoss@{KilledBoss}}
 \index{KilledBoss@{KilledBoss}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{KilledBoss()}{KilledBoss()}}
 {\footnotesize\ttfamily bool Player\+::\+Killed\+Boss (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line 22 of file Player.\+hpp.
 
 \mbox{\Hypertarget{class_player_a2b66909e2517000377946df475324f99}\label{class_player_a2b66909e2517000377946df475324f99}} 
 \index{Player@{Player}!LevelProgress@{LevelProgress}}
@@ -264,22 +227,13 @@ Definition at line 22 of file Player.\+hpp.
 \doxysubsubsection{\texorpdfstring{LevelProgress()}{LevelProgress()}}
 {\footnotesize\ttfamily float Player\+::\+Level\+Progress (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-
-
-Definition at line 61 of file Player.\+cpp.
-
 \mbox{\Hypertarget{class_player_a67c4de392bc5bddd4ec35f3ee56af6b3}\label{class_player_a67c4de392bc5bddd4ec35f3ee56af6b3}} 
 \index{Player@{Player}!ProcessInput@{ProcessInput}}
 \index{ProcessInput@{ProcessInput}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{ProcessInput()}{ProcessInput()}}
 {\footnotesize\ttfamily bool Player\+::\+Process\+Input (\begin{DoxyParamCaption}\item[{sf\+::\+Keyboard\+::\+Key}]{key,  }\item[{bool}]{is\+\_\+pressed }\end{DoxyParamCaption})}
 
-
-
-Definition at line 93 of file Player.\+cpp.
-
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -292,26 +246,83 @@ Here is the call graph for this function\+:
 \doxysubsubsection{\texorpdfstring{RangedAttack()}{RangedAttack()}}
 {\footnotesize\ttfamily int Player\+::\+Ranged\+Attack (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-
-
-Definition at line 66 of file Player.\+cpp.
-
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_player_a7962164e5b009fe9a309551b13f7f735_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_player_a7962164e5b009fe9a309551b13f7f735_icgraph}
 \end{center}
 \end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_player_a38d6b17b6eab6de3af031aafce0f5105}\label{class_player_a38d6b17b6eab6de3af031aafce0f5105}} 
+\index{Player@{Player}!clock\_@{clock\_}}
+\index{clock\_@{clock\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{clock\_}{clock\_}}
+{\footnotesize\ttfamily sf\+::\+Clock Player\+::clock\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_player_a1a2a62b9d8eebe395bb50729e02f9017}\label{class_player_a1a2a62b9d8eebe395bb50729e02f9017}} 
+\index{Player@{Player}!cooldown\_period\_@{cooldown\_period\_}}
+\index{cooldown\_period\_@{cooldown\_period\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{cooldown\_period\_}{cooldown\_period\_}}
+{\footnotesize\ttfamily int Player\+::cooldown\+\_\+period\+\_\+ = 10\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_player_a12dac56e0b0e0be41b0d21880c4f0668}\label{class_player_a12dac56e0b0e0be41b0d21880c4f0668}} 
+\index{Player@{Player}!elapsed\_time\_@{elapsed\_time\_}}
+\index{elapsed\_time\_@{elapsed\_time\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{elapsed\_time\_}{elapsed\_time\_}}
+{\footnotesize\ttfamily float Player\+::elapsed\+\_\+time\+\_\+ = 2.\+0f\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_player_ac567b680e89569233a59dd7a4e4dca87}\label{class_player_ac567b680e89569233a59dd7a4e4dca87}} 
+\index{Player@{Player}!inv\_@{inv\_}}
+\index{inv\_@{inv\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{inv\_}{inv\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_inventory}{Inventory}} Player\+::inv\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_player_a395f573697cebe3d4dd24d15c4168b92}\label{class_player_a395f573697cebe3d4dd24d15c4168b92}} 
+\index{Player@{Player}!killed\_boss\_@{killed\_boss\_}}
+\index{killed\_boss\_@{killed\_boss\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{killed\_boss\_}{killed\_boss\_}}
+{\footnotesize\ttfamily bool Player\+::killed\+\_\+boss\+\_\+ = false\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_player_aab0d121c409a3b6cd5cbf62e9586d007}\label{class_player_aab0d121c409a3b6cd5cbf62e9586d007}} 
+\index{Player@{Player}!level\_@{level\_}}
+\index{level\_@{level\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{level\_}{level\_}}
+{\footnotesize\ttfamily int Player\+::level\+\_\+ = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_player_ac603c368290456cd7608222c1cc62c32}\label{class_player_ac603c368290456cd7608222c1cc62c32}} 
+\index{Player@{Player}!name\_@{name\_}}
+\index{name\_@{name\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{name\_}{name\_}}
+{\footnotesize\ttfamily const std\+::string Player\+::name\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_player_ab11aa965317505491a33cd778df46337}\label{class_player_ab11aa965317505491a33cd778df46337}} 
+\index{Player@{Player}!status\_text\_@{status\_text\_}}
+\index{status\_text\_@{status\_text\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{status\_text\_}{status\_text\_}}
+{\footnotesize\ttfamily sf\+::\+Text Player\+::status\+\_\+text\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_player_a1e6bada65eb66ca04b39726a65a39a66}\label{class_player_a1e6bada65eb66ca04b39726a65a39a66}} 
+\index{Player@{Player}!turn\_count\_@{turn\_count\_}}
+\index{turn\_count\_@{turn\_count\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{turn\_count\_}{turn\_count\_}}
+{\footnotesize\ttfamily int Player\+::turn\+\_\+count\+\_\+ = 10\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_player_a9a612fca317e5f4fcd9ee67c1528282c}\label{class_player_a9a612fca317e5f4fcd9ee67c1528282c}} 
+\index{Player@{Player}!xp\_@{xp\_}}
+\index{xp\_@{xp\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{xp\_}{xp\_}}
+{\footnotesize\ttfamily int Player\+::xp\+\_\+ = 0\hspace{0.3cm}{\ttfamily [private]}}
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

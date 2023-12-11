@@ -83,6 +83,7 @@ $(document).ready(function(){initNavTree('class_monster.html',''); initResizable
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_monster-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Monster Class Reference</div>  </div>
@@ -160,6 +161,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0a7c4c22b70480caae11ef9451f12ba4 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a0a7c4c22b70480caae11ef9451f12ba4">MoveAlongYAxis</a> (bool down)</td></tr>
 <tr class="separator:a0a7c4c22b70480caae11ef9451f12ba4 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a36f971f5e555a6744016d119d5f48607"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monster.html#a36f971f5e555a6744016d119d5f48607">speed_</a></td></tr>
+<tr class="separator:a36f971f5e555a6744016d119d5f48607"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_entity"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_entity')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
@@ -194,8 +200,6 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_monster.html" title="Monster class, inherits from Entity.">Monster</a> class, inherits from <a class="el" href="class_entity.html" title="Abstract class for entities.">Entity</a>. </p>
-
-<p class="definition">Definition at line <a class="el" href="_monster_8hpp_source.html#l00011">11</a> of file <a class="el" href="_monster_8hpp_source.html">Monster.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8fd1b205e7ddfd914e50f19123836717"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8fd1b205e7ddfd914e50f19123836717">&#9670;&nbsp;</a></span>Monster()</h2>
@@ -240,8 +244,6 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_monster_8cpp_source.html#l00013">13</a> of file <a class="el" href="_monster_8cpp_source.html">Monster.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -279,8 +281,6 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_monster_8hpp_source.html#l00017">17</a> of file <a class="el" href="_monster_8hpp_source.html">Monster.hpp</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -299,8 +299,7 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_monster_8cpp_source.html#l00059">59</a> of file <a class="el" href="_monster_8cpp_source.html">Monster.cpp</a>.</p>
+<p>function to attack the entity given as argument </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -328,8 +327,7 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_monster_8cpp_source.html#l00071">71</a> of file <a class="el" href="_monster_8cpp_source.html">Monster.cpp</a>.</p>
+<p>Function that moves the monster towards the player </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -348,9 +346,32 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a36f971f5e555a6744016d119d5f48607"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36f971f5e555a6744016d119d5f48607">&#9670;&nbsp;</a></span>speed_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Monster::speed_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/jakutzin/cpp-course project/dungeon-crawler-quang-ngo-01/src/<a class="el" href="_monster_8hpp_source.html">Monster.hpp</a></li>
-<li>/home/jakutzin/cpp-course project/dungeon-crawler-quang-ngo-01/src/<a class="el" href="_monster_8cpp_source.html">Monster.cpp</a></li>
+<li>/home/jakutzin/cpp-course project/dungeon-crawler-quang-ngo-01/src/<a class="el" href="_monster_8cpp.html">Monster.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

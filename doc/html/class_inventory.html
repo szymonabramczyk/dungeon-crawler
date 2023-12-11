@@ -83,13 +83,15 @@ $(document).ready(function(){initNavTree('class_inventory.html',''); initResizab
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_inventory-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Inventory Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Represents the player's inventory.  
+<p>A class that stores different types of Items.  
  <a href="class_inventory.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_inventory_8hpp_source.html">Inventory.hpp</a>&gt;</code></p>
@@ -98,7 +100,7 @@ Inheritance diagram for Inventory:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_inventory__inherit__graph.png" border="0" usemap="#_inventory_inherit__map" alt="Inheritance graph"/></div>
 <map name="_inventory_inherit__map" id="_inventory_inherit__map">
-<area shape="rect" title="Represents the player&#39;s inventory." alt="" coords="5,80,89,107"/>
+<area shape="rect" title="A class that stores different types of Items." alt="" coords="5,80,89,107"/>
 <area shape="rect" title=" " alt="" coords="5,5,89,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -107,8 +109,11 @@ Collaboration diagram for Inventory:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_inventory__coll__graph.png" border="0" usemap="#_inventory_coll__map" alt="Collaboration graph"/></div>
 <map name="_inventory_coll__map" id="_inventory_coll__map">
-<area shape="rect" title="Represents the player&#39;s inventory." alt="" coords="5,80,89,107"/>
-<area shape="rect" title=" " alt="" coords="5,5,89,32"/>
+<area shape="rect" title="A class that stores different types of Items." alt="" coords="103,171,187,197"/>
+<area shape="rect" title=" " alt="" coords="5,81,89,108"/>
+<area shape="rect" href="class_potion.html" title="Potion class, inherits from Item." alt="" coords="113,81,176,108"/>
+<area shape="rect" href="class_item.html" title="Abstract class for items." alt="" coords="164,5,216,32"/>
+<area shape="rect" href="class_weapon.html" title="Weapon class, inherits from Item." alt="" coords="201,81,275,108"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -126,11 +131,21 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad5ae2d9ab9d57ea1a07f60d34f368c7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8677a04d34ae97d2cc2a85cf0575d4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_inventory.html#ad8677a04d34ae97d2cc2a85cf0575d4d">Update</a> ()</td></tr>
 <tr class="separator:ad8677a04d34ae97d2cc2a85cf0575d4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a5ba988c4f1ed6ab5fff74c2db2836c60"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_inventory.html#a5ba988c4f1ed6ab5fff74c2db2836c60">draw</a> (sf::RenderTarget &amp;target, sf::RenderStates states) const</td></tr>
+<tr class="separator:a5ba988c4f1ed6ab5fff74c2db2836c60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a8f6cbf536aee133d38f468a61baa3ede"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_potion.html">Potion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_inventory.html#a8f6cbf536aee133d38f468a61baa3ede">potions_</a></td></tr>
+<tr class="separator:a8f6cbf536aee133d38f468a61baa3ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8f60e71fa89a6ed27af31036c29fc6c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_weapon.html">Weapon</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_inventory.html#ae8f60e71fa89a6ed27af31036c29fc6c">weapon_</a></td></tr>
+<tr class="separator:ae8f60e71fa89a6ed27af31036c29fc6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Represents the player's inventory. </p>
-
-<p class="definition">Definition at line <a class="el" href="_inventory_8hpp_source.html#l00011">11</a> of file <a class="el" href="_inventory_8hpp_source.html">Inventory.hpp</a>.</p>
+<div class="textblock"><p>A class that stores different types of Items. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a10485613fc8bfb32ee564d9b5110f8fb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a10485613fc8bfb32ee564d9b5110f8fb">&#9670;&nbsp;</a></span>Inventory()</h2>
@@ -146,8 +161,6 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_inventory_8cpp_source.html#l00007">7</a> of file <a class="el" href="_inventory_8cpp_source.html">Inventory.cpp</a>.</p>
 
 </div>
 </div>
@@ -167,8 +180,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_inventory_8cpp_source.html#l00018">18</a> of file <a class="el" href="_inventory_8cpp_source.html">Inventory.cpp</a>.</p>
+<p>a method to add the number of health potions to the <a class="el" href="class_inventory.html" title="A class that stores different types of Items.">Inventory</a>. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -208,8 +220,7 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_inventory_8cpp_source.html#l00024">24</a> of file <a class="el" href="_inventory_8cpp_source.html">Inventory.cpp</a>.</p>
+<p>a method to add weapon damage to the <a class="el" href="class_weapon.html" title="Weapon class, inherits from Item.">Weapon</a> stored in the <a class="el" href="class_inventory.html" title="A class that stores different types of Items.">Inventory</a>. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -232,6 +243,52 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a5ba988c4f1ed6ab5fff74c2db2836c60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ba988c4f1ed6ab5fff74c2db2836c60">&#9670;&nbsp;</a></span>draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Inventory::draw </td>
+          <td>(</td>
+          <td class="paramtype">sf::RenderTarget &amp;&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::RenderStates&#160;</td>
+          <td class="paramname"><em>states</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A method to draw all the Items stored in the <a class="el" href="class_inventory.html" title="A class that stores different types of Items.">Inventory</a>. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_inventory_a5ba988c4f1ed6ab5fff74c2db2836c60_cgraph.png" border="0" usemap="#class_inventory_a5ba988c4f1ed6ab5fff74c2db2836c60_cgraph" alt=""/></div>
+<map name="class_inventory_a5ba988c4f1ed6ab5fff74c2db2836c60_cgraph" id="class_inventory_a5ba988c4f1ed6ab5fff74c2db2836c60_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,128,32"/>
+<area shape="rect" href="class_item.html#adc13e83e24759ffcbad149e57253f9d1" title=" " alt="" coords="176,5,268,32"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="ac84b4b0cc539ca5d52739cc911781230"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac84b4b0cc539ca5d52739cc911781230">&#9670;&nbsp;</a></span>GetWeaponDamage()</h2>
 
@@ -246,8 +303,7 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_inventory_8cpp_source.html#l00014">14</a> of file <a class="el" href="_inventory_8cpp_source.html">Inventory.cpp</a>.</p>
+<p>a getter method that returns the damage dealt by the <a class="el" href="class_weapon.html" title="Weapon class, inherits from Item.">Weapon</a> stored in the <a class="el" href="class_inventory.html" title="A class that stores different types of Items.">Inventory</a>. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -284,8 +340,7 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_inventory_8cpp_source.html#l00010">10</a> of file <a class="el" href="_inventory_8cpp_source.html">Inventory.cpp</a>.</p>
+<p>a getter method that returns the number of health potions </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -322,24 +377,70 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_inventory_8cpp_source.html#l00030">30</a> of file <a class="el" href="_inventory_8cpp_source.html">Inventory.cpp</a>.</p>
+<p>a method to update all the Items stored in the <a class="el" href="class_inventory.html" title="A class that stores different types of Items.">Inventory</a>. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_inventory_ad8677a04d34ae97d2cc2a85cf0575d4d_cgraph.png" border="0" usemap="#class_inventory_ad8677a04d34ae97d2cc2a85cf0575d4d_cgraph" alt=""/></div>
 <map name="class_inventory_ad8677a04d34ae97d2cc2a85cf0575d4d_cgraph" id="class_inventory_ad8677a04d34ae97d2cc2a85cf0575d4d_cgraph">
 <area shape="rect" title=" " alt="" coords="5,31,144,57"/>
-<area shape="rect" href="class_potion.html#a02276bf6b5dbe03ee11e7fac280bf00e" title=" " alt="" coords="197,5,316,32"/>
-<area shape="rect" href="class_weapon.html#a8d85894f509ca1704901a78e894fe295" title=" " alt="" coords="192,56,321,83"/>
+<area shape="rect" href="class_weapon.html#a8d85894f509ca1704901a78e894fe295" title=" " alt="" coords="192,5,321,32"/>
+<area shape="rect" href="class_potion.html#a02276bf6b5dbe03ee11e7fac280bf00e" title=" " alt="" coords="197,56,316,83"/>
 </map>
 </div>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a8f6cbf536aee133d38f468a61baa3ede"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f6cbf536aee133d38f468a61baa3ede">&#9670;&nbsp;</a></span>potions_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_potion.html">Potion</a> Inventory::potions_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A <a class="el" href="class_potion.html" title="Potion class, inherits from Item.">Potion</a> object that holds information about the number and healing amount of the potions stored in the <a class="el" href="class_inventory.html" title="A class that stores different types of Items.">Inventory</a>. </p>
+
+</div>
+</div>
+<a id="ae8f60e71fa89a6ed27af31036c29fc6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8f60e71fa89a6ed27af31036c29fc6c">&#9670;&nbsp;</a></span>weapon_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_weapon.html">Weapon</a> Inventory::weapon_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A <a class="el" href="class_weapon.html" title="Weapon class, inherits from Item.">Weapon</a> object that holds information about the damage dealt by the <a class="el" href="class_weapon.html" title="Weapon class, inherits from Item.">Weapon</a> stored in the <a class="el" href="class_inventory.html" title="A class that stores different types of Items.">Inventory</a>. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/jakutzin/cpp-course project/dungeon-crawler-quang-ngo-01/src/<a class="el" href="_inventory_8hpp_source.html">Inventory.hpp</a></li>
-<li>/home/jakutzin/cpp-course project/dungeon-crawler-quang-ngo-01/src/<a class="el" href="_inventory_8cpp_source.html">Inventory.cpp</a></li>
+<li>/home/jakutzin/cpp-course project/dungeon-crawler-quang-ngo-01/src/<a class="el" href="_inventory_8cpp.html">Inventory.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

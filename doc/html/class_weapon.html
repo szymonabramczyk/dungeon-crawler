@@ -83,6 +83,7 @@ $(document).ready(function(){initNavTree('class_weapon.html',''); initResizable(
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_weapon-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Weapon Class Reference</div>  </div>
@@ -128,6 +129,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adc13e83e24759ffcbad149e57253f9d1 inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#adc13e83e24759ffcbad149e57253f9d1">draw</a> (sf::RenderTarget &amp;target, sf::RenderStates states) const</td></tr>
 <tr class="separator:adc13e83e24759ffcbad149e57253f9d1 inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a4347dfdd1b345c3b36b3dbe6c453aada"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon.html#a4347dfdd1b345c3b36b3dbe6c453aada">damage_</a></td></tr>
+<tr class="separator:a4347dfdd1b345c3b36b3dbe6c453aada"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_item"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_item')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_item.html">Item</a></td></tr>
@@ -142,8 +148,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_weapon.html" title="Weapon class, inherits from Item.">Weapon</a> class, inherits from <a class="el" href="class_item.html" title="Abstract class for items.">Item</a>. </p>
-
-<p class="definition">Definition at line <a class="el" href="_weapon_8hpp_source.html#l00006">6</a> of file <a class="el" href="_weapon_8hpp_source.html">Weapon.hpp</a>.</p>
+<p>A class inheriting from the <a class="el" href="class_item.html" title="Abstract class for items.">Item</a> class, that stores the information about the damage the weapon of this <a class="el" href="class_weapon.html" title="Weapon class, inherits from Item.">Weapon</a> object. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a531c6c3704db14391549a7f4e2900248"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a531c6c3704db14391549a7f4e2900248">&#9670;&nbsp;</a></span>Weapon()</h2>
@@ -184,8 +189,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_weapon_8hpp_source.html#l00008">8</a> of file <a class="el" href="_weapon_8hpp_source.html">Weapon.hpp</a>.</p>
+<p>A constructor that based on slot and texture_name creates the <a class="el" href="class_item.html" title="Abstract class for items.">Item</a> object and additionally takes in damage as parameter which corresponds to the damage to be dealt by this <a class="el" href="class_weapon.html" title="Weapon class, inherits from Item.">Weapon</a> object. </p>
 
 </div>
 </div>
@@ -213,8 +217,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_weapon_8hpp_source.html#l00016">16</a> of file <a class="el" href="_weapon_8hpp_source.html">Weapon.hpp</a>.</p>
+<p>add damage to the weapon stored by this <a class="el" href="class_weapon.html" title="Weapon class, inherits from Item.">Weapon</a> object. </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -250,8 +253,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_weapon_8hpp_source.html#l00019">19</a> of file <a class="el" href="_weapon_8hpp_source.html">Weapon.hpp</a>.</p>
+<p>get damage of the weapon stored by this <a class="el" href="class_weapon.html" title="Weapon class, inherits from Item.">Weapon</a> object. </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -288,10 +290,9 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>o a method inherited from the <a class="el" href="class_item.html" title="Abstract class for items.">Item</a> abstract class, that implements the functionality to update the text_ of this <a class="el" href="class_item.html" title="Abstract class for items.">Item</a> object. </p>
 
 <p>Implements <a class="el" href="class_item.html#aee99a2b103aa9eb7f18b6135dd38fa5a">Item</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="_weapon_8hpp_source.html#l00013">13</a> of file <a class="el" href="_weapon_8hpp_source.html">Weapon.hpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -303,6 +304,30 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="class_player.html#a4dd9a2c2e5feee76afb721f4adf1430a" title=" " alt="" coords="5,5,172,32"/>
 </map>
 </div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a4347dfdd1b345c3b36b3dbe6c453aada"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4347dfdd1b345c3b36b3dbe6c453aada">&#9670;&nbsp;</a></span>damage_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Weapon::damage_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>amount of damage that this <a class="el" href="class_weapon.html" title="Weapon class, inherits from Item.">Weapon</a> object can deal, which is the number of health points to be decreased from enemies. </p>
 
 </div>
 </div>

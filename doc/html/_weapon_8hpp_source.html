@@ -89,38 +89,38 @@ $(document).ready(function(){initNavTree('_weapon_8hpp_source.html',''); initRes
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define WEAPON_HPP_</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_item_8hpp.html">Item.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_weapon.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_weapon.html">Weapon</a> : <span class="keyword">public</span> <a class="code" href="class_item.html">Item</a> {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;   <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_weapon.html#a531c6c3704db14391549a7f4e2900248">    8</a></span>&#160;    <a class="code" href="class_weapon.html#a531c6c3704db14391549a7f4e2900248">Weapon</a>(<span class="keywordtype">int</span> slot, <span class="keyword">const</span> std::string&amp; texture_name, <span class="keywordtype">int</span> damage)</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        : <a class="code" href="class_item.html">Item</a>(slot, texture_name), damage_(damage) {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <a class="code" href="class_item.html#af7c6c6865df9a6bfd89b36e3b3a9b552">text_</a>.setString(std::to_string(damage_));</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    }</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="comment">// A method to Update, updates the text displaying the damage</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_weapon.html#a8d85894f509ca1704901a78e894fe295">   13</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_weapon.html#a8d85894f509ca1704901a78e894fe295">Update</a>() {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <a class="code" href="class_item.html#af7c6c6865df9a6bfd89b36e3b3a9b552">text_</a>.setString(std::to_string(damage_));</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    }</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_weapon.html#a6fe8cc844dce45e08026aa2446ad4a64">   16</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_weapon.html#a6fe8cc844dce45e08026aa2446ad4a64">AddDamage</a>(<span class="keywordtype">int</span> amount) {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        damage_ += amount;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_weapon.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_weapon.html">Weapon</a> : <span class="keyword">public</span> <a class="code" href="class_item.html">Item</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_weapon.html#a531c6c3704db14391549a7f4e2900248">   15</a></span>&#160;    <a class="code" href="class_weapon.html#a531c6c3704db14391549a7f4e2900248">Weapon</a>(<span class="keywordtype">int</span> slot, <span class="keyword">const</span> std::string&amp; texture_name, <span class="keywordtype">int</span> damage)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        : <a class="code" href="class_item.html">Item</a>(slot, texture_name), <a class="code" href="class_weapon.html#a4347dfdd1b345c3b36b3dbe6c453aada">damage_</a>(damage) {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <a class="code" href="class_item.html#af7c6c6865df9a6bfd89b36e3b3a9b552">text_</a>.setString(std::to_string(<a class="code" href="class_weapon.html#a4347dfdd1b345c3b36b3dbe6c453aada">damage_</a>));</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    }</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_weapon.html#acedd78f897935180b9333c98c82a7e7b">   19</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_weapon.html#acedd78f897935180b9333c98c82a7e7b">GetDamage</a>() {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">return</span> damage_;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;   <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">int</span> damage_;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif  // WEAPON_HPP_</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_weapon.html#a8d85894f509ca1704901a78e894fe295">   21</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_weapon.html#a8d85894f509ca1704901a78e894fe295">Update</a>() {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="class_item.html#af7c6c6865df9a6bfd89b36e3b3a9b552">text_</a>.setString(std::to_string(<a class="code" href="class_weapon.html#a4347dfdd1b345c3b36b3dbe6c453aada">damage_</a>));</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    }</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_weapon.html#a6fe8cc844dce45e08026aa2446ad4a64">   25</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_weapon.html#a6fe8cc844dce45e08026aa2446ad4a64">AddDamage</a>(<span class="keywordtype">int</span> amount) {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <a class="code" href="class_weapon.html#a4347dfdd1b345c3b36b3dbe6c453aada">damage_</a> += amount;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_weapon.html#acedd78f897935180b9333c98c82a7e7b">   29</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_weapon.html#acedd78f897935180b9333c98c82a7e7b">GetDamage</a>() {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_weapon.html#a4347dfdd1b345c3b36b3dbe6c453aada">damage_</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_weapon.html#a4347dfdd1b345c3b36b3dbe6c453aada">   34</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_weapon.html#a4347dfdd1b345c3b36b3dbe6c453aada">damage_</a>;    </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif  // WEAPON_HPP_</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="a_item_8hpp_html"><div class="ttname"><a href="_item_8hpp.html">Item.hpp</a></div></div>
-<div class="ttc" id="aclass_weapon_html_a6fe8cc844dce45e08026aa2446ad4a64"><div class="ttname"><a href="class_weapon.html#a6fe8cc844dce45e08026aa2446ad4a64">Weapon::AddDamage</a></div><div class="ttdeci">void AddDamage(int amount)</div><div class="ttdef"><b>Definition:</b> <a href="_weapon_8hpp_source.html#l00016">Weapon.hpp:16</a></div></div>
-<div class="ttc" id="aclass_weapon_html"><div class="ttname"><a href="class_weapon.html">Weapon</a></div><div class="ttdoc">Weapon class, inherits from Item.</div><div class="ttdef"><b>Definition:</b> <a href="_weapon_8hpp_source.html#l00006">Weapon.hpp:6</a></div></div>
-<div class="ttc" id="aclass_item_html_af7c6c6865df9a6bfd89b36e3b3a9b552"><div class="ttname"><a href="class_item.html#af7c6c6865df9a6bfd89b36e3b3a9b552">Item::text_</a></div><div class="ttdeci">sf::Text text_</div><div class="ttdef"><b>Definition:</b> <a href="_item_8hpp_source.html#l00016">Item.hpp:16</a></div></div>
-<div class="ttc" id="aclass_weapon_html_acedd78f897935180b9333c98c82a7e7b"><div class="ttname"><a href="class_weapon.html#acedd78f897935180b9333c98c82a7e7b">Weapon::GetDamage</a></div><div class="ttdeci">int GetDamage()</div><div class="ttdef"><b>Definition:</b> <a href="_weapon_8hpp_source.html#l00019">Weapon.hpp:19</a></div></div>
-<div class="ttc" id="aclass_item_html"><div class="ttname"><a href="class_item.html">Item</a></div><div class="ttdoc">Abstract class for items.</div><div class="ttdef"><b>Definition:</b> <a href="_item_8hpp_source.html#l00007">Item.hpp:7</a></div></div>
-<div class="ttc" id="aclass_weapon_html_a8d85894f509ca1704901a78e894fe295"><div class="ttname"><a href="class_weapon.html#a8d85894f509ca1704901a78e894fe295">Weapon::Update</a></div><div class="ttdeci">virtual void Update()</div><div class="ttdef"><b>Definition:</b> <a href="_weapon_8hpp_source.html#l00013">Weapon.hpp:13</a></div></div>
-<div class="ttc" id="aclass_weapon_html_a531c6c3704db14391549a7f4e2900248"><div class="ttname"><a href="class_weapon.html#a531c6c3704db14391549a7f4e2900248">Weapon::Weapon</a></div><div class="ttdeci">Weapon(int slot, const std::string &amp;texture_name, int damage)</div><div class="ttdef"><b>Definition:</b> <a href="_weapon_8hpp_source.html#l00008">Weapon.hpp:8</a></div></div>
+<div class="ttc" id="aclass_weapon_html_a6fe8cc844dce45e08026aa2446ad4a64"><div class="ttname"><a href="class_weapon.html#a6fe8cc844dce45e08026aa2446ad4a64">Weapon::AddDamage</a></div><div class="ttdeci">void AddDamage(int amount)</div><div class="ttdef"><b>Definition:</b> Weapon.hpp:25</div></div>
+<div class="ttc" id="aclass_weapon_html"><div class="ttname"><a href="class_weapon.html">Weapon</a></div><div class="ttdoc">Weapon class, inherits from Item.</div><div class="ttdef"><b>Definition:</b> Weapon.hpp:10</div></div>
+<div class="ttc" id="aclass_item_html_af7c6c6865df9a6bfd89b36e3b3a9b552"><div class="ttname"><a href="class_item.html#af7c6c6865df9a6bfd89b36e3b3a9b552">Item::text_</a></div><div class="ttdeci">sf::Text text_</div><div class="ttdef"><b>Definition:</b> Item.hpp:28</div></div>
+<div class="ttc" id="aclass_weapon_html_acedd78f897935180b9333c98c82a7e7b"><div class="ttname"><a href="class_weapon.html#acedd78f897935180b9333c98c82a7e7b">Weapon::GetDamage</a></div><div class="ttdeci">int GetDamage()</div><div class="ttdef"><b>Definition:</b> Weapon.hpp:29</div></div>
+<div class="ttc" id="aclass_weapon_html_a4347dfdd1b345c3b36b3dbe6c453aada"><div class="ttname"><a href="class_weapon.html#a4347dfdd1b345c3b36b3dbe6c453aada">Weapon::damage_</a></div><div class="ttdeci">int damage_</div><div class="ttdef"><b>Definition:</b> Weapon.hpp:34</div></div>
+<div class="ttc" id="aclass_item_html"><div class="ttname"><a href="class_item.html">Item</a></div><div class="ttdoc">Abstract class for items.</div><div class="ttdef"><b>Definition:</b> Item.hpp:11</div></div>
+<div class="ttc" id="aclass_weapon_html_a8d85894f509ca1704901a78e894fe295"><div class="ttname"><a href="class_weapon.html#a8d85894f509ca1704901a78e894fe295">Weapon::Update</a></div><div class="ttdeci">virtual void Update()</div><div class="ttdef"><b>Definition:</b> Weapon.hpp:21</div></div>
+<div class="ttc" id="aclass_weapon_html_a531c6c3704db14391549a7f4e2900248"><div class="ttname"><a href="class_weapon.html#a531c6c3704db14391549a7f4e2900248">Weapon::Weapon</a></div><div class="ttdeci">Weapon(int slot, const std::string &amp;texture_name, int damage)</div><div class="ttdef"><b>Definition:</b> Weapon.hpp:15</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

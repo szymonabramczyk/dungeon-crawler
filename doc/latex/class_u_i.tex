@@ -24,14 +24,40 @@ void \mbox{\hyperlink{class_u_i_aeff9a24a56fd9fd271b6605c29199746}{Update\+End\+
 \item 
 void \mbox{\hyperlink{class_u_i_adb45986467d78be14c291e473449eb84}{draw}} (sf\+::\+Render\+Target \&target) const
 \end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_u_i_af5dc08a91f264c6558644576137ee1a3}{Initialize}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{class_u_i_a2b8b7b237c5459c7ff7e98dc48f083c2}{health\+\_\+bar\+\_\+}}
+\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{class_u_i_ac7a436260e590561614a3d2f13e8f78d}{ability\+\_\+bar\+\_\+}}
+\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{class_u_i_aeb070132e0fd941b08a8f7986c7d2add}{xp\+\_\+bar\+\_\+}}
+\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{class_u_i_a3e72655ed20adff30bd9136e614f37ac}{health\+\_\+black\+\_\+bar\+\_\+}}
+\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{class_u_i_ad046ca00bb56cde7e6524d22b6491030}{ability\+\_\+black\+\_\+bar\+\_\+}}
+\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{class_u_i_a812265f256051278343b94bd2d70eefe}{xp\+\_\+black\+\_\+bar\+\_\+}}
+\item 
+sf\+::\+Text \mbox{\hyperlink{class_u_i_aca9ab176e53d0a04744af94ab333f4a7}{end\+\_\+text\+\_\+}}
+\item 
+sf\+::\+Text \mbox{\hyperlink{class_u_i_a9814f63ca9835bbce7567a6634d7ef46}{restart\+\_\+text\+\_\+}}
+\item 
+sf\+::\+Text \mbox{\hyperlink{class_u_i_afad141fb53435a9227c857109b956b51}{health\+\_\+info\+\_\+text\+\_\+}}
+\item 
+sf\+::\+Text \mbox{\hyperlink{class_u_i_afdc7d4f5a15f7219c9118735d5b14c54}{ability\+\_\+info\+\_\+text\+\_\+}}
+\item 
+sf\+::\+Text \mbox{\hyperlink{class_u_i_a2c8a77182c0213e9a8b21cfe9cf77044}{level\+\_\+info\+\_\+text\+\_\+}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Represents the player \mbox{\hyperlink{class_u_i}{UI}}. 
-
-Definition at line 6 of file U\+I.\+hpp.
-
-
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_u_i_a675985a56b5e87ebdc8e5884b9f2ee09}\label{class_u_i_a675985a56b5e87ebdc8e5884b9f2ee09}} 
@@ -40,10 +66,13 @@ Definition at line 6 of file U\+I.\+hpp.
 \doxysubsubsection{\texorpdfstring{UI()}{UI()}}
 {\footnotesize\ttfamily U\+I\+::\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-
-
-Definition at line 7 of file U\+I.\+cpp.
-
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{class_u_i_a675985a56b5e87ebdc8e5884b9f2ee09_cgraph}
+\end{center}
+\end{figure}
 
 
 \doxysubsection{Member Function Documentation}
@@ -53,49 +82,146 @@ Definition at line 7 of file U\+I.\+cpp.
 \doxysubsubsection{\texorpdfstring{draw()}{draw()}}
 {\footnotesize\ttfamily void U\+I\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{target }\end{DoxyParamCaption}) const}
 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_u_i_adb45986467d78be14c291e473449eb84_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_u_i_af5dc08a91f264c6558644576137ee1a3}\label{class_u_i_af5dc08a91f264c6558644576137ee1a3}} 
+\index{UI@{UI}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily void U\+I\+::\+Initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-
-Definition at line 86 of file U\+I.\+cpp.
-
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{class_u_i_af5dc08a91f264c6558644576137ee1a3_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_u_i_a989401f1defa8df34b0de3b7395bdade}\label{class_u_i_a989401f1defa8df34b0de3b7395bdade}} 
 \index{UI@{UI}!UpdateAbilityUI@{UpdateAbilityUI}}
 \index{UpdateAbilityUI@{UpdateAbilityUI}!UI@{UI}}
 \doxysubsubsection{\texorpdfstring{UpdateAbilityUI()}{UpdateAbilityUI()}}
 {\footnotesize\ttfamily void U\+I\+::\+Update\+Ability\+UI (\begin{DoxyParamCaption}\item[{double}]{fraction,  }\item[{const std\+::string \&}]{text }\end{DoxyParamCaption})}
 
-
-
-Definition at line 15 of file U\+I.\+cpp.
-
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_u_i_a989401f1defa8df34b0de3b7395bdade_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_u_i_aeff9a24a56fd9fd271b6605c29199746}\label{class_u_i_aeff9a24a56fd9fd271b6605c29199746}} 
 \index{UI@{UI}!UpdateEndText@{UpdateEndText}}
 \index{UpdateEndText@{UpdateEndText}!UI@{UI}}
 \doxysubsubsection{\texorpdfstring{UpdateEndText()}{UpdateEndText()}}
 {\footnotesize\ttfamily void U\+I\+::\+Update\+End\+Text (\begin{DoxyParamCaption}\item[{bool}]{win }\end{DoxyParamCaption})}
 
-
-
-Definition at line 24 of file U\+I.\+cpp.
-
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_u_i_aeff9a24a56fd9fd271b6605c29199746_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_u_i_a73396953ed98d5d0d0ef9e3f71f3dae4}\label{class_u_i_a73396953ed98d5d0d0ef9e3f71f3dae4}} 
 \index{UI@{UI}!UpdateHealthUI@{UpdateHealthUI}}
 \index{UpdateHealthUI@{UpdateHealthUI}!UI@{UI}}
 \doxysubsubsection{\texorpdfstring{UpdateHealthUI()}{UpdateHealthUI()}}
 {\footnotesize\ttfamily void U\+I\+::\+Update\+Health\+UI (\begin{DoxyParamCaption}\item[{double}]{fraction,  }\item[{const std\+::string \&}]{text }\end{DoxyParamCaption})}
 
-
-
-Definition at line 11 of file U\+I.\+cpp.
-
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_u_i_a73396953ed98d5d0d0ef9e3f71f3dae4_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_u_i_a84dbeeb199b4a9edd843aedb8e82e278}\label{class_u_i_a84dbeeb199b4a9edd843aedb8e82e278}} 
 \index{UI@{UI}!UpdateXpUI@{UpdateXpUI}}
 \index{UpdateXpUI@{UpdateXpUI}!UI@{UI}}
 \doxysubsubsection{\texorpdfstring{UpdateXpUI()}{UpdateXpUI()}}
 {\footnotesize\ttfamily void U\+I\+::\+Update\+Xp\+UI (\begin{DoxyParamCaption}\item[{double}]{fraction,  }\item[{const std\+::string \&}]{text }\end{DoxyParamCaption})}
 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_u_i_a84dbeeb199b4a9edd843aedb8e82e278_icgraph}
+\end{center}
+\end{figure}
 
 
-Definition at line 19 of file U\+I.\+cpp.
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_u_i_ac7a436260e590561614a3d2f13e8f78d}\label{class_u_i_ac7a436260e590561614a3d2f13e8f78d}} 
+\index{UI@{UI}!ability\_bar\_@{ability\_bar\_}}
+\index{ability\_bar\_@{ability\_bar\_}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{ability\_bar\_}{ability\_bar\_}}
+{\footnotesize\ttfamily sf\+::\+Rectangle\+Shape U\+I\+::ability\+\_\+bar\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_u_i_ad046ca00bb56cde7e6524d22b6491030}\label{class_u_i_ad046ca00bb56cde7e6524d22b6491030}} 
+\index{UI@{UI}!ability\_black\_bar\_@{ability\_black\_bar\_}}
+\index{ability\_black\_bar\_@{ability\_black\_bar\_}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{ability\_black\_bar\_}{ability\_black\_bar\_}}
+{\footnotesize\ttfamily sf\+::\+Rectangle\+Shape U\+I\+::ability\+\_\+black\+\_\+bar\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_u_i_afdc7d4f5a15f7219c9118735d5b14c54}\label{class_u_i_afdc7d4f5a15f7219c9118735d5b14c54}} 
+\index{UI@{UI}!ability\_info\_text\_@{ability\_info\_text\_}}
+\index{ability\_info\_text\_@{ability\_info\_text\_}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{ability\_info\_text\_}{ability\_info\_text\_}}
+{\footnotesize\ttfamily sf\+::\+Text U\+I\+::ability\+\_\+info\+\_\+text\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_u_i_aca9ab176e53d0a04744af94ab333f4a7}\label{class_u_i_aca9ab176e53d0a04744af94ab333f4a7}} 
+\index{UI@{UI}!end\_text\_@{end\_text\_}}
+\index{end\_text\_@{end\_text\_}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{end\_text\_}{end\_text\_}}
+{\footnotesize\ttfamily sf\+::\+Text U\+I\+::end\+\_\+text\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_u_i_a2b8b7b237c5459c7ff7e98dc48f083c2}\label{class_u_i_a2b8b7b237c5459c7ff7e98dc48f083c2}} 
+\index{UI@{UI}!health\_bar\_@{health\_bar\_}}
+\index{health\_bar\_@{health\_bar\_}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{health\_bar\_}{health\_bar\_}}
+{\footnotesize\ttfamily sf\+::\+Rectangle\+Shape U\+I\+::health\+\_\+bar\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_u_i_a3e72655ed20adff30bd9136e614f37ac}\label{class_u_i_a3e72655ed20adff30bd9136e614f37ac}} 
+\index{UI@{UI}!health\_black\_bar\_@{health\_black\_bar\_}}
+\index{health\_black\_bar\_@{health\_black\_bar\_}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{health\_black\_bar\_}{health\_black\_bar\_}}
+{\footnotesize\ttfamily sf\+::\+Rectangle\+Shape U\+I\+::health\+\_\+black\+\_\+bar\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_u_i_afad141fb53435a9227c857109b956b51}\label{class_u_i_afad141fb53435a9227c857109b956b51}} 
+\index{UI@{UI}!health\_info\_text\_@{health\_info\_text\_}}
+\index{health\_info\_text\_@{health\_info\_text\_}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{health\_info\_text\_}{health\_info\_text\_}}
+{\footnotesize\ttfamily sf\+::\+Text U\+I\+::health\+\_\+info\+\_\+text\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_u_i_a2c8a77182c0213e9a8b21cfe9cf77044}\label{class_u_i_a2c8a77182c0213e9a8b21cfe9cf77044}} 
+\index{UI@{UI}!level\_info\_text\_@{level\_info\_text\_}}
+\index{level\_info\_text\_@{level\_info\_text\_}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{level\_info\_text\_}{level\_info\_text\_}}
+{\footnotesize\ttfamily sf\+::\+Text U\+I\+::level\+\_\+info\+\_\+text\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_u_i_a9814f63ca9835bbce7567a6634d7ef46}\label{class_u_i_a9814f63ca9835bbce7567a6634d7ef46}} 
+\index{UI@{UI}!restart\_text\_@{restart\_text\_}}
+\index{restart\_text\_@{restart\_text\_}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{restart\_text\_}{restart\_text\_}}
+{\footnotesize\ttfamily sf\+::\+Text U\+I\+::restart\+\_\+text\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_u_i_aeb070132e0fd941b08a8f7986c7d2add}\label{class_u_i_aeb070132e0fd941b08a8f7986c7d2add}} 
+\index{UI@{UI}!xp\_bar\_@{xp\_bar\_}}
+\index{xp\_bar\_@{xp\_bar\_}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{xp\_bar\_}{xp\_bar\_}}
+{\footnotesize\ttfamily sf\+::\+Rectangle\+Shape U\+I\+::xp\+\_\+bar\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_u_i_a812265f256051278343b94bd2d70eefe}\label{class_u_i_a812265f256051278343b94bd2d70eefe}} 
+\index{UI@{UI}!xp\_black\_bar\_@{xp\_black\_bar\_}}
+\index{xp\_black\_bar\_@{xp\_black\_bar\_}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{xp\_black\_bar\_}{xp\_black\_bar\_}}
+{\footnotesize\ttfamily sf\+::\+Rectangle\+Shape U\+I\+::xp\+\_\+black\+\_\+bar\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
 
 
 

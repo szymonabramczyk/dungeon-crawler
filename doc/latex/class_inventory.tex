@@ -2,7 +2,7 @@
 \label{class_inventory}\index{Inventory@{Inventory}}
 
 
-Represents the player\textquotesingle{}s inventory.  
+A class that stores different types of Items.  
 
 
 
@@ -24,7 +24,7 @@ Collaboration diagram for Inventory\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=143pt]{class_inventory__coll__graph}
+\includegraphics[width=288pt]{class_inventory__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -42,14 +42,22 @@ void \mbox{\hyperlink{class_inventory_ad5ae2d9ab9d57ea1a07f60d34f368c7c}{Add\+We
 \item 
 void \mbox{\hyperlink{class_inventory_ad8677a04d34ae97d2cc2a85cf0575d4d}{Update}} ()
 \end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_inventory_a5ba988c4f1ed6ab5fff74c2db2836c60}{draw}} (sf\+::\+Render\+Target \&target, sf\+::\+Render\+States states) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_potion}{Potion}} \mbox{\hyperlink{class_inventory_a8f6cbf536aee133d38f468a61baa3ede}{potions\+\_\+}}
+\item 
+\mbox{\hyperlink{class_weapon}{Weapon}} \mbox{\hyperlink{class_inventory_ae8f60e71fa89a6ed27af31036c29fc6c}{weapon\+\_\+}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Represents the player\textquotesingle{}s inventory. 
-
-Definition at line 11 of file Inventory.\+hpp.
-
-
+A class that stores different types of Items. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_inventory_a10485613fc8bfb32ee564d9b5110f8fb}\label{class_inventory_a10485613fc8bfb32ee564d9b5110f8fb}} 
@@ -60,10 +68,6 @@ Definition at line 11 of file Inventory.\+hpp.
 
 
 
-Definition at line 7 of file Inventory.\+cpp.
-
-
-
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_inventory_a34de20e5d22a5910d3a844c50c85201d}\label{class_inventory_a34de20e5d22a5910d3a844c50c85201d}} 
 \index{Inventory@{Inventory}!AddHealthPotions@{AddHealthPotions}}
@@ -71,20 +75,14 @@ Definition at line 7 of file Inventory.\+cpp.
 \doxysubsubsection{\texorpdfstring{AddHealthPotions()}{AddHealthPotions()}}
 {\footnotesize\ttfamily void Inventory\+::\+Add\+Health\+Potions (\begin{DoxyParamCaption}\item[{int}]{number }\end{DoxyParamCaption})}
 
-
-
-Definition at line 18 of file Inventory.\+cpp.
-
-Here is the call graph for this function\+:
-\nopagebreak
+a method to add the number of health potions to the \mbox{\hyperlink{class_inventory}{Inventory}}. Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_inventory_a34de20e5d22a5910d3a844c50c85201d_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -97,24 +95,31 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{AddWeaponDamage()}{AddWeaponDamage()}}
 {\footnotesize\ttfamily void Inventory\+::\+Add\+Weapon\+Damage (\begin{DoxyParamCaption}\item[{int}]{amount }\end{DoxyParamCaption})}
 
-
-
-Definition at line 24 of file Inventory.\+cpp.
-
-Here is the call graph for this function\+:
-\nopagebreak
+a method to add weapon damage to the \mbox{\hyperlink{class_weapon}{Weapon}} stored in the \mbox{\hyperlink{class_inventory}{Inventory}}. Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_inventory_ad5ae2d9ab9d57ea1a07f60d34f368c7c_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_inventory_ad5ae2d9ab9d57ea1a07f60d34f368c7c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_inventory_a5ba988c4f1ed6ab5fff74c2db2836c60}\label{class_inventory_a5ba988c4f1ed6ab5fff74c2db2836c60}} 
+\index{Inventory@{Inventory}!draw@{draw}}
+\index{draw@{draw}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Inventory\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{target,  }\item[{sf\+::\+Render\+States}]{states }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}
+
+A method to draw all the Items stored in the \mbox{\hyperlink{class_inventory}{Inventory}}. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=277pt]{class_inventory_a5ba988c4f1ed6ab5fff74c2db2836c60_cgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_inventory_ac84b4b0cc539ca5d52739cc911781230}\label{class_inventory_ac84b4b0cc539ca5d52739cc911781230}} 
@@ -123,20 +128,14 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{GetWeaponDamage()}{GetWeaponDamage()}}
 {\footnotesize\ttfamily int Inventory\+::\+Get\+Weapon\+Damage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-
-
-Definition at line 14 of file Inventory.\+cpp.
-
-Here is the call graph for this function\+:
-\nopagebreak
+a getter method that returns the damage dealt by the \mbox{\hyperlink{class_weapon}{Weapon}} stored in the \mbox{\hyperlink{class_inventory}{Inventory}}. Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_inventory_ac84b4b0cc539ca5d52739cc911781230_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -149,20 +148,14 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{HealthPotionCount()}{HealthPotionCount()}}
 {\footnotesize\ttfamily int Inventory\+::\+Health\+Potion\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-
-
-Definition at line 10 of file Inventory.\+cpp.
-
-Here is the call graph for this function\+:
-\nopagebreak
+a getter method that returns the number of health potions Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_inventory_a053989e57aae448254536850b6a149d0_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -175,12 +168,7 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{Update()}{Update()}}
 {\footnotesize\ttfamily void Inventory\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-
-
-Definition at line 30 of file Inventory.\+cpp.
-
-Here is the call graph for this function\+:
-\nopagebreak
+a method to update all the Items stored in the \mbox{\hyperlink{class_inventory}{Inventory}}. Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -188,6 +176,21 @@ Here is the call graph for this function\+:
 \end{center}
 \end{figure}
 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_inventory_a8f6cbf536aee133d38f468a61baa3ede}\label{class_inventory_a8f6cbf536aee133d38f468a61baa3ede}} 
+\index{Inventory@{Inventory}!potions\_@{potions\_}}
+\index{potions\_@{potions\_}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{potions\_}{potions\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_potion}{Potion}} Inventory\+::potions\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+A \mbox{\hyperlink{class_potion}{Potion}} object that holds information about the number and healing amount of the potions stored in the \mbox{\hyperlink{class_inventory}{Inventory}}. \mbox{\Hypertarget{class_inventory_ae8f60e71fa89a6ed27af31036c29fc6c}\label{class_inventory_ae8f60e71fa89a6ed27af31036c29fc6c}} 
+\index{Inventory@{Inventory}!weapon\_@{weapon\_}}
+\index{weapon\_@{weapon\_}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{weapon\_}{weapon\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_weapon}{Weapon}} Inventory\+::weapon\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+A \mbox{\hyperlink{class_weapon}{Weapon}} object that holds information about the damage dealt by the \mbox{\hyperlink{class_weapon}{Weapon}} stored in the \mbox{\hyperlink{class_inventory}{Inventory}}. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

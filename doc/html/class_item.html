@@ -127,8 +127,7 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract class for items. </p>
-
-<p class="definition">Definition at line <a class="el" href="_item_8hpp_source.html#l00007">7</a> of file <a class="el" href="_item_8hpp_source.html">Item.hpp</a>.</p>
+<p>An abstract class providing basic functionality for Items, along with basic methods allowing to display it properly on the screen according to the slot. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3f35c69fbefdeee4ba4c70dea92316bb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3f35c69fbefdeee4ba4c70dea92316bb">&#9670;&nbsp;</a></span>Item()</h2>
@@ -155,8 +154,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_item_8cpp_source.html#l00007">7</a> of file <a class="el" href="_item_8cpp_source.html">Item.cpp</a>.</p>
+<p>A constructor that as parameters takes in a slot that the item will be displayed at (indexed from 0) and the texture_name that will be displayed for the item. </p>
 
 </div>
 </div>
@@ -186,8 +184,16 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_item_8cpp_source.html#l00016">16</a> of file <a class="el" href="_item_8cpp_source.html">Item.cpp</a>.</p>
+<p>A method to draw the <a class="el" href="class_item.html" title="Abstract class for items.">Item</a> to the target (screen). Draws the text_ and the sprite_ associated with the <a class="el" href="class_item.html" title="Abstract class for items.">Item</a>. </p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_item_adc13e83e24759ffcbad149e57253f9d1_icgraph.png" border="0" usemap="#class_item_adc13e83e24759ffcbad149e57253f9d1_icgraph" alt=""/></div>
+<map name="class_item_adc13e83e24759ffcbad149e57253f9d1_icgraph" id="class_item_adc13e83e24759ffcbad149e57253f9d1_icgraph">
+<area shape="rect" title=" " alt="" coords="176,5,268,32"/>
+<area shape="rect" href="class_inventory.html#a5ba988c4f1ed6ab5fff74c2db2836c60" title=" " alt="" coords="5,5,128,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -213,6 +219,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>An abstract method to update the status of the <a class="el" href="class_item.html" title="Abstract class for items.">Item</a>. For the classes inheriting from <a class="el" href="class_item.html" title="Abstract class for items.">Item</a> class it is updating the displayed text_, but could be extended to other functionality. </p>
 
 <p>Implemented in <a class="el" href="class_potion.html#a02276bf6b5dbe03ee11e7fac280bf00e">Potion</a>, and <a class="el" href="class_weapon.html#a8d85894f509ca1704901a78e894fe295">Weapon</a>.</p>
 
@@ -238,8 +245,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_item_8hpp_source.html#l00015">15</a> of file <a class="el" href="_item_8hpp_source.html">Item.hpp</a>.</p>
+<p>font used to display the text associated with the <a class="el" href="class_item.html" title="Abstract class for items.">Item</a>. </p>
 
 </div>
 </div>
@@ -262,8 +268,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_item_8hpp_source.html#l00014">14</a> of file <a class="el" href="_item_8hpp_source.html">Item.hpp</a>.</p>
+<p>slot number that the <a class="el" href="class_item.html" title="Abstract class for items.">Item</a> should be displayed at </p>
 
 </div>
 </div>
@@ -286,8 +291,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_item_8hpp_source.html#l00017">17</a> of file <a class="el" href="_item_8hpp_source.html">Item.hpp</a>.</p>
+<p>sprite that is displayed with the <a class="el" href="class_item.html" title="Abstract class for items.">Item</a>. </p>
 
 </div>
 </div>
@@ -310,14 +314,13 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_item_8hpp_source.html#l00016">16</a> of file <a class="el" href="_item_8hpp_source.html">Item.hpp</a>.</p>
+<p>text that is displayed with the <a class="el" href="class_item.html" title="Abstract class for items.">Item</a>, describing some property of the <a class="el" href="class_item.html" title="Abstract class for items.">Item</a> like amount or damage. </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/jakutzin/cpp-course project/dungeon-crawler-quang-ngo-01/src/<a class="el" href="_item_8hpp_source.html">Item.hpp</a></li>
-<li>/home/jakutzin/cpp-course project/dungeon-crawler-quang-ngo-01/src/<a class="el" href="_item_8cpp_source.html">Item.cpp</a></li>
+<li>/home/jakutzin/cpp-course project/dungeon-crawler-quang-ngo-01/src/<a class="el" href="_item_8cpp.html">Item.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,13 +1,19 @@
 var searchData=
 [
-  ['addamount_0',['AddAmount',['../class_potion.html#a93d3c92487ec505e6dc2ae0241f25335',1,'Potion']]],
-  ['adddamage_1',['AddDamage',['../class_weapon.html#a6fe8cc844dce45e08026aa2446ad4a64',1,'Weapon']]],
-  ['addentity_2',['AddEntity',['../class_entity_manager.html#a32042c10c92635b2e4dce74651c54b58',1,'EntityManager']]],
-  ['addhealthpotions_3',['AddHealthPotions',['../class_inventory.html#a34de20e5d22a5910d3a844c50c85201d',1,'Inventory']]],
-  ['addweapondamage_4',['AddWeaponDamage',['../class_inventory.html#ad5ae2d9ab9d57ea1a07f60d34f368c7c',1,'Inventory']]],
-  ['addxp_5',['AddXP',['../class_player.html#a2a995bae19e16ee1ec8e3fcaee5eeb11',1,'Player']]],
-  ['assets_6',['Assets',['../class_assets.html',1,'']]],
-  ['assets_2ecpp_7',['Assets.cpp',['../_assets_8cpp.html',1,'']]],
-  ['assets_2ehpp_8',['Assets.hpp',['../_assets_8hpp.html',1,'']]],
-  ['attack_9',['Attack',['../class_entity.html#a27ad81109f7ea6d35398f8823229cd46',1,'Entity::Attack()'],['../class_monster.html#a809428fda41c56a1d7b2ca9508e7ea8e',1,'Monster::Attack()']]]
+  ['ability_5fbar_5f_0',['ability_bar_',['../class_u_i.html#ac7a436260e590561614a3d2f13e8f78d',1,'UI']]],
+  ['ability_5fblack_5fbar_5f_1',['ability_black_bar_',['../class_u_i.html#ad046ca00bb56cde7e6524d22b6491030',1,'UI']]],
+  ['ability_5finfo_5ftext_5f_2',['ability_info_text_',['../class_u_i.html#afdc7d4f5a15f7219c9118735d5b14c54',1,'UI']]],
+  ['addamount_3',['AddAmount',['../class_potion.html#a93d3c92487ec505e6dc2ae0241f25335',1,'Potion']]],
+  ['adddamage_4',['AddDamage',['../class_weapon.html#a6fe8cc844dce45e08026aa2446ad4a64',1,'Weapon']]],
+  ['addentity_5',['AddEntity',['../class_entity_manager.html#a32042c10c92635b2e4dce74651c54b58',1,'EntityManager']]],
+  ['addhealthpotions_6',['AddHealthPotions',['../class_inventory.html#a34de20e5d22a5910d3a844c50c85201d',1,'Inventory']]],
+  ['addorc_7',['AddOrc',['../class_game.html#ab8654c9cbc5051c06e694b1144ac061c',1,'Game']]],
+  ['addundead_8',['AddUndead',['../class_game.html#a429deba49c16127e61a281a89cdfeecc',1,'Game']]],
+  ['addweapondamage_9',['AddWeaponDamage',['../class_inventory.html#ad5ae2d9ab9d57ea1a07f60d34f368c7c',1,'Inventory']]],
+  ['addxp_10',['AddXP',['../class_player.html#a2a995bae19e16ee1ec8e3fcaee5eeb11',1,'Player']]],
+  ['amount_5f_11',['amount_',['../class_potion.html#a51e23de4bf867eb133d82a6c1f9426c4',1,'Potion']]],
+  ['assets_12',['Assets',['../class_assets.html',1,'']]],
+  ['assets_2ecpp_13',['Assets.cpp',['../_assets_8cpp.html',1,'']]],
+  ['assets_2ehpp_14',['Assets.hpp',['../_assets_8hpp.html',1,'']]],
+  ['attack_15',['Attack',['../class_entity.html#a27ad81109f7ea6d35398f8823229cd46',1,'Entity::Attack()'],['../class_monster.html#a809428fda41c56a1d7b2ca9508e7ea8e',1,'Monster::Attack()']]]
 ];

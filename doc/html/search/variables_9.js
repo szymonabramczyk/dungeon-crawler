@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['text_5f_247',['text_',['../class_entity.html#a284442227af57b66f554c859a5037573',1,'Entity::text_()'],['../class_item.html#af7c6c6865df9a6bfd89b36e3b3a9b552',1,'Item::text_()']]],
-  ['textures_248',['textures',['../class_assets.html#a356d61df2f8b24bab41c9685ae647f50',1,'Assets']]],
-  ['total_5fturns_5f_249',['total_turns_',['../class_entity.html#a3937c1c228127c9900971d9ede313eba',1,'Entity']]],
-  ['type_5f_250',['type_',['../class_entity.html#ab6a80d22ea435e5cb52ad6778a5759d8',1,'Entity']]]
+  ['map_5f_313',['map_',['../class_game.html#a8e73fe942ffa88894296d71fc67c60bd',1,'Game']]],
+  ['max_5fhp_5f_314',['max_hp_',['../class_entity.html#ae774ef60d6b7b65c9eb958cddabc737b',1,'Entity']]],
+  ['monsters_5f_315',['monsters_',['../class_game.html#ac0597231052977e363ad61ead878d56f',1,'Game']]]
 ];

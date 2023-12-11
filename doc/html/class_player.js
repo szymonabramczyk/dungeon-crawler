@@ -14,5 +14,15 @@ var class_player =
     [ "KilledBoss", "class_player.html#a7ce8e72ac955baf732bdd22d71b7ffcb", null ],
     [ "LevelProgress", "class_player.html#a2b66909e2517000377946df475324f99", null ],
     [ "ProcessInput", "class_player.html#a67c4de392bc5bddd4ec35f3ee56af6b3", null ],
-    [ "RangedAttack", "class_player.html#a7962164e5b009fe9a309551b13f7f735", null ]
+    [ "RangedAttack", "class_player.html#a7962164e5b009fe9a309551b13f7f735", null ],
+    [ "clock_", "class_player.html#a38d6b17b6eab6de3af031aafce0f5105", null ],
+    [ "cooldown_period_", "class_player.html#a1a2a62b9d8eebe395bb50729e02f9017", null ],
+    [ "elapsed_time_", "class_player.html#a12dac56e0b0e0be41b0d21880c4f0668", null ],
+    [ "inv_", "class_player.html#ac567b680e89569233a59dd7a4e4dca87", null ],
+    [ "killed_boss_", "class_player.html#a395f573697cebe3d4dd24d15c4168b92", null ],
+    [ "level_", "class_player.html#aab0d121c409a3b6cd5cbf62e9586d007", null ],
+    [ "name_", "class_player.html#ac603c368290456cd7608222c1cc62c32", null ],
+    [ "status_text_", "class_player.html#ab11aa965317505491a33cd778df46337", null ],
+    [ "turn_count_", "class_player.html#a1e6bada65eb66ca04b39726a65a39a66", null ],
+    [ "xp_", "class_player.html#a9a612fca317e5f4fcd9ee67c1528282c", null ]
 ];

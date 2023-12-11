@@ -11,9 +11,6 @@
 #include "EntityManager.hpp"
 #include "LevelGenerator.hpp"
 
-// Constructor that creates a Window object and creates the Player with the player sprite
-// player_speed_ attribute defines the number of pixels
-// that the Player moves each time a button is pressed
 Game::Game(const std::string& path)
     : window_(sf::VideoMode(1920, 1024), "CMake SFML Project", sf::Style::Titlebar | sf::Style::Close),
       ui_(),
@@ -31,7 +28,6 @@ Game::Game(const std::string& path)
     AddUndead();
 }
 
-// A method to Run the game
 void Game::Run() {
     sf::Clock clock;
     while (window_.isOpen()) {
@@ -41,12 +37,10 @@ void Game::Run() {
     }
 }
 
-// A method to load a level
 bool Game::LoadLevel() {
     return map_.Load("tiles", sf::Vector2u(128, 128), levels_[curr_level_], Constants::kTilesWidth, 8);
 }
 
-// A method to add monsters
 void Game::AddUndead() {
     std::shared_ptr<Monster> undead = std::make_shared<Monster>("undead", 1, 4, 50);
     monsters_.push_back(undead);

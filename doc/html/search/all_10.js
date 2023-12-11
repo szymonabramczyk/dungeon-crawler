@@ -1,11 +1,13 @@
 var searchData=
 [
-  ['ui_108',['UI',['../class_u_i.html',1,'UI'],['../class_u_i.html#a675985a56b5e87ebdc8e5884b9f2ee09',1,'UI::UI()']]],
-  ['ui_2ecpp_109',['UI.cpp',['../_u_i_8cpp.html',1,'']]],
-  ['ui_2ehpp_110',['UI.hpp',['../_u_i_8hpp.html',1,'']]],
-  ['update_111',['Update',['../class_inventory.html#ad8677a04d34ae97d2cc2a85cf0575d4d',1,'Inventory::Update()'],['../class_item.html#aee99a2b103aa9eb7f18b6135dd38fa5a',1,'Item::Update()'],['../class_monster.html#a6f5d2e81c8c18d8f212312aa22e53a79',1,'Monster::Update()'],['../class_potion.html#a02276bf6b5dbe03ee11e7fac280bf00e',1,'Potion::Update()'],['../class_weapon.html#a8d85894f509ca1704901a78e894fe295',1,'Weapon::Update()']]],
-  ['updateabilityui_112',['UpdateAbilityUI',['../class_u_i.html#a989401f1defa8df34b0de3b7395bdade',1,'UI']]],
-  ['updateendtext_113',['UpdateEndText',['../class_u_i.html#aeff9a24a56fd9fd271b6605c29199746',1,'UI']]],
-  ['updatehealthui_114',['UpdateHealthUI',['../class_u_i.html#a73396953ed98d5d0d0ef9e3f71f3dae4',1,'UI']]],
-  ['updatexpui_115',['UpdateXpUI',['../class_u_i.html#a84dbeeb199b4a9edd843aedb8e82e278',1,'UI']]]
+  ['takedamage_136',['TakeDamage',['../class_entity.html#a2d3cdd12105a06139492a302bc8ffc50',1,'Entity']]],
+  ['text_5f_137',['text_',['../class_entity.html#a284442227af57b66f554c859a5037573',1,'Entity::text_()'],['../class_item.html#af7c6c6865df9a6bfd89b36e3b3a9b552',1,'Item::text_()']]],
+  ['textures_138',['textures',['../class_assets.html#a356d61df2f8b24bab41c9685ae647f50',1,'Assets']]],
+  ['tilemap_139',['TileMap',['../class_tile_map.html',1,'']]],
+  ['tilemap_2ecpp_140',['TileMap.cpp',['../_tile_map_8cpp.html',1,'']]],
+  ['tilemap_2ehpp_141',['TileMap.hpp',['../_tile_map_8hpp.html',1,'']]],
+  ['tileset_5fname_5f_142',['tileset_name_',['../class_tile_map.html#ae80de8789785f56cbd4a1c0b44cf9dbc',1,'TileMap']]],
+  ['total_5fturns_5f_143',['total_turns_',['../class_entity.html#a3937c1c228127c9900971d9ede313eba',1,'Entity']]],
+  ['turn_5fcount_5f_144',['turn_count_',['../class_player.html#a1e6bada65eb66ca04b39726a65a39a66',1,'Player']]],
+  ['type_5f_145',['type_',['../class_entity.html#ab6a80d22ea435e5cb52ad6778a5759d8',1,'Entity']]]
 ];

@@ -43,9 +43,7 @@ sf\+::\+Sprite \mbox{\hyperlink{class_item_a7233fc5cc53739fc32236e06b7e7477f}{sp
 \doxysubsection{Detailed Description}
 Abstract class for items. 
 
-Definition at line 7 of file Item.\+hpp.
-
-
+An abstract class providing basic functionality for Items, along with basic methods allowing to display it properly on the screen according to the slot. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_item_a3f35c69fbefdeee4ba4c70dea92316bb}\label{class_item_a3f35c69fbefdeee4ba4c70dea92316bb}} 
@@ -54,11 +52,7 @@ Definition at line 7 of file Item.\+hpp.
 \doxysubsubsection{\texorpdfstring{Item()}{Item()}}
 {\footnotesize\ttfamily Item\+::\+Item (\begin{DoxyParamCaption}\item[{int}]{slot,  }\item[{const std\+::string \&}]{texture\+\_\+name }\end{DoxyParamCaption})}
 
-
-
-Definition at line 7 of file Item.\+cpp.
-
-
+A constructor that as parameters takes in a slot that the item will be displayed at (indexed from 0) and the texture\+\_\+name that will be displayed for the item. 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_item_adc13e83e24759ffcbad149e57253f9d1}\label{class_item_adc13e83e24759ffcbad149e57253f9d1}} 
@@ -67,17 +61,20 @@ Definition at line 7 of file Item.\+cpp.
 \doxysubsubsection{\texorpdfstring{draw()}{draw()}}
 {\footnotesize\ttfamily void Item\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{target,  }\item[{sf\+::\+Render\+States}]{states }\end{DoxyParamCaption}) const}
 
-
-
-Definition at line 16 of file Item.\+cpp.
-
+A method to draw the \mbox{\hyperlink{class_item}{Item}} to the target (screen). Draws the text\+\_\+ and the sprite\+\_\+ associated with the \mbox{\hyperlink{class_item}{Item}}. Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=277pt]{class_item_adc13e83e24759ffcbad149e57253f9d1_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_item_aee99a2b103aa9eb7f18b6135dd38fa5a}\label{class_item_aee99a2b103aa9eb7f18b6135dd38fa5a}} 
 \index{Item@{Item}!Update@{Update}}
 \index{Update@{Update}!Item@{Item}}
 \doxysubsubsection{\texorpdfstring{Update()}{Update()}}
 {\footnotesize\ttfamily virtual void Item\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-
+An abstract method to update the status of the \mbox{\hyperlink{class_item}{Item}}. For the classes inheriting from \mbox{\hyperlink{class_item}{Item}} class it is updating the displayed text\+\_\+, but could be extended to other functionality. 
 
 Implemented in \mbox{\hyperlink{class_potion_a02276bf6b5dbe03ee11e7fac280bf00e}{Potion}}, and \mbox{\hyperlink{class_weapon_a8d85894f509ca1704901a78e894fe295}{Weapon}}.
 
@@ -90,41 +87,25 @@ Implemented in \mbox{\hyperlink{class_potion_a02276bf6b5dbe03ee11e7fac280bf00e}{
 \doxysubsubsection{\texorpdfstring{font\_}{font\_}}
 {\footnotesize\ttfamily sf\+::\+Font Item\+::font\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
 
-
-
-Definition at line 15 of file Item.\+hpp.
-
-\mbox{\Hypertarget{class_item_a88da310db757aa646a47c226ee3378d5}\label{class_item_a88da310db757aa646a47c226ee3378d5}} 
+font used to display the text associated with the \mbox{\hyperlink{class_item}{Item}}. \mbox{\Hypertarget{class_item_a88da310db757aa646a47c226ee3378d5}\label{class_item_a88da310db757aa646a47c226ee3378d5}} 
 \index{Item@{Item}!slot\_@{slot\_}}
 \index{slot\_@{slot\_}!Item@{Item}}
 \doxysubsubsection{\texorpdfstring{slot\_}{slot\_}}
 {\footnotesize\ttfamily int Item\+::slot\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
 
-
-
-Definition at line 14 of file Item.\+hpp.
-
-\mbox{\Hypertarget{class_item_a7233fc5cc53739fc32236e06b7e7477f}\label{class_item_a7233fc5cc53739fc32236e06b7e7477f}} 
+slot number that the \mbox{\hyperlink{class_item}{Item}} should be displayed at \mbox{\Hypertarget{class_item_a7233fc5cc53739fc32236e06b7e7477f}\label{class_item_a7233fc5cc53739fc32236e06b7e7477f}} 
 \index{Item@{Item}!sprite\_@{sprite\_}}
 \index{sprite\_@{sprite\_}!Item@{Item}}
 \doxysubsubsection{\texorpdfstring{sprite\_}{sprite\_}}
 {\footnotesize\ttfamily sf\+::\+Sprite Item\+::sprite\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
 
-
-
-Definition at line 17 of file Item.\+hpp.
-
-\mbox{\Hypertarget{class_item_af7c6c6865df9a6bfd89b36e3b3a9b552}\label{class_item_af7c6c6865df9a6bfd89b36e3b3a9b552}} 
+sprite that is displayed with the \mbox{\hyperlink{class_item}{Item}}. \mbox{\Hypertarget{class_item_af7c6c6865df9a6bfd89b36e3b3a9b552}\label{class_item_af7c6c6865df9a6bfd89b36e3b3a9b552}} 
 \index{Item@{Item}!text\_@{text\_}}
 \index{text\_@{text\_}!Item@{Item}}
 \doxysubsubsection{\texorpdfstring{text\_}{text\_}}
 {\footnotesize\ttfamily sf\+::\+Text Item\+::text\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
 
-
-
-Definition at line 16 of file Item.\+hpp.
-
-
+text that is displayed with the \mbox{\hyperlink{class_item}{Item}}, describing some property of the \mbox{\hyperlink{class_item}{Item}} like amount or damage. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

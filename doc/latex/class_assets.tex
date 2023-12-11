@@ -2,7 +2,7 @@
 \label{class_assets}\index{Assets@{Assets}}
 
 
-Class to load all game assets.  
+Class for Asset manipulation.  
 
 
 
@@ -29,14 +29,17 @@ static std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ sf\+::\+Font $>$ $
 \item 
 static std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ sf\+::\+Sound $>$ $>$ \mbox{\hyperlink{class_assets_a732ba5ec1226604323e3e979f39ce338}{sounds}}
 \end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ sf\+::\+Sound\+Buffer $>$ $>$ \mbox{\hyperlink{class_assets_a908cd92bb541a82a236b6749b5476585}{sound\+\_\+buffers\+\_\+}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Class to load all game assets. 
+Class for Asset manipulation. 
 
-Definition at line 9 of file Assets.\+hpp.
-
-
+A class that is responsible for loading, storing and providing easy access to assets. All the assets are stored in their respective maps, using a std\+::string as a key and an unique pointer to the asset. The usage of unique pointers ensures proper assets handling and correct integration with S\+F\+ML way of managing assets. 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_assets_a4b1cc73dc0d25e495ad1deca47d0b25d}\label{class_assets_a4b1cc73dc0d25e495ad1deca47d0b25d}} 
@@ -45,20 +48,14 @@ Definition at line 9 of file Assets.\+hpp.
 \doxysubsubsection{\texorpdfstring{LoadAssets()}{LoadAssets()}}
 {\footnotesize\ttfamily void Assets\+::\+Load\+Assets (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{texture\+\_\+names,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{font\+\_\+names,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{sound\+\_\+names }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-
-
-Definition at line 14 of file Assets.\+cpp.
-
-Here is the call graph for this function\+:
-\nopagebreak
+a method that loads all the assets with the specified names, it takes the parameter path of the executable and based on that it finds the paths for all the assets with the specified names Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=340pt]{class_assets_a4b1cc73dc0d25e495ad1deca47d0b25d_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -71,12 +68,7 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{LoadFont()}{LoadFont()}}
 {\footnotesize\ttfamily void Assets\+::\+Load\+Font (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{file\+\_\+path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-
-
-Definition at line 59 of file Assets.\+cpp.
-
-Here is the caller graph for this function\+:
-\nopagebreak
+a method that loads a font with the specified name from the specified file\+\_\+path if the asset fails to be loaded, the std\+::runtime\+\_\+error is thrown Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -89,12 +81,7 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{LoadSound()}{LoadSound()}}
 {\footnotesize\ttfamily void Assets\+::\+Load\+Sound (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{file\+\_\+path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-
-
-Definition at line 67 of file Assets.\+cpp.
-
-Here is the caller graph for this function\+:
-\nopagebreak
+a method that loads a sound with the specified name from the specified file\+\_\+path if the asset fails to be loaded, the std\+::runtime\+\_\+error is thrown Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -107,12 +94,7 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{LoadTexture()}{LoadTexture()}}
 {\footnotesize\ttfamily void Assets\+::\+Load\+Texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{file\+\_\+path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-
-
-Definition at line 51 of file Assets.\+cpp.
-
-Here is the caller graph for this function\+:
-\nopagebreak
+a method that loads a texture with the specified name from the specified file\+\_\+path if the asset fails to be loaded, the std\+::runtime\+\_\+error is thrown Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -128,31 +110,25 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{fonts}{fonts}}
 {\footnotesize\ttfamily std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ sf\+::\+Font $>$ $>$ Assets\+::fonts\hspace{0.3cm}{\ttfamily [static]}}
 
+a static map that stores pairs of strings and Fonts, allows for easy access to the Fonts from other parts of the program \mbox{\Hypertarget{class_assets_a908cd92bb541a82a236b6749b5476585}\label{class_assets_a908cd92bb541a82a236b6749b5476585}} 
+\index{Assets@{Assets}!sound\_buffers\_@{sound\_buffers\_}}
+\index{sound\_buffers\_@{sound\_buffers\_}!Assets@{Assets}}
+\doxysubsubsection{\texorpdfstring{sound\_buffers\_}{sound\_buffers\_}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ sf\+::\+Sound\+Buffer $>$ $>$ Assets\+::sound\+\_\+buffers\+\_\+\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
-
-Definition at line 19 of file Assets.\+hpp.
-
-\mbox{\Hypertarget{class_assets_a732ba5ec1226604323e3e979f39ce338}\label{class_assets_a732ba5ec1226604323e3e979f39ce338}} 
+a private static map that stores pairs of strings and Sound\+Buffers, that is needed for the proper functioning of sounds map, as each Sound needs a Sound\+Buffer stored associated with it \mbox{\Hypertarget{class_assets_a732ba5ec1226604323e3e979f39ce338}\label{class_assets_a732ba5ec1226604323e3e979f39ce338}} 
 \index{Assets@{Assets}!sounds@{sounds}}
 \index{sounds@{sounds}!Assets@{Assets}}
 \doxysubsubsection{\texorpdfstring{sounds}{sounds}}
 {\footnotesize\ttfamily std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ sf\+::\+Sound $>$ $>$ Assets\+::sounds\hspace{0.3cm}{\ttfamily [static]}}
 
-
-
-Definition at line 20 of file Assets.\+hpp.
-
-\mbox{\Hypertarget{class_assets_a356d61df2f8b24bab41c9685ae647f50}\label{class_assets_a356d61df2f8b24bab41c9685ae647f50}} 
+a static map that stores pairs of strings and Sounds, allows for easy access to the Sounds from other parts of the program \mbox{\Hypertarget{class_assets_a356d61df2f8b24bab41c9685ae647f50}\label{class_assets_a356d61df2f8b24bab41c9685ae647f50}} 
 \index{Assets@{Assets}!textures@{textures}}
 \index{textures@{textures}!Assets@{Assets}}
 \doxysubsubsection{\texorpdfstring{textures}{textures}}
 {\footnotesize\ttfamily std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ sf\+::\+Texture $>$ $>$ Assets\+::textures\hspace{0.3cm}{\ttfamily [static]}}
 
-
-
-Definition at line 18 of file Assets.\+hpp.
-
-
+a static map that stores pairs of strings and Textures, allows for easy access to the Textures from other parts of the program 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

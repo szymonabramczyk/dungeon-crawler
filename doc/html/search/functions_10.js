@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['_7eentity_228',['~Entity',['../class_entity.html#adf6d3f7cb1b2ba029b6b048a395cc8ae',1,'Entity']]],
-  ['_7emonster_229',['~Monster',['../class_monster.html#a21619ba1759b910cd2fd50d858aab338',1,'Monster']]],
-  ['_7eplayer_230',['~Player',['../class_player.html#a749d2c00e1fe0f5c2746f7505a58c062',1,'Player']]]
+  ['weapon_280',['Weapon',['../class_weapon.html#a531c6c3704db14391549a7f4e2900248',1,'Weapon']]]
 ];

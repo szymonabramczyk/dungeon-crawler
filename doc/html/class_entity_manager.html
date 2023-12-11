@@ -83,13 +83,14 @@ $(document).ready(function(){initNavTree('class_entity_manager.html',''); initRe
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="class_entity_manager-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">EntityManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Provides methods for <a class="el" href="class_entity.html" title="Abstract class for entities.">Entity</a> manipulation.  
+<p>Class for <a class="el" href="class_entity.html" title="Abstract class for entities.">Entity</a> manipulation.  
  <a href="class_entity_manager.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_entity_manager_8hpp_source.html">EntityManager.hpp</a>&gt;</code></p>
@@ -114,11 +115,15 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:ab1e9e9bfc661ec519f5b2be5dcee574a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d7e9abb1c1579f5522b69612a0ed24a"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; &gt;::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_manager.html#a7d7e9abb1c1579f5522b69612a0ed24a">cend</a> ()</td></tr>
 <tr class="separator:a7d7e9abb1c1579f5522b69612a0ed24a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a4e11415e6c355302bb0ef5379b2c36d1"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_manager.html#a4e11415e6c355302bb0ef5379b2c36d1">entities_</a></td></tr>
+<tr class="separator:a4e11415e6c355302bb0ef5379b2c36d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Provides methods for <a class="el" href="class_entity.html" title="Abstract class for entities.">Entity</a> manipulation. </p>
-
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8hpp_source.html#l00010">10</a> of file <a class="el" href="_entity_manager_8hpp_source.html">EntityManager.hpp</a>.</p>
+<div class="textblock"><p>Class for <a class="el" href="class_entity.html" title="Abstract class for entities.">Entity</a> manipulation. </p>
+<p>A class that is responsible for storing all the Entities in the game and performing operations on the container storing them. It stores Entities in the vector of shared pointers. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a32042c10c92635b2e4dce74651c54b58"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a32042c10c92635b2e4dce74651c54b58">&#9670;&nbsp;</a></span>AddEntity()</h2>
@@ -143,15 +148,22 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00010">10</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<p>a method to add <a class="el" href="class_entity.html" title="Abstract class for entities.">Entity</a> to the entities_ vector </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_entity_manager_a32042c10c92635b2e4dce74651c54b58_icgraph.png" border="0" usemap="#class_entity_manager_a32042c10c92635b2e4dce74651c54b58_icgraph" alt=""/></div>
 <map name="class_entity_manager_a32042c10c92635b2e4dce74651c54b58_icgraph" id="class_entity_manager_a32042c10c92635b2e4dce74651c54b58_icgraph">
-<area shape="rect" title=" " alt="" coords="161,5,349,32"/>
-<area shape="rect" href="class_game.html#ac3dbb31aeb4eb2a2a4206cdccab73527" title=" " alt="" coords="5,5,113,32"/>
+<area shape="rect" title=" " alt="" coords="824,107,1012,133"/>
+<area shape="rect" href="class_game.html#ab8654c9cbc5051c06e694b1144ac061c" title=" " alt="" coords="646,5,762,32"/>
+<area shape="rect" href="class_game.html#a429deba49c16127e61a281a89cdfeecc" title=" " alt="" coords="632,56,776,83"/>
+<area shape="rect" href="class_game.html#ac3dbb31aeb4eb2a2a4206cdccab73527" title=" " alt="" coords="444,107,552,133"/>
+<area shape="rect" href="class_game.html#a11188c40705f42a472e23abed0b21e01" title=" " alt="" coords="412,157,584,184"/>
+<area shape="rect" href="class_game.html#ac4d71f2f6a177e8ca57755f74bcb2c6e" title=" " alt="" coords="633,208,775,235"/>
+<area shape="rect" href="class_game.html#ae1fdae754f2ca4863bf2e40cf680a7d7" title=" " alt="" coords="412,56,584,83"/>
+<area shape="rect" href="class_game.html#a08638ab30c07c595cb268de4d25659a4" title=" " alt="" coords="251,157,364,184"/>
+<area shape="rect" href="class_game.html#a96341ca5b54d90adc3ecb3bf0bcd2312" title=" " alt="" coords="108,157,203,184"/>
+<area shape="rect" href="_game_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,157,60,184"/>
 </map>
 </div>
 
@@ -179,8 +191,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00040">40</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<p>a method returning the begin iterator to the entities_ vector </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -221,8 +232,18 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00048">48</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<p>a method returning the const begin iterator to entities_ vector </p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_entity_manager_ab1e9e9bfc661ec519f5b2be5dcee574a_icgraph.png" border="0" usemap="#class_entity_manager_ab1e9e9bfc661ec519f5b2be5dcee574a_icgraph" alt=""/></div>
+<map name="class_entity_manager_ab1e9e9bfc661ec519f5b2be5dcee574a_icgraph" id="class_entity_manager_ab1e9e9bfc661ec519f5b2be5dcee574a_icgraph">
+<area shape="rect" title=" " alt="" coords="413,5,581,32"/>
+<area shape="rect" href="class_game.html#a0897730fc9fed789f6c0f11d21a0c14a" title=" " alt="" coords="251,5,365,32"/>
+<area shape="rect" href="class_game.html#a96341ca5b54d90adc3ecb3bf0bcd2312" title=" " alt="" coords="108,5,203,32"/>
+<area shape="rect" href="_game_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -248,8 +269,18 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00052">52</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<p>a method returning the const end iterator to entities_ vector </p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_entity_manager_a7d7e9abb1c1579f5522b69612a0ed24a_icgraph.png" border="0" usemap="#class_entity_manager_a7d7e9abb1c1579f5522b69612a0ed24a_icgraph" alt=""/></div>
+<map name="class_entity_manager_a7d7e9abb1c1579f5522b69612a0ed24a_icgraph" id="class_entity_manager_a7d7e9abb1c1579f5522b69612a0ed24a_icgraph">
+<area shape="rect" title=" " alt="" coords="413,5,569,32"/>
+<area shape="rect" href="class_game.html#a0897730fc9fed789f6c0f11d21a0c14a" title=" " alt="" coords="251,5,365,32"/>
+<area shape="rect" href="class_game.html#a96341ca5b54d90adc3ecb3bf0bcd2312" title=" " alt="" coords="108,5,203,32"/>
+<area shape="rect" href="_game_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -275,8 +306,19 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00027">27</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<p>a method to remove all Entities from the entities_ vector </p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_entity_manager_a17f16e5d34b89370117ef5d9b31693d8_icgraph.png" border="0" usemap="#class_entity_manager_a17f16e5d34b89370117ef5d9b31693d8_icgraph" alt=""/></div>
+<map name="class_entity_manager_a17f16e5d34b89370117ef5d9b31693d8_icgraph" id="class_entity_manager_a17f16e5d34b89370117ef5d9b31693d8_icgraph">
+<area shape="rect" title=" " alt="" coords="632,5,840,32"/>
+<area shape="rect" href="class_game.html#a11188c40705f42a472e23abed0b21e01" title=" " alt="" coords="412,5,584,32"/>
+<area shape="rect" href="class_game.html#a08638ab30c07c595cb268de4d25659a4" title=" " alt="" coords="251,5,364,32"/>
+<area shape="rect" href="class_game.html#a96341ca5b54d90adc3ecb3bf0bcd2312" title=" " alt="" coords="108,5,203,32"/>
+<area shape="rect" href="_game_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -302,8 +344,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00044">44</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<p>a method returning the end iterator to the entities_ vector </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -344,8 +385,19 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00031">31</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<p>a method that iterates through the entities_ vector and removes the dead Entities from it </p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_entity_manager_a50ac5be82109df94167b07c3055a43e9_icgraph.png" border="0" usemap="#class_entity_manager_a50ac5be82109df94167b07c3055a43e9_icgraph" alt=""/></div>
+<map name="class_entity_manager_a50ac5be82109df94167b07c3055a43e9_icgraph" id="class_entity_manager_a50ac5be82109df94167b07c3055a43e9_icgraph">
+<area shape="rect" title=" " alt="" coords="576,5,789,32"/>
+<area shape="rect" href="class_game.html#a1c5373c68261c54aff03e6abe40fee52" title=" " alt="" coords="412,5,528,32"/>
+<area shape="rect" href="class_game.html#a08638ab30c07c595cb268de4d25659a4" title=" " alt="" coords="251,5,364,32"/>
+<area shape="rect" href="class_game.html#a96341ca5b54d90adc3ecb3bf0bcd2312" title=" " alt="" coords="108,5,203,32"/>
+<area shape="rect" href="_game_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -372,8 +424,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00014">14</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<p>a method to remove <a class="el" href="class_entity.html" title="Abstract class for entities.">Entity</a> from the entities_ vector based on a pointer to the enemy </p>
 
 </div>
 </div>
@@ -400,14 +451,37 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>a method to remove <a class="el" href="class_entity.html" title="Abstract class for entities.">Entity</a> from the entities_ vector based on an iterator </p>
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00021">21</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a4e11415e6c355302bb0ef5379b2c36d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e11415e6c355302bb0ef5379b2c36d1">&#9670;&nbsp;</a></span>entities_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; &gt; EntityManager::entities_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>a private vector that stores all the Entities in the game as the shared pointers to the Entities, as they are also stored in <a class="el" href="class_game.html" title="Class for the game.">Game</a> class in monsters_ to differentiate between Monsters and the <a class="el" href="class_player.html" title="Player class, inherits from Entity.">Player</a>. Shared pointers ensure correct memory deallocation. </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/jakutzin/cpp-course project/dungeon-crawler-quang-ngo-01/src/<a class="el" href="_entity_manager_8hpp_source.html">EntityManager.hpp</a></li>
-<li>/home/jakutzin/cpp-course project/dungeon-crawler-quang-ngo-01/src/<a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a></li>
+<li>/home/jakutzin/cpp-course project/dungeon-crawler-quang-ngo-01/src/<a class="el" href="_entity_manager_8cpp.html">EntityManager.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

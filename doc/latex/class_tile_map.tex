@@ -2,7 +2,7 @@
 \label{class_tile_map}\index{TileMap@{TileMap}}
 
 
-Class for loading and drawing the tilemap.  
+A class that is responsible for displaying the levels in form of tiles.  
 
 
 
@@ -32,34 +32,58 @@ Collaboration diagram for Tile\+Map\+:\nopagebreak
 \item 
 bool \mbox{\hyperlink{class_tile_map_a6c0ee65c54fda91846b2e3613799a2c3}{Load}} (const std\+::string \&tileset\+\_\+name, sf\+::\+Vector2u tile\+\_\+size, const int $\ast$tiles, unsigned int width, unsigned int height)
 \end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_tile_map_aadd711572c2abc576e705671cc55dfd7}{draw}} (sf\+::\+Render\+Target \&target, sf\+::\+Render\+States states) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Vertex\+Array \mbox{\hyperlink{class_tile_map_a7f36877ff3ccdfcf36699e742d8f541d}{vertices\+\_\+}}
+\item 
+std\+::string \mbox{\hyperlink{class_tile_map_ae80de8789785f56cbd4a1c0b44cf9dbc}{tileset\+\_\+name\+\_\+}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Class for loading and drawing the tilemap. 
-
-Definition at line 7 of file Tile\+Map.\+hpp.
-
-
+A class that is responsible for displaying the levels in form of tiles. 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_tile_map_aadd711572c2abc576e705671cc55dfd7}\label{class_tile_map_aadd711572c2abc576e705671cc55dfd7}} 
+\index{TileMap@{TileMap}!draw@{draw}}
+\index{draw@{draw}!TileMap@{TileMap}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Tile\+Map\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{target,  }\item[{sf\+::\+Render\+States}]{states }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}
+
 \mbox{\Hypertarget{class_tile_map_a6c0ee65c54fda91846b2e3613799a2c3}\label{class_tile_map_a6c0ee65c54fda91846b2e3613799a2c3}} 
 \index{TileMap@{TileMap}!Load@{Load}}
 \index{Load@{Load}!TileMap@{TileMap}}
 \doxysubsubsection{\texorpdfstring{Load()}{Load()}}
 {\footnotesize\ttfamily bool Tile\+Map\+::\+Load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{tileset\+\_\+name,  }\item[{sf\+::\+Vector2u}]{tile\+\_\+size,  }\item[{const int $\ast$}]{tiles,  }\item[{unsigned int}]{width,  }\item[{unsigned int}]{height }\end{DoxyParamCaption})}
 
-
-
-Definition at line 7 of file Tile\+Map.\+cpp.
-
-Here is the caller graph for this function\+:
-\nopagebreak
+A method that loads the level based on the tiles parameter, which represents the level, width and height represent the dimensions in tiles of the level, tile\+\_\+size represents the size of each tile in pixels and tileset\+\_\+name is the name of the tile set stored in the \mbox{\hyperlink{class_assets}{Assets}} texture map. Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_tile_map_a6c0ee65c54fda91846b2e3613799a2c3_icgraph}
 \end{center}
 \end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_tile_map_ae80de8789785f56cbd4a1c0b44cf9dbc}\label{class_tile_map_ae80de8789785f56cbd4a1c0b44cf9dbc}} 
+\index{TileMap@{TileMap}!tileset\_name\_@{tileset\_name\_}}
+\index{tileset\_name\_@{tileset\_name\_}!TileMap@{TileMap}}
+\doxysubsubsection{\texorpdfstring{tileset\_name\_}{tileset\_name\_}}
+{\footnotesize\ttfamily std\+::string Tile\+Map\+::tileset\+\_\+name\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_tile_map_a7f36877ff3ccdfcf36699e742d8f541d}\label{class_tile_map_a7f36877ff3ccdfcf36699e742d8f541d}} 
+\index{TileMap@{TileMap}!vertices\_@{vertices\_}}
+\index{vertices\_@{vertices\_}!TileMap@{TileMap}}
+\doxysubsubsection{\texorpdfstring{vertices\_}{vertices\_}}
+{\footnotesize\ttfamily sf\+::\+Vertex\+Array Tile\+Map\+::vertices\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

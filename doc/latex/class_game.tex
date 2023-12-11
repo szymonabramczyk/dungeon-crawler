@@ -9,6 +9,15 @@ Class for the game.
 
 {\ttfamily \#include $<$Game.\+hpp$>$}
 
+
+
+Collaboration diagram for Game\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{class_game__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -18,14 +27,50 @@ void \mbox{\hyperlink{class_game_a96341ca5b54d90adc3ecb3bf0bcd2312}{Run}} ()
 \item 
 bool \mbox{\hyperlink{class_game_a50b7ee1c6e301af1f425dbfa94fb783c}{Load\+Level}} ()
 \end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_game_a08638ab30c07c595cb268de4d25659a4}{Events}} ()
+\item 
+void \mbox{\hyperlink{class_game_a429deba49c16127e61a281a89cdfeecc}{Add\+Undead}} ()
+\item 
+void \mbox{\hyperlink{class_game_ab8654c9cbc5051c06e694b1144ac061c}{Add\+Orc}} ()
+\item 
+void \mbox{\hyperlink{class_game_ac4d71f2f6a177e8ca57755f74bcb2c6e}{Spawn\+Boss}} ()
+\item 
+void \mbox{\hyperlink{class_game_ae1fdae754f2ca4863bf2e40cf680a7d7}{Spawn\+Monsters}} ()
+\item 
+void \mbox{\hyperlink{class_game_a11188c40705f42a472e23abed0b21e01}{Delete\+Monsters}} ()
+\item 
+void \mbox{\hyperlink{class_game_a1c5373c68261c54aff03e6abe40fee52}{Update}} ()
+\item 
+void \mbox{\hyperlink{class_game_a0897730fc9fed789f6c0f11d21a0c14a}{Render}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{class_game_a028c0c114238b9366b846babe48da155}{path\+\_\+}}
+\item 
+sf\+::\+Render\+Window \mbox{\hyperlink{class_game_a5ad8d824f754300de05b9fc994d9c52e}{window\+\_\+}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_player}{Player}} $>$ \mbox{\hyperlink{class_game_a327bd1174bb96c4aa78979187790b527}{player\+\_\+}}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_monster}{Monster}} $>$ $>$ \mbox{\hyperlink{class_game_ac0597231052977e363ad61ead878d56f}{monsters\+\_\+}}
+\item 
+\mbox{\hyperlink{class_u_i}{UI}} \mbox{\hyperlink{class_game_abac16aa663eb92049d28fd1e94735bef}{ui\+\_\+}}
+\item 
+int \mbox{\hyperlink{class_game_ae611f10b99fbe62ba5f902163f71d591}{levels\+\_\+}} \mbox{[}9\mbox{]}\mbox{[}120\mbox{]}
+\item 
+int \mbox{\hyperlink{class_game_a7668fb9bd898d2dda881e1fe55888b29}{curr\+\_\+level\+\_\+}} = 0
+\item 
+std\+::set$<$ int $>$ \mbox{\hyperlink{class_game_aa9ab53e905acc8976b85416bfbd30ddd}{completed\+\_\+levels\+\_\+}}
+\item 
+\mbox{\hyperlink{class_tile_map}{Tile\+Map}} \mbox{\hyperlink{class_game_a8e73fe942ffa88894296d71fc67c60bd}{map\+\_\+}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Class for the game. 
-
-Definition at line 18 of file Game.\+hpp.
-
-
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_game_ac3dbb31aeb4eb2a2a4206cdccab73527}\label{class_game_ac3dbb31aeb4eb2a2a4206cdccab73527}} 
@@ -34,45 +79,134 @@ Definition at line 18 of file Game.\+hpp.
 \doxysubsubsection{\texorpdfstring{Game()}{Game()}}
 {\footnotesize\ttfamily Game\+::\+Game (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})}
 
-
-
-Definition at line 17 of file Game.\+cpp.
-
-Here is the call graph for this function\+:
-\nopagebreak
+Constructor that creates a Window object and creates the \mbox{\hyperlink{class_player}{Player}} with the player sprite Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=340pt]{class_game_ac3dbb31aeb4eb2a2a4206cdccab73527_cgraph}
+\includegraphics[width=350pt]{class_game_ac3dbb31aeb4eb2a2a4206cdccab73527_cgraph}
 \end{center}
 \end{figure}
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_ab8654c9cbc5051c06e694b1144ac061c}\label{class_game_ab8654c9cbc5051c06e694b1144ac061c}} 
+\index{Game@{Game}!AddOrc@{AddOrc}}
+\index{AddOrc@{AddOrc}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{AddOrc()}{AddOrc()}}
+{\footnotesize\ttfamily void Game\+::\+Add\+Orc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+A method to spawn orc monsters Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{class_game_ab8654c9cbc5051c06e694b1144ac061c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_ab8654c9cbc5051c06e694b1144ac061c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_a429deba49c16127e61a281a89cdfeecc}\label{class_game_a429deba49c16127e61a281a89cdfeecc}} 
+\index{Game@{Game}!AddUndead@{AddUndead}}
+\index{AddUndead@{AddUndead}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{AddUndead()}{AddUndead()}}
+{\footnotesize\ttfamily void Game\+::\+Add\+Undead (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+A method to spawn undead monsters Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_a429deba49c16127e61a281a89cdfeecc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_a429deba49c16127e61a281a89cdfeecc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_a11188c40705f42a472e23abed0b21e01}\label{class_game_a11188c40705f42a472e23abed0b21e01}} 
+\index{Game@{Game}!DeleteMonsters@{DeleteMonsters}}
+\index{DeleteMonsters@{DeleteMonsters}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{DeleteMonsters()}{DeleteMonsters()}}
+{\footnotesize\ttfamily void Game\+::\+Delete\+Monsters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+A method to delete all monsters Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_a11188c40705f42a472e23abed0b21e01_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_a11188c40705f42a472e23abed0b21e01_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_a08638ab30c07c595cb268de4d25659a4}\label{class_game_a08638ab30c07c595cb268de4d25659a4}} 
+\index{Game@{Game}!Events@{Events}}
+\index{Events@{Events}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Events()}{Events()}}
+{\footnotesize\ttfamily void Game\+::\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+A method to handle all game events Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_a08638ab30c07c595cb268de4d25659a4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{class_game_a08638ab30c07c595cb268de4d25659a4_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_game_a50b7ee1c6e301af1f425dbfa94fb783c}\label{class_game_a50b7ee1c6e301af1f425dbfa94fb783c}} 
 \index{Game@{Game}!LoadLevel@{LoadLevel}}
 \index{LoadLevel@{LoadLevel}!Game@{Game}}
 \doxysubsubsection{\texorpdfstring{LoadLevel()}{LoadLevel()}}
 {\footnotesize\ttfamily bool Game\+::\+Load\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-
-
-Definition at line 45 of file Game.\+cpp.
-
-Here is the call graph for this function\+:
-\nopagebreak
+A method to load a level Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=302pt]{class_game_a50b7ee1c6e301af1f425dbfa94fb783c_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=258pt]{class_game_a50b7ee1c6e301af1f425dbfa94fb783c_icgraph}
+\includegraphics[width=350pt]{class_game_a50b7ee1c6e301af1f425dbfa94fb783c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_a0897730fc9fed789f6c0f11d21a0c14a}\label{class_game_a0897730fc9fed789f6c0f11d21a0c14a}} 
+\index{Game@{Game}!Render@{Render}}
+\index{Render@{Render}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily void Game\+::\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+A method to render all the assets in the game window Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{class_game_a0897730fc9fed789f6c0f11d21a0c14a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_a0897730fc9fed789f6c0f11d21a0c14a_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_game_a96341ca5b54d90adc3ecb3bf0bcd2312}\label{class_game_a96341ca5b54d90adc3ecb3bf0bcd2312}} 
@@ -81,18 +215,137 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{Run()}{Run()}}
 {\footnotesize\ttfamily void Game\+::\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-
-
-Definition at line 35 of file Game.\+cpp.
-
-Here is the caller graph for this function\+:
-\nopagebreak
+A method to Run the game Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_a96341ca5b54d90adc3ecb3bf0bcd2312_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=228pt]{class_game_a96341ca5b54d90adc3ecb3bf0bcd2312_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{class_game_ac4d71f2f6a177e8ca57755f74bcb2c6e}\label{class_game_ac4d71f2f6a177e8ca57755f74bcb2c6e}} 
+\index{Game@{Game}!SpawnBoss@{SpawnBoss}}
+\index{SpawnBoss@{SpawnBoss}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{SpawnBoss()}{SpawnBoss()}}
+{\footnotesize\ttfamily void Game\+::\+Spawn\+Boss (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+A method to spawn the monster boss Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_ac4d71f2f6a177e8ca57755f74bcb2c6e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_ac4d71f2f6a177e8ca57755f74bcb2c6e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_ae1fdae754f2ca4863bf2e40cf680a7d7}\label{class_game_ae1fdae754f2ca4863bf2e40cf680a7d7}} 
+\index{Game@{Game}!SpawnMonsters@{SpawnMonsters}}
+\index{SpawnMonsters@{SpawnMonsters}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{SpawnMonsters()}{SpawnMonsters()}}
+{\footnotesize\ttfamily void Game\+::\+Spawn\+Monsters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+A method to spawn a group of monsters Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_ae1fdae754f2ca4863bf2e40cf680a7d7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_ae1fdae754f2ca4863bf2e40cf680a7d7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_a1c5373c68261c54aff03e6abe40fee52}\label{class_game_a1c5373c68261c54aff03e6abe40fee52}} 
+\index{Game@{Game}!Update@{Update}}
+\index{Update@{Update}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Game\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+A method to update the game Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_a1c5373c68261c54aff03e6abe40fee52_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_a1c5373c68261c54aff03e6abe40fee52_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_game_aa9ab53e905acc8976b85416bfbd30ddd}\label{class_game_aa9ab53e905acc8976b85416bfbd30ddd}} 
+\index{Game@{Game}!completed\_levels\_@{completed\_levels\_}}
+\index{completed\_levels\_@{completed\_levels\_}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{completed\_levels\_}{completed\_levels\_}}
+{\footnotesize\ttfamily std\+::set$<$int$>$ Game\+::completed\+\_\+levels\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+Stores all the levels the player has beaten \mbox{\Hypertarget{class_game_a7668fb9bd898d2dda881e1fe55888b29}\label{class_game_a7668fb9bd898d2dda881e1fe55888b29}} 
+\index{Game@{Game}!curr\_level\_@{curr\_level\_}}
+\index{curr\_level\_@{curr\_level\_}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{curr\_level\_}{curr\_level\_}}
+{\footnotesize\ttfamily int Game\+::curr\+\_\+level\+\_\+ = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+Stores current level \mbox{\Hypertarget{class_game_ae611f10b99fbe62ba5f902163f71d591}\label{class_game_ae611f10b99fbe62ba5f902163f71d591}} 
+\index{Game@{Game}!levels\_@{levels\_}}
+\index{levels\_@{levels\_}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{levels\_}{levels\_}}
+{\footnotesize\ttfamily int Game\+::levels\+\_\+\mbox{[}9\mbox{]}\mbox{[}120\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_game_a8e73fe942ffa88894296d71fc67c60bd}\label{class_game_a8e73fe942ffa88894296d71fc67c60bd}} 
+\index{Game@{Game}!map\_@{map\_}}
+\index{map\_@{map\_}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{map\_}{map\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tile_map}{Tile\+Map}} Game\+::map\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_game_ac0597231052977e363ad61ead878d56f}\label{class_game_ac0597231052977e363ad61ead878d56f}} 
+\index{Game@{Game}!monsters\_@{monsters\_}}
+\index{monsters\_@{monsters\_}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{monsters\_}{monsters\_}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_monster}{Monster}}$>$ $>$ Game\+::monsters\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+vector to store all monsters \mbox{\Hypertarget{class_game_a028c0c114238b9366b846babe48da155}\label{class_game_a028c0c114238b9366b846babe48da155}} 
+\index{Game@{Game}!path\_@{path\_}}
+\index{path\_@{path\_}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{path\_}{path\_}}
+{\footnotesize\ttfamily std\+::string Game\+::path\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_game_a327bd1174bb96c4aa78979187790b527}\label{class_game_a327bd1174bb96c4aa78979187790b527}} 
+\index{Game@{Game}!player\_@{player\_}}
+\index{player\_@{player\_}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{player\_}{player\_}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_player}{Player}}$>$ Game\+::player\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+Stores the player \mbox{\Hypertarget{class_game_abac16aa663eb92049d28fd1e94735bef}\label{class_game_abac16aa663eb92049d28fd1e94735bef}} 
+\index{Game@{Game}!ui\_@{ui\_}}
+\index{ui\_@{ui\_}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{ui\_}{ui\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_u_i}{UI}} Game\+::ui\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_game_a5ad8d824f754300de05b9fc994d9c52e}\label{class_game_a5ad8d824f754300de05b9fc994d9c52e}} 
+\index{Game@{Game}!window\_@{window\_}}
+\index{window\_@{window\_}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{window\_}{window\_}}
+{\footnotesize\ttfamily sf\+::\+Render\+Window Game\+::window\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -2,7 +2,7 @@
 \label{class_level_generator}\index{LevelGenerator@{LevelGenerator}}
 
 
-Class for generating the levels.  
+A class to handle random level generation.  
 
 
 
@@ -17,11 +17,7 @@ static void \mbox{\hyperlink{class_level_generator_a5ab37d3eecb73ac66ec25153fdce
 
 
 \doxysubsection{Detailed Description}
-Class for generating the levels. 
-
-Definition at line 7 of file Level\+Generator.\+hpp.
-
-
+A class to handle random level generation. 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_level_generator_a5ab37d3eecb73ac66ec25153fdce3f78}\label{class_level_generator_a5ab37d3eecb73ac66ec25153fdce3f78}} 
@@ -30,12 +26,7 @@ Definition at line 7 of file Level\+Generator.\+hpp.
 \doxysubsubsection{\texorpdfstring{GenerateLevel()}{GenerateLevel()}}
 {\footnotesize\ttfamily static void Level\+Generator\+::\+Generate\+Level (\begin{DoxyParamCaption}\item[{int(\&)}]{levels\+\_\+\mbox{[}9\mbox{]}\mbox{[}120\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
-
-
-Definition at line 9 of file Level\+Generator.\+hpp.
-
-Here is the caller graph for this function\+:
-\nopagebreak
+A method that generates 9 levels of 120 (15x9) tiles each. It does it by first randomly assigning a number to each tile, that corresponds to the tile type, and then setting the doors in the right places to allow correct moving through the rooms of the dungeon. Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

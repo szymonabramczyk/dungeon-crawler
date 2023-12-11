@@ -38,15 +38,16 @@ bool \mbox{\hyperlink{class_monster_a809428fda41c56a1d7b2ca9508e7ea8e}{Attack}} 
 \item 
 void \mbox{\hyperlink{class_monster_a6f5d2e81c8c18d8f212312aa22e53a79}{Update}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ player)
 \end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_monster_a36f971f5e555a6744016d119d5f48607}{speed\+\_\+}}
+\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
 \mbox{\hyperlink{class_monster}{Monster}} class, inherits from \mbox{\hyperlink{class_entity}{Entity}}. 
-
-Definition at line 11 of file Monster.\+hpp.
-
-
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_monster_a8fd1b205e7ddfd914e50f19123836717}\label{class_monster_a8fd1b205e7ddfd914e50f19123836717}} 
@@ -55,12 +56,7 @@ Definition at line 11 of file Monster.\+hpp.
 \doxysubsubsection{\texorpdfstring{Monster()}{Monster()}}
 {\footnotesize\ttfamily Monster\+::\+Monster (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{type,  }\item[{int}]{speed = {\ttfamily 1},  }\item[{int}]{damage = {\ttfamily 5},  }\item[{int}]{hp = {\ttfamily 100},  }\item[{bool}]{is\+\_\+boss = {\ttfamily false} }\end{DoxyParamCaption})}
 
-
-
-Definition at line 13 of file Monster.\+cpp.
-
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -75,10 +71,6 @@ Here is the call graph for this function\+:
 
 
 
-Definition at line 17 of file Monster.\+hpp.
-
-
-
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_monster_a809428fda41c56a1d7b2ca9508e7ea8e}\label{class_monster_a809428fda41c56a1d7b2ca9508e7ea8e}} 
 \index{Monster@{Monster}!Attack@{Attack}}
@@ -86,12 +78,7 @@ Definition at line 17 of file Monster.\+hpp.
 \doxysubsubsection{\texorpdfstring{Attack()}{Attack()}}
 {\footnotesize\ttfamily bool Monster\+::\+Attack (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$}]{target }\end{DoxyParamCaption})}
 
-
-
-Definition at line 59 of file Monster.\+cpp.
-
-Here is the caller graph for this function\+:
-\nopagebreak
+function to attack the entity given as argument Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -104,18 +91,22 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{Update()}{Update()}}
 {\footnotesize\ttfamily void Monster\+::\+Update (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$}]{player }\end{DoxyParamCaption})}
 
-
-
-Definition at line 71 of file Monster.\+cpp.
-
-Here is the call graph for this function\+:
-\nopagebreak
+Function that moves the monster towards the player Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_monster_a6f5d2e81c8c18d8f212312aa22e53a79_cgraph}
 \end{center}
 \end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_monster_a36f971f5e555a6744016d119d5f48607}\label{class_monster_a36f971f5e555a6744016d119d5f48607}} 
+\index{Monster@{Monster}!speed\_@{speed\_}}
+\index{speed\_@{speed\_}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{speed\_}{speed\_}}
+{\footnotesize\ttfamily int Monster\+::speed\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

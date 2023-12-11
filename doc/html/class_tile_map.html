@@ -83,13 +83,15 @@ $(document).ready(function(){initNavTree('class_tile_map.html',''); initResizabl
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_tile_map-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">TileMap Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Class for loading and drawing the tilemap.  
+<p>A class that is responsible for displaying the levels in form of tiles.  
  <a href="class_tile_map.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_tile_map_8hpp_source.html">TileMap.hpp</a>&gt;</code></p>
@@ -98,7 +100,7 @@ Inheritance diagram for TileMap:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_tile_map__inherit__graph.png" border="0" usemap="#_tile_map_inherit__map" alt="Inheritance graph"/></div>
 <map name="_tile_map_inherit__map" id="_tile_map_inherit__map">
-<area shape="rect" title="Class for loading and drawing the tilemap." alt="" coords="90,80,165,107"/>
+<area shape="rect" title="A class that is responsible for displaying the levels in form of tiles." alt="" coords="90,80,165,107"/>
 <area shape="rect" title=" " alt="" coords="5,5,108,32"/>
 <area shape="rect" title=" " alt="" coords="132,5,267,32"/>
 </map>
@@ -108,7 +110,7 @@ Collaboration diagram for TileMap:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_tile_map__coll__graph.png" border="0" usemap="#_tile_map_coll__map" alt="Collaboration graph"/></div>
 <map name="_tile_map_coll__map" id="_tile_map_coll__map">
-<area shape="rect" title="Class for loading and drawing the tilemap." alt="" coords="90,80,165,107"/>
+<area shape="rect" title="A class that is responsible for displaying the levels in form of tiles." alt="" coords="90,80,165,107"/>
 <area shape="rect" title=" " alt="" coords="5,5,108,32"/>
 <area shape="rect" title=" " alt="" coords="132,5,267,32"/>
 </map>
@@ -118,12 +120,58 @@ Collaboration diagram for TileMap:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6c0ee65c54fda91846b2e3613799a2c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tile_map.html#a6c0ee65c54fda91846b2e3613799a2c3">Load</a> (const std::string &amp;tileset_name, sf::Vector2u tile_size, const int *tiles, unsigned int width, unsigned int height)</td></tr>
 <tr class="separator:a6c0ee65c54fda91846b2e3613799a2c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aadd711572c2abc576e705671cc55dfd7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tile_map.html#aadd711572c2abc576e705671cc55dfd7">draw</a> (sf::RenderTarget &amp;target, sf::RenderStates states) const</td></tr>
+<tr class="separator:aadd711572c2abc576e705671cc55dfd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a7f36877ff3ccdfcf36699e742d8f541d"><td class="memItemLeft" align="right" valign="top">sf::VertexArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tile_map.html#a7f36877ff3ccdfcf36699e742d8f541d">vertices_</a></td></tr>
+<tr class="separator:a7f36877ff3ccdfcf36699e742d8f541d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae80de8789785f56cbd4a1c0b44cf9dbc"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tile_map.html#ae80de8789785f56cbd4a1c0b44cf9dbc">tileset_name_</a></td></tr>
+<tr class="separator:ae80de8789785f56cbd4a1c0b44cf9dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class for loading and drawing the tilemap. </p>
-
-<p class="definition">Definition at line <a class="el" href="_tile_map_8hpp_source.html#l00007">7</a> of file <a class="el" href="_tile_map_8hpp_source.html">TileMap.hpp</a>.</p>
+<div class="textblock"><p>A class that is responsible for displaying the levels in form of tiles. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="aadd711572c2abc576e705671cc55dfd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadd711572c2abc576e705671cc55dfd7">&#9670;&nbsp;</a></span>draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TileMap::draw </td>
+          <td>(</td>
+          <td class="paramtype">sf::RenderTarget &amp;&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::RenderStates&#160;</td>
+          <td class="paramname"><em>states</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a6c0ee65c54fda91846b2e3613799a2c3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6c0ee65c54fda91846b2e3613799a2c3">&#9670;&nbsp;</a></span>Load()</h2>
 
@@ -167,24 +215,70 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_tile_map_8cpp_source.html#l00007">7</a> of file <a class="el" href="_tile_map_8cpp_source.html">TileMap.cpp</a>.</p>
+<p>A method that loads the level based on the tiles parameter, which represents the level, width and height represent the dimensions in tiles of the level, tile_size represents the size of each tile in pixels and tileset_name is the name of the tile set stored in the <a class="el" href="class_assets.html" title="Class for Asset manipulation.">Assets</a> texture map. </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_tile_map_a6c0ee65c54fda91846b2e3613799a2c3_icgraph.png" border="0" usemap="#class_tile_map_a6c0ee65c54fda91846b2e3613799a2c3_icgraph" alt=""/></div>
 <map name="class_tile_map_a6c0ee65c54fda91846b2e3613799a2c3_icgraph" id="class_tile_map_a6c0ee65c54fda91846b2e3613799a2c3_icgraph">
-<area shape="rect" title=" " alt="" coords="291,5,404,32"/>
-<area shape="rect" href="class_game.html#a50b7ee1c6e301af1f425dbfa94fb783c" title=" " alt="" coords="108,5,243,32"/>
-<area shape="rect" href="_game_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,32"/>
+<area shape="rect" title=" " alt="" coords="595,31,708,57"/>
+<area shape="rect" href="class_game.html#a50b7ee1c6e301af1f425dbfa94fb783c" title=" " alt="" coords="412,31,547,57"/>
+<area shape="rect" href="class_game.html#a08638ab30c07c595cb268de4d25659a4" title=" " alt="" coords="251,5,364,32"/>
+<area shape="rect" href="_game_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,60,57"/>
+<area shape="rect" href="class_game.html#a96341ca5b54d90adc3ecb3bf0bcd2312" title=" " alt="" coords="108,5,203,32"/>
 </map>
 </div>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ae80de8789785f56cbd4a1c0b44cf9dbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae80de8789785f56cbd4a1c0b44cf9dbc">&#9670;&nbsp;</a></span>tileset_name_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string TileMap::tileset_name_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7f36877ff3ccdfcf36699e742d8f541d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f36877ff3ccdfcf36699e742d8f541d">&#9670;&nbsp;</a></span>vertices_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::VertexArray TileMap::vertices_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/jakutzin/cpp-course project/dungeon-crawler-quang-ngo-01/src/<a class="el" href="_tile_map_8hpp_source.html">TileMap.hpp</a></li>
-<li>/home/jakutzin/cpp-course project/dungeon-crawler-quang-ngo-01/src/<a class="el" href="_tile_map_8cpp_source.html">TileMap.cpp</a></li>
+<li>/home/jakutzin/cpp-course project/dungeon-crawler-quang-ngo-01/src/<a class="el" href="_tile_map_8cpp.html">TileMap.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

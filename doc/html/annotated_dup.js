@@ -1,12 +1,12 @@
 var annotated_dup =
 [
-    [ "Assets", "class_assets.html", null ],
+    [ "Assets", "class_assets.html", "class_assets" ],
     [ "Entity", "class_entity.html", "class_entity" ],
-    [ "EntityManager", "class_entity_manager.html", null ],
+    [ "EntityManager", "class_entity_manager.html", "class_entity_manager" ],
     [ "Game", "class_game.html", "class_game" ],
     [ "Inventory", "class_inventory.html", "class_inventory" ],
     [ "Item", "class_item.html", "class_item" ],
-    [ "LevelGenerator", "class_level_generator.html", null ],
+    [ "LevelGenerator", "class_level_generator.html", "class_level_generator" ],
     [ "Monster", "class_monster.html", "class_monster" ],
     [ "Player", "class_player.html", "class_player" ],
     [ "Potion", "class_potion.html", "class_potion" ],

@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['source_20content_95',['Source content',['../md__home_jakutzin_cpp-course_project_dungeon-crawler-quang-ngo-01_src_readme.html',1,'']]],
-  ['slot_5f_96',['slot_',['../class_item.html#a88da310db757aa646a47c226ee3378d5',1,'Item']]],
-  ['sounds_97',['sounds',['../class_assets.html#a732ba5ec1226604323e3e979f39ce338',1,'Assets']]],
-  ['speed_5f_98',['speed_',['../class_entity.html#a3d4aa8ba979dc08e983e2fcbad8f17fd',1,'Entity']]],
-  ['sprite_5f_99',['sprite_',['../class_entity.html#a4b53d16db25bf36bbacdbc07fa2b069e',1,'Entity::sprite_()'],['../class_item.html#a7233fc5cc53739fc32236e06b7e7477f',1,'Item::sprite_()']]]
+  ['rangedattack_120',['RangedAttack',['../class_player.html#a7962164e5b009fe9a309551b13f7f735',1,'Player']]],
+  ['readme_2emd_121',['readme.md',['../readme_8md.html',1,'']]],
+  ['removedead_122',['RemoveDead',['../class_entity_manager.html#a50ac5be82109df94167b07c3055a43e9',1,'EntityManager']]],
+  ['removeentity_123',['RemoveEntity',['../class_entity_manager.html#a23e3a2df8d6db07f638a30546f442ab9',1,'EntityManager::RemoveEntity(std::shared_ptr&lt; Entity &gt; entity)'],['../class_entity_manager.html#ad9c94858e889fa5df01ad389db7a66d3',1,'EntityManager::RemoveEntity(std::vector&lt; std::shared_ptr&lt; Entity &gt;&gt;::iterator it)']]],
+  ['render_124',['Render',['../class_game.html#a0897730fc9fed789f6c0f11d21a0c14a',1,'Game']]],
+  ['restart_5ftext_5f_125',['restart_text_',['../class_u_i.html#a9814f63ca9835bbce7567a6634d7ef46',1,'UI']]],
+  ['run_126',['Run',['../class_game.html#a96341ca5b54d90adc3ecb3bf0bcd2312',1,'Game']]]
 ];

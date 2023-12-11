@@ -18,9 +18,10 @@ class Monster : public Entity {
         // destructor
     }
 
+    /*! function to attack the entity given as argument */
     bool Attack(std::shared_ptr<Entity> target);
 
-    // Function that moves the monster towards the player
+    /*! Function that moves the monster towards the player */
     void Update(std::shared_ptr<Entity> player);
 
    private:

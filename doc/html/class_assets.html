@@ -84,13 +84,14 @@ $(document).ready(function(){initNavTree('class_assets.html',''); initResizable(
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="class_assets-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Assets Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Class to load all game assets.  
+<p>Class for Asset manipulation.  
  <a href="class_assets.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_assets_8hpp_source.html">Assets.hpp</a>&gt;</code></p>
@@ -114,11 +115,15 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a99204a667c4cf5c97a9fe5c1c90639fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a732ba5ec1226604323e3e979f39ce338"><td class="memItemLeft" align="right" valign="top">static std::map&lt; std::string, std::unique_ptr&lt; sf::Sound &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets.html#a732ba5ec1226604323e3e979f39ce338">sounds</a></td></tr>
 <tr class="separator:a732ba5ec1226604323e3e979f39ce338"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a908cd92bb541a82a236b6749b5476585"><td class="memItemLeft" align="right" valign="top">static std::map&lt; std::string, std::unique_ptr&lt; sf::SoundBuffer &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets.html#a908cd92bb541a82a236b6749b5476585">sound_buffers_</a></td></tr>
+<tr class="separator:a908cd92bb541a82a236b6749b5476585"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class to load all game assets. </p>
-
-<p class="definition">Definition at line <a class="el" href="_assets_8hpp_source.html#l00009">9</a> of file <a class="el" href="_assets_8hpp_source.html">Assets.hpp</a>.</p>
+<div class="textblock"><p>Class for Asset manipulation. </p>
+<p>A class that is responsible for loading, storing and providing easy access to assets. All the assets are stored in their respective maps, using a std::string as a key and an unique pointer to the asset. The usage of unique pointers ensures proper assets handling and correct integration with SFML way of managing assets. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a4b1cc73dc0d25e495ad1deca47d0b25d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4b1cc73dc0d25e495ad1deca47d0b25d">&#9670;&nbsp;</a></span>LoadAssets()</h2>
@@ -165,8 +170,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_assets_8cpp_source.html#l00014">14</a> of file <a class="el" href="_assets_8cpp_source.html">Assets.cpp</a>.</p>
+<p>a method that loads all the assets with the specified names, it takes the parameter path of the executable and based on that it finds the paths for all the assets with the specified names </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -223,8 +227,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_assets_8cpp_source.html#l00059">59</a> of file <a class="el" href="_assets_8cpp_source.html">Assets.cpp</a>.</p>
+<p>a method that loads a font with the specified name from the specified file_path if the asset fails to be loaded, the std::runtime_error is thrown </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -271,8 +274,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_assets_8cpp_source.html#l00067">67</a> of file <a class="el" href="_assets_8cpp_source.html">Assets.cpp</a>.</p>
+<p>a method that loads a sound with the specified name from the specified file_path if the asset fails to be loaded, the std::runtime_error is thrown </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -319,8 +321,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_assets_8cpp_source.html#l00051">51</a> of file <a class="el" href="_assets_8cpp_source.html">Assets.cpp</a>.</p>
+<p>a method that loads a texture with the specified name from the specified file_path if the asset fails to be loaded, the std::runtime_error is thrown </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -354,8 +355,30 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>a static map that stores pairs of strings and Fonts, allows for easy access to the Fonts from other parts of the program </p>
 
-<p class="definition">Definition at line <a class="el" href="_assets_8hpp_source.html#l00019">19</a> of file <a class="el" href="_assets_8hpp_source.html">Assets.hpp</a>.</p>
+</div>
+</div>
+<a id="a908cd92bb541a82a236b6749b5476585"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a908cd92bb541a82a236b6749b5476585">&#9670;&nbsp;</a></span>sound_buffers_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; std::string, std::unique_ptr&lt; sf::SoundBuffer &gt; &gt; Assets::sound_buffers_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>a private static map that stores pairs of strings and SoundBuffers, that is needed for the proper functioning of sounds map, as each Sound needs a SoundBuffer stored associated with it </p>
 
 </div>
 </div>
@@ -378,8 +401,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_assets_8hpp_source.html#l00020">20</a> of file <a class="el" href="_assets_8hpp_source.html">Assets.hpp</a>.</p>
+<p>a static map that stores pairs of strings and Sounds, allows for easy access to the Sounds from other parts of the program </p>
 
 </div>
 </div>
@@ -402,14 +424,13 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_assets_8hpp_source.html#l00018">18</a> of file <a class="el" href="_assets_8hpp_source.html">Assets.hpp</a>.</p>
+<p>a static map that stores pairs of strings and Textures, allows for easy access to the Textures from other parts of the program </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/jakutzin/cpp-course project/dungeon-crawler-quang-ngo-01/src/<a class="el" href="_assets_8hpp_source.html">Assets.hpp</a></li>
-<li>/home/jakutzin/cpp-course project/dungeon-crawler-quang-ngo-01/src/<a class="el" href="_assets_8cpp_source.html">Assets.cpp</a></li>
+<li>/home/jakutzin/cpp-course project/dungeon-crawler-quang-ngo-01/src/<a class="el" href="_assets_8cpp.html">Assets.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

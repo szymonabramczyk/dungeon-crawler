@@ -38,15 +38,18 @@ void \mbox{\hyperlink{class_weapon_a6fe8cc844dce45e08026aa2446ad4a64}{Add\+Damag
 \item 
 int \mbox{\hyperlink{class_weapon_acedd78f897935180b9333c98c82a7e7b}{Get\+Damage}} ()
 \end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_weapon_a4347dfdd1b345c3b36b3dbe6c453aada}{damage\+\_\+}}
+\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
 \mbox{\hyperlink{class_weapon}{Weapon}} class, inherits from \mbox{\hyperlink{class_item}{Item}}. 
 
-Definition at line 6 of file Weapon.\+hpp.
-
-
+A class inheriting from the \mbox{\hyperlink{class_item}{Item}} class, that stores the information about the damage the weapon of this \mbox{\hyperlink{class_weapon}{Weapon}} object. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_weapon_a531c6c3704db14391549a7f4e2900248}\label{class_weapon_a531c6c3704db14391549a7f4e2900248}} 
@@ -55,11 +58,7 @@ Definition at line 6 of file Weapon.\+hpp.
 \doxysubsubsection{\texorpdfstring{Weapon()}{Weapon()}}
 {\footnotesize\ttfamily Weapon\+::\+Weapon (\begin{DoxyParamCaption}\item[{int}]{slot,  }\item[{const std\+::string \&}]{texture\+\_\+name,  }\item[{int}]{damage }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-
-
-Definition at line 8 of file Weapon.\+hpp.
-
-
+A constructor that based on slot and texture\+\_\+name creates the \mbox{\hyperlink{class_item}{Item}} object and additionally takes in damage as parameter which corresponds to the damage to be dealt by this \mbox{\hyperlink{class_weapon}{Weapon}} object. 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_weapon_a6fe8cc844dce45e08026aa2446ad4a64}\label{class_weapon_a6fe8cc844dce45e08026aa2446ad4a64}} 
@@ -68,12 +67,7 @@ Definition at line 8 of file Weapon.\+hpp.
 \doxysubsubsection{\texorpdfstring{AddDamage()}{AddDamage()}}
 {\footnotesize\ttfamily void Weapon\+::\+Add\+Damage (\begin{DoxyParamCaption}\item[{int}]{amount }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-
-
-Definition at line 16 of file Weapon.\+hpp.
-
-Here is the caller graph for this function\+:
-\nopagebreak
+add damage to the weapon stored by this \mbox{\hyperlink{class_weapon}{Weapon}} object. Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -86,12 +80,7 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{GetDamage()}{GetDamage()}}
 {\footnotesize\ttfamily int Weapon\+::\+Get\+Damage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-
-
-Definition at line 19 of file Weapon.\+hpp.
-
-Here is the caller graph for this function\+:
-\nopagebreak
+get damage of the weapon stored by this \mbox{\hyperlink{class_weapon}{Weapon}} object. Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -104,16 +93,11 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{Update()}{Update()}}
 {\footnotesize\ttfamily virtual void Weapon\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
-
+o a method inherited from the \mbox{\hyperlink{class_item}{Item}} abstract class, that implements the functionality to update the text\+\_\+ of this \mbox{\hyperlink{class_item}{Item}} object. 
 
 Implements \mbox{\hyperlink{class_item_aee99a2b103aa9eb7f18b6135dd38fa5a}{Item}}.
 
-
-
-Definition at line 13 of file Weapon.\+hpp.
-
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -121,6 +105,15 @@ Here is the caller graph for this function\+:
 \end{center}
 \end{figure}
 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_weapon_a4347dfdd1b345c3b36b3dbe6c453aada}\label{class_weapon_a4347dfdd1b345c3b36b3dbe6c453aada}} 
+\index{Weapon@{Weapon}!damage\_@{damage\_}}
+\index{damage\_@{damage\_}!Weapon@{Weapon}}
+\doxysubsubsection{\texorpdfstring{damage\_}{damage\_}}
+{\footnotesize\ttfamily int Weapon\+::damage\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+amount of damage that this \mbox{\hyperlink{class_weapon}{Weapon}} object can deal, which is the number of health points to be decreased from enemies. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

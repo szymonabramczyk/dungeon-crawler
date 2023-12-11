@@ -83,6 +83,7 @@ $(document).ready(function(){initNavTree('class_potion.html',''); initResizable(
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_potion-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Potion Class Reference</div>  </div>
@@ -128,6 +129,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adc13e83e24759ffcbad149e57253f9d1 inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#adc13e83e24759ffcbad149e57253f9d1">draw</a> (sf::RenderTarget &amp;target, sf::RenderStates states) const</td></tr>
 <tr class="separator:adc13e83e24759ffcbad149e57253f9d1 inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a51e23de4bf867eb133d82a6c1f9426c4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_potion.html#a51e23de4bf867eb133d82a6c1f9426c4">amount_</a></td></tr>
+<tr class="separator:a51e23de4bf867eb133d82a6c1f9426c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a062cba14b600797d23388998e22a9416"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_potion.html#a062cba14b600797d23388998e22a9416">healingAmount_</a></td></tr>
+<tr class="separator:a062cba14b600797d23388998e22a9416"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_item"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_item')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_item.html">Item</a></td></tr>
@@ -142,8 +150,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_potion.html" title="Potion class, inherits from Item.">Potion</a> class, inherits from <a class="el" href="class_item.html" title="Abstract class for items.">Item</a>. </p>
-
-<p class="definition">Definition at line <a class="el" href="_potion_8hpp_source.html#l00006">6</a> of file <a class="el" href="_potion_8hpp_source.html">Potion.hpp</a>.</p>
+<p>A class inheriting from the <a class="el" href="class_item.html" title="Abstract class for items.">Item</a> class, that stores the information about the number of potions and healing amount of this <a class="el" href="class_potion.html" title="Potion class, inherits from Item.">Potion</a> object. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a38ff39cbbf00bf59d8ef5015c18c7c56"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a38ff39cbbf00bf59d8ef5015c18c7c56">&#9670;&nbsp;</a></span>Potion()</h2>
@@ -190,8 +197,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_potion_8hpp_source.html#l00008">8</a> of file <a class="el" href="_potion_8hpp_source.html">Potion.hpp</a>.</p>
+<p>A constructor that based on slot and texture_name creates the <a class="el" href="class_item.html" title="Abstract class for items.">Item</a> object and additionally takes in amount as parameter which corresponds to the amount of potions stored by this <a class="el" href="class_potion.html" title="Potion class, inherits from Item.">Potion</a> object. </p>
 
 </div>
 </div>
@@ -219,8 +225,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_potion_8hpp_source.html#l00019">19</a> of file <a class="el" href="_potion_8hpp_source.html">Potion.hpp</a>.</p>
+<p>add amount of the potions stored by this <a class="el" href="class_potion.html" title="Potion class, inherits from Item.">Potion</a> object. </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -258,8 +263,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_potion_8hpp_source.html#l00016">16</a> of file <a class="el" href="_potion_8hpp_source.html">Potion.hpp</a>.</p>
+<p>get amount of the potions stored by this <a class="el" href="class_potion.html" title="Potion class, inherits from Item.">Potion</a> object. </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -296,10 +300,9 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>a method inherited from the <a class="el" href="class_item.html" title="Abstract class for items.">Item</a> abstract class, that implements the functionality to update the text_ of this <a class="el" href="class_item.html" title="Abstract class for items.">Item</a> object. </p>
 
 <p>Implements <a class="el" href="class_item.html#aee99a2b103aa9eb7f18b6135dd38fa5a">Item</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="_potion_8hpp_source.html#l00013">13</a> of file <a class="el" href="_potion_8hpp_source.html">Potion.hpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -313,6 +316,53 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="class_player.html#a67c4de392bc5bddd4ec35f3ee56af6b3" title=" " alt="" coords="5,56,160,83"/>
 </map>
 </div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a51e23de4bf867eb133d82a6c1f9426c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51e23de4bf867eb133d82a6c1f9426c4">&#9670;&nbsp;</a></span>amount_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Potion::amount_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>amount of potions </p>
+
+</div>
+</div>
+<a id="a062cba14b600797d23388998e22a9416"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a062cba14b600797d23388998e22a9416">&#9670;&nbsp;</a></span>healingAmount_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Potion::healingAmount_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>amount of healing that this <a class="el" href="class_potion.html" title="Potion class, inherits from Item.">Potion</a> object gives to the <a class="el" href="class_player.html" title="Player class, inherits from Entity.">Player</a>. </p>
 
 </div>
 </div>
