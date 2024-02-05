@@ -44,3 +44,12 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Mac system files
+.DS_Store
+
+# Visual Studio Code settings
+.vscode/
+
+# Build directories
+build/
