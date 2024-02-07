@@ -1,57 +1,41 @@
-# Project Name (replace here!)
+# Dungeon Crawler
 
-This is the template for the projects. Please copy the project description here. 
-You can use Markdown language to render it as formatted **HTML** file.
+A turn-based dungeon crawler game, built using SFML library. It features a player navigating through various rooms and corridors, engaging in combat with different types of enemies. The game supports basic and special attacks, collectibles, a simple inventory system, and a progression mechanism based on defeating monsters and leveling up.
 
 # Group
-- Member 1
-- Member 2
-- Member 3
-- Member 4
+
+- Szymon Abramczyk
+- Viktor Dementev
+- Anastasiia Semenova
+- Risto-pekka Siponen
 
 # Repository organization
-Your project implementation should follow the skelaton organization in this repository.
-See readme.md files in each folder.
 
-# Project Implementation 
-You must use git repository for the work on the project, making frequent enough commits so 
-that the project group (and course staff) can follow the progress.
+- **content/**: assets for the game (visuals, audio).
+- **doc/**: written documenation and the files required for Doxygen documentation.
+- **plan/**: project plan files.
+- **src/**: source code.
+- **tests/**: unit tests.
 
-The completed project work will be demonstrated to the group's advisor at a demo session. 
-The final demonstrations are arranged on week 50. After the final demonstrations project group 
-evaluates another project, and self-evaluates own project. In addition, project members will 
-give a confidential individual assessment of each group member
+# Project Implementation
 
-The course staff should be able to easily compile the project work using makefile and related 
-instructions provided in the git repository. The final output should be in the **master branch** of the git repository.
+Technology Stack:
+
+- C++
+- SFML: multimedia library
+- Photoshop and AI: used to create assets
 
 # Working practices
-Each project group is assigned an advisor from the project teaching personnel. 
-There will be a dedicated Teams channel for each project topic to facilitate discussion between 
-the groups in the same topic and the advisor. 
 
-**The group should meet weekly.** The weekly meeting does not need to be long if there are no special issues 
-to discuss, and can be taken remotely as voice/video chat on the group Teams channel (or Zoom or other similar tool), 
-preferably at a regular weekly time. In the meeting the group updates:
+Weekly meetings, during which following matters were discussed:
 
 - What each member has done during the week
 - Are there challenges or problems? Discuss the possible solutions
 - Plan for the next week for everyone
 - Deviations and changes to the project plan, if any
-- After the meetings, the meeting notes will be committed to the project repository in the `Meeting-notes.md` file. 
-    * The commits within the week should have some commit messages referring to the meeting notes so 
-      that the project advisor can follow the progress.  
-    * **The meeting notes should be in English.**
 
-> Everyone may not be able to participate to all meetings, but at least a couple of members should be present in each meeting. 
-> Regular absence from meetings will affect in individual evaluation.
+During the meetings notes were taken and later pushed to the repository.
 
 # Source code documentation
-It is strongly recommended to use Doxygen to document your source code.
-Please go over the *Project Guidelines* for details.
 
-# TODOs (Date)
-You can create a list of TODOs in this file.
-The recommended format is:
-- Complete class implementation **foo**. Assigned to \<Member 1\>
-- Test ...
+The source code is documented using Doxygen.
